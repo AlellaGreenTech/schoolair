@@ -126,17 +126,19 @@ Follow these steps to get your M5Stack Weather Station up and running.
     ```sql
     \c weather_data; -- Connect to the newly created database
 
-    CREATE TABLE sensor_readings (
+    CREATE TABLE aqs (
         id SERIAL PRIMARY KEY,
-        device_id VARCHAR(50) NOT NULL,
-        temperature NUMERIC(5, 2), -- Example: allows values like 25.34
+        inserted_at TIMESTAMPZ DEFAULT CURRENT_TIMESTAMP,
+        created_at TIMESTAMPZ,
+        dev_id VARCHAR(50) NOT NULL,
+        temperature NUMERIC(5, 2),
         humidity NUMERIC(5, 2),
+        pressure NUMERIC(7, 2),
+        pm1 INTEGER,
         pm2_5 INTEGER,
-        timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        pm10 INTEGER
     );
     ```
-
-    *Adjust column types and names based on the data you plan to send.*
 
 ### 3\. Backend API Setup
 

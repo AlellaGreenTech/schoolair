@@ -1,22 +1,27 @@
+# MicroPython imports for ESP32-S3 (M5Stack Core S3 / UIFlow)
 from machine import I2C, Pin
 import time
-import M5
-import m5ui
-import requests2
-import time
+import network
 import ntptime
+try:
+    import requests  # UIFlow HTTP module
+except ImportError:
+    print("ERROR: 'requests' module not found. Please use UIFlow firmware on your M5Stack Core S3.")
+    raise
 
 
-page0 = None
-http_req = None
+# WiFi credentials (to be filled by user)
+WIFI_SSID = "YOUR_WIFI_SSID"
+WIFI_PASSWORD = "YOUR_WIFI_PASSWORD"
+
 i2c0 = None
-timezone_offset = None
+timezone_offset = 2 * 3600  # UTC+2, change if needed
 
 
 # I2C address of the sensors
-ENV_ADDR_PM25 = 0x19
-ENV_ADDR_SHT40 = 0x44
-ENV_ADDR_BMP280 = 0x76
+ENV_ADDR_PM25 = 0x19  # DFROBOT PM2.5
+ENV_ADDR_SHT40 = 0x44  # SHT40 (ENVIV)
+ENV_ADDR_BMP280 = 0x76  # BMP280 (ENVIV)
 
 
 bmp_calib = {}
@@ -31,61 +36,27 @@ PM10_STANDARD = 0x09
 
 def bmp_read_calibration():
     """Read and store BMP280 calibration registers."""
-    # Read calibration block (0x88..0xA1)
     calib = i2c0.readfrom_mem(ENV_ADDR_BMP280, 0x88, 24)
-    # Unpack little-endian unsigned and signed values
-    bmp_calib["dig_T1"] = calib[0] | (calib[1] << 8)
-    bmp_calib["dig_T2"] = (
-        calib[2] | (calib[3] << 8)
-        if calib[3] < 128
-        else calib[2] | (calib[3] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_T3"] = (
-        calib[4] | (calib[5] << 8)
-        if calib[5] < 128
-        else calib[4] | (calib[5] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P1"] = calib[6] | (calib[7] << 8)
-    bmp_calib["dig_P2"] = (
-        calib[8] | (calib[9] << 8)
-        if calib[9] < 128
-        else calib[8] | (calib[9] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P3"] = (
-        calib[10] | (calib[11] << 8)
-        if calib[11] < 128
-        else calib[10] | (calib[11] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P4"] = (
-        calib[12] | (calib[13] << 8)
-        if calib[13] < 128
-        else calib[12] | (calib[13] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P5"] = (
-        calib[14] | (calib[15] << 8)
-        if calib[15] < 128
-        else calib[14] | (calib[15] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P6"] = (
-        calib[16] | (calib[17] << 8)
-        if calib[17] < 128
-        else calib[16] | (calib[17] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P7"] = (
-        calib[18] | (calib[19] << 8)
-        if calib[19] < 128
-        else calib[18] | (calib[19] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P8"] = (
-        calib[20] | (calib[21] << 8)
-        if calib[21] < 128
-        else calib[20] | (calib[21] << 8) - (1 << 16)
-    )
-    bmp_calib["dig_P9"] = (
-        calib[22] | (calib[23] << 8)
-        if calib[23] < 128
-        else calib[22] | (calib[23] << 8) - (1 << 16)
-    )
+
+    def u16(i):
+        return calib[i] | (calib[i + 1] << 8)
+
+    def s16(i):
+        v = calib[i] | (calib[i + 1] << 8)
+        return v if v < 32768 else v - 65536
+
+    bmp_calib["dig_T1"] = u16(0)
+    bmp_calib["dig_T2"] = s16(2)
+    bmp_calib["dig_T3"] = s16(4)
+    bmp_calib["dig_P1"] = u16(6)
+    bmp_calib["dig_P2"] = s16(8)
+    bmp_calib["dig_P3"] = s16(10)
+    bmp_calib["dig_P4"] = s16(12)
+    bmp_calib["dig_P5"] = s16(14)
+    bmp_calib["dig_P6"] = s16(16)
+    bmp_calib["dig_P7"] = s16(18)
+    bmp_calib["dig_P8"] = s16(20)
+    bmp_calib["dig_P9"] = s16(22)
 
 
 def compensate_temperature(raw_temp):
@@ -164,21 +135,32 @@ def read_bmp280_pressure():
     return round(press_pa, 2)
 
 
+def connect_wifi(ssid, password):
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    if not wlan.isconnected():
+        print("Connecting to WiFi...")
+        wlan.connect(ssid, password)
+        t0 = time.time()
+        while not wlan.isconnected():
+            if time.time() - t0 > 20:
+                raise RuntimeError("WiFi connection timeout")
+            time.sleep(1)
+    print("WiFi connected:", wlan.ifconfig())
+    return wlan
+
+
 def setup():
-    global page0, i2c0, timezone_offset
-    M5.begin()
-    m5ui.init()
-    page0 = m5ui.M5Page(bg_c=0xFFFFFF)
-    page0.screen_load()
+    global i2c0
+    connect_wifi(WIFI_SSID, WIFI_PASSWORD)
     i2c0 = I2C(0, scl=Pin(1), sda=Pin(2), freq=100000)
     print("Sensor ready at address", hex(ENV_ADDR_PM25))
     # configure BMP280: normal mode, temp+press oversampling x1, standby 250ms
     i2c0.writeto_mem(ENV_ADDR_BMP280, 0xF4, b"\x27")
     i2c0.writeto_mem(ENV_ADDR_BMP280, 0xF5, b"\xa0")
-    # read calibration data once
     bmp_read_calibration()
     print("BMP280 calibration loaded.")
-    ntptime.host = "time.google.com"  # ou 'pool.ntp.org'
+    ntptime.host = "time.google.com"
     try:
         print("Syncing time with NTP...")
         ntptime.settime()
@@ -186,11 +168,8 @@ def setup():
     except Exception as e:
         print("Error during NTP synchronization:", e)
 
-    timezone_offset = 2 * 3600
-
 
 def loop():
-    global http_req
     pm1 = read_pm(PM1_0_STANDARD)
     pm2_5 = read_pm(PM2_5_STANDARD)
     pm10 = read_pm(PM10_STANDARD)
@@ -202,30 +181,39 @@ def loop():
     print(f"Temperature: {temp} °C")
     print(f"Humidity: {hum} %")
     print(f"Pressure: {pressure} Pa")
-
     print(f"PM1.0: {pm1} µg/m³")
     print(f"PM2.5: {pm2_5} µg/m³")
     print(f"PM10 : {pm10} µg/m³")
     print("-" * 30)
-    http_req = requests2.post(
-        "https://cp.iotvision.co/aqc/apiv0",
-        json={
-            "device_id": "agt_aqs_1",
-            "timestamp": current_time,
-            "temperature": temp,
-            "humidity": hum,
-            "pressure": pressure,
-            "pm1": pm1,
-            "pm2_5": pm2_5,
-            "pm10": pm10,
-        },
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": "Basic Y2FucGljYXJkOkNhbWlCYWl4RGVUaWFuYTE4MTg=",
-        },
-    )
 
-    time.sleep(2)
+    # Format timestamp as ISO string
+    ts = "{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}".format(*current_time[:6])
+    payload = {
+        "device_id": "agt_aqs_1",
+        "timestamp": ts,
+        "temperature": temp,
+        "humidity": hum,
+        "pressure": pressure,
+        "pm1": pm1,
+        "pm2_5": pm2_5,
+        "pm10": pm10,
+    }
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Basic Y2FucGljYXJkOkNhbWlCYWl4RGVUaWFuYTE4MTg=",
+    }
+    try:
+        resp = requests.post(
+            "https://cp.iotvision.co/aqc/apiv0",
+            json=payload,
+            headers=headers,
+        )
+        print("HTTP POST status:", resp.status_code)
+        resp.close()
+    except Exception as e:
+        print("HTTP POST error:", e)
+
+    time.sleep(30)
 
 
 if __name__ == "__main__":
@@ -233,11 +221,7 @@ if __name__ == "__main__":
         setup()
         while True:
             loop()
-    except (Exception, KeyboardInterrupt) as e:
-        try:
-            m5ui.deinit()
-            from utility import print_error_msg
-
-            print_error_msg(e)
-        except ImportError:
-            print("Please update to the latest firmware")
+    except KeyboardInterrupt:
+        print("Stopped by user.")
+    except Exception as e:
+        print("Fatal error:", e)

@@ -170,13 +170,55 @@ def setup():
 
 
 def loop():
-    pm1 = read_pm(PM1_0_STANDARD)
-    pm2_5 = read_pm(PM2_5_STANDARD)
-    pm10 = read_pm(PM10_STANDARD)
+    # Lecture PM2.5 (DFROBOT)
+    try:
+        pm1 = read_pm(PM1_0_STANDARD)
+        pm2_5 = read_pm(PM2_5_STANDARD)
+        pm10 = read_pm(PM10_STANDARD)
+    except Exception as e:
+        print("PM2.5 read error:", e)
+        pm1 = pm2_5 = pm10 = None
 
-    current_time = time.localtime(time.time() + timezone_offset)
-    temp, hum = read_env_sht40()
-    pressure = read_bmp280_pressure()
+    # ENVIV reading (SHT40/BMP280)
+    try:
+        temp, hum = read_env_sht40()
+    except Exception as e:
+        print("SHT40 read error:", e)
+        temp, hum = None, None
+    try:
+        pressure = read_bmp280_pressure()
+    except Exception as e:
+        print("BMP280 read error:", e)
+        pressure = None
+
+    try:
+        from M5 import screen
+        if temp is not None:
+            screen.draw_string(10, 40, f"Temp: {temp} °C", 0xffcc00, 2)
+        else:
+            screen.draw_string(10, 40, "Temp: --", 0xffcc00, 2)
+        if hum is not None:
+            screen.draw_string(10, 70, f"Hum: {hum} %", 0x00ccff, 2)
+        else:
+            screen.draw_string(10, 70, "Hum: --", 0x00ccff, 2)
+        if pressure is not None:
+            screen.draw_string(10, 100, f"Press: {pressure} Pa", 0xcccccc, 2)
+        else:
+            screen.draw_string(10, 100, "Press: --", 0xcccccc, 2)
+        if pm1 is not None and pm1 >= 0:
+            screen.draw_string(10, 140, f"PM1.0: {pm1}", 0xff9999, 2)
+        else:
+            screen.draw_string(10, 140, "PM1.0: --", 0xff9999, 2)
+        if pm2_5 is not None and pm2_5 >= 0:
+            screen.draw_string(10, 170, f"PM2.5: {pm2_5}", 0xff6666, 2)
+        else:
+            screen.draw_string(10, 170, "PM2.5: --", 0xff6666, 2)
+        if pm10 is not None and pm10 >= 0:
+            screen.draw_string(10, 200, f"PM10: {pm10}", 0xff3333, 2)
+        else:
+            screen.draw_string(10, 200, "PM10: --", 0xff3333, 2)
+    except Exception:
+        pass
 
     print(f"Temperature: {temp} °C")
     print(f"Humidity: {hum} %")
@@ -187,17 +229,22 @@ def loop():
     print("-" * 30)
 
     # Format timestamp as ISO string
+    current_time = time.localtime(time.time() + timezone_offset)
     ts = "{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}".format(*current_time[:6])
-    payload = {
-        "device_id": "agt_aqs_1",
-        "timestamp": ts,
-        "temperature": temp,
-        "humidity": hum,
-        "pressure": pressure,
-        "pm1": pm1,
-        "pm2_5": pm2_5,
-        "pm10": pm10,
-    }
+    payload = {"device_id": "agt_aqs_1", "timestamp": ts}
+    if temp is not None:
+        payload["temperature"] = temp
+    if hum is not None:
+        payload["humidity"] = hum
+    if pressure is not None:
+        payload["pressure"] = pressure
+    if pm1 is not None and pm1 >= 0:
+        payload["pm1"] = pm1
+    if pm2_5 is not None and pm2_5 >= 0:
+        payload["pm2_5"] = pm2_5
+    if pm10 is not None and pm10 >= 0:
+        payload["pm10"] = pm10
+
     headers = {
         "Content-Type": "application/json",
         "Authorization": "Basic Y2FucGljYXJkOkNhbWlCYWl4RGVUaWFuYTE4MTg=",

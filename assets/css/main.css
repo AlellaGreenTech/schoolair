@@ -4109,3 +4109,20 @@ input, select, textarea {
 					}
 
 	}
+
+/* Added by Martin Picard July 11 2025 to move featured circle on home page image */
+#banner .image {
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    top: auto !important;
+    right: auto !important;
+    width: 150px !important; /* Adjust size as needed */
+    height: 150px !important;
+}
+
+#banner .image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}

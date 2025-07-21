@@ -3,11 +3,7 @@ from machine import I2C, Pin
 import time
 import network
 import ntptime
-try:
-    import requests  # UIFlow HTTP module
-except ImportError:
-    print("ERROR: 'requests' module not found. Please use UIFlow firmware on your M5Stack Core S3.")
-    raise
+import requests  # UIFlow HTTP module
 
 
 # WiFi credentials (to be filled by user)
@@ -63,9 +59,7 @@ def compensate_temperature(raw_temp):
     """Returns tuple (temp_C, t_fine)"""
     global t_fine
     var1 = ((raw_temp / 16384.0) - (bmp_calib["dig_T1"] / 1024.0)) * bmp_calib["dig_T2"]
-    var2 = (((raw_temp / 131072.0) - (bmp_calib["dig_T1"] / 8192.0)) ** 2) * bmp_calib[
-        "dig_T3"
-    ]
+    var2 = (((raw_temp / 131072.0) - (bmp_calib["dig_T1"] / 8192.0)) ** 2) * bmp_calib["dig_T3"]
     t_fine = int(var1 + var2)
     temp = (var1 + var2) / 5120.0
     return temp
@@ -78,9 +72,7 @@ def compensate_pressure(raw_press):
     var2 = var1 * var1 * bmp_calib["dig_P6"] / 32768.0
     var2 = var2 + var1 * bmp_calib["dig_P5"] * 2.0
     var2 = var2 / 4.0 + bmp_calib["dig_P4"] * 65536.0
-    var1 = (
-        bmp_calib["dig_P3"] * var1 * var1 / 524288.0 + bmp_calib["dig_P2"] * var1
-    ) / 524288.0
+    var1 = (bmp_calib["dig_P3"] * var1 * var1 / 524288.0 + bmp_calib["dig_P2"] * var1) / 524288.0
     var1 = (1.0 + var1 / 32768.0) * bmp_calib["dig_P1"]
     if var1 == 0:
         return 0  # avoid division by zero
@@ -170,7 +162,7 @@ def setup():
 
 
 def loop():
-    # Lecture PM2.5 (DFROBOT)
+    # PM2.5 reading (DFROBOT)
     try:
         pm1 = read_pm(PM1_0_STANDARD)
         pm2_5 = read_pm(PM2_5_STANDARD)
@@ -183,12 +175,12 @@ def loop():
     try:
         temp, hum = read_env_sht40()
     except Exception as e:
-        print("SHT40 read error:", e)
+        print("ENV IV | SHT40 read error:", e)
         temp, hum = None, None
     try:
         pressure = read_bmp280_pressure()
     except Exception as e:
-        print("BMP280 read error:", e)
+        print("ENV IV | BMP280 read error:", e)
         pressure = None
 
     try:

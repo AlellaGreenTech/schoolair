@@ -1,4 +1,7 @@
 # MicroPython imports for ESP32-S3 (M5Stack Core S3 / UIFlow)
+import os, sys, io
+import M5
+from M5 import *
 from machine import I2C, Pin
 import time
 import network
@@ -28,6 +31,15 @@ t_fine = 0
 PM1_0_STANDARD = 0x05
 PM2_5_STANDARD = 0x07
 PM10_STANDARD = 0x09
+
+
+# Labels screen def
+Temperature = None
+Humidity = None
+Pressure = None
+PM1_0 = None
+PM2_5 = None
+PM10 = None
 
 
 def bmp_read_calibration():
@@ -143,7 +155,17 @@ def connect_wifi(ssid, password):
 
 
 def setup():
-    global i2c0
+    global i2c0, Temperature, Humidity, Pressure, PM1_0, PM2_5, PM10
+    M5.begin()
+    Widgets.setRotation(1)
+    Widgets.fillScreen(0x222222)
+    Temperature = Widgets.Label("Temperature", 25, 30, 1.0, 0xffffff, 0x222222, Widgets.FONTS.DejaVu18)
+    Humidity = Widgets.Label("Humidity", 25, 60, 1.0, 0xffffff, 0x222222, Widgets.FONTS.DejaVu18)
+    Pressure = Widgets.Label("Pressure", 25, 90, 1.0, 0xffffff, 0x222222, Widgets.FONTS.DejaVu18)
+    PM1_0 = Widgets.Label("PM1.0", 25, 120, 1.0, 0xffffff, 0x222222, Widgets.FONTS.DejaVu18)
+    PM2_5 = Widgets.Label("PM2.5", 25, 150, 1.0, 0xffffff, 0x222222, Widgets.FONTS.DejaVu18)
+    PM10 = Widgets.Label("PM10", 25, 180, 1.0, 0xffffff, 0x222222, Widgets.FONTS.DejaVu18)
+
     connect_wifi(WIFI_SSID, WIFI_PASSWORD)
     i2c0 = I2C(0, scl=Pin(1), sda=Pin(2), freq=100000)
     print("Sensor ready at address", hex(ENV_ADDR_PM25))
@@ -162,6 +184,8 @@ def setup():
 
 
 def loop():
+    global Temperature, Humidity, Pressure, PM1_0, PM2_5, PM10
+    M5.update()
     # PM2.5 reading (DFROBOT)
     try:
         pm1 = read_pm(PM1_0_STANDARD)
@@ -184,31 +208,30 @@ def loop():
         pressure = None
 
     try:
-        from M5 import screen
         if temp is not None:
-            screen.draw_string(10, 40, f"Temp: {temp} °C", 0xffcc00, 2)
+            Temperature.setText(str(f"{temp} C"))
         else:
-            screen.draw_string(10, 40, "Temp: --", 0xffcc00, 2)
+            Temperature.setText("Temp: --")
         if hum is not None:
-            screen.draw_string(10, 70, f"Hum: {hum} %", 0x00ccff, 2)
+            Humidity.setText(str(f"{hum} %"))
         else:
-            screen.draw_string(10, 70, "Hum: --", 0x00ccff, 2)
+            Humidity.setText("Hum: --")
         if pressure is not None:
-            screen.draw_string(10, 100, f"Press: {pressure} Pa", 0xcccccc, 2)
+            Pressure.setText(str(f"{pressure} Pa"))
         else:
-            screen.draw_string(10, 100, "Press: --", 0xcccccc, 2)
+            Pressure.setText("Press: --")
         if pm1 is not None and pm1 >= 0:
-            screen.draw_string(10, 140, f"PM1.0: {pm1}", 0xff9999, 2)
+            PM1_0.setText(str(f"{pm1} ug/m3"))
         else:
-            screen.draw_string(10, 140, "PM1.0: --", 0xff9999, 2)
+            PM1_0.setText("PM1.0: --")
         if pm2_5 is not None and pm2_5 >= 0:
-            screen.draw_string(10, 170, f"PM2.5: {pm2_5}", 0xff6666, 2)
+            PM2_5.setText(str(f"{pm2_5} ug/m3"))
         else:
-            screen.draw_string(10, 170, "PM2.5: --", 0xff6666, 2)
+            PM2_5.setText("PM2.5: --")
         if pm10 is not None and pm10 >= 0:
-            screen.draw_string(10, 200, f"PM10: {pm10}", 0xff3333, 2)
+            PM10.setText(str(f"{pm10} ug/m3"))
         else:
-            screen.draw_string(10, 200, "PM10: --", 0xff3333, 2)
+            PM10.setText("PM10: --")
     except Exception:
         pass
 
@@ -263,4 +286,8 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("Stopped by user.")
     except Exception as e:
+        from utility import print_error_msg
+        print_error_msg(e)
         print("Fatal error:", e)
+    except ImportError:
+        print("please update to latest firmware")

@@ -154,16 +154,17 @@
             font-family: 'Roboto Slab', serif;
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: #1b5e20;
             line-height: 1.2;
+            white-space: nowrap;
         }
 
         .hero-text .subtitle {
-            font-size: 1.3rem;
+            font-size: 2rem;
             color: #388e3c;
             margin-bottom: 2rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .hero-text p {
@@ -214,6 +215,26 @@
             background: #2e7d32;
             color: white;
             transform: translateY(-2px);
+        }
+
+        /* Hero Quote */
+        .hero-quote {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .hero-quote p {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #1b5e20;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .hero-quote span {
+            font-size: 0.95rem;
+            color: #388e3c;
+            font-weight: 500;
         }
 
         .hero-visual {
@@ -271,6 +292,73 @@
             0% { opacity: 0; transform: translateX(-50px); }
             50% { opacity: 1; }
             100% { opacity: 0; transform: translateX(50px); }
+        }
+
+        /* How It Works Hero */
+        .how-it-works-hero {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 3px solid #e8f5e8;
+            max-width: 400px;
+            position: relative;
+            z-index: 1;
+            margin-top: 4rem;
+        }
+
+        .how-title {
+            color: #1b5e20;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid #4caf50;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-icon-small {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4caf50, #81c784);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-text strong {
+            color: #1b5e20;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-text span {
+            color: #2c3e50;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         /* Sections */
@@ -658,6 +746,127 @@
             color: #81c784;
         }
 
+        /* Partner Schools Section */
+        .partner-schools {
+            background: #f8fffe;
+            padding: 4rem 0;
+            border-top: 1px solid #e8f5e8;
+        }
+
+        .partners-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1b5e20;
+            margin-bottom: 3rem;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .logo-item {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            opacity: 1;
+        }
+
+        .logo-item img {
+            max-width: 150px;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Partner Schools Overlay */
+        .partner-schools-overlay {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
+            z-index: 3;
+            padding: 0 2rem;
+        }
+
+        .partners-title-overlay {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1b5e20;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .logos-grid-overlay {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: nowrap;
+            margin-left: 0;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .logo-item-overlay {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .logo-item-overlay:hover {
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+
+        .logo-item-overlay img {
+            max-width: 180px;
+            height: 72px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo-item-overlay:hover img {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        /* Responsive line breaks */
+        .break-mobile::before {
+            content: '';
+        }
+        
+        @media (max-width: 1440px) {
+            .break-mobile::before {
+                content: '\A';
+                white-space: pre;
+            }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -693,6 +902,7 @@
 
             .hero-text h1 {
                 font-size: 2.5rem;
+                white-space: normal;
             }
 
             .hero-buttons {
@@ -775,26 +985,81 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Bad Air Hurts Learning. School Kids Can Fix It.</h1>
-                    <p class="subtitle">Through Technology & Data</p>
-                    <p>Help students learn and build essential working green tech infrastructure for their school while protecting the community's health through real-time air quality and weather monitoring.</p>
+                    <h1>Bad air <span class="break-mobile">hurts learning</span></h1>
+                    <p class="subtitle">School kids can fix it.</p>
+                    <p>Students build air quality / weather stations that protect the school community and enhance learning.</p>
                     <div class="hero-buttons">
-                        <a href="#get-involved" class="btn-primary">Request Your Kit</a>
+                        <a href="#get-involved" class="btn-primary">SIGN YOUR SCHOOL UP</a>
                         <a href="#about" class="btn-secondary">Learn More</a>
+                    </div>
+                    <div class="hero-quote">
+                        <p>"I never learnt so much in so little time on a project" -- Mia, BFIS</p>
+                    </div>
+                    <div class="hero-quote">
+                        <p>"It's reassuring that teachers now know when to ventilate a classroom or limit outdoor exertion" -- Martin, IGTF</p>
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="station-mockup">
-                        <div class="sensor-indicator">
-                            <i class="fas fa-thermometer-half"></i>
+                    <div class="how-it-works-hero">
+                        <h3 class="how-title">HOW IT WORKS</h3>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Schools order</strong>
+                                <span>Our kits or just the plans</span>
+                            </div>
                         </div>
-                        <div class="sensor-indicator">
-                            <i class="fas fa-wind"></i>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Students build</strong>
+                                <span>A station for their school</span>
+                            </div>
                         </div>
-                        <div class="sensor-indicator">
-                            <i class="fas fa-smog"></i>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Stations deployed</strong>
+                                <span>Protect the school community</span>
+                            </div>
                         </div>
-                        <div class="data-stream"></div>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Data collected</strong>
+                                <span>For alerts and trend analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partner Schools Overlay -->
+            <div class="partner-schools-overlay">
+                <h3 class="partners-title-overlay">Trusted by Schools Worldwide</h3>
+                <div class="logos-grid-overlay">
+                    <div class="logo-item-overlay">
+                        <img src="images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
                     </div>
                 </div>
             </div>

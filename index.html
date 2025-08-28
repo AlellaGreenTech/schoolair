@@ -42,11 +42,19 @@
 
         .nav-container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 10px;
+            gap: 0.5rem;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
         .logo {
@@ -215,6 +223,24 @@
             background: #2e7d32;
             color: white;
             transform: translateY(-2px);
+        }
+
+        /* Learn More Link */
+        .learn-more-link {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .learn-more-link a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .learn-more-link a:hover {
+            color: #1b5e20;
         }
 
         /* Hero Quote */
@@ -963,20 +989,21 @@
                 </div>
                 <div class="logo-text">schoolAIR</div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#components">Components</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#get-involved">Get Involved</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#get-involved" class="cta-nav">Join Project</a>
-            <button class="mobile-menu" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#get-involved" class="cta-nav">Join Project</a>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -987,10 +1014,10 @@
                 <div class="hero-text">
                     <h1>Bad air <span class="break-mobile">hurts learning</span></h1>
                     <p class="subtitle">School kids can fix it.</p>
-                    <p>Students build air quality / weather stations that protect the school community and enhance learning.</p>
+                    <p>Students build air quality / weather stations that protect the school community, enhance learning and collect data for projects.</p>
                     <div class="hero-buttons">
-                        <a href="#get-involved" class="btn-primary">SIGN YOUR SCHOOL UP</a>
-                        <a href="#about" class="btn-secondary">Learn More</a>
+                        <a href="#get-involved" class="btn-primary">SCHOOLS! Sign up</a>
+                        <a href="#get-involved" class="btn-primary">STUDENTS! Build a home Station</a>
                     </div>
                     <div class="hero-quote">
                         <p>"I never learnt so much in so little time on a project" -- Mia, BFIS</p>

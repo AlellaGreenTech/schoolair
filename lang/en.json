@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "about": "About",
+    "products": "Products", 
+    "howItWorks": "How It Works",
+    "workshops": "Workshops",
+    "hackathon": "Hackathon",
+    "volunteerDriven": "100% Volunteer Driven",
+    "joinProject": "JOIN THE PROJECT"
+  },
+  "hero": {
+    "title": "Bad air hurts learning",
+    "subtitle": "School kids can fix it.",
+    "description": "Students build air quality / weather stations that protect the school community, enhance learning and collect data for projects.",
+    "enrollButton": "Enroll Your School",
+    "orderButton": "Order a home station kit",
+    "quote": "I never learnt so much in so little time on a project",
+    "quoteAuthor": "-- Mia, BFIS",
+    "audioMessage": "A message from the founder"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "From sensors to cloud: understanding your environmental monitoring station",
+    "step1": {
+      "title": "Data Collection",
+      "description": "M5Stack CoreS3 reads sensor data: temperature, humidity, pressure, and particulate matter concentrations."
+    },
+    "step2": {
+      "title": "Secure Transmission", 
+      "description": "Data sent via Wi-Fi to Node-RED backend API using secure HTTP POST requests with API key authentication."
+    },
+    "step3": {
+      "title": "Cloud Storage",
+      "description": "PostgreSQL database stores all environmental data for long-term historical tracking and analysis."
+    },
+    "step4": {
+      "title": "Visualization",
+      "description": "Data dashboards provide real-time monitoring, trend analysis, and educational data exploration tools."
+    }
+  },
+  "impact": {
+    "title": "Educational Impact",
+    "subtitle": "Real numbers from schools using schoolAIR worldwide",
+    "stats": {
+      "schools": "Schools Participating",
+      "students": "Students Engaged", 
+      "dataPoints": "Data Points Collected",
+      "countries": "Countries Involved"
+    }
+  },
+  "components": {
+    "title": "Components & Materials",
+    "subtitle": "Everything you need to build your air quality monitoring station"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "connect": "Connect",
+    "assemblyGuide": "Assembly Guide",
+    "documentation": "Software Documentation",
+    "globalData": "Global Data Access",
+    "curriculum": "Curriculum Materials"
+  }
+}

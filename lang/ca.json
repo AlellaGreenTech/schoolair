@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "about": "Sobre nosaltres",
+    "products": "Productes",
+    "howItWorks": "Com funciona",
+    "workshops": "Tallers",
+    "hackathon": "Hackathon",
+    "volunteerDriven": "100% Voluntari",
+    "joinProject": "UNEIX-TE AL PROJECTE"
+  },
+  "hero": {
+    "title": "L'aire dolent perjudica l'aprenentatge",
+    "subtitle": "Els nens de l'escola ho poden solucionar.",
+    "description": "Els estudiants construeixen estacions de qualitat de l'aire/meteorològiques que protegeixen la comunitat escolar, milloren l'aprenentatge i recopilen dades per a projectes.",
+    "enrollButton": "Inscriu la teva escola",
+    "orderButton": "Demana un kit d'estació domèstica",
+    "quote": "Mai vaig aprendre tant en tan poc temps en un projecte",
+    "quoteAuthor": "-- Mia, BFIS",
+    "audioMessage": "Un missatge del fundador"
+  },
+  "howItWorks": {
+    "title": "Com funciona",
+    "subtitle": "De sensors al núvol: entenent la teva estació de monitoratge ambiental",
+    "step1": {
+      "title": "Recollida de dades",
+      "description": "M5Stack CoreS3 llegeix dades de sensors: temperatura, humitat, pressió i concentracions de matèria particulada."
+    },
+    "step2": {
+      "title": "Transmissió segura",
+      "description": "Dades enviades via Wi-Fi a l'API backend Node-RED utilitzant sol·licituds HTTP POST segures amb autenticació per clau API."
+    },
+    "step3": {
+      "title": "Emmagatzematge al núvol",
+      "description": "La base de dades PostgreSQL emmagatzema totes les dades ambientals per a seguiment històric i anàlisi a llarg termini."
+    },
+    "step4": {
+      "title": "Visualització",
+      "description": "Els panells de dades proporcionen monitoratge en temps real, anàlisi de tendències i eines d'exploració de dades educatives."
+    }
+  },
+  "impact": {
+    "title": "Impacte educatiu",
+    "subtitle": "Números reals d'escoles que usen schoolAIR arreu del món",
+    "stats": {
+      "schools": "Escoles participants",
+      "students": "Estudiants involucrats",
+      "dataPoints": "Punts de dades recopilats",
+      "countries": "Països involucrats"
+    }
+  },
+  "components": {
+    "title": "Components i materials",
+    "subtitle": "Tot el que necessites per construir la teva estació de monitoratge de qualitat de l'aire"
+  },
+  "footer": {
+    "quickLinks": "Enllaços ràpids",
+    "resources": "Recursos",
+    "connect": "Connectar",
+    "assemblyGuide": "Guia de muntatge",
+    "documentation": "Documentació del programari",
+    "globalData": "Accés a dades globals",
+    "curriculum": "Materials curriculars"
+  }
+}

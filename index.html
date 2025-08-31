@@ -57,6 +57,152 @@
             width: 100%;
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-selector-dropdown {
+            position: relative;
+        }
+
+        .language-selector {
+            background: none;
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: #4A148C;
+            color: white;
+        }
+
+        .audio-toggle {
+            background: none;
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-toggle:hover {
+            background: #4A148C;
+            color: white;
+        }
+
+        .audio-toggle.playing {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: white;
+        }
+
+        /* Audio Message Button in Hero */
+        .audio-message-container {
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            text-align: center;
+            width: 100%;
+        }
+
+        .audio-message-button {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+
+        .audio-message-button:hover {
+            background: #4A148C;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.3);
+        }
+
+        .audio-message-button.playing {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: white;
+        }
+
+        .audio-message-button.playing:hover {
+            background: #1B5E20;
+            border-color: #1B5E20;
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 120px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #eee;
+        }
+
+        .language-menu a:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .language-menu a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .language-menu a:hover {
+            background: #f5f5f5;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -66,7 +212,7 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -116,19 +262,21 @@
         }
 
         .cta-nav {
-            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            background: linear-gradient(135deg, #4A148C, #E1BEE7);
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
         }
 
         .cta-nav:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.4);
         }
 
         .mobile-menu {
@@ -145,10 +293,30 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(232, 245, 232, 0.8) 0%, rgba(241, 248, 233, 0.8) 100%), url('https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?w=1920&h=1080&fit=crop') center/cover;
             position: relative;
             overflow: hidden;
             padding-top: 8rem;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.3) 0%, rgba(118, 255, 3, 0.15) 50%, rgba(255, 111, 0, 0.15) 100%);
+            z-index: -1;
         }
 
         .hero-content {
@@ -164,22 +332,27 @@
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #1b5e20;
+            color: #0a0a0a;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
             line-height: 1.2;
             white-space: nowrap;
         }
 
         .hero-text .subtitle {
             font-size: 2rem;
-            color: #388e3c;
+            color: #0a0a0a;
             margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
             font-weight: 600;
         }
 
         .hero-text p {
-            font-size: 1.1rem;
-            color: #2c3e50;
+            font-size: 1.2rem;
+            color: #0a0a0a;
             margin-bottom: 2.5rem;
+            font-weight: 500;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
             line-height: 1.7;
         }
 
@@ -190,7 +363,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            background: linear-gradient(135deg, #4A148C, #E1BEE7);
             color: white;
             padding: 1rem 2rem;
             border-radius: 30px;
@@ -205,7 +378,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(46, 125, 50, 0.4);
+            box-shadow: 0 8px 30px rgba(74, 20, 140, 0.4);
         }
 
         .btn-secondary {
@@ -241,7 +414,7 @@
         }
 
         .learn-more-link a:hover {
-            color: #1b5e20;
+            color: #1B5E20;
         }
 
         /* Hero Quote */
@@ -252,15 +425,18 @@
 
         .hero-quote p {
             font-style: italic;
-            font-size: 1.1rem;
-            color: #1b5e20;
+            font-size: 1.2rem;
+            color: #0a0a0a;
+            font-weight: 500;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
             margin-bottom: 0.5rem;
             line-height: 1.4;
         }
 
         .hero-quote span {
             font-size: 0.95rem;
-            color: #388e3c;
+            color: #FF6F00;
             font-weight: 500;
         }
 
@@ -288,7 +464,7 @@
         .sensor-indicator {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #4caf50, #81c784);
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
             border-radius: 50%;
             margin: 1rem;
             display: flex;
@@ -311,7 +487,7 @@
             right: -50px;
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, #4caf50, transparent);
+            background: linear-gradient(90deg, #76FF03, transparent);
             animation: stream 2s infinite;
         }
 
@@ -335,7 +511,7 @@
         }
 
         .how-title {
-            color: #1b5e20;
+            color: #0a0a0a;
             font-family: 'Roboto Slab', serif;
             font-size: 1.8rem;
             font-weight: 600;
@@ -361,7 +537,7 @@
         .step-icon-small {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #4caf50, #81c784);
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -377,13 +553,13 @@
         }
 
         .step-text strong {
-            color: #1b5e20;
+            color: #0a0a0a;
             font-size: 1.1rem;
             margin-bottom: 0.25rem;
         }
 
         .step-text span {
-            color: #2c3e50;
+            color: #1a1a1a;
             font-size: 0.9rem;
             line-height: 1.4;
         }
@@ -407,13 +583,13 @@
             font-weight: 600;
             text-align: center;
             margin-bottom: 1rem;
-            color: #1b5e20;
+            color: #1B5E20;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: #388e3c;
+            color: #FF6F00;
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
@@ -422,7 +598,7 @@
 
         /* About Section */
         .about {
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop') center/cover;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop') center/cover;
         }
 
         .about-grid {
@@ -451,11 +627,31 @@
             margin-bottom: 1.5rem;
         }
 
+        .card-image {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-image img:hover {
+            transform: scale(1.05);
+        }
+
         .about-card h3 {
             font-family: 'Roboto Slab', serif;
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #1b5e20;
+            color: #1B5E20;
         }
 
         /* Features Section */
@@ -485,7 +681,7 @@
         }
 
         .feature-card h3 {
-            color: #1b5e20;
+            color: #1B5E20;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -527,12 +723,12 @@
 
         .cost-highlight {
             font-weight: 600;
-            color: #1b5e20;
+            color: #1B5E20;
         }
 
         /* How It Works Section */
         .how-it-works {
-            background: linear-gradient(rgba(248, 255, 254, 0.85), rgba(248, 255, 254, 0.85)), url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=1920&h=1080&fit=crop') center/cover;
+            background: linear-gradient(rgba(27, 94, 32, 0.05), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=1920&h=1080&fit=crop') center/cover;
         }
 
         .steps-container {
@@ -563,7 +759,7 @@
             transform: translateX(-50%);
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -580,7 +776,7 @@
         }
 
         .step-card h3 {
-            color: #1b5e20;
+            color: #1B5E20;
             margin-bottom: 1rem;
         }
 
@@ -607,19 +803,19 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
-            color: #1b5e20;
+            color: #1B5E20;
             display: block;
         }
 
         .stat-label {
-            color: #388e3c;
+            color: #FF6F00;
             font-weight: 500;
             margin-top: 0.5rem;
         }
 
         /* Get Involved Section */
         .get-involved {
-            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
             color: white;
         }
 
@@ -696,7 +892,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #1b5e20;
+            color: #1B5E20;
             font-weight: 500;
         }
 
@@ -784,7 +980,7 @@
             text-align: center;
             font-size: 1.8rem;
             font-weight: 600;
-            color: #1b5e20;
+            color: #1B5E20;
             margin-bottom: 3rem;
             font-family: 'Roboto Slab', serif;
         }
@@ -835,7 +1031,7 @@
             text-align: center;
             font-size: 1.2rem;
             font-weight: 600;
-            color: #1b5e20;
+            color: #1B5E20;
             margin-bottom: 1.5rem;
             font-family: 'Inter', sans-serif;
             text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
@@ -997,15 +1193,25 @@
             </div>
             <div class="nav-main">
                 <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#components">Components</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#impact">Impact</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#components" data-i18n="nav.products">Products</a></li>
+                    <li><a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a></li>
+                    <li><a href="#workshops" data-i18n="nav.workshops">Workshops</a></li>
+                    <li><a href="#hackathon" data-i18n="nav.hackathon">Hackathon</a></li>
                 </ul>
-                <a href="#get-involved" class="cta-nav">Join Project</a>
+                <div class="nav-actions">
+                    <a href="#get-involved" class="cta-nav"><span data-i18n="nav.volunteerDriven">100% Volunteer Driven</span><br><span data-i18n="nav.joinProject">JOIN THE PROJECT</span></a>
+                    <div class="language-selector-dropdown">
+                        <button class="language-selector" onclick="toggleLanguageMenu()">English</button>
+                        <div class="language-menu" id="languageMenu">
+                            <a href="#" onclick="changeLanguage('en')">English</a>
+                            <a href="#" onclick="changeLanguage('fr')">Français</a>
+                            <a href="#" onclick="changeLanguage('es')">Español</a>
+                            <a href="#" onclick="changeLanguage('ca')">Català</a>
+                            <a href="#" onclick="changeLanguage('it')">Italiano</a>
+                        </div>
+                    </div>
+                </div>
                 <button class="mobile-menu" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -1015,18 +1221,30 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="videos/Teacher_Alerts_Phone_Ventilates_Room.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Audio Message Button -->
+        <div class="audio-message-container">
+            <button class="audio-message-button" id="audioToggle" onclick="toggleAudio()">
+                <i class="fas fa-volume-mute"></i>
+                <span data-i18n="hero.audioMessage">A message from the founder</span>
+            </button>
+        </div>
+        
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Bad air <span class="break-mobile">hurts learning</span></h1>
-                    <p class="subtitle">School kids can fix it.</p>
-                    <p>Students build air quality / weather stations that protect the school community, enhance learning and collect data for projects.</p>
+                    <h1><span data-i18n="hero.title">Bad air <span class="break-mobile">hurts learning</span></span></h1>
+                    <p class="subtitle" data-i18n="hero.subtitle">School kids can fix it.</p>
+                    <p data-i18n="hero.description">Students build air quality / weather stations that protect the school community, enhance learning and collect data for project & trend analysis.</p>
                     <div class="hero-buttons">
-                        <a href="#get-involved" class="btn-primary">SCHOOLS! Sign up</a>
-                        <a href="#get-involved" class="btn-primary">STUDENTS! Build a home Station</a>
+                        <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Enroll Your School</a>
+                        <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Order a home station kit</a>
                     </div>
                     <div class="hero-quote">
-                        <p>"I never learnt so much in so little time on a project" -- Mia, BFIS</p>
+                        <p>"I never learnt so much in so little time on a project" <span>-- Mia, BFIS</span></p>
                     </div>
                     <div class="hero-quote">
                         <p>"It's reassuring that teachers now know when to ventilate a classroom or limit outdoor exertion" -- Martin, IGTF</p>
@@ -1041,7 +1259,7 @@
                             </div>
                             <div class="step-text">
                                 <strong>Schools order</strong>
-                                <span>Our kits or just the plans</span>
+                                <span>Complete kits or just the plans</span>
                             </div>
                         </div>
                         <div class="step-item">
@@ -1050,7 +1268,7 @@
                             </div>
                             <div class="step-text">
                                 <strong>Students build</strong>
-                                <span>A station for their school</span>
+                                <span>A station at school or in person workshops</span>
                             </div>
                         </div>
                         <div class="step-item">
@@ -1059,7 +1277,7 @@
                             </div>
                             <div class="step-text">
                                 <strong>Stations deployed</strong>
-                                <span>Protect the school community</span>
+                                <span>Protect the school community with timely alerts</span>
                             </div>
                         </div>
                         <div class="step-item">
@@ -1067,8 +1285,8 @@
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Data collected</strong>
-                                <span>For alerts and trend analysis</span>
+                                <strong>Data Collected</strong>
+                                <span>is stored in global databases via our API for trend analysis</span>
                             </div>
                         </div>
                     </div>
@@ -1107,22 +1325,30 @@
             
             <div class="about-grid">
                 <div class="about-card">
-                    <i class="fas fa-graduation-cap"></i>
+                    <div class="card-image">
+                        <img src="images/students/mia and marina.jpeg" alt="Mia and Marina working on air quality station">
+                    </div>
                     <h3>Educational Excellence</h3>
                     <p>Integrate IoT, environmental science, and data analysis into your curriculum through practical, hands-on learning experiences.</p>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-shield-alt"></i>
+                    <div class="card-image">
+                        <img src="images/students/working.jpg" alt="Students collaborating on environmental monitoring">
+                    </div>
                     <h3>Community Health</h3>
                     <p>Monitor air quality and weather conditions to protect student and community health with real-time environmental data.</p>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-globe-americas"></i>
+                    <div class="card-image">
+                        <img src="images/students/The team.jpg" alt="The project team with their monitoring station">
+                    </div>
                     <h3>Global Network</h3>
                     <p>Join a worldwide network of schools contributing to environmental research and climate change understanding.</p>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-cogs"></i>
+                    <div class="card-image">
+                        <img src="images/students/outside deployment.jpeg" alt="Students deploying the monitoring station outside">
+                    </div>
                     <h3>Green Technology</h3>
                     <p>Build essential working green tech infrastructure using modern sensors, microcontrollers, and cloud technology.</p>
                 </div>
@@ -1155,7 +1381,7 @@
                 </div>
                 <div class="feature-card">
                     <h3>📊 Data Visualization</h3>
-                    <p><strong>Grafana Dashboards:</strong> Interactive, real-time dashboards for monitoring trends, patterns, and environmental changes.</p>
+                    <p><strong>Data dashboards:</strong> Interactive, real-time dashboards for monitoring trends, patterns, and environmental changes.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🎓 Curriculum Integration</h3>
@@ -1254,7 +1480,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Visualization</h3>
-                    <p>Grafana dashboards provide real-time monitoring, trend analysis, and educational data exploration tools.</p>
+                    <p>Data dashboards provide real-time monitoring, trend analysis, and educational data exploration tools.</p>
                 </div>
             </div>
         </div>
@@ -1268,11 +1494,11 @@
             
             <div class="impact-stats">
                 <div class="stat-card">
-                    <span class="stat-number">500+</span>
+                    <span class="stat-number">10+</span>
                     <div class="stat-label">Schools Participating</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">15,000+</span>
+                    <span class="stat-number">150</span>
                     <div class="stat-label">Students Engaged</div>
                 </div>
                 <div class="stat-card">
@@ -1280,7 +1506,7 @@
                     <div class="stat-label">Data Points Collected</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">35</span>
+                    <span class="stat-number">8</span>
                     <div class="stat-label">Countries Involved</div>
                 </div>
             </div>
@@ -1401,6 +1627,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Audio Elements -->
+    <audio id="preAudio" preload="auto">
+        <source id="preAudioSource" src="audio/en/ventilation_alert_Speech_audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="backgroundAudio" preload="auto">
+        <source id="backgroundAudioSource" src="audio/en/rec1.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
 
     <!-- Footer -->
     <footer>
@@ -1578,6 +1814,197 @@
         if (impactSection) {
             impactObserver.observe(impactSection);
         }
+
+        // Internationalization System
+        let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        let translations = {};
+
+        const supportedLanguages = {
+            'en': 'English',
+            'fr': 'Français',
+            'es': 'Español', 
+            'ca': 'Català',
+            'it': 'Italiano'
+        };
+
+        // Load language data
+        async function loadLanguage(lang) {
+            try {
+                const response = await fetch(`lang/${lang}.json`);
+                if (!response.ok) throw new Error(`Failed to load ${lang}`);
+                translations = await response.json();
+                updatePageContent();
+                updateAudioSources(lang);
+                localStorage.setItem('selectedLanguage', lang);
+                currentLanguage = lang;
+                updateLanguageSelector();
+            } catch (error) {
+                console.error('Error loading language:', error);
+                if (lang !== 'en') {
+                    loadLanguage('en'); // Fallback to English
+                }
+            }
+        }
+
+        // Update audio sources based on language
+        function updateAudioSources(lang) {
+            const preAudioSource = document.getElementById('preAudioSource');
+            const backgroundAudioSource = document.getElementById('backgroundAudioSource');
+            
+            // Update audio sources with language-specific paths
+            preAudioSource.src = `audio/${lang}/ventilation_alert_Speech_audio.mp3`;
+            backgroundAudioSource.src = `audio/${lang}/rec1.wav`;
+            
+            // Reload audio elements with new sources
+            preAudio.load();
+            backgroundAudio.load();
+            
+            // Reset audio state
+            audioPlayed = false;
+            currentlyPlaying = false;
+            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>' + (translations.hero ? translations.hero.audioMessage : 'A message from the founder') + '</span>';
+            audioToggle.classList.remove('playing');
+        }
+
+        // Update page content with translations
+        function updatePageContent() {
+            // Navigation
+            updateElement('[data-i18n="nav.about"]', translations.nav.about);
+            updateElement('[data-i18n="nav.products"]', translations.nav.products);
+            updateElement('[data-i18n="nav.howItWorks"]', translations.nav.howItWorks);
+            updateElement('[data-i18n="nav.workshops"]', translations.nav.workshops);
+            updateElement('[data-i18n="nav.hackathon"]', translations.nav.hackathon);
+            updateElement('[data-i18n="nav.volunteerDriven"]', translations.nav.volunteerDriven);
+            updateElement('[data-i18n="nav.joinProject"]', translations.nav.joinProject);
+
+            // Hero section
+            updateElement('[data-i18n="hero.title"]', translations.hero.title);
+            updateElement('[data-i18n="hero.subtitle"]', translations.hero.subtitle);
+            updateElement('[data-i18n="hero.description"]', translations.hero.description);
+            updateElement('[data-i18n="hero.enrollButton"]', translations.hero.enrollButton);
+            updateElement('[data-i18n="hero.orderButton"]', translations.hero.orderButton);
+            updateElement('[data-i18n="hero.quote"]', translations.hero.quote);
+            updateElement('[data-i18n="hero.quoteAuthor"]', translations.hero.quoteAuthor);
+            updateElement('[data-i18n="hero.audioMessage"]', translations.hero.audioMessage);
+
+            // How It Works
+            updateElement('[data-i18n="howItWorks.title"]', translations.howItWorks.title);
+            updateElement('[data-i18n="howItWorks.subtitle"]', translations.howItWorks.subtitle);
+            updateElement('[data-i18n="howItWorks.step1.title"]', translations.howItWorks.step1.title);
+            updateElement('[data-i18n="howItWorks.step1.description"]', translations.howItWorks.step1.description);
+            updateElement('[data-i18n="howItWorks.step2.title"]', translations.howItWorks.step2.title);
+            updateElement('[data-i18n="howItWorks.step2.description"]', translations.howItWorks.step2.description);
+            updateElement('[data-i18n="howItWorks.step3.title"]', translations.howItWorks.step3.title);
+            updateElement('[data-i18n="howItWorks.step3.description"]', translations.howItWorks.step3.description);
+            updateElement('[data-i18n="howItWorks.step4.title"]', translations.howItWorks.step4.title);
+            updateElement('[data-i18n="howItWorks.step4.description"]', translations.howItWorks.step4.description);
+
+            // Impact
+            updateElement('[data-i18n="impact.title"]', translations.impact.title);
+            updateElement('[data-i18n="impact.subtitle"]', translations.impact.subtitle);
+            updateElement('[data-i18n="impact.stats.schools"]', translations.impact.stats.schools);
+            updateElement('[data-i18n="impact.stats.students"]', translations.impact.stats.students);
+            updateElement('[data-i18n="impact.stats.dataPoints"]', translations.impact.stats.dataPoints);
+            updateElement('[data-i18n="impact.stats.countries"]', translations.impact.stats.countries);
+
+            // Components
+            updateElement('[data-i18n="components.title"]', translations.components.title);
+            updateElement('[data-i18n="components.subtitle"]', translations.components.subtitle);
+        }
+
+        function updateElement(selector, text) {
+            const element = document.querySelector(selector);
+            if (element && text) {
+                element.textContent = text;
+            }
+        }
+
+        function updateLanguageSelector() {
+            const selector = document.querySelector('.language-selector');
+            if (selector) {
+                selector.textContent = supportedLanguages[currentLanguage];
+            }
+        }
+
+        // Language menu functions
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+
+        function changeLanguage(lang) {
+            loadLanguage(lang);
+            const menu = document.getElementById('languageMenu');
+            menu.classList.remove('active');
+        }
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.language-selector-dropdown');
+            const menu = document.getElementById('languageMenu');
+            if (dropdown && !dropdown.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Initialize language system
+        loadLanguage(currentLanguage);
+
+        // Audio functionality
+        let audioPlayed = false;
+        let currentlyPlaying = false;
+        const preAudio = document.getElementById('preAudio');
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioToggle = document.getElementById('audioToggle');
+
+        function toggleAudio() {
+            if (!audioPlayed) {
+                // First time clicking - play pre-audio first
+                currentlyPlaying = true;
+                preAudio.play().then(() => {
+                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>' + translations.hero.audioMessage + '</span>';
+                    audioToggle.classList.add('playing');
+                    audioPlayed = true;
+                }).catch((error) => {
+                    console.log('Pre-audio playback failed:', error);
+                    currentlyPlaying = false;
+                });
+            } else {
+                // Subsequent clicks - toggle mute/unmute for both audios
+                if (currentlyPlaying) {
+                    if (preAudio.muted || backgroundAudio.muted) {
+                        preAudio.muted = false;
+                        backgroundAudio.muted = false;
+                        audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>' + translations.hero.audioMessage + '</span>';
+                        audioToggle.classList.add('playing');
+                    } else {
+                        preAudio.muted = true;
+                        backgroundAudio.muted = true;
+                        audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>' + translations.hero.audioMessage + '</span>';
+                        audioToggle.classList.remove('playing');
+                    }
+                }
+            }
+        }
+
+        // Pre-audio ended event - start main audio
+        preAudio.addEventListener('ended', () => {
+            backgroundAudio.play().catch((error) => {
+                console.log('Background audio playback failed:', error);
+                currentlyPlaying = false;
+                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Hear a message from the founder</span>';
+                audioToggle.classList.remove('playing');
+            });
+        });
+
+        // Main audio ended event - reset to muted state
+        backgroundAudio.addEventListener('ended', () => {
+            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Hear a message from the founder</span>';
+            audioToggle.classList.remove('playing');
+            audioPlayed = false;
+            currentlyPlaying = false;
+        });
+
     </script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "about": "À propos",
+    "products": "Produits",
+    "howItWorks": "Comment ça marche",
+    "workshops": "Ateliers",
+    "hackathon": "Hackathon",
+    "volunteerDriven": "100% Bénévole",
+    "joinProject": "REJOINDRE LE PROJET"
+  },
+  "hero": {
+    "title": "L'air pollué nuit à l'apprentissage",
+    "subtitle": "Les élèves peuvent y remédier.",
+    "description": "Les élèves construisent des stations de qualité de l'air/météo qui protègent la communauté scolaire, améliorent l'apprentissage et collectent des données pour des projets.",
+    "enrollButton": "Inscrire votre école",
+    "orderButton": "Commandez un kit de station domestique",
+    "quote": "Je n'ai jamais autant appris en si peu de temps sur un projet",
+    "quoteAuthor": "-- Mia, BFIS",
+    "audioMessage": "Un message du fondateur"
+  },
+  "howItWorks": {
+    "title": "Comment ça marche",
+    "subtitle": "Des capteurs au cloud : comprendre votre station de surveillance environnementale",
+    "step1": {
+      "title": "Collecte de données",
+      "description": "Le M5Stack CoreS3 lit les données des capteurs : température, humidité, pression et concentrations de particules fines."
+    },
+    "step2": {
+      "title": "Transmission sécurisée",
+      "description": "Données envoyées via Wi-Fi vers l'API backend Node-RED avec des requêtes HTTP POST sécurisées et authentification par clé API."
+    },
+    "step3": {
+      "title": "Stockage cloud",
+      "description": "La base de données PostgreSQL stocke toutes les données environnementales pour un suivi et une analyse historiques à long terme."
+    },
+    "step4": {
+      "title": "Visualisation",
+      "description": "Les tableaux de bord de données fournissent une surveillance en temps réel, une analyse des tendances et des outils d'exploration de données éducatives."
+    }
+  },
+  "impact": {
+    "title": "Impact éducatif",
+    "subtitle": "Chiffres réels des écoles utilisant schoolAIR dans le monde",
+    "stats": {
+      "schools": "Écoles participantes",
+      "students": "Élèves impliqués",
+      "dataPoints": "Points de données collectés",
+      "countries": "Pays impliqués"
+    }
+  },
+  "components": {
+    "title": "Composants et matériaux",
+    "subtitle": "Tout ce dont vous avez besoin pour construire votre station de surveillance de la qualité de l'air"
+  },
+  "footer": {
+    "quickLinks": "Liens rapides",
+    "resources": "Ressources",
+    "connect": "Se connecter",
+    "assemblyGuide": "Guide d'assemblage",
+    "documentation": "Documentation logicielle",
+    "globalData": "Accès aux données globales",
+    "curriculum": "Matériel pédagogique"
+  }
+}

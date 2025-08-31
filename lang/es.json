@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "about": "Acerca de",
+    "products": "Productos",
+    "howItWorks": "Cómo funciona",
+    "workshops": "Talleres",
+    "hackathon": "Hackathon",
+    "volunteerDriven": "100% Voluntario",
+    "joinProject": "ÚNETE AL PROYECTO"
+  },
+  "hero": {
+    "title": "El aire malo perjudica el aprendizaje",
+    "subtitle": "Los niños de la escuela pueden solucionarlo.",
+    "description": "Los estudiantes construyen estaciones de calidad del aire/meteorológicas que protegen a la comunidad escolar, mejoran el aprendizaje y recopilan datos para proyectos.",
+    "enrollButton": "Inscribe tu escuela",
+    "orderButton": "Pide un kit de estación doméstica",
+    "quote": "Nunca aprendí tanto en tan poco tiempo en un proyecto",
+    "quoteAuthor": "-- Mia, BFIS",
+    "audioMessage": "Un mensaje del fundador"
+  },
+  "howItWorks": {
+    "title": "Cómo funciona",
+    "subtitle": "De sensores a la nube: entendiendo tu estación de monitoreo ambiental",
+    "step1": {
+      "title": "Recolección de datos",
+      "description": "M5Stack CoreS3 lee datos de sensores: temperatura, humedad, presión y concentraciones de material particulado."
+    },
+    "step2": {
+      "title": "Transmisión segura",
+      "description": "Datos enviados vía Wi-Fi a la API backend Node-RED usando solicitudes HTTP POST seguras con autenticación por clave API."
+    },
+    "step3": {
+      "title": "Almacenamiento en la nube",
+      "description": "La base de datos PostgreSQL almacena todos los datos ambientales para seguimiento histórico y análisis a largo plazo."
+    },
+    "step4": {
+      "title": "Visualización",
+      "description": "Los paneles de datos proporcionan monitoreo en tiempo real, análisis de tendencias y herramientas de exploración de datos educativas."
+    }
+  },
+  "impact": {
+    "title": "Impacto educativo",
+    "subtitle": "Números reales de escuelas que usan schoolAIR en todo el mundo",
+    "stats": {
+      "schools": "Escuelas participantes",
+      "students": "Estudiantes involucrados",
+      "dataPoints": "Puntos de datos recopilados",
+      "countries": "Países involucrados"
+    }
+  },
+  "components": {
+    "title": "Componentes y materiales",
+    "subtitle": "Todo lo que necesitas para construir tu estación de monitoreo de calidad del aire"
+  },
+  "footer": {
+    "quickLinks": "Enlaces rápidos",
+    "resources": "Recursos",
+    "connect": "Conectar",
+    "assemblyGuide": "Guía de ensamblaje",
+    "documentation": "Documentación del software",
+    "globalData": "Acceso a datos globales",
+    "curriculum": "Materiales curriculares"
+  }
+}

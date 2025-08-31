@@ -122,6 +122,24 @@
             width: 100%;
         }
 
+        /* Mobile positioning for audio button */
+        @media (max-width: 768px) {
+            .audio-message-container {
+                top: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .audio-message-container {
+                top: 120px;
+            }
+            
+            .audio-message-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
         .audio-message-button {
             background: rgba(255, 255, 255, 0.95);
             border: 2px solid #4A148C;

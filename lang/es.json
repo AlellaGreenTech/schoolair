@@ -2,7 +2,7 @@
   "nav": {
     "about": "Acerca de",
     "products": "Productos",
-    "howItWorks": "Cómo funciona",
+    "announcements": "Actualizaciones del Proyecto",
     "workshops": "Talleres",
     "hackathon": "Hackathon",
     "volunteerDriven": "100% Voluntario",
@@ -18,24 +18,32 @@
     "quoteAuthor": "-- Mia, BFIS",
     "audioMessage": "Un mensaje del fundador"
   },
-  "howItWorks": {
-    "title": "Cómo funciona",
-    "subtitle": "De sensores a la nube: entendiendo tu estación de monitoreo ambiental",
-    "step1": {
-      "title": "Recolección de datos",
-      "description": "M5Stack CoreS3 lee datos de sensores: temperatura, humedad, presión y concentraciones de material particulado."
+  "announcements": {
+    "title": "Actualizaciones y Noticias del Proyecto",
+    "subtitle": "Últimos desarrollos en la comunidad schoolAIR",
+    "announcement1": {
+      "date": "Septiembre 2024",
+      "type": "Nuevas Características",
+      "title": "Soporte Multiidioma Lanzado",
+      "description": "El sitio web de schoolAIR ahora está disponible en 5 idiomas: inglés, español, francés, catalán e italiano. ¡Únete a nuestra comunidad global!"
     },
-    "step2": {
-      "title": "Transmisión segura",
-      "description": "Datos enviados vía Wi-Fi a la API backend Node-RED usando solicitudes HTTP POST seguras con autenticación por clave API."
+    "announcement2": {
+      "date": "Agosto 2024",
+      "type": "Comunidad",
+      "title": "Buscamos Escuelas Socias",
+      "description": "Buscamos activamente escuelas de todo el mundo para probar nuestras estaciones de monitoreo de calidad del aire. Kits gratuitos disponibles para instituciones educativas calificadas."
     },
-    "step3": {
-      "title": "Almacenamiento en la nube",
-      "description": "La base de datos PostgreSQL almacena todos los datos ambientales para seguimiento histórico y análisis a largo plazo."
+    "announcement3": {
+      "date": "Julio 2024",
+      "type": "Desarrollo",
+      "title": "Código Abierto Disponible",
+      "description": "Todos los diseños de hardware, código de software y guías de ensamblaje están ahora disponibles en GitHub. ¡Perfecto para makers y educadores!"
     },
-    "step4": {
-      "title": "Visualización",
-      "description": "Los paneles de datos proporcionan monitoreo en tiempo real, análisis de tendencias y herramientas de exploración de datos educativas."
+    "announcement4": {
+      "date": "En curso",
+      "type": "Voluntarios",
+      "title": "Únete a Nuestro Equipo",
+      "description": "Necesitamos desarrolladores, educadores y entusiastas del medio ambiente para ayudar a hacer crecer este proyecto. Iniciativa 100% impulsada por voluntarios."
     }
   },
   "impact": {

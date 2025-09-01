@@ -2,7 +2,7 @@
   "nav": {
     "about": "Sobre nosaltres",
     "products": "Productes",
-    "howItWorks": "Com funciona",
+    "announcements": "Actualitzacions del projecte",
     "workshops": "Tallers",
     "hackathon": "Hackathon",
     "volunteerDriven": "100% Voluntari",
@@ -18,24 +18,28 @@
     "quoteAuthor": "-- Mia, BFIS",
     "audioMessage": "Un missatge del fundador"
   },
-  "howItWorks": {
-    "title": "Com funciona",
-    "subtitle": "De sensors al núvol: entenent la teva estació de monitoratge ambiental",
-    "step1": {
-      "title": "Recollida de dades",
-      "description": "M5Stack CoreS3 llegeix dades de sensors: temperatura, humitat, pressió i concentracions de matèria particulada."
+  "announcements": {
+    "title": "Actualitzacions i notícies del projecte",
+    "subtitle": "Últims desenvolupaments a la comunitat schoolAIR",
+    "announcement1": {
+      "date": "Setembre 2024",
+      "title": "Llançament del suport multiidioma",
+      "description": "schoolAIR ara està disponible en múltiples idiomes per servir millor la nostra comunitat global d'escoles."
     },
-    "step2": {
-      "title": "Transmissió segura",
-      "description": "Dades enviades via Wi-Fi a l'API backend Node-RED utilitzant sol·licituds HTTP POST segures amb autenticació per clau API."
+    "announcement2": {
+      "date": "Agost 2024",
+      "title": "Buscant socis escolars",
+      "description": "Estem buscant activament escoles interessades en unir-se al nostre programa pilot i provar les nostres estacions de monitoratge de l'aire."
     },
-    "step3": {
-      "title": "Emmagatzematge al núvol",
-      "description": "La base de dades PostgreSQL emmagatzema totes les dades ambientals per a seguiment històric i anàlisi a llarg termini."
+    "announcement3": {
+      "date": "Juliol 2024",
+      "title": "Codi obert disponible",
+      "description": "Tot el nostre codi ara és de codi obert i disponible a GitHub perquè la comunitat pugui contribuir i personalitzar."
     },
-    "step4": {
-      "title": "Visualització",
-      "description": "Els panells de dades proporcionen monitoratge en temps real, anàlisi de tendències i eines d'exploració de dades educatives."
+    "announcement4": {
+      "date": "En curs",
+      "title": "Uneix-te al nostre equip",
+      "description": "Busquem voluntaris apassionats per l'educació ambiental i la tecnologia per ajudar-nos a desenvolupar schoolAIR."
     }
   },
   "impact": {

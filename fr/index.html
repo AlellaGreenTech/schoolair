@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolAIR Project - Environmental Education Through Technology</title>
+    <link rel="alternate" hreflang="en" href="https://schoolair.org/en/">
+    <link rel="alternate" hreflang="es" href="https://schoolair.org/es/">
+    <link rel="alternate" hreflang="fr" href="https://schoolair.org/">
+    <link rel="alternate" hreflang="ca" href="https://schoolair.org/ca/">
+    <link rel="alternate" hreflang="it" href="https://schoolair.org/it/">
+    <link rel="alternate" hreflang="x-default" href="https://schoolair.org/">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 1 !important;
+            visibility: visible !important;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 1 !important;
+            visibility: visible !important;
+            padding: 0 10px;
+            gap: 0.5rem;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-selector-dropdown {
+            position: relative;
+        }
+
+        .language-selector {
+            background: none;
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: #4A148C;
+            color: white;
+        }
+
+        .audio-toggle {
+            background: none;
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-toggle:hover {
+            background: #4A148C;
+            color: white;
+        }
+
+        .audio-toggle.playing {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: white;
+        }
+
+        /* Audio Message Button in Hero */
+        .audio-message-container {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .audio-message-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(74, 20, 140, 0.6);
+            color: #4A148C;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            opacity: 1 !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .audio-message-button:hover {
+            background: rgba(74, 20, 140, 0.1);
+            color: #4A148C;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(74, 20, 140, 0.3);
+        }
+
+        .audio-message-button.playing {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: white;
+        }
+
+        .audio-message-button.playing:hover {
+            background: #1B5E20;
+            border-color: #1B5E20;
+        }
+
+        @media (max-width: 480px) {
+            .audio-message-container {
+                top: 70px;
+                right: 15px;
+            }
+            
+            .audio-message-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 120px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #eee;
+        }
+
+        .language-menu a:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .language-menu a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .language-menu a:hover {
+            background: #f5f5f5;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #2e7d32;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, #4A148C, #E1BEE7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 8rem;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.3) 0%, rgba(118, 255, 3, 0.15) 50%, rgba(255, 111, 0, 0.15) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0a0a0a;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .hero-text .subtitle {
+            font-size: 2rem;
+            color: #0a0a0a;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #0a0a0a;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4A148C, #E1BEE7);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(46, 125, 50, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(74, 20, 140, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2e7d32;
+            padding: 1rem 2rem;
+            border: 2px solid #2e7d32;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #2e7d32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Learn More Link */
+        .learn-more-link {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .learn-more-link a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .learn-more-link a:hover {
+            color: #1B5E20;
+        }
+
+        /* Hero Quote */
+        .hero-quote {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .hero-quote p {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #0a0a0a;
+            font-weight: 500;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .hero-quote span {
+            font-size: 0.95rem;
+            color: #FF6F00;
+            font-weight: 500;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .station-mockup {
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px solid #e8f5e8;
+        }
+
+        .sensor-indicator {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            border-radius: 50%;
+            margin: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+
+        .data-stream {
+            position: absolute;
+            top: 50%;
+            right: -50px;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #76FF03, transparent);
+            animation: stream 2s infinite;
+        }
+
+        @keyframes stream {
+            0% { opacity: 0; transform: translateX(-50px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(50px); }
+        }
+
+        /* How It Works Hero */
+        .how-it-works-hero {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 3px solid #e8f5e8;
+            max-width: 400px;
+            position: relative;
+            z-index: 1;
+            margin-top: 4rem;
+        }
+
+        .how-title {
+            color: #0a0a0a;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid #4caf50;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-icon-small {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-text strong {
+            color: #0a0a0a;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-text span {
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1B5E20;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #FF6F00;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: #f8fffe;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #e8f5e8;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card i {
+            font-size: 3rem;
+            color: #4caf50;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-card h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1B5E20;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(rgba(248, 255, 254, 0.9), rgba(248, 255, 254, 0.9)), url('https://images.unsplash.com/photo-1581093458791-9d42e44d2c18?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            color: #1B5E20;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Components Section */
+        .components {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .components-table {
+            background: #f8fffe;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+        }
+
+        .components-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .components-table th,
+        .components-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #e8f5e8;
+        }
+
+        .components-table th {
+            background: #2e7d32;
+            color: white;
+            font-weight: 600;
+        }
+
+        .components-table tr:hover {
+            background: #e8f5e8;
+        }
+
+        .cost-highlight {
+            font-weight: 600;
+            color: #1B5E20;
+        }
+
+        /* Project Announcements Section */
+        .announcements {
+            background: linear-gradient(rgba(27, 94, 32, 0.05), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=1920&h=1080&fit=crop') center/cover;
+            padding: 4rem 0;
+        }
+
+        .announcements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .announcement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #e0e0e0;
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .announcement-card.featured {
+            border-left-color: #4caf50;
+            background: linear-gradient(135deg, #ffffff, #f1f8e9);
+        }
+
+        .announcement-card.volunteer {
+            border-left-color: #ff9800;
+            background: linear-gradient(135deg, #ffffff, #fff3e0);
+        }
+
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .announcement-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .announcement-type {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .announcement-type.new {
+            background: #4caf50;
+            color: white;
+        }
+
+        .announcement-type.community {
+            background: #2196f3;
+            color: white;
+        }
+
+        .announcement-type.development {
+            background: #9c27b0;
+            color: white;
+        }
+
+        .announcement-type.volunteer {
+            background: #ff9800;
+            color: white;
+        }
+
+        .announcement-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        .announcement-card p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .announcement-action {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4caf50;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .announcement-action i {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .announcements-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .announcement-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Impact Section */
+        .impact {
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #c8e6c9;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1B5E20;
+            display: block;
+        }
+
+        .stat-label {
+            color: #FF6F00;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* Get Involved Section */
+        .get-involved {
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            color: white;
+        }
+
+        .get-involved .section-title,
+        .get-involved .section-subtitle {
+            color: white;
+        }
+
+        .involvement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .involvement-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .involvement-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .involvement-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #a5d6a7;
+        }
+
+        .involvement-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .involvement-card .btn-secondary {
+            background: white;
+            color: #2e7d32;
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .involvement-card .btn-secondary:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Form */
+        .contact {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1B5E20;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e8f5e8;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+
+        /* Footer */
+        footer {
+            background: #1b5e20;
+            color: white;
+            padding: 3rem 0 1rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #a5d6a7;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #c8e6c9;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #81c784;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2e7d32;
+            padding-top: 1rem;
+            text-align: center;
+            color: #a5d6a7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #a5d6a7;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #81c784;
+        }
+
+        /* Partner Schools Section */
+        .partner-schools {
+            background: #f8fffe;
+            padding: 4rem 0;
+            border-top: 1px solid #e8f5e8;
+        }
+
+        .partners-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1B5E20;
+            margin-bottom: 3rem;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .logo-item {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            opacity: 1;
+        }
+
+        .logo-item img {
+            max-width: 150px;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Partner Schools Overlay */
+        .partner-schools-overlay {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
+            z-index: 3;
+            padding: 0 2rem;
+        }
+
+        .partners-title-overlay {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1B5E20;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .logos-grid-overlay {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: nowrap;
+            margin-left: 0;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .logo-item-overlay {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .logo-item-overlay:hover {
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+
+        .logo-item-overlay img {
+            max-width: 180px;
+            height: 72px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo-item-overlay:hover img {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        /* Responsive line breaks */
+        .break-mobile::before {
+            content: '';
+        }
+        
+        @media (max-width: 1440px) {
+            .break-mobile::before {
+                content: '\A';
+                white-space: pre;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-top: 1px solid rgba(46, 125, 50, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .cta-nav {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 10rem;
+                min-height: calc(100vh + 2rem);
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+                white-space: normal;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .station-mockup {
+                width: 250px;
+                height: 300px;
+            }
+
+            .about-grid,
+            .features-grid,
+            .steps-container,
+            .impact-stats,
+            .involvement-options {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">schoolAIR</div>
+            </div>
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+                    <li><a href="#announcements" data-i18n="nav.announcements">Announcements</a></li>
+                    <li><a href="#workshops" data-i18n="nav.workshops">Workshops</a></li>
+                    <li><a href="#hackathon" data-i18n="nav.hackathon">Hackathon</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#get-involved" class="cta-nav"><span data-i18n="nav.volunteerDriven">100% Volunteer Driven</span><br><span data-i18n="nav.joinProject">JOIN THE PROJECT</span></a>
+                    <div class="language-selector-dropdown">
+                        <button class="language-selector" onclick="toggleLanguageMenu()">Français</button>
+                        <div class="language-menu" id="languageMenu">
+                            <a href="../en/index.html">English</a>
+                            <a href="../index.html">Français</a>
+                            <a href="../es/index.html">Español</a>
+                            <a href="../ca/index.html">Català</a>
+                            <a href="../it/index.html">Italiano</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="../videos/Teacher_Alerts_Phone_Ventilates_Room.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Audio Message Button -->
+        <div class="audio-message-container">
+            <button class="audio-message-button" id="audioToggle" onclick="toggleAudio()">
+                <i class="fas fa-volume-mute"></i>
+                <span>Un message du fondateur</span>
+            </button>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1><span data-i18n="hero.title">Bad air <span class="break-mobile">hurts learning</span></span></h1>
+                    <p class="subtitle" data-i18n="hero.subtitle">School kids can fix it.</p>
+                    <p data-i18n="hero.description">Les élèves construisent des stations de qualité de l'air/météo qui protègent la communauté scolaire, améliorent l'apprentissage et collectent des données pour des projets.</p>
+                    <div class="hero-buttons">
+                        <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Enroll Your School</a>
+                        <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Order a home station kit</a>
+                    </div>
+                    <div class="hero-quote">
+                        <p>"I never learnt so much in so little time on a project" <span>-- Mia, BFIS</span></p>
+                    </div>
+                    <div class="hero-quote">
+                        <p>"It's reassuring that teachers now know when to ventilate a classroom or limit outdoor exertion" -- Martin, IGTF</p>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="how-it-works-hero">
+                        <h3 class="how-title">HOW IT WORKS</h3>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Schools order</strong>
+                                <span>Complete kits or just the plans</span>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Students build</strong>
+                                <span>A station at school or in person workshops</span>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Stations deployed</strong>
+                                <span>Protect the school community with timely alerts</span>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon-small">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="step-text">
+                                <strong>Data Collected</strong>
+                                <span>is stored in global databases via our API for trend analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partner Schools Overlay -->
+            <div class="partner-schools-overlay">
+                <h3 class="partners-title-overlay">Trusted by Schools Worldwide</h3>
+                <div class="logos-grid-overlay">
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About schoolAIR</h2>
+            <p class="section-subtitle">A comprehensive educational project that combines hands-on STEM learning with real-world environmental monitoring</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/mia and marina.jpeg" alt="Mia and Marina working on air quality station">
+                    </div>
+                    <h3>Educational Excellence</h3>
+                    <p>Integrate IoT, environmental science, and data analysis into your curriculum through practical, hands-on learning experiences.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/working.jpg" alt="Students collaborating on environmental monitoring">
+                    </div>
+                    <h3>Community Health</h3>
+                    <p>Monitor air quality and weather conditions to protect student and community health with real-time environmental data.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/The team.jpg" alt="The project team with their monitoring station">
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>Join a worldwide network of schools contributing to environmental research and climate change understanding.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/outside deployment.jpeg" alt="Students deploying the monitoring station outside">
+                    </div>
+                    <h3>Green Technology</h3>
+                    <p>Build essential working green tech infrastructure using modern sensors, microcontrollers, and cloud technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Project Features</h2>
+            <p class="section-subtitle">Everything you need for successful environmental monitoring and education</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🌡️ Weather Station</h3>
+                    <p><strong>ENV IV Unit:</strong> Measures temperature, humidity, and barometric pressure with high precision for comprehensive weather monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌫️ Air Quality Monitor</h3>
+                    <p><strong>PM2.5 Sensor:</strong> Detects and quantifies PM1, PM2.5, and PM10 particulate matter for critical air pollution assessment.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📡 IoT Connectivity</h3>
+                    <p><strong>M5Stack CoreS3:</strong> Wi-Fi enabled microcontroller with built-in display for real-time data visualization and cloud connectivity.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>☁️ Cloud Database</h3>
+                    <p><strong>PostgreSQL Storage:</strong> Secure data transmission via Node-RED API to persistent cloud database for historical analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Data Visualization</h3>
+                    <p><strong>Data dashboards:</strong> Interactive, real-time dashboards for monitoring trends, patterns, and environmental changes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎓 Curriculum Integration</h3>
+                    <p><strong>STEM Learning:</strong> Comprehensive guides for integrating the project into science, math, technology, and social studies curricula.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="components">
+        <div class="container">
+            <h2 class="section-title">Components & Materials</h2>
+            <p class="section-subtitle">Everything included in your schoolAIR kit for under €85</p>
+            
+            <div class="components-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Description</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PM2.5 Air Quality Sensor</strong></td>
+                            <td>DFROBOT Gravity sensor for PM1, PM2.5, PM10 detection</td>
+                            <td class="cost-highlight">€37.91</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M5Stack CoreS3</strong></td>
+                            <td>Microcontroller with Wi-Fi, display, and Grove connectors</td>
+                            <td class="cost-highlight">€38.90</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ENV IV Unit</strong></td>
+                            <td>Temperature, humidity, and air pressure sensor</td>
+                            <td class="cost-highlight">€5.65</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weatherproof Enclosure</strong></td>
+                            <td>Protective housing with DIN rail mounting</td>
+                            <td>Included</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Radiation Shield</strong></td>
+                            <td>Protection for accurate temperature readings</td>
+                            <td>Included</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cables & Connectors</strong></td>
+                            <td>Grove cables and weatherproof connectors</td>
+                            <td>Included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Announcements Section -->
+    <section id="announcements" class="announcements">
+        <div class="container">
+            <h2 class="section-title">Project Updates & News</h2>
+            <p class="section-subtitle">Latest developments in the schoolAIR community</p>
+            
+            <div class="announcements-container">
+                <div class="announcement-card featured">
+                    <div class="announcement-header">
+                        <span class="announcement-date">September 2024</span>
+                        <span class="announcement-type new">New Features</span>
+                    </div>
+                    <h3>Multi-language Support Launched</h3>
+                    <p>The schoolAIR website is now available in 5 languages: English, Spanish, French, Catalan, and Italian. Join our global community!</p>
+                    <div class="announcement-action">
+                        <i class="fas fa-globe"></i>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <span class="announcement-date">August 2024</span>
+                        <span class="announcement-type community">Community</span>
+                    </div>
+                    <h3>Looking for School Partners</h3>
+                    <p>We're actively seeking schools worldwide to pilot our air quality monitoring stations. Free kits available for qualifying educational institutions.</p>
+                    <div class="announcement-action">
+                        <i class="fas fa-school"></i>
+                        <span>Apply Now</span>
+                    </div>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <span class="announcement-date">July 2024</span>
+                        <span class="announcement-type development">Development</span>
+                    </div>
+                    <h3>Open Source Code Available</h3>
+                    <p>All hardware designs, software code, and assembly guides are now available on GitHub. Perfect for makers and educators!</p>
+                    <div class="announcement-action">
+                        <i class="fab fa-github"></i>
+                        <span>View on GitHub</span>
+                    </div>
+                </div>
+                
+                <div class="announcement-card volunteer">
+                    <div class="announcement-header">
+                        <span class="announcement-date">Ongoing</span>
+                        <span class="announcement-type volunteer">Volunteer</span>
+                    </div>
+                    <h3>Join Our Team</h3>
+                    <p>We need developers, educators, and environmental enthusiasts to help grow this project. 100% volunteer-driven initiative.</p>
+                    <div class="announcement-action">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Get Involved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="impact">
+        <div class="container">
+            <h2 class="section-title">Educational Impact</h2>
+            <p class="section-subtitle">Real numbers from schools using schoolAIR worldwide</p>
+            
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <span class="stat-number">10+</span>
+                    <div class="stat-label">Schools Participating</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">150</span>
+                    <div class="stat-label">Students Engaged</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2M+</span>
+                    <div class="stat-label">Data Points Collected</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <div class="stat-label">Countries Involved</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3 style="color: #1b5e20; margin-bottom: 2rem; font-size: 1.8rem;">Curriculum Integration Areas</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>🔬 Science Education</h3>
+                        <p>Meteorology, environmental science, physics, and chemistry through hands-on experimentation and real data analysis.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 Mathematics</h3>
+                        <p>Data analysis, statistics, graphing, and pattern recognition using real environmental datasets.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💻 Technology</h3>
+                        <p>Electronics, programming with MicroPython, IoT concepts, and system architecture design.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🌍 Social Studies</h3>
+                        <p>Local environmental issues, global climate change, and the intersection of technology and society.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="get-involved">
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            <p class="section-subtitle">Multiple ways to participate in the schoolAIR project</p>
+            
+            <div class="involvement-options">
+                <div class="involvement-card">
+                    <i class="fas fa-box"></i>
+                    <h3>Request Complete Kit</h3>
+                    <p>Get everything you need: sensors, microcontroller, enclosure, and comprehensive setup guides.</p>
+                    <a href="#contact" class="btn-secondary">Request Kit</a>
+                </div>
+                <div class="involvement-card">
+                    <i class="fas fa-file-download"></i>
+                    <h3>Download Plans Only</h3>
+                    <p>Access detailed assembly instructions, software code, and educational materials to build your own.</p>
+                    <a href="#contact" class="btn-secondary">Get Plans</a>
+                </div>
+                <div class="involvement-card">
+                    <i class="fas fa-school"></i>
+                    <h3>School Partnership</h3>
+                    <p>Create a dedicated school page, share updates, and access global environmental data for research.</p>
+                    <a href="#contact" class="btn-secondary">Become Partner</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Ready to start your environmental monitoring project?</p>
+            
+            <div class="contact-content">
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="school">School/Organization</label>
+                        <input type="text" id="school" name="school" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="role">Your Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="administrator">Administrator</option>
+                                <option value="student">Student</option>
+                                <option value="researcher">Researcher</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Interest Level</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select option</option>
+                                <option value="complete-kit">Complete Kit</option>
+                                <option value="plans-only">Plans Only</option>
+                                <option value="partnership">School Partnership</option>
+                                <option value="information">More Information</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project goals, timeline, or any specific questions you have..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Elements -->
+    <audio id="preAudio" preload="auto">
+        <source id="preAudioSource" src="../audio/fr/ventilation_alert_Speech_audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="backgroundAudio" preload="auto">
+        <source id="backgroundAudioSource" src="../audio/fr/rec1.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>schoolAIR Project</h3>
+                    <p>Empowering students to learn through hands-on environmental monitoring while protecting community health and contributing to global climate research.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about">About Project</a></p>
+                    <p><a href="#components">Components</a></p>
+                    <p><a href="#announcements">Announcements</a></p>
+                    <p><a href="#get-involved">Get Involved</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#">Assembly Guide</a></p>
+                    <p><a href="#">Software Documentation</a></p>
+                    <p><a href="#">Global Data Access</a></p>
+                    <p><a href="#">Curriculum Materials</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="#contact">Contact Us</a></p>
+                    <p><a href="#">Community Forum</a></p>
+                    <p><a href="#">Technical Support</a></p>
+                    <p><a href="#">FAQs</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 schoolAIR Project. Open source educational initiative for environmental monitoring.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections except hero
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Make hero visible immediately
+        document.querySelector('.hero').classList.add('visible');
+
+        // Contact form submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            console.log('SchoolAIR contact form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your interest in the schoolAIR project! We will contact you within 2 business days with information about your request.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.2;
+            
+            if (hero && scrolled < hero.offsetHeight) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Animate statistics when they come into view
+        const animateStats = () => {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const targets = ['500+', '15,000+', '2M+', '35'];
+            
+            statNumbers.forEach((stat, index) => {
+                const target = targets[index];
+                let current = 0;
+                const increment = target.includes('M') ? 100000 : target.includes(',') ? 500 : 10;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= parseInt(target.replace(/[^0-9]/g, ''))) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        if (target.includes('M')) {
+                            stat.textContent = (current / 1000000).toFixed(1) + 'M+';
+                        } else if (target.includes(',')) {
+                            stat.textContent = current.toLocaleString() + '+';
+                        } else {
+                            stat.textContent = current;
+                        }
+                    }
+                }, 50);
+            });
+        };
+
+        // Trigger stat animation when impact section is visible
+        const impactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    impactObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const impactSection = document.querySelector('.impact');
+        if (impactSection) {
+            impactObserver.observe(impactSection);
+        }
+
+        // Language menu toggle function
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.language-selector-dropdown');
+            const menu = document.getElementById('languageMenu');
+            if (dropdown && !dropdown.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+        
+
+        // Audio functionality
+        let audioPlayed = false;
+        let currentlyPlaying = false;
+        const preAudio = document.getElementById('preAudio');
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const audioToggle = document.getElementById('audioToggle');
+
+        function toggleAudio() {
+            if (!audioPlayed) {
+                // First time clicking - play pre-audio first
+                currentlyPlaying = true;
+                preAudio.play().then(() => {
+                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>' + 'Un message du fondateur' + '</span>';
+                    audioToggle.classList.add('playing');
+                    audioPlayed = true;
+                }).catch((error) => {
+                    console.log('Pre-audio playback failed:', error);
+                    currentlyPlaying = false;
+                });
+            } else {
+                // Subsequent clicks - toggle mute/unmute for both audios
+                if (currentlyPlaying) {
+                    if (preAudio.muted || backgroundAudio.muted) {
+                        preAudio.muted = false;
+                        backgroundAudio.muted = false;
+                        audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>' + 'Un message du fondateur' + '</span>';
+                        audioToggle.classList.add('playing');
+                    } else {
+                        preAudio.muted = true;
+                        backgroundAudio.muted = true;
+                        audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>' + 'Un message du fondateur' + '</span>';
+                        audioToggle.classList.remove('playing');
+                    }
+                }
+            }
+        }
+
+        // Pre-audio ended event - start main audio
+        preAudio.addEventListener('ended', () => {
+            backgroundAudio.play().catch((error) => {
+                console.log('Background audio playback failed:', error);
+                currentlyPlaying = false;
+                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Un message du fondateur</span>';
+                audioToggle.classList.remove('playing');
+            });
+        });
+
+        // Main audio ended event - reset to muted state
+        backgroundAudio.addEventListener('ended', () => {
+            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Un message du fondateur</span>';
+            audioToggle.classList.remove('playing');
+            audioPlayed = false;
+            currentlyPlaying = false;
+        });
+
+    </script>
+</body>
+</html>

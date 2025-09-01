@@ -2,7 +2,7 @@
   "nav": {
     "about": "About",
     "products": "Products", 
-    "howItWorks": "How It Works",
+    "announcements": "Project Updates",
     "workshops": "Workshops",
     "hackathon": "Hackathon",
     "volunteerDriven": "100% Volunteer Driven",
@@ -18,24 +18,32 @@
     "quoteAuthor": "-- Mia, BFIS",
     "audioMessage": "A message from the founder"
   },
-  "howItWorks": {
-    "title": "How It Works",
-    "subtitle": "From sensors to cloud: understanding your environmental monitoring station",
-    "step1": {
-      "title": "Data Collection",
-      "description": "M5Stack CoreS3 reads sensor data: temperature, humidity, pressure, and particulate matter concentrations."
+  "announcements": {
+    "title": "Project Updates & News",
+    "subtitle": "Latest developments in the schoolAIR community",
+    "announcement1": {
+      "date": "September 2024",
+      "type": "New Features",
+      "title": "Multi-language Support Launched",
+      "description": "The schoolAIR website is now available in 5 languages: English, Spanish, French, Catalan, and Italian. Join our global community!"
     },
-    "step2": {
-      "title": "Secure Transmission", 
-      "description": "Data sent via Wi-Fi to Node-RED backend API using secure HTTP POST requests with API key authentication."
+    "announcement2": {
+      "date": "August 2024",
+      "type": "Community",
+      "title": "Looking for School Partners",
+      "description": "We're actively seeking schools worldwide to pilot our air quality monitoring stations. Free kits available for qualifying educational institutions."
     },
-    "step3": {
-      "title": "Cloud Storage",
-      "description": "PostgreSQL database stores all environmental data for long-term historical tracking and analysis."
+    "announcement3": {
+      "date": "July 2024",
+      "type": "Development",
+      "title": "Open Source Code Available",
+      "description": "All hardware designs, software code, and assembly guides are now available on GitHub. Perfect for makers and educators!"
     },
-    "step4": {
-      "title": "Visualization",
-      "description": "Data dashboards provide real-time monitoring, trend analysis, and educational data exploration tools."
+    "announcement4": {
+      "date": "Ongoing",
+      "type": "Volunteer",
+      "title": "Join Our Team",
+      "description": "We need developers, educators, and environmental enthusiasts to help grow this project. 100% volunteer-driven initiative."
     }
   },
   "impact": {

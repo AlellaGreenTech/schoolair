@@ -2,7 +2,7 @@
   "nav": {
     "about": "Chi siamo",
     "products": "Prodotti",
-    "howItWorks": "Come funziona",
+    "announcements": "Aggiornamenti del progetto",
     "workshops": "Workshop",
     "hackathon": "Hackathon",
     "volunteerDriven": "100% Volontario",
@@ -18,24 +18,28 @@
     "quoteAuthor": "-- Mia, BFIS",
     "audioMessage": "Un messaggio dal fondatore"
   },
-  "howItWorks": {
-    "title": "Come funziona",
-    "subtitle": "Dai sensori al cloud: comprendi la tua stazione di monitoraggio ambientale",
-    "step1": {
-      "title": "Raccolta dati",
-      "description": "M5Stack CoreS3 legge dati dei sensori: temperatura, umidità, pressione e concentrazioni di particolato."
+  "announcements": {
+    "title": "Aggiornamenti e notizie del progetto",
+    "subtitle": "Ultimi sviluppi nella comunità schoolAIR",
+    "announcement1": {
+      "date": "Settembre 2024",
+      "title": "Lancio del supporto multilingua",
+      "description": "schoolAIR è ora disponibile in più lingue per servire meglio la nostra comunità globale di scuole."
     },
-    "step2": {
-      "title": "Trasmissione sicura",
-      "description": "Dati inviati via Wi-Fi all'API backend Node-RED utilizzando richieste HTTP POST sicure con autenticazione chiave API."
+    "announcement2": {
+      "date": "Agosto 2024",
+      "title": "Cerchiamo partner scolastici",
+      "description": "Stiamo cercando attivamente scuole interessate a unirsi al nostro programma pilota e testare le nostre stazioni di monitoraggio dell'aria."
     },
-    "step3": {
-      "title": "Archiviazione cloud",
-      "description": "Il database PostgreSQL memorizza tutti i dati ambientali per il tracciamento storico e l'analisi a lungo termine."
+    "announcement3": {
+      "date": "Luglio 2024",
+      "title": "Codice open source disponibile",
+      "description": "Tutto il nostro codice è ora open source e disponibile su GitHub perché la comunità possa contribuire e personalizzare."
     },
-    "step4": {
-      "title": "Visualizzazione",
-      "description": "I dashboard dei dati forniscono monitoraggio in tempo reale, analisi delle tendenze e strumenti di esplorazione dati educativi."
+    "announcement4": {
+      "date": "In corso",
+      "title": "Unisciti al nostro team",
+      "description": "Stiamo cercando volontari appassionati di educazione ambientale e tecnologia per aiutarci a sviluppare schoolAIR."
     }
   },
   "impact": {

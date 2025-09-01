@@ -2,7 +2,7 @@
   "nav": {
     "about": "À propos",
     "products": "Produits",
-    "howItWorks": "Comment ça marche",
+    "announcements": "Mises à jour du projet",
     "workshops": "Ateliers",
     "hackathon": "Hackathon",
     "volunteerDriven": "100% Bénévole",
@@ -18,24 +18,28 @@
     "quoteAuthor": "-- Mia, BFIS",
     "audioMessage": "Un message du fondateur"
   },
-  "howItWorks": {
-    "title": "Comment ça marche",
-    "subtitle": "Des capteurs au cloud : comprendre votre station de surveillance environnementale",
-    "step1": {
-      "title": "Collecte de données",
-      "description": "Le M5Stack CoreS3 lit les données des capteurs : température, humidité, pression et concentrations de particules fines."
+  "announcements": {
+    "title": "Mises à jour et actualités du projet",
+    "subtitle": "Derniers développements dans la communauté schoolAIR",
+    "announcement1": {
+      "date": "Septembre 2024",
+      "title": "Lancement du support multilingue",
+      "description": "schoolAIR est maintenant disponible en plusieurs langues pour mieux servir notre communauté mondiale d'écoles."
     },
-    "step2": {
-      "title": "Transmission sécurisée",
-      "description": "Données envoyées via Wi-Fi vers l'API backend Node-RED avec des requêtes HTTP POST sécurisées et authentification par clé API."
+    "announcement2": {
+      "date": "Août 2024",
+      "title": "Recherche de partenaires scolaires",
+      "description": "Nous recherchons activement des écoles intéressées à rejoindre notre programme pilote et à tester nos stations de surveillance de l'air."
     },
-    "step3": {
-      "title": "Stockage cloud",
-      "description": "La base de données PostgreSQL stocke toutes les données environnementales pour un suivi et une analyse historiques à long terme."
+    "announcement3": {
+      "date": "Juillet 2024",
+      "title": "Code open source disponible",
+      "description": "Tout notre code est maintenant open source et disponible sur GitHub pour que la communauté puisse contribuer et personnaliser."
     },
-    "step4": {
-      "title": "Visualisation",
-      "description": "Les tableaux de bord de données fournissent une surveillance en temps réel, une analyse des tendances et des outils d'exploration de données éducatives."
+    "announcement4": {
+      "date": "En cours",
+      "title": "Rejoignez notre équipe",
+      "description": "Nous cherchons des bénévoles passionnés par l'éducation environnementale et la technologie pour nous aider à développer schoolAIR."
     }
   },
   "impact": {

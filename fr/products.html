@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Offerings - SchoolAIR Project</title>
+    
+    <!-- Hreflang tags for SEO -->
+    <link rel="alternate" hreflang="en" href="https://schoolair.org/en/products.html">
+    <link rel="alternate" hreflang="es" href="https://schoolair.org/es/products.html">
+    <link rel="alternate" hreflang="fr" href="https://schoolair.org/fr/products.html">
+    <link rel="alternate" hreflang="ca" href="https://schoolair.org/ca/products.html">
+    <link rel="alternate" hreflang="it" href="https://schoolair.org/it/products.html">
+    <link rel="alternate" hreflang="x-default" href="https://schoolair.org/en/products.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2e7d32;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #2e7d32;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background: #f8fffe;
+        }
+
+        .section-title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card.featured {
+            border-color: #4caf50;
+            position: relative;
+        }
+
+        .product-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #4caf50;
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 10;
+        }
+
+        .product-header {
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-header h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
+        .price {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background: #4caf50;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #2e7d32;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4caf50;
+            border: 2px solid #4caf50;
+        }
+
+        .btn-secondary:hover {
+            background: #4caf50;
+            color: white;
+        }
+
+        /* Components Link Section */
+        .components-link {
+            background: linear-gradient(135deg, #1565c0, #1976d2);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .components-link h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .components-link p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .btn-components {
+            background: white;
+            color: #1565c0;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-components:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">SchoolAIR</a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="index.html#announcements">Updates</a></li>
+                <li><a href="index.html#get-involved">Get Involved</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Products & Offerings</h1>
+            <p>Choose how you want to join the schoolAIR community and start monitoring air quality at your institution</p>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            <p class="section-subtitle">From complete ready-to-build kits to hands-on workshops, we have options for every school and learning style</p>
+            
+            <div class="products-grid">
+                <!-- Complete Kits -->
+                <div class="product-card featured">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Complete Kits</h3>
+                        <p>Ready-to-build at school</p>
+                    </div>
+                    <div class="product-content">
+                        <p>Everything your students need to build their own air quality monitoring station, delivered directly to your school.</p>
+                        <ul class="features-list">
+                            <li>M5Stack CoreS3 microcontroller</li>
+                            <li>Environmental sensors (PM2.5, temperature, humidity)</li>
+                            <li>Weatherproof enclosure</li>
+                            <li>All cables and connectors</li>
+                            <li>Step-by-step assembly guide</li>
+                            <li>Software pre-loaded</li>
+                            <li>1-year cloud data access</li>
+                        </ul>
+                        <div class="price">€165</div>
+                        <div class="price-note">Per complete kit</div>
+                        <a href="index.html#contact" class="btn">Order Kit</a>
+                    </div>
+                </div>
+
+                <!-- DIY Plans -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>DIY Plans</h3>
+                        <p>Build with your own components</p>
+                    </div>
+                    <div class="product-content">
+                        <p>Detailed plans and software that work with popular microcontrollers you may already have.</p>
+                        <ul class="features-list">
+                            <li>Supports Arduino, ESP32, Raspberry Pi</li>
+                            <li>Complete assembly instructions</li>
+                            <li>3D printable enclosure files</li>
+                            <li>Open-source software code</li>
+                            <li>Component sourcing list</li>
+                            <li>Community support forum</li>
+                            <li>Regular updates & improvements</li>
+                        </ul>
+                        <div class="price">Free</div>
+                        <div class="price-note">Open source initiative</div>
+                        <a href="#" class="btn-secondary btn">Download Plans</a>
+                    </div>
+                </div>
+
+                <!-- Hackathon -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Build-It Hackathon</h3>
+                        <p>Weekend team challenge</p>
+                    </div>
+                    <div class="product-content">
+                        <p>Intensive weekend event where teams of 4 students build, program, and install their station with expert guidance.</p>
+                        <ul class="features-list">
+                            <li>2-day intensive workshop</li>
+                            <li>Teams of 4 students maximum</li>
+                            <li>Expert mentors on-site</li>
+                            <li>All materials included</li>
+                            <li>Installation support at school</li>
+                            <li>Competition prizes</li>
+                            <li>Certificate of completion</li>
+                        </ul>
+                        <div class="price">€110</div>
+                        <div class="price-note">Per student (4-student teams)</div>
+                        <a href="index.html#contact" class="btn">Join Hackathon</a>
+                    </div>
+                </div>
+
+                <!-- 4-Session Workshop -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <h3>4-Session Workshop</h3>
+                        <p>Build over 4 sessions</p>
+                    </div>
+                    <div class="product-content">
+                        <p>Spread the learning across 4 sessions, perfect for integrating into existing curriculum and allowing deeper understanding.</p>
+                        <ul class="features-list">
+                            <li>4 structured learning sessions</li>
+                            <li>Session 1: Environmental science</li>
+                            <li>Session 2: Electronics assembly</li>
+                            <li>Session 3: Programming & setup</li>
+                            <li>Session 4: Data analysis</li>
+                            <li>All materials included</li>
+                            <li>Take-home reference materials</li>
+                        </ul>
+                        <div class="price">€87</div>
+                        <div class="price-note">Per student</div>
+                        <a href="index.html#contact" class="btn">Register Workshop</a>
+                    </div>
+                </div>
+
+                <!-- IoT & AI Programming -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>IoT & AI Programming</h3>
+                        <p>Advanced coding workshops</p>
+                    </div>
+                    <div class="product-content">
+                        <p>Advanced workshops focusing on Internet of Things connectivity and artificial intelligence applications for environmental data.</p>
+                        <ul class="features-list">
+                            <li>Cloud connectivity programming</li>
+                            <li>API development & data transmission</li>
+                            <li>Machine learning for predictions</li>
+                            <li>Data visualization techniques</li>
+                            <li>IoT security best practices</li>
+                            <li>Real-world project portfolio</li>
+                        </ul>
+                        <div class="price">€69</div>
+                        <div class="price-note">Per student</div>
+                        <a href="index.html#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Robotics Workshop -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Robotics Workshop</h3>
+                        <p>Mobile environmental monitoring</p>
+                    </div>
+                    <div class="product-content">
+                        <p>Combine robotics with environmental monitoring by building mobile stations that can autonomously collect data from different locations.</p>
+                        <ul class="features-list">
+                            <li>Mobile robot platform</li>
+                            <li>Autonomous navigation basics</li>
+                            <li>Multi-point data collection</li>
+                            <li>GPS tracking integration</li>
+                            <li>Remote control capabilities</li>
+                            <li>Environmental mapping</li>
+                        </ul>
+                        <div class="price">€128</div>
+                        <div class="price-note">Per student</div>
+                        <a href="index.html#contact" class="btn">Explore Robotics</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="components-link">
+        <div class="container">
+            <h2>Want to See the Technical Details?</h2>
+            <p>Explore all the components, sensors, and materials used in our air quality monitoring stations</p>
+            <a href="index.html#components" class="btn-components">View Components & Materials</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 schoolAIR Project. <a href="index.html">Back to Home</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguageMenu() {
+            // Placeholder for future language menu functionality
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

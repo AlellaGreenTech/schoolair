@@ -1,0 +1,16 @@
+# Netlify redirects to remove index.html from URLs
+
+# Redirect index.html to clean URLs
+/en/index.html /en/ 301
+/es/index.html /es/ 301  
+/fr/index.html /fr/ 301
+/ca/index.html /ca/ 301
+/it/index.html /it/ 301
+/index.html / 301
+
+# Serve index.html for directory requests
+/en/ /en/index.html 200
+/es/ /es/index.html 200
+/fr/ /fr/index.html 200  
+/ca/ /ca/index.html 200
+/it/ /it/index.html 200

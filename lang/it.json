@@ -9,13 +9,15 @@
     "joinProject": "UNISCITI AL PROGETTO"
   },
   "hero": {
-    "title": "L'aria cattiva danneggia l'apprendimento",
-    "subtitle": "I bambini della scuola possono risolverlo.",
-    "description": "Gli studenti costruiscono stazioni di qualità dell'aria/meteorologiche che proteggono la comunità scolastica, migliorano l'apprendimento e raccolgono dati per progetti.",
-    "enrollButton": "Iscrivi la tua scuola",
-    "orderButton": "Ordina un kit stazione domestica",
-    "quote": "Non ho mai imparato così tanto in così poco tempo su un progetto",
-    "quoteAuthor": "-- Mia, BFIS",
+    "title": "L'Aria Buona Alimenta l'Apprendimento",
+    "subtitle": "SchoolAir: Nuove competenze. Impatto duraturo.",
+    "description": "Gli studenti dominano programmazione, elettronica e scienza dei dati mentre costruiscono sistemi di monitoraggio della qualità dell'aria che proteggono la loro comunità scolastica.",
+    "enrollButton": "Iscrivi la Tua Scuola",
+    "orderButton": "Ottieni Kit Domestico",
+    "quote1": "Non ho mai imparato così tanto in così poco tempo su un progetto -- Mia, BFIS",
+    "quote1Author": "",
+    "quote2": "Gli insegnanti ora possono essere ricordati di ventilare l'aula -- Martin, IGTF",
+    "quote2Author": "",
     "audioMessage": "Un messaggio dal fondatore"
   },
   "announcements": {

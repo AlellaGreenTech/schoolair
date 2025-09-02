@@ -9,13 +9,15 @@
     "joinProject": "UNEIX-TE AL PROJECTE"
   },
   "hero": {
-    "title": "L'aire dolent perjudica l'aprenentatge",
-    "subtitle": "Els nens de l'escola ho poden solucionar.",
-    "description": "Els estudiants construeixen estacions de qualitat de l'aire/meteorològiques que protegeixen la comunitat escolar, milloren l'aprenentatge i recopilen dades per a projectes.",
-    "enrollButton": "Inscriu la teva escola",
-    "orderButton": "Demana un kit d'estació domèstica",
-    "quote": "Mai vaig aprendre tant en tan poc temps en un projecte",
-    "quoteAuthor": "-- Mia, BFIS",
+    "title": "L'Aire Bo Alimenta l'Aprenentatge",
+    "subtitle": "SchoolAir: Noves habilitats. Impacte durador.",
+    "description": "Els estudiants dominen la programació, electrònica i ciència de dades mentre construeixen sistemes de monitoratge de qualitat de l'aire que protegeixen la seva comunitat escolar.",
+    "enrollButton": "Inscriu la Teva Escola",
+    "orderButton": "Obtenir Kit Domèstic",
+    "quote1": "Mai vaig aprendre tant en tan poc temps en un projecte -- Mia, BFIS",
+    "quote1Author": "",
+    "quote2": "Els mestres ara poden ser recordats de ventilar l'aula -- Martin, IGTF",
+    "quote2Author": "",
     "audioMessage": "Un missatge del fundador"
   },
   "announcements": {

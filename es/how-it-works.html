@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Funciona - Proyecto SchoolAIR</title>
+    <link rel="alternate" hreflang="en" href="../en/">
+    <link rel="alternate" hreflang="es" href="../es/">
+    <link rel="alternate" hreflang="fr" href="../fr/">
+    <link rel="alternate" hreflang="ca" href="../ca/">
+    <link rel="alternate" hreflang="it" href="../it/">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+            gap: 0.5rem;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-selector-dropdown {
+            position: relative;
+        }
+
+        .language-selector {
+            background: none;
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: #4A148C;
+            color: white;
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 120px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #eee;
+        }
+
+        .language-menu a:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .language-menu a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .language-menu a:hover {
+            background: #f5f5f5;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            top: -15px;
+        }
+
+        .logo-text {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .logo-tagline {
+            font-family: Arial, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 2px;
+            line-height: 1.2;
+            text-align: left;
+            margin-left: -84px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #2e7d32;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, #4A148C, #E1BEE7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 8rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.05) 0%, rgba(118, 255, 3, 0.05) 50%, rgba(255, 111, 0, 0.05) 100%);
+        }
+
+        .page-title {
+            text-align: center;
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #1B5E20;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #FF6F00;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 3px solid #e8f5e8;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid #4caf50;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-icon-large {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-text h3 {
+            color: #0a0a0a;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .step-text p {
+            color: #1a1a1a;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #1B5E20;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-top: 1px solid rgba(46, 125, 50, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .cta-nav {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .step-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .step-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    schoolAIR
+                    <div class="logo-tagline">An International Green Tech Foundation Project</div>
+                </div>
+            </div>
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#about">Acerca</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="how-it-works.html">Cómo Funciona</a></li>
+                    <li><a href="#workshops">Talleres</a></li>
+                    <li><a href="#hackathon">Hackathon</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#get-involved" class="cta-nav"><span>100% Impulsado por Voluntarios</span><br><span>ÚNETE AL PROYECTO</span></a>
+                    <div class="language-selector-dropdown">
+                        <button class="language-selector" onclick="toggleLanguageMenu()">Español</button>
+                        <div class="language-menu" id="languageMenu">
+                            <a href="../en/">English</a>
+                            <a href="../fr/">Français</a>
+                            <a href="../es/">Español</a>
+                            <a href="../ca/">Català</a>
+                            <a href="../it/">Italiano</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver al Inicio
+            </a>
+            
+            <h1 class="page-title">Cómo Funciona</h1>
+            <p class="page-subtitle">Un proceso simple de 4 pasos para implementar monitoreo ambiental en tu escuela</p>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-item">
+                        <div class="step-icon-large">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="step-text">
+                            <h3>1. Las Escuelas Ordenan</h3>
+                            <p>Obtén kits completos con todos los componentes, sensores y hardware necesarios, o simplemente descarga los planos detallados y consigue los componentes por tu cuenta. Ambas opciones incluyen guías completas de configuración y materiales educativos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-item">
+                        <div class="step-icon-large">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="step-text">
+                            <h3>2. Los Estudiantes Construyen</h3>
+                            <p>Los estudiantes ensamblan la estación de monitoreo de calidad del aire en la escuela a través de talleres prácticos, aprendiendo electrónica, programación y ciencias ambientales. Nuestras guías apoyan tanto escenarios de aprendizaje en el aula como remotos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-item">
+                        <div class="step-icon-large">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="step-text">
+                            <h3>3. Estaciones Desplegadas</h3>
+                            <p>Las estaciones completadas se instalan alrededor del campus escolar para monitorear la calidad del aire, temperatura y humedad en tiempo real, protegiendo a la comunidad escolar con alertas oportunas y datos accionables.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-item">
+                        <div class="step-icon-large">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="step-text">
+                            <h3>4. Datos Recolectados</h3>
+                            <p>Los datos ambientales se almacenan automáticamente en bases de datos globales a través de nuestra API segura, permitiendo a los estudiantes analizar tendencias, contribuir a la investigación climática y comparar datos con escuelas de todo el mundo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Language menu toggle function
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.language-selector-dropdown');
+            const menu = document.getElementById('languageMenu');
+            if (dropdown && !dropdown.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

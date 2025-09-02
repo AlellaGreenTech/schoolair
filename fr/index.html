@@ -122,65 +122,6 @@
             color: white;
         }
 
-        /* Audio Message Button in Hero */
-        .audio-message-container {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: 1001;
-        }
-
-        .audio-message-button {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid rgba(74, 20, 140, 0.6);
-            color: #4A148C;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
-            opacity: 1 !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-
-        .audio-message-button:hover {
-            background: rgba(74, 20, 140, 0.1);
-            color: #4A148C;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 18px rgba(74, 20, 140, 0.3);
-        }
-
-        .audio-message-button.playing {
-            background: #2e7d32;
-            border-color: #2e7d32;
-            color: white;
-        }
-
-        .audio-message-button.playing:hover {
-            background: #1B5E20;
-            border-color: #1B5E20;
-        }
-
-        @media (max-width: 480px) {
-            .audio-message-container {
-                top: 70px;
-                right: 15px;
-            }
-            
-            .audio-message-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-        }
 
         .language-menu {
             position: absolute;
@@ -227,6 +168,68 @@
             background: #f5f5f5;
         }
 
+        /* Hero Audio Button */
+        .hero-audio-container {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: fit-content;
+            z-index: 1002;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .hero-audio-button {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.25);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .hero-audio-button:hover {
+            background: rgba(74, 20, 140, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.35);
+        }
+
+        .hero-audio-button.playing {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: white;
+        }
+
+        .hero-audio-button.playing:hover {
+            background: #1B5E20;
+            border-color: #1B5E20;
+        }
+
+        @media (max-width: 480px) {
+            .hero-audio-container {
+                top: 160px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .hero-audio-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -243,6 +246,8 @@
             justify-content: center;
             color: white;
             font-size: 1.2rem;
+            position: relative;
+            top: -15px;
         }
 
         .logo-text {
@@ -250,6 +255,17 @@
             font-size: 1.5rem;
             font-weight: 600;
             color: #2e7d32;
+        }
+
+        .logo-tagline {
+            font-family: Arial, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 2px;
+            line-height: 1.2;
+            text-align: left;
+            margin-left: -84px;
         }
 
         .nav-links {
@@ -443,8 +459,16 @@
 
         /* Hero Quote */
         .hero-quote {
-            margin-top: 2rem;
+            margin-top: 0.8rem;
             text-align: left;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid rgba(76, 175, 80, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            margin-bottom: 0.6rem;
+            max-width: 650px;
         }
 
         .hero-quote p {
@@ -550,7 +574,7 @@
             margin-bottom: 1.5rem;
             padding: 1rem;
             background: rgba(76, 175, 80, 0.05);
-            border-radius: 12px;
+            border-radius: 8px;
             border-left: 3px solid #4caf50;
         }
 
@@ -657,7 +681,7 @@
             margin-bottom: 1.5rem;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .card-image img {
@@ -695,7 +719,7 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #4caf50;
+            border-left: 3px solid rgba(76, 175, 80, 0.7);
             transition: all 0.3s ease;
         }
 
@@ -720,7 +744,16 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            margin-top: 2rem;
+            margin-top: 1.5rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid rgba(76, 175, 80, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1rem;
+            max-width: 650px;
         }
 
         .components-table table {
@@ -919,7 +952,7 @@
 
         .involvement-card {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
@@ -1107,8 +1140,10 @@
         .partner-schools-overlay {
             position: absolute;
             bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: fit-content;
             width: 100%;
             max-width: 1200px;
             z-index: 3;
@@ -1123,7 +1158,7 @@
             margin-bottom: 1.5rem;
             font-family: 'Inter', sans-serif;
             text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.4);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             display: inline-block;
@@ -1154,7 +1189,7 @@
             max-width: 180px;
             height: 72px;
             object-fit: contain;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.4);
             padding: 0.5rem;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -1277,13 +1312,16 @@
                 <div class="logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
-                <div class="logo-text">schoolAIR</div>
+                <div class="logo-text">
+                    schoolAIR
+                    <div class="logo-tagline">An International Green Tech Foundation Project</div>
+                </div>
             </div>
             <div class="nav-main">
                 <ul class="nav-links">
                     <li><a href="#about" data-i18n="nav.about">About</a></li>
                     <li><a href="products.html" data-i18n="nav.products">Products</a></li>
-                    <li><a href="#announcements" data-i18n="nav.announcements">Announcements</a></li>
+                    <li><a href="how-it-works.html" data-i18n="nav.howItWorks">Comment Ça Marche</a></li>
                     <li><a href="#workshops" data-i18n="nav.workshops">Workshops</a></li>
                     <li><a href="#hackathon" data-i18n="nav.hackathon">Hackathon</a></li>
                 </ul>
@@ -1292,11 +1330,11 @@
                     <div class="language-selector-dropdown">
                         <button class="language-selector" onclick="toggleLanguageMenu()">Français</button>
                         <div class="language-menu" id="languageMenu">
-                            <a href="../en/index.html">English</a>
-                            <a href="../index.html">Français</a>
-                            <a href="../es/index.html">Español</a>
-                            <a href="../ca/index.html">Català</a>
-                            <a href="../it/index.html">Italiano</a>
+                            <a href="../en/">English</a>
+                            <a href="../fr/">Français</a>
+                            <a href="../es/">Español</a>
+                            <a href="../ca/">Català</a>
+                            <a href="../it/">Italiano</a>
                         </div>
                     </div>
                 </div>
@@ -1314,8 +1352,8 @@
         </video>
         
         <!-- Audio Message Button -->
-        <div class="audio-message-container">
-            <button class="audio-message-button" id="audioToggle" onclick="toggleAudio()">
+        <div class="hero-audio-container">
+            <button class="hero-audio-button" id="audioToggle" onclick="toggleAudio()">
                 <i class="fas fa-volume-mute"></i>
                 <span>Un message du fondateur</span>
             </button>
@@ -1324,57 +1362,57 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1><span data-i18n="hero.title">Bad air <span class="break-mobile">hurts learning</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">School kids can fix it.</p>
-                    <p data-i18n="hero.description">Les élèves construisent des stations de qualité de l'air/météo qui protègent la communauté scolaire, améliorent l'apprentissage et collectent des données pour des projets.</p>
+                    <h1><span data-i18n="hero.title">L'Air Pur <span class="break-mobile">Nourrit l'Apprentissage</span></span></h1>
+                    <p class="subtitle" data-i18n="hero.subtitle">SchoolAir: Nouvelles compétences. Impact durable.</p>
+                    <p data-i18n="hero.description">Les élèves maîtrisent la programmation, l'électronique et la science des données en construisant des systèmes de surveillance de la qualité de l'air qui protègent leur communauté scolaire.</p>
                     <div class="hero-buttons">
-                        <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Enroll Your School</a>
-                        <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Order a home station kit</a>
+                        <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Inscrire Votre École</a>
+                        <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Obtenir Kit Domestique</a>
                     </div>
                     <div class="hero-quote">
-                        <p>"I never learnt so much in so little time on a project" <span>-- Mia, BFIS</span></p>
+                        <p><span data-i18n="hero.quote1">"Je n'ai jamais autant appris en si peu de temps sur un projet -- Mia, BFIS"</span></p>
                     </div>
                     <div class="hero-quote">
-                        <p>"It's reassuring that teachers now know when to ventilate a classroom or limit outdoor exertion" -- Martin, IGTF</p>
+                        <p><span data-i18n="hero.quote2">"Les enseignants peuvent maintenant être rappelés d'aérer la salle de classe -- Martin, IGTF"</span></p>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="how-it-works-hero">
-                        <h3 class="how-title">HOW IT WORKS</h3>
+                        <h3 class="how-title">Actualités du Projet</h3>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-box"></i>
+                                <i class="fas fa-rocket"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Schools order</strong>
-                                <span>Complete kits or just the plans</span>
+                                <strong>Été STEM 2025 !</strong>
+                                <span>Les premières unités ont été conçues et construites !</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-tools"></i>
+                                <i class="fas fa-flag"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Students build</strong>
-                                <span>A station at school or in person workshops</span>
+                                <strong>PIONNIERS !</strong>
+                                <span>1ère unité à installer au BFIS Barcelone !</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-shield-alt"></i>
+                                <i class="fab fa-github"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Stations deployed</strong>
-                                <span>Protect the school community with timely alerts</span>
+                                <strong>Code Open Source</strong>
+                                <span>Tous les plans et guides disponibles sur GitHub</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fas fa-hands-helping"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Data Collected</strong>
-                                <span>is stored in global databases via our API for trend analysis</span>
+                                <strong>Rejoignez l'Équipe</strong>
+                                <span>Initiative 100% bénévole a besoin de vous</span>
                             </div>
                         </div>
                     </div>
@@ -1757,7 +1795,7 @@
                     <h3>Quick Links</h3>
                     <p><a href="#about">About Project</a></p>
                     <p><a href="#components">Components</a></p>
-                    <p><a href="#announcements">Announcements</a></p>
+                    <p><a href="how-it-works.html">Comment Ça Marche</a></p>
                     <p><a href="#get-involved">Get Involved</a></p>
                 </div>
                 <div class="footer-section">
@@ -1950,7 +1988,7 @@
                 // First time clicking - play pre-audio first
                 currentlyPlaying = true;
                 preAudio.play().then(() => {
-                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>' + 'Un message du fondateur' + '</span>';
+                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>Audio</span>';
                     audioToggle.classList.add('playing');
                     audioPlayed = true;
                 }).catch((error) => {
@@ -1963,12 +2001,12 @@
                     if (preAudio.muted || backgroundAudio.muted) {
                         preAudio.muted = false;
                         backgroundAudio.muted = false;
-                        audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>' + 'Un message du fondateur' + '</span>';
+                        audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>Audio</span>';
                         audioToggle.classList.add('playing');
                     } else {
                         preAudio.muted = true;
                         backgroundAudio.muted = true;
-                        audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>' + 'Un message du fondateur' + '</span>';
+                        audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Audio</span>';
                         audioToggle.classList.remove('playing');
                     }
                 }
@@ -1980,14 +2018,14 @@
             backgroundAudio.play().catch((error) => {
                 console.log('Background audio playback failed:', error);
                 currentlyPlaying = false;
-                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Un message du fondateur</span>';
+                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Audio</span>';
                 audioToggle.classList.remove('playing');
             });
         });
 
         // Main audio ended event - reset to muted state
         backgroundAudio.addEventListener('ended', () => {
-            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Un message du fondateur</span>';
+            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Audio</span>';
             audioToggle.classList.remove('playing');
             audioPlayed = false;
             currentlyPlaying = false;

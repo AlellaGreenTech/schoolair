@@ -9,13 +9,15 @@
     "joinProject": "JOIN THE PROJECT"
   },
   "hero": {
-    "title": "Bad air hurts learning",
-    "subtitle": "School kids can fix it.",
-    "description": "Students build air quality / weather stations that protect the school community, enhance learning and collect data for projects.",
+    "title": "Good Air Fuels Learning",
+    "subtitle": "SchoolAir: New skills. Lasting Impact.",
+    "description": "Students master programming, electronics, and data science while building air quality monitoring systems that protect their school community.",
     "enrollButton": "Enroll Your School",
-    "orderButton": "Order a home station kit",
-    "quote": "I never learnt so much in so little time on a project",
-    "quoteAuthor": "-- Mia, BFIS",
+    "orderButton": "Get A Home Kit",
+    "quote1": "I never learnt so much in so little time on a project -- Mia, BFIS",
+    "quote1Author": "",
+    "quote2": "Teachers can now be reminded to ventilate the classroom -- Martin, IGTF",
+    "quote2Author": "",
     "audioMessage": "A message from the founder"
   },
   "announcements": {

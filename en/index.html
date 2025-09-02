@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SchoolAIR Project - Environmental Education Through Technology</title>
-    <link rel="alternate" hreflang="en" href="../index.html">
-    <link rel="alternate" hreflang="es" href="../es/index.html">
-    <link rel="alternate" hreflang="fr" href="../fr/index.html">
-    <link rel="alternate" hreflang="ca" href="../ca/index.html">
-    <link rel="alternate" hreflang="it" href="../it/index.html">
+    <link rel="alternate" hreflang="en" href="../en/">
+    <link rel="alternate" hreflang="es" href="../es/">
+    <link rel="alternate" hreflang="fr" href="../fr/">
+    <link rel="alternate" hreflang="ca" href="../ca/">
+    <link rel="alternate" hreflang="it" href="../it/">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -118,37 +118,47 @@
 
         /* Audio Message Button in Hero */
         .audio-message-container {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: 1001;
-        }
-
-        .audio-message-button {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid rgba(74, 20, 140, 0.6);
-            color: #4A148C;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
+            position: absolute !important;
+            top: 50px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 1001 !important;
+            display: block !important;
             opacity: 1 !important;
             visibility: visible !important;
+            width: auto !important;
+            height: auto !important;
+            pointer-events: auto !important;
         }
 
-        .audio-message-button:hover {
-            background: rgba(74, 20, 140, 0.1);
-            color: #4A148C;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 18px rgba(74, 20, 140, 0.3);
+        .audio-message-container .audio-message-button {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 2px solid #4A148C !important;
+            color: #4A148C !important;
+            padding: 0.7rem 1.2rem !important;
+            border-radius: 20px !important;
+            cursor: pointer !important;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            transition: all 0.3s ease !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            backdrop-filter: blur(10px) !important;
+            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.25) !important;
+            margin: 0 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            position: relative !important;
+            z-index: 10 !important;
+            white-space: nowrap !important;
+        }
+
+        .audio-message-container .audio-message-button:hover {
+            background: rgba(74, 20, 140, 0.1) !important;
+            color: #4A148C !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.35) !important;
         }
 
         .audio-message-button.playing {
@@ -164,13 +174,13 @@
 
         @media (max-width: 480px) {
             .audio-message-container {
-                top: 70px;
-                right: 15px;
+                top: 90px !important;
+                right: 20px !important;
             }
             
             .audio-message-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
+                padding: 0.6rem 1rem !important;
+                font-size: 0.9rem !important;
             }
         }
 
@@ -218,6 +228,67 @@
         .language-menu a:hover {
             background: #f5f5f5;
         }
+        
+        /* Hero Audio Button */
+        .hero-audio-container {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: fit-content;
+            z-index: 1002;
+        }
+        
+        .hero-audio-button {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(74, 20, 140, 0.6);
+            color: #4A148C;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 8px rgba(74, 20, 140, 0.15);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .hero-audio-button:hover {
+            background: rgba(74, 20, 140, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.35);
+        }
+        
+        .hero-audio-button.playing {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: white;
+        }
+        
+        .hero-audio-button.playing:hover {
+            background: #1B5E20;
+            border-color: #1B5E20;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-audio-container {
+                top: 160px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: fit-content;
+            }
+            
+            .hero-audio-button {
+                padding: 0.35rem 0.7rem;
+                font-size: 0.7rem;
+            }
+        }
 
         .logo {
             display: flex;
@@ -235,6 +306,8 @@
             justify-content: center;
             color: white;
             font-size: 1.2rem;
+            position: relative;
+            top: -15px;
         }
 
         .logo-text {
@@ -242,6 +315,23 @@
             font-size: 1.5rem;
             font-weight: 600;
             color: #2e7d32;
+        }
+        .logo-tagline {
+            font-family: Arial, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 2px;
+            line-height: 1.2;
+            text-align: left;
+            margin-left: -84px;
+        }
+        .logo-tagline a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+        .logo-tagline a:hover {
+            text-decoration: underline;
         }
 
         .nav-links {
@@ -306,12 +396,12 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 8rem;
+            padding-top: 6rem;
         }
         
         .hero-video {
@@ -435,25 +525,42 @@
 
         /* Hero Quote */
         .hero-quote {
-            margin-top: 2rem;
+            margin-top: 0.8rem;
             text-align: left;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid rgba(76, 175, 80, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            margin-bottom: 0.6rem;
+            max-width: 1300px;
         }
 
         .hero-quote p {
             font-style: italic;
-            font-size: 1.2rem;
-            color: #0a0a0a;
+            font-size: 1.1rem;
+            color: #2c3e50;
             font-weight: 500;
-            line-height: 1.5;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
+            line-height: 1.6;
+            margin-bottom: 0.4rem;
+            text-shadow: none;
+            white-space: nowrap;
         }
 
-        .hero-quote span {
-            font-size: 0.95rem;
-            color: #FF6F00;
+        .hero-quote span[data-i18n*="quote"] {
+            font-size: 1.1rem;
+            color: #2c3e50;
             font-weight: 500;
+        }
+        
+        .hero-quote span[data-i18n*="Author"] {
+            font-size: 0.95rem;
+            color: #4caf50;
+            font-weight: 600;
+            font-style: normal;
+            display: block;
+            margin-top: 0.5rem;
         }
 
         .hero-visual {
@@ -1196,8 +1303,8 @@
             }
 
             .hero {
-                padding-top: 10rem;
-                min-height: calc(100vh + 2rem);
+                padding-top: 8rem;
+                min-height: 85vh;
             }
 
             .hero-content {
@@ -1267,13 +1374,16 @@
                 <div class="logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
-                <div class="logo-text">schoolAIR</div>
+                <div class="logo-text">
+                    schoolAIR
+                    <div class="logo-tagline">An <a href="https://alellagreentech.org" target="_blank">International Green Tech Foundation</a> Project</div>
+                </div>
             </div>
             <div class="nav-main">
                 <ul class="nav-links">
                     <li><a href="#about" data-i18n="nav.about">About</a></li>
                     <li><a href="products.html" data-i18n="nav.products">Products</a></li>
-                    <li><a href="#announcements" data-i18n="nav.announcements">Announcements</a></li>
+                    <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
                     <li><a href="#workshops" data-i18n="nav.workshops">Workshops</a></li>
                     <li><a href="#hackathon" data-i18n="nav.hackathon">Hackathon</a></li>
                 </ul>
@@ -1282,11 +1392,11 @@
                     <div class="language-selector-dropdown">
                         <button class="language-selector" onclick="toggleLanguageMenu()">English</button>
                         <div class="language-menu" id="languageMenu">
-                            <a href="../index.html">English</a>
-                            <a href="../fr/index.html">Français</a>
-                            <a href="../es/index.html">Español</a>
-                            <a href="../ca/index.html">Català</a>
-                            <a href="../it/index.html">Italiano</a>
+                            <a href="../en/">English</a>
+                            <a href="../fr/">Français</a>
+                            <a href="../es/">Español</a>
+                            <a href="../ca/">Català</a>
+                            <a href="../it/">Italiano</a>
                         </div>
                     </div>
                 </div>
@@ -1304,8 +1414,8 @@
         </video>
         
         <!-- Audio Message Button -->
-        <div class="audio-message-container">
-            <button class="audio-message-button" id="audioToggle" onclick="toggleAudio()">
+        <div class="hero-audio-container">
+            <button class="hero-audio-button" id="audioToggle" onclick="toggleAudio()">
                 <i class="fas fa-volume-mute"></i>
                 <span>A message from the founder</span>
             </button>
@@ -1314,57 +1424,57 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1><span data-i18n="hero.title">Bad air <span class="break-mobile">hurts learning</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">School kids can fix it.</p>
+                    <h1><span data-i18n="hero.title">Good Air <span class="break-mobile">Fuels Learning</span></span></h1>
+                    <p class="subtitle" data-i18n="hero.subtitle">Kids can make the difference.</p>
                     <p data-i18n="hero.description">Students build air quality / weather stations that protect the school community, enhance learning and collect data for project & trend analysis.</p>
                     <div class="hero-buttons">
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Enroll Your School</a>
-                        <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Order a home station kit</a>
+                        <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Get A Home Kit</a>
                     </div>
                     <div class="hero-quote">
-                        <p>"I never learnt so much in so little time on a project" <span>-- Mia, BFIS</span></p>
+                        <p><span data-i18n="hero.quote1">"I never learnt so much in so little time on a project -- Mia, BFIS"</span></p>
                     </div>
                     <div class="hero-quote">
-                        <p>"It's reassuring that teachers now know when to ventilate a classroom or limit outdoor exertion" -- Martin, IGTF</p>
+                        <p><span data-i18n="hero.quote2">"Teachers now know when to ventilate classrooms -- Martin, IGTF"</span></p>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="how-it-works-hero">
-                        <h3 class="how-title">HOW IT WORKS</h3>
+                        <h3 class="how-title">Project News</h3>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-box"></i>
+                                <i class="fas fa-rocket"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Schools order</strong>
-                                <span>Complete kits or just the plans</span>
+                                <strong>2025 STEM Summer!</strong>
+                                <span>The first units were designed and built!</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-tools"></i>
+                                <i class="fas fa-flag"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Students build</strong>
-                                <span>A station at school or in person workshops</span>
+                                <strong>PIONEERS!</strong>
+                                <span>1st unit to be installed at BFIS Barcelona!</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-shield-alt"></i>
+                                <i class="fab fa-github"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Stations deployed</strong>
-                                <span>Protect the school community with timely alerts</span>
+                                <strong>Open Source Code</strong>
+                                <span>All designs and guides available on GitHub</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <div class="step-icon-small">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fas fa-hands-helping"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Data Collected</strong>
-                                <span>is stored in global databases via our API for trend analysis</span>
+                                <strong>Join Our Team</strong>
+                                <span>100% volunteer-driven initiative needs you</span>
                             </div>
                         </div>
                     </div>
@@ -1399,15 +1509,15 @@
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About schoolAIR</h2>
-            <p class="section-subtitle">A comprehensive educational project that combines hands-on STEM learning with real-world environmental monitoring</p>
+            <p class="section-subtitle">Transform students into tech innovators through immersive projects that teach programming, IoT, data science, and environmental monitoring</p>
             
             <div class="about-grid">
                 <div class="about-card">
                     <div class="card-image">
                         <img src="../images/students/mia and marina.jpeg" alt="Mia and Marina working on air quality station">
                     </div>
-                    <h3>Educational Excellence</h3>
-                    <p>Integrate IoT, environmental science, and data analysis into your curriculum through practical, hands-on learning experiences.</p>
+                    <h3>Technical Mastery Through Practice</h3>
+                    <p>Students learn Python programming, circuit design, API development, and database management while building real environmental monitoring systems.</p>
                 </div>
                 <div class="about-card">
                     <div class="card-image">
@@ -1427,8 +1537,8 @@
                     <div class="card-image">
                         <img src="../images/students/outside deployment.jpeg" alt="Students deploying the monitoring station outside">
                     </div>
-                    <h3>Green Technology</h3>
-                    <p>Build essential working green tech infrastructure using modern sensors, microcontrollers, and cloud technology.</p>
+                    <h3>Next-Gen Tech Skills</h3>
+                    <p>Master IoT development, cloud computing, sensor integration, and data visualization - the same technologies driving the modern tech industry.</p>
                 </div>
             </div>
         </div>
@@ -1437,8 +1547,8 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Project Features</h2>
-            <p class="section-subtitle">Everything you need for successful environmental monitoring and education</p>
+            <h2 class="section-title">Technical Learning Journey</h2>
+            <p class="section-subtitle">Master industry-standard technologies while building real-world environmental solutions</p>
             
             <div class="features-grid">
                 <div class="feature-card">
@@ -1450,16 +1560,16 @@
                     <p><strong>PM2.5 Sensor:</strong> Detects and quantifies PM1, PM2.5, and PM10 particulate matter for critical air pollution assessment.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📡 IoT Connectivity</h3>
-                    <p><strong>M5Stack CoreS3:</strong> Wi-Fi enabled microcontroller with built-in display for real-time data visualization and cloud connectivity.</p>
+                    <h3>📡 IoT Development Skills</h3>
+                    <p><strong>Learn IoT Programming:</strong> Master MicroPython, REST APIs, WiFi protocols, and real-time data transmission using industry-standard M5Stack hardware.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>☁️ Cloud Database</h3>
-                    <p><strong>PostgreSQL Storage:</strong> Secure data transmission via Node-RED API to persistent cloud database for historical analysis.</p>
+                    <h3>☁️ Database & API Skills</h3>
+                    <p><strong>Learn Backend Development:</strong> Work with PostgreSQL databases, Node-RED API development, and secure cloud data architecture - core tech industry skills.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📊 Data Visualization</h3>
-                    <p><strong>Data dashboards:</strong> Interactive, real-time dashboards for monitoring trends, patterns, and environmental changes.</p>
+                    <h3>📊 Data Science Skills</h3>
+                    <p><strong>Learn Data Analysis:</strong> Create interactive dashboards, perform statistical analysis, and identify environmental patterns using professional visualization tools.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🎓 Curriculum Integration</h3>
@@ -1521,67 +1631,6 @@
         </div>
     </section>
 
-    <!-- Project Announcements Section -->
-    <section id="announcements" class="announcements">
-        <div class="container">
-            <h2 class="section-title">Project Updates & News</h2>
-            <p class="section-subtitle">Latest developments in the schoolAIR community</p>
-            
-            <div class="announcements-container">
-                <div class="announcement-card featured">
-                    <div class="announcement-header">
-                        <span class="announcement-date">September 2024</span>
-                        <span class="announcement-type new">New Features</span>
-                    </div>
-                    <h3>Multi-language Support Launched</h3>
-                    <p>The schoolAIR website is now available in 5 languages: English, Spanish, French, Catalan, and Italian. Join our global community!</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-globe"></i>
-                        <span>Available Now</span>
-                    </div>
-                </div>
-                
-                <div class="announcement-card">
-                    <div class="announcement-header">
-                        <span class="announcement-date">August 2024</span>
-                        <span class="announcement-type community">Community</span>
-                    </div>
-                    <h3>Looking for School Partners</h3>
-                    <p>We're actively seeking schools worldwide to pilot our air quality monitoring stations. Free kits available for qualifying educational institutions.</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-school"></i>
-                        <span>Apply Now</span>
-                    </div>
-                </div>
-                
-                <div class="announcement-card">
-                    <div class="announcement-header">
-                        <span class="announcement-date">July 2024</span>
-                        <span class="announcement-type development">Development</span>
-                    </div>
-                    <h3>Open Source Code Available</h3>
-                    <p>All hardware designs, software code, and assembly guides are now available on GitHub. Perfect for makers and educators!</p>
-                    <div class="announcement-action">
-                        <i class="fab fa-github"></i>
-                        <span>View on GitHub</span>
-                    </div>
-                </div>
-                
-                <div class="announcement-card volunteer">
-                    <div class="announcement-header">
-                        <span class="announcement-date">Ongoing</span>
-                        <span class="announcement-type volunteer">Volunteer</span>
-                    </div>
-                    <h3>Join Our Team</h3>
-                    <p>We need developers, educators, and environmental enthusiasts to help grow this project. 100% volunteer-driven initiative.</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-hands-helping"></i>
-                        <span>Get Involved</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Impact Section -->
     <section id="impact" class="impact">
@@ -1747,7 +1796,7 @@
                     <h3>Quick Links</h3>
                     <p><a href="#about">About Project</a></p>
                     <p><a href="#components">Components</a></p>
-                    <p><a href="#announcements">Announcements</a></p>
+                    <p><a href="how-it-works.html">How It Works</a></p>
                     <p><a href="#get-involved">Get Involved</a></p>
                 </div>
                 <div class="footer-section">
@@ -1980,8 +2029,8 @@
             updateElement('[data-i18n="hero.description"]', translations.hero.description);
             updateElement('[data-i18n="hero.enrollButton"]', translations.hero.enrollButton);
             updateElement('[data-i18n="hero.orderButton"]', translations.hero.orderButton);
-            updateElement('[data-i18n="hero.quote"]', translations.hero.quote);
-            updateElement('[data-i18n="hero.quoteAuthor"]', translations.hero.quoteAuthor);
+            updateElement('[data-i18n="hero.quote1"]', translations.hero.quote1);
+            updateElement('[data-i18n="hero.quote2"]', translations.hero.quote2);
 
             // How It Works
             updateElement('[data-i18n="howItWorks.title"]', translations.howItWorks.title);

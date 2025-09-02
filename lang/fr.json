@@ -9,13 +9,15 @@
     "joinProject": "REJOINDRE LE PROJET"
   },
   "hero": {
-    "title": "L'air pollué nuit à l'apprentissage",
-    "subtitle": "Les élèves peuvent y remédier.",
-    "description": "Les élèves construisent des stations de qualité de l'air/météo qui protègent la communauté scolaire, améliorent l'apprentissage et collectent des données pour des projets.",
-    "enrollButton": "Inscrire votre école",
-    "orderButton": "Commandez un kit de station domestique",
-    "quote": "Je n'ai jamais autant appris en si peu de temps sur un projet",
-    "quoteAuthor": "-- Mia, BFIS",
+    "title": "L'Air Pur Nourrit l'Apprentissage",
+    "subtitle": "SchoolAir: Nouvelles compétences. Impact durable.",
+    "description": "Les élèves maîtrisent la programmation, l'électronique et la science des données en construisant des systèmes de surveillance de la qualité de l'air qui protègent leur communauté scolaire.",
+    "enrollButton": "Inscrire Votre École",
+    "orderButton": "Obtenir Kit Domestique",
+    "quote1": "Je n'ai jamais autant appris en si peu de temps sur un projet -- Mia, BFIS",
+    "quote1Author": "",
+    "quote2": "Les enseignants peuvent maintenant être rappelés d'aérer la salle de classe -- Martin, IGTF",
+    "quote2Author": "",
     "audioMessage": "Un message du fondateur"
   },
   "announcements": {

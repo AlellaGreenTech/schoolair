@@ -1,10 +1,9 @@
 {
   "nav": {
     "about": "About",
-    "products": "Products", 
+    "products": "Tech", 
     "announcements": "Project Updates",
-    "workshops": "Workshops",
-    "hackathon": "Hackathon",
+    "workshops": "Workshops & Events",
     "volunteerDriven": "100% Volunteer Driven",
     "joinProject": "JOIN THE PROJECT"
   },
@@ -59,7 +58,7 @@
     }
   },
   "components": {
-    "title": "Components & Materials",
+    "title": "Technology & Components",
     "subtitle": "Everything you need to build your air quality monitoring station"
   },
   "footer": {

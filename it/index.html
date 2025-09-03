@@ -739,6 +739,26 @@
             background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop') center/cover;
         }
 
+        .tech-intro {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid rgba(76, 175, 80, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+            max-width: 850px;
+        }
+
+        .tech-intro p {
+            font-size: 1.05rem;
+            color: #0a0a0a;
+            font-weight: 500;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+        }
+
         .components-table {
             background: #f8fffe;
             border-radius: 15px;
@@ -1320,10 +1340,9 @@
             <div class="nav-main">
                 <ul class="nav-links">
                     <li><a href="#about" data-i18n="nav.about">About</a></li>
-                    <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+                    <li><a href="#components" data-i18n="nav.products">Tecnologia</a></li>
                     <li><a href="how-it-works.html" data-i18n="nav.howItWorks">Come Funziona</a></li>
-                    <li><a href="#workshops" data-i18n="nav.workshops">Workshops</a></li>
-                    <li><a href="#hackathon" data-i18n="nav.hackathon">Hackathon</a></li>
+                    <li><a href="#workshops" data-i18n="nav.workshops">Workshop & Eventi</a></li>
                 </ul>
                 <div class="nav-actions">
                     <a href="#get-involved" class="cta-nav"><span data-i18n="nav.volunteerDriven">100% Volunteer Driven</span><br><span data-i18n="nav.joinProject">JOIN THE PROJECT</span></a>
@@ -1520,10 +1539,54 @@
     <!-- Components Section -->
     <section id="components" class="components">
         <div class="container">
-            <h2 class="section-title">Components & Materials</h2>
-            <p class="section-subtitle">Everything included in your schoolAIR kit for under €85</p>
+            <h2 class="section-title">Tecnologia e Componenti</h2>
+            
+            <div class="tech-intro">
+                <p>L'obiettivo del progetto SchoolAIR è supportare tutti i microcontrollori educativi più popolari e utilizzare solo protocolli di comunicazione standard come I2C, Bluetooth e WiFi per garantire accessibilità e interoperabilità. <strong>SchoolAIR è per gli studenti e dagli studenti!</strong></p>
+            </div>
             
             <div class="components-table">
+                <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Supporto Pianificato Microcontrollori</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Microcontrollore</th>
+                            <th>Scuola Assegnata</th>
+                            <th>Scadenza</th>
+                            <th>Stato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Microcontrollori basati su ESP32</strong></td>
+                            <td>Da determinare</td>
+                            <td>T2 2025</td>
+                            <td style="color: #ff9800;">Pianificazione</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arduino Uno R4 Wi-Fi</strong></td>
+                            <td>Da determinare</td>
+                            <td>T3 2025</td>
+                            <td style="color: #ff9800;">Pianificazione</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arduino Nano 33 IoT</strong></td>
+                            <td>Da determinare</td>
+                            <td>T3 2025</td>
+                            <td style="color: #ff9800;">Pianificazione</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raspberry Pi Pico W</strong></td>
+                            <td>Da determinare</td>
+                            <td>T4 2025</td>
+                            <td style="color: #ff9800;">Pianificazione</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="components-table" style="margin-top: 2rem;">
+                <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Componenti Attuali</h3>
                 <table>
                     <thead>
                         <tr>

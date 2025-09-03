@@ -3,8 +3,7 @@
     "about": "Sobre nosaltres",
     "products": "Productes",
     "announcements": "Actualitzacions del projecte",
-    "workshops": "Tallers",
-    "hackathon": "Hackathon",
+    "workshops": "Tallers i Esdeveniments",
     "volunteerDriven": "100% Voluntari",
     "joinProject": "UNEIX-TE AL PROJECTE"
   },
@@ -55,7 +54,7 @@
     }
   },
   "components": {
-    "title": "Components i materials",
+    "title": "Tecnologia i Components",
     "subtitle": "Tot el que necessites per construir la teva estació de monitoratge de qualitat de l'aire"
   },
   "footer": {

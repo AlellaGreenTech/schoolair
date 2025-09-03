@@ -3,8 +3,7 @@
     "about": "À propos",
     "products": "Produits",
     "announcements": "Mises à jour du projet",
-    "workshops": "Ateliers",
-    "hackathon": "Hackathon",
+    "workshops": "Ateliers & Événements",
     "volunteerDriven": "100% Bénévole",
     "joinProject": "REJOINDRE LE PROJET"
   },
@@ -55,7 +54,7 @@
     }
   },
   "components": {
-    "title": "Composants et matériaux",
+    "title": "Technologie et Composants",
     "subtitle": "Tout ce dont vous avez besoin pour construire votre station de surveillance de la qualité de l'air"
   },
   "footer": {

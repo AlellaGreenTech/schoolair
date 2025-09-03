@@ -1,11 +1,10 @@
 {
   "nav": {
     "about": "Chi siamo",
-    "products": "Prodotti",
+    "products": "Tecnologia",
     "announcements": "Aggiornamenti del progetto",
     "workshops": "Workshop & Eventi",
-    "volunteerDriven": "100% Volontario",
-    "joinProject": "UNISCITI AL PROGETTO"
+    "getInvolved": "Partecipare"
   },
   "hero": {
     "title": "L'Aria Buona Alimenta l'Apprendimento",

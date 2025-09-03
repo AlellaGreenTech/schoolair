@@ -1,11 +1,10 @@
 {
   "nav": {
     "about": "Acerca de",
-    "products": "Productos",
+    "products": "Tecnología",
     "announcements": "Actualizaciones del Proyecto",
     "workshops": "Talleres y Eventos",
-    "volunteerDriven": "100% Voluntario",
-    "joinProject": "ÚNETE AL PROYECTO"
+    "getInvolved": "Participar"
   },
   "hero": {
     "title": "El Buen Aire Alimenta el Aprendizaje",

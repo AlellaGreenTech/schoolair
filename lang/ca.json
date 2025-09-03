@@ -1,11 +1,10 @@
 {
   "nav": {
     "about": "Sobre nosaltres",
-    "products": "Productes",
+    "products": "Tecnologia",
     "announcements": "Actualitzacions del projecte",
     "workshops": "Tallers i Esdeveniments",
-    "volunteerDriven": "100% Voluntari",
-    "joinProject": "UNEIX-TE AL PROJECTE"
+    "getInvolved": "Participar"
   },
   "hero": {
     "title": "L'Aire Bo Alimenta l'Aprenentatge",

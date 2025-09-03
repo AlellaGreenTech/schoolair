@@ -1,11 +1,10 @@
 {
   "nav": {
     "about": "À propos",
-    "products": "Produits",
+    "products": "Technologie",
     "announcements": "Mises à jour du projet",
     "workshops": "Ateliers & Événements",
-    "volunteerDriven": "100% Bénévole",
-    "joinProject": "REJOINDRE LE PROJET"
+    "getInvolved": "S'Impliquer"
   },
   "hero": {
     "title": "L'Air Pur Nourrit l'Apprentissage",

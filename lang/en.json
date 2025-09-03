@@ -1,11 +1,10 @@
 {
   "nav": {
     "about": "About",
-    "products": "Tech", 
+    "products": "Technology", 
     "announcements": "Project Updates",
     "workshops": "Workshops & Events",
-    "volunteerDriven": "100% Volunteer Driven",
-    "joinProject": "JOIN THE PROJECT"
+    "getInvolved": "Get Involved"
   },
   "hero": {
     "title": "Good Air Fuels Learning",

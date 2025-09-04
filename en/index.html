@@ -3027,22 +3027,21 @@ Submitted from schoolAIR website contact form`;
         // Animate statistics when they come into view
         const animateStats = () => {
             const statNumbers = document.querySelectorAll('.stat-number');
-            const targets = ['500+', '15,000+', '2M+', '35'];
+            const targets = ['5', '40', '100K', '5'];
             
             statNumbers.forEach((stat, index) => {
                 const target = targets[index];
                 let current = 0;
-                const increment = target.includes('M') ? 100000 : target.includes(',') ? 500 : 10;
+                const targetNum = parseInt(target.replace(/[^0-9]/g, ''));
+                const increment = target.includes('K') ? 5000 : 1;
                 const timer = setInterval(() => {
                     current += increment;
-                    if (current >= parseInt(target.replace(/[^0-9]/g, ''))) {
+                    if (current >= targetNum) {
                         stat.textContent = target;
                         clearInterval(timer);
                     } else {
-                        if (target.includes('M')) {
-                            stat.textContent = (current / 1000000).toFixed(1) + 'M+';
-                        } else if (target.includes(',')) {
-                            stat.textContent = current.toLocaleString() + '+';
+                        if (target.includes('K')) {
+                            stat.textContent = Math.floor(current / 1000) + 'K';
                         } else {
                             stat.textContent = current;
                         }

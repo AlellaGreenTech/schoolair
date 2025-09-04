@@ -2451,71 +2451,28 @@
             }
         }
 
-        /* EMERGENCY MOBILE HERO FIX - MAXIMUM SPECIFICITY */
+        /* COPY WORKING MOBILE CSS FROM FRENCH PAGE */
         @media (max-width: 768px) {
-            section#home.hero .container .hero-content {
-                display: block !important;
+            .hero-content {
+                grid-template-columns: 1fr !important;
                 text-align: center !important;
-                padding: 0 !important;
-                margin: 0 auto !important;
-                width: 100% !important;
+                gap: 2rem !important;
             }
-            
-            section#home.hero .container .hero-content .hero-text {
+
+            .hero-text h1 {
+                font-size: 2.5rem !important;
+                white-space: normal !important;
                 text-align: center !important;
-                width: 100% !important;
-                padding: 0 1rem !important;
-                display: block !important;
-                margin: 0 auto !important;
             }
-            
-            section#home.hero .container .hero-content .hero-text h1 {
-                text-align: center !important;
-                padding: 0 1rem !important;
-                margin: 0 auto !important;
-                width: 100% !important;
-                word-wrap: break-word !important;
-            }
-            
-            section#home.hero .container .hero-content .hero-text p.subtitle {
-                text-align: center !important;
-                padding: 0 1rem !important;
-                margin: 1rem auto !important;
-                width: 100% !important;
-            }
-            
-            section#home.hero .container .hero-content .hero-text p {
-                text-align: center !important;
-                padding: 0 1rem !important;
-                margin: 1rem auto !important;
-                width: 100% !important;
-            }
-            
-            section#home.hero .container .hero-content .hero-text .hero-buttons {
-                display: flex !important;
+
+            .hero-buttons {
+                justify-content: center !important;
                 flex-direction: column !important;
                 align-items: center !important;
-                justify-content: center !important;
-                text-align: center !important;
-                width: 100% !important;
-                padding: 0 1rem !important;
+                gap: 1rem !important;
             }
             
-            section#home.hero .container .hero-content .hero-text .hero-quote {
-                text-align: center !important;
-                padding: 0 1rem !important;
-                margin: 1rem auto !important;
-                width: 100% !important;
-            }
-            
-            section#home.hero .container .hero-content .hero-text .hero-quote p {
-                text-align: center !important;
-                padding: 0 1rem !important;
-                margin: 0 auto !important;
-                width: 100% !important;
-            }
-            
-            section#home.hero .container .hero-content .hero-visual {
+            .hero-visual {
                 display: none !important;
             }
         }

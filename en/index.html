@@ -662,9 +662,11 @@
 
             .hero-content {
                 grid-template-columns: 1fr;
-                text-align: center;
+                text-align: center !important;
                 gap: 2rem;
                 margin-top: 4.5rem;
+                padding: 0 1rem !important;
+                max-width: 100% !important;
             }
 
             .hero-text h1 {
@@ -804,18 +806,39 @@
                 font-size: 1.6rem !important;
                 line-height: 1.1 !important;
                 margin-bottom: 0.8rem !important;
+                text-align: center !important;
+                padding: 0 0.5rem !important;
+                word-wrap: break-word !important;
             }
             
             .hero-text .subtitle {
                 font-size: 1.1rem !important;
                 margin-bottom: 1rem !important;
                 line-height: 1.3 !important;
+                text-align: center !important;
+                padding: 0 0.5rem !important;
             }
             
             .hero-text p {
                 font-size: 0.9rem !important;
                 margin-bottom: 1.5rem !important;
                 line-height: 1.4 !important;
+                text-align: center !important;
+                padding: 0 0.5rem !important;
+            }
+            
+            .hero-buttons {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 0.8rem !important;
+                padding: 0 0.5rem !important;
+            }
+            
+            .hero-buttons .btn {
+                width: 100% !important;
+                max-width: 250px !important;
+                font-size: 0.85rem !important;
+                padding: 0.7rem 1rem !important;
             }
             
             .container {

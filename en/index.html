@@ -2453,10 +2453,20 @@
 
         /* EMERGENCY MOBILE HERO FIX - MAXIMUM SPECIFICITY */
         @media (max-width: 768px) {
+            section#home.hero .container .hero-content {
+                display: block !important;
+                text-align: center !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                width: 100% !important;
+            }
+            
             section#home.hero .container .hero-content .hero-text {
                 text-align: center !important;
                 width: 100% !important;
                 padding: 0 1rem !important;
+                display: block !important;
+                margin: 0 auto !important;
             }
             
             section#home.hero .container .hero-content .hero-text h1 {
@@ -2503,6 +2513,10 @@
                 padding: 0 1rem !important;
                 margin: 0 auto !important;
                 width: 100% !important;
+            }
+            
+            section#home.hero .container .hero-content .hero-visual {
+                display: none !important;
             }
         }
     </style>

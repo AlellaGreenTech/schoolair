@@ -2451,7 +2451,10 @@
             }
         }
 
-        /* COPY WORKING MOBILE CSS FROM FRENCH PAGE */
+    </style>
+    
+    <!-- FINAL MOBILE HERO FIX - MUST BE LAST CSS BLOCK -->
+    <style>
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr !important;
@@ -2464,12 +2467,29 @@
                 white-space: normal !important;
                 text-align: center !important;
             }
+            
+            .hero-text p {
+                text-align: center !important;
+            }
+            
+            .hero-text .subtitle {
+                text-align: center !important;
+            }
 
             .hero-buttons {
                 justify-content: center !important;
                 flex-direction: column !important;
                 align-items: center !important;
                 gap: 1rem !important;
+                text-align: center !important;
+            }
+            
+            .hero-quote {
+                text-align: center !important;
+            }
+            
+            .hero-quote p {
+                text-align: center !important;
             }
             
             .hero-visual {

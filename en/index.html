@@ -679,6 +679,14 @@
                 width: 250px;
                 height: 300px;
             }
+
+            .about-grid,
+            .features-grid,
+            .steps-container,
+            .impact-stats,
+            .involvement-options {
+                grid-template-columns: 1fr;
+            }
             
             /* Force hide all audio button text on tablets and mobile */
             .hero-audio-button span,
@@ -779,6 +787,1557 @@
                 width: 100%;
                 max-width: 280px;
             }
+
+        /* Partner Schools Overlay */
+        .partner-schools-overlay {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .partners-title-overlay {
+            color: #1B5E20;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .logos-grid-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-item-overlay {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-item-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1B5E20;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #FF6F00;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: #f8fffe !important;
+            padding: 2.5rem !important;
+            border-radius: 15px !important;
+            text-align: center !important;
+            transition: transform 0.3s ease;
+            border: 3px solid #ff0000 !important;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5) !important;
+            min-height: 400px !important;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card i {
+            font-size: 3rem;
+            color: #4caf50;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image img {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 300px !important;
+            max-height: 200px !important;
+            object-fit: cover !important;
+            transition: transform 0.3s ease;
+            border: 5px solid blue !important;
+        }
+
+        .card-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-card h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1B5E20;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(rgba(248, 255, 254, 0.9), rgba(248, 255, 254, 0.9)), url('https://images.unsplash.com/photo-1581093458791-9d42e44d2c18?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #4caf50;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: #1B5E20;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Components Section */
+        .components {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop') center/cover;
+        }
+
+        .tech-intro {
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.08) 0%, rgba(118, 255, 3, 0.08) 100%);
+            border: 2px solid rgba(46, 125, 50, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto 3rem auto;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .tech-intro p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .components-table {
+            background: #f8fffe;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+        }
+
+        .components-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .components-table th,
+        .components-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #e8f5e8;
+        }
+
+        .components-table th {
+            background: #2e7d32;
+            color: white;
+            font-weight: 600;
+        }
+
+        .components-table tr:hover {
+            background: #e8f5e8;
+        }
+
+        .cost-highlight {
+            font-weight: 600;
+            color: #1B5E20;
+        }
+
+        /* Project Announcements Section */
+        .announcements {
+            background: linear-gradient(rgba(27, 94, 32, 0.05), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=1920&h=1080&fit=crop') center/cover;
+            padding: 4rem 0;
+        }
+
+        .announcements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .announcement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #e0e0e0;
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .announcement-card.featured {
+            border-left-color: #4caf50;
+            background: linear-gradient(135deg, #ffffff, #f1f8e9);
+        }
+
+        .announcement-card.volunteer {
+            border-left-color: #ff9800;
+            background: linear-gradient(135deg, #ffffff, #fff3e0);
+        }
+
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .announcement-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .announcement-type {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .announcement-type.new {
+            background: #4caf50;
+            color: white;
+        }
+
+        .announcement-type.community {
+            background: #2196f3;
+            color: white;
+        }
+        .announcement-type.development {
+            background: #9c27b0;
+            color: white;
+        }
+
+        .announcement-type.volunteer {
+            background: #ff9800;
+            color: white;
+        }
+
+        .announcement-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        .announcement-card p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .announcement-action {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4caf50;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .announcement-action i {
+            font-size: 1rem;
+        }
+
+        /* Impact Section */
+        .impact {
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 4rem 0 !important;
+        }
+
+        .impact .section-title {
+            color: #1B5E20 !important;
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .impact .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .impact-stats {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 2rem !important;
+        }
+
+        .stat-card {
+            text-align: center !important;
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9) !important;
+            padding: 2rem !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+            transition: transform 0.3s ease !important;
+            min-height: 400px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            border: 1px solid #d4e6d4 !important;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .curriculum-integration {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 2rem !important;
+        }
+
+        .curriculum-card {
+            background: white !important;
+            padding: 2.5rem !important;
+            border-radius: 15px !important;
+            text-align: center !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            border: 1px solid #e8f5e8 !important;
+            min-height: 350px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+
+        .curriculum-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .curriculum-card i {
+            font-size: 3rem !important;
+            color: #4caf50 !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .curriculum-card h3 {
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+            font-weight: 600 !important;
+        }
+
+        .curriculum-card p {
+            line-height: 1.6 !important;
+            color: #555 !important;
+            margin-bottom: 1.5rem !important;
+            flex-grow: 1 !important;
+        }
+
+        .curriculum-card ul {
+            text-align: left !important;
+            color: #666 !important;
+            line-height: 1.5 !important;
+        }
+
+        .curriculum-card li {
+            margin-bottom: 0.5rem !important;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number-suffix {
+            font-size: 1.5rem;
+            display: inline;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Get Involved Section */
+        .get-involved {
+            background: linear-gradient(135deg, #1B5E20, #76FF03) !important;
+            color: white !important;
+            padding: 5rem 0 !important;
+        }
+
+        .get-involved .section-title,
+        .get-involved .section-subtitle {
+            color: white !important;
+            font-family: 'Roboto Slab', serif !important;
+        }
+
+        .get-involved .section-title {
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .get-involved .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            opacity: 0.9 !important;
+        }
+
+        .involvement-options {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 2rem !important;
+        }
+
+        .involvement-card {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(5px) !important;
+            padding: 2.5rem 2rem !important;
+            border-radius: 15px !important;
+            text-align: center !important;
+            transition: transform 0.3s ease !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            min-height: 350px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+
+        .involvement-card:hover {
+            transform: translateY(-10px) !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        .involvement-card i {
+            font-size: 2.5rem !important;
+            margin-bottom: 1.5rem !important;
+            color: #a5d6a7 !important;
+            display: block !important;
+        }
+
+        .involvement-card h3 {
+            margin-bottom: 1.5rem !important;
+            font-size: 1.4rem !important;
+            color: white !important;
+            font-weight: 600 !important;
+        }
+
+        .involvement-card p {
+            margin-bottom: 2rem !important;
+            line-height: 1.6 !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            flex-grow: 1 !important;
+        }
+
+        .involvement-card .btn-secondary {
+            background: white !important;
+            color: #2e7d32 !important;
+            border: none !important;
+            margin-top: auto !important;
+            margin-bottom: 0 !important;
+            padding: 1rem 2rem !important;
+            border-radius: 30px !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            align-self: center !important;
+        }
+
+        .involvement-card .btn-secondary:hover {
+            background: #f5f5f5 !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .contact-form {
+            background: white !important;
+            padding: 3rem !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            border: 1px solid #e8f5e8 !important;
+        }
+
+        .contact-form h3 {
+            color: #1B5E20 !important;
+            margin-bottom: 2rem !important;
+            text-align: center !important;
+            font-size: 1.8rem !important;
+            font-weight: 600 !important;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .form-group label {
+            display: block !important;
+            margin-bottom: 0.5rem !important;
+            font-weight: 600 !important;
+            color: #2c3e50 !important;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100% !important;
+            padding: 1rem !important;
+            border: 2px solid #e8f5e8 !important;
+            border-radius: 8px !important;
+            font-size: 1rem !important;
+            transition: border-color 0.3s ease !important;
+            box-sizing: border-box !important;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none !important;
+            border-color: #4caf50 !important;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1) !important;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1B5E20 !important;
+            color: white !important;
+            padding: 3rem 0 2rem 0 !important;
+        }
+
+        .footer-content {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-bottom: 2rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 2rem !important;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem !important;
+            color: #76FF03 !important;
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 1.3rem !important;
+            font-weight: 600 !important;
+        }
+
+        .footer-section ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem !important;
+        }
+
+        .footer-section a {
+            color: white !important;
+            text-decoration: none !important;
+            transition: color 0.3s ease !important;
+            line-height: 1.6 !important;
+        }
+
+        .footer-section a:hover {
+            color: #76FF03 !important;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8) !important;
+            line-height: 1.6 !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            padding-top: 2rem !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+            flex-wrap: wrap !important;
+            gap: 1rem !important;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6) !important;
+            margin: 0 !important;
+            font-size: 0.9rem !important;
+        }
+
+        .social-links {
+            display: flex !important;
+            gap: 1rem !important;
+        }
+
+        .social-links a {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: background 0.3s ease !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+
+        .social-links a:hover {
+            background: #76FF03 !important;
+            color: #1B5E20 !important;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 4rem 0 !important;
+        }
+
+        .contact .section-title {
+            color: #1B5E20 !important;
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .contact .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .contact-content {
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            background: white !important;
+            padding: 3rem !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid #e8f5e8 !important;
+        }
+
+        .form-row {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 1rem !important;
+        }
+
+        .full-width {
+            width: 100% !important;
+            padding: 1rem 2rem !important;
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .partner-schools-overlay {
+                bottom: 1rem;
+                padding: 1rem;
+            }
+
+            .logos-grid-overlay {
+                gap: 1rem;
+            }
+
+            .logo-item-overlay {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+    <style>
+        /* PROPER ABOUT SECTION CSS */
+        .about {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 5rem 0 !important;
+        }
+        .about .section-title {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+        }
+        .about .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .about-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+        }
+        .about-card {
+            background: #f8fffe !important;
+            border: 1px solid #e8f5e8 !important;
+            padding: 2rem !important;
+            border-radius: 15px !important;
+            text-align: center !important;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            display: block !important;
+            margin-bottom: 0 !important;
+            min-height: 400px !important;
+            max-width: 280px !important;
+            justify-self: center !important;
+        }
+        .card-image {
+            width: 100% !important;
+            height: 180px !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
+            margin-bottom: 1.5rem !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        }
+        .card-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform 0.3s ease;
+        }
+        .about-card:hover {
+            transform: translateY(-10px) !important;
+        }
+        .about-card h3 {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 1.3rem !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+            line-height: 1.3 !important;
+        }
+        .about-card p {
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+            color: #555 !important;
+        }
+        /* SCHOOL LOGOS FIX */
+        .logos-grid-overlay {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 1.5rem !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+        }
+        .logo-item-overlay {
+            transition: transform 0.3s ease, opacity 0.3s ease !important;
+            opacity: 0.8 !important;
+            flex-shrink: 0 !important;
+        }
+        .logo-item-overlay:hover {
+            transform: translateY(-3px) !important;
+            opacity: 1 !important;
+        }
+        .logo-item-overlay img {
+            max-width: 180px !important;
+            height: 72px !important;
+            object-fit: contain !important;
+            background: rgba(255, 255, 255, 0.4) !important;
+            padding: 0.5rem !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+            flex-shrink: 0 !important;
+        }
+        .logo-item-overlay:hover img {
+            background: rgba(255, 255, 255, 1) !important;
+            transform: scale(1.05) !important;
+        }
+        /* FEATURES SECTION FIX */
+        .features {
+            background: linear-gradient(rgba(248, 255, 254, 0.9), rgba(248, 255, 254, 0.9)), url('https://images.unsplash.com/photo-1581093458791-9d42e44d2c18?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 5rem 0 !important;
+        }
+        .features .section-title {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+        }
+        .features .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .features-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+        }
+        .feature-card {
+            background: white !important;
+            padding: 2rem !important;
+            border-radius: 15px !important;
+            text-align: left !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            border: 1px solid rgba(76, 175, 80, 0.1) !important;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+        .feature-card h3 {
+            color: #1B5E20 !important;
+            margin-bottom: 1rem !important;
+            font-size: 1.3rem !important;
+            font-weight: 600 !important;
+        }
+        .feature-card p {
+            color: #555 !important;
+            line-height: 1.6 !important;
+            font-size: 0.95rem !important;
+        }
+        /* COMPONENTS SECTION FIX */
+        .components {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 5rem 0 !important;
+        }
+        .components .section-title {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+        }
+        .tech-intro {
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.08) 0%, rgba(118, 255, 3, 0.08) 100%) !important;
+            border: 2px solid rgba(46, 125, 50, 0.2) !important;
+            border-radius: 15px !important;
+            padding: 2rem !important;
+            margin: 2rem auto 3rem auto !important;
+            max-width: 900px !important;
+            text-align: center !important;
+        }
+        .tech-intro p {
+            font-size: 1.1rem !important;
+            line-height: 1.7 !important;
+            color: #2c3e50 !important;
+            font-weight: 500 !important;
+            margin: 0 !important;
+        }
+        .components-table {
+            background: rgba(255, 255, 255, 0.9) !important;
+            padding: 1.5rem !important;
+            border-radius: 15px !important;
+            border-left: 3px solid rgba(76, 175, 80, 0.7) !important;
+            backdrop-filter: blur(5px) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+            margin-bottom: 1rem !important;
+            max-width: 800px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .components-table h3 {
+            color: #1B5E20 !important;
+            margin-bottom: 2rem !important;
+            font-size: 1.4rem !important;
+            text-align: center !important;
+        }
+        .components-table table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            margin-top: 1rem !important;
+        }
+        .components-table th {
+            background: linear-gradient(135deg, #1B5E20, #76FF03) !important;
+            color: white !important;
+            padding: 1rem !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            border-radius: 8px 8px 0 0 !important;
+        }
+        .components-table td {
+            padding: 1rem !important;
+            border-bottom: 1px solid #e0e0e0 !important;
+            vertical-align: top !important;
+        }
+        .components-table td:first-child {
+            font-weight: 600 !important;
+            color: #1B5E20 !important;
+        }
+        .components-table tr:nth-child(even) {
+            background: rgba(241, 248, 233, 0.3) !important;
+        }
+        .components-table tr:hover {
+            background: rgba(76, 175, 80, 0.1) !important;
+            transition: background 0.3s ease !important;
+        }
+        /* ANNOUNCEMENTS SECTION FIX */
+        .announcements {
+            background: linear-gradient(rgba(248, 255, 254, 0.95), rgba(241, 248, 233, 0.9)) !important;
+            padding: 5rem 0 !important;
+        }
+        .announcements .section-title {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+        }
+        .announcements .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .announcements-container {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+        }
+        .announcement-card {
+            background: white !important;
+            padding: 2rem !important;
+            border-radius: 15px !important;
+            position: relative !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            border-left: 4px solid #e0e0e0 !important;
+        }
+        .announcement-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+        .announcement-card.featured {
+            border-left-color: #4caf50 !important;
+            background: linear-gradient(135deg, #ffffff, #f1f8e9) !important;
+        }
+        .announcement-card.volunteer {
+            border-left-color: #ff9800 !important;
+            background: linear-gradient(135deg, #ffffff, #fff3e0) !important;
+        }
+        .announcement-header {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-bottom: 1rem !important;
+        }
+        .announcement-date {
+            font-size: 0.9rem !important;
+            color: #666 !important;
+            font-weight: 500 !important;
+        }
+        .announcement-type {
+            padding: 0.3rem 0.8rem !important;
+            border-radius: 20px !important;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+        }
+        .announcement-type.new {
+            background: #4caf50 !important;
+            color: white !important;
+        }
+        .announcement-type.community {
+            background: #2196f3 !important;
+            color: white !important;
+        }
+        .announcement-type.development {
+            background: #9c27b0 !important;
+            color: white !important;
+        }
+        .announcement-type.volunteer {
+            background: #ff9800 !important;
+            color: white !important;
+        }
+        .announcement-card h3 {
+            font-size: 1.3rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.8rem !important;
+            color: #2c3e50 !important;
+        }
+        .announcement-card p {
+            color: #555 !important;
+            line-height: 1.6 !important;
+            margin-bottom: 1rem !important;
+        }
+        .announcement-action {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            color: #4caf50 !important;
+            font-weight: 500 !important;
+            font-size: 0.9rem !important;
+        }
+        .announcement-action i {
+            font-size: 1rem !important;
+        }
+        /* IMPACT SECTION FIX */
+        .impact {
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 5rem 0 !important;
+        }
+        .impact .section-title {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+        }
+        .impact .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .impact-stats {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+            margin-bottom: 3rem !important;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9) !important;
+            padding: 2rem !important;
+            border-radius: 15px !important;
+            text-align: center !important;
+            border: 1px solid #c8e6c9 !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+        .stat-number {
+            font-size: 3rem !important;
+            font-weight: 700 !important;
+            color: #1B5E20 !important;
+            display: block !important;
+            margin-bottom: 0.5rem !important;
+        }
+        .stat-label {
+            color: #FF6F00 !important;
+            font-weight: 500 !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 0 !important;
+        }
+        /* CURRICULUM INTEGRATION STYLING */
+        .impact h3 {
+            color: #1b5e20 !important;
+            margin-bottom: 2rem !important;
+            font-size: 1.8rem !important;
+            text-align: center !important;
+            font-weight: 600 !important;
+        }
+        .impact .features-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 2rem !important;
+        }
+        .impact .feature-card {
+            background: white !important;
+            padding: 2rem !important;
+            border-radius: 15px !important;
+            text-align: left !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            border: 1px solid rgba(76, 175, 80, 0.1) !important;
+        }
+        .impact .feature-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+        .impact .feature-card h3 {
+            color: #1B5E20 !important;
+            margin-bottom: 1rem !important;
+            font-size: 1.3rem !important;
+            font-weight: 600 !important;
+            text-align: left !important;
+        }
+        .impact .feature-card p {
+            color: #555 !important;
+            line-height: 1.6 !important;
+            font-size: 0.95rem !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* GET INVOLVED SECTION - FINAL OVERRIDE */
+        section#get-involved.get-involved {
+            background: linear-gradient(135deg, #1B5E20, #76FF03) !important;
+            color: white !important;
+            padding: 5rem 0 !important;
+        }
+
+        section#get-involved .section-title,
+        section#get-involved .section-subtitle {
+            color: white !important;
+            font-family: 'Roboto Slab', serif !important;
+        }
+
+        section#get-involved .section-title {
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+        }
+
+        section#get-involved .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            opacity: 0.9 !important;
+        }
+
+        section#get-involved .involvement-options {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 2rem !important;
+        }
+
+        section#get-involved .involvement-card {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(5px) !important;
+            padding: 2.5rem 2rem !important;
+            border-radius: 15px !important;
+            text-align: center !important;
+            transition: transform 0.3s ease !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            min-height: 350px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+
+        section#get-involved .involvement-card:hover {
+            transform: translateY(-10px) !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        section#get-involved .involvement-card i {
+            font-size: 2.5rem !important;
+            margin-bottom: 1.5rem !important;
+            color: #a5d6a7 !important;
+            display: block !important;
+        }
+
+        section#get-involved .involvement-card h3 {
+            margin-bottom: 1.5rem !important;
+            font-size: 1.4rem !important;
+            color: white !important;
+            font-weight: 600 !important;
+        }
+
+        section#get-involved .involvement-card p {
+            margin-bottom: 2rem !important;
+            line-height: 1.6 !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            flex-grow: 1 !important;
+        }
+
+        section#get-involved .involvement-card .btn-secondary {
+            background: white !important;
+            color: #2e7d32 !important;
+            border: none !important;
+            margin-top: auto !important;
+            margin-bottom: 0 !important;
+            padding: 1rem 2rem !important;
+            border-radius: 30px !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            align-self: center !important;
+        }
+
+        section#get-involved .involvement-card .btn-secondary:hover {
+            background: #f5f5f5 !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        /* CONTACT SECTION - FINAL OVERRIDE */
+        section#contact.contact {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 4rem 0 !important;
+        }
+
+        section#contact .section-title {
+            color: #1B5E20 !important;
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+        }
+
+        section#contact .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        section#contact .contact-content {
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            background: white !important;
+            padding: 3rem !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid #e8f5e8 !important;
+        }
+
+        section#contact .form-row {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 1rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        section#contact .form-group {
+            margin-bottom: 1.5rem !important;
+        }
+
+        section#contact .form-group label {
+            display: block !important;
+            margin-bottom: 0.5rem !important;
+            color: #1B5E20 !important;
+            font-weight: 500 !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        section#contact .form-group input,
+        section#contact .form-group select,
+        section#contact .form-group textarea {
+            width: 100% !important;
+            padding: 1rem !important;
+            border: 2px solid #e8f5e8 !important;
+            border-radius: 10px !important;
+            font-size: 1rem !important;
+            transition: border-color 0.3s ease !important;
+            font-family: 'Inter', sans-serif !important;
+            box-sizing: border-box !important;
+        }
+
+        section#contact .form-group input:focus,
+        section#contact .form-group select:focus,
+        section#contact .form-group textarea:focus {
+            outline: none !important;
+            border-color: #4caf50 !important;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1) !important;
+        }
+
+        section#contact .form-group textarea {
+            resize: vertical !important;
+            min-height: 120px !important;
+        }
+
+        section#contact .btn-primary.full-width {
+            width: 100% !important;
+            padding: 1rem 2rem !important;
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+            background: #4caf50 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 30px !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+        }
+
+        section#contact .btn-primary.full-width:hover {
+            background: #45a049 !important;
+            transform: translateY(-2px) !important;
+        }
+
+        @media (max-width: 768px) {
+            section#contact .form-row {
+                grid-template-columns: 1fr !important;
+            }
+            
+            section#contact .contact-content {
+                margin: 0 1rem !important;
+                padding: 2rem !important;
+            }
+        }
+        
+        /* FOOTER SECTION - FINAL OVERRIDE */
+        footer.footer {
+            background: #1B5E20 !important;
+            color: white !important;
+            padding: 3rem 0 2rem 0 !important;
+        }
+
+        footer.footer .footer-content {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-bottom: 2rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 2rem !important;
+        }
+
+        footer.footer .footer-section h3 {
+            margin-bottom: 1rem !important;
+            color: #76FF03 !important;
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 1.3rem !important;
+            font-weight: 600 !important;
+        }
+
+        footer.footer .footer-section p {
+            color: rgba(255, 255, 255, 0.8) !important;
+            line-height: 1.6 !important;
+            margin-bottom: 0.8rem !important;
+        }
+
+        footer.footer .footer-section a {
+            color: white !important;
+            text-decoration: none !important;
+            transition: color 0.3s ease !important;
+            line-height: 1.6 !important;
+        }
+
+        footer.footer .footer-section a:hover {
+            color: #76FF03 !important;
+        }
+
+        footer.footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            padding-top: 2rem !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+            flex-wrap: wrap !important;
+            gap: 1rem !important;
+        }
+
+        footer.footer .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6) !important;
+            margin: 0 !important;
+            font-size: 0.9rem !important;
+        }
+
+        footer.footer .social-links {
+            display: flex !important;
+            gap: 1rem !important;
+        }
+
+        footer.footer .social-links a {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: background 0.3s ease !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+
+        footer.footer .social-links a:hover {
+            background: #76FF03 !important;
+            color: #1B5E20 !important;
+        }
+
+        @media (max-width: 768px) {
+            footer.footer .footer-content {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            
+            footer.footer .footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            footer.footer .footer-content {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -799,7 +2358,6 @@
                     <li><a href="#about" data-i18n="nav.about">About</a></li>
                     <li><a href="#components" data-i18n="nav.products">Technology</a></li>
                     <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
-                    <li><a href="#workshops" data-i18n="nav.workshops">Workshops & Events</a></li>
                     <li><a href="#get-involved" data-i18n="nav.getInvolved">Get Involved</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -838,9 +2396,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1><span data-i18n="hero.title">Good Air <span class="break-mobile">Fuels Learning</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">Kids can learn to make the difference.</p>
-                    <p data-i18n="hero.description">Students build air quality / weather stations that protect the school community, enhance learning and collect data for project & trend analysis.</p>
+                    <h1><span data-i18n="hero.title">Clean Air <span class="break-mobile">Empowers Learning</span></span></h1>
+                    <p class="subtitle" data-i18n="hero.subtitle">Kids can learn the tech to assure it</p>
+                    <p data-i18n="hero.description">Students use microcontrollers and sensors to build air quality & weather stations that protect the school community, enhance learning and collect data for project & trend analysis.</p>
                     <div class="hero-buttons">
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Enroll Your School</a>
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Get A Home Kit</a>
@@ -860,8 +2418,8 @@
                                 <i class="fas fa-rocket"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Summer STEM 2025!</strong>
-                                <span>First units designed and built!</span>
+                                <strong>Summer of STEM 2025!</strong>
+                                <span>A hybrid group of middle school, high school and uni students build the 1st units at Alella Green Tech in Barcelona!</span>
                             </div>
                         </div>
                         <div class="step-item">
@@ -885,8 +2443,402 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Partner Schools Overlay -->
+            <div class="partner-schools-overlay">
+                <h3 class="partners-title-overlay">Trusted by Schools Worldwide</h3>
+                <div class="logos-grid-overlay">
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
+                    </div>
+                    <div class="logo-item-overlay">
+                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About schoolAIR</h2>
+            <p class="section-subtitle">A comprehensive educational project that combines hands-on STEM learning with real-world environmental monitoring</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/mia and marina.jpeg" alt="Mia and Marina working on air quality station">
+                    </div>
+                    <h3>Educational Excellence</h3>
+                    <p>Integrate IoT, environmental science, and data analysis into your curriculum through practical, hands-on learning experiences.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/working.jpg" alt="Students collaborating on environmental monitoring">
+                    </div>
+                    <h3>Community Health</h3>
+                    <p>Monitor air quality and weather conditions to protect student and community health with real-time environmental data.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/The team.jpg" alt="The project team with their monitoring station">
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>Join a worldwide network of schools contributing to environmental research and climate change understanding.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="../images/students/outside deployment.jpeg" alt="Students deploying the monitoring station outside">
+                    </div>
+                    <h3>Green Technology</h3>
+                    <p>Build essential working green tech infrastructure using modern sensors, microcontrollers, and cloud technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Project Features</h2>
+            <p class="section-subtitle">Everything you need for successful environmental monitoring and education</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🌡️ Weather Station</h3>
+                    <p><strong>ENV IV Unit:</strong> Measures temperature, humidity, and barometric pressure with high precision for comprehensive weather monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌫️ Air Quality Monitor</h3>
+                    <p><strong>PM2.5 Sensor:</strong> Detects and quantifies PM1, PM2.5, and PM10 particulate matter for critical air pollution assessment.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📡 IoT Connectivity</h3>
+                    <p><strong>M5Stack CoreS3:</strong> Wi-Fi enabled microcontroller with built-in display for real-time data visualization and cloud connectivity.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>☁️ Cloud Database</h3>
+                    <p><strong>PostgreSQL Storage:</strong> Secure data transmission via Node-RED API to persistent cloud database for historical analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Data Visualization</h3>
+                    <p><strong>Data dashboards:</strong> Interactive, real-time dashboards for monitoring trends, patterns, and environmental changes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎓 Curriculum Integration</h3>
+                    <p><strong>STEM Learning:</strong> Comprehensive guides for integrating the project into science, math, technology, and social studies curricula.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="components">
+        <div class="container">
+            <h2 class="section-title">Technology and Components</h2>
+            
+            <div class="tech-intro">
+                <p>The goal of the SchoolAIR project is to support all the most popular educational microcontrollers, such as Arduino, m5stack, and others. Student volunteers are constantly porting the base software to new platforms. Communications between the microcontroller and sensors are done via standard protocols like I2C, Bluetooth, and WiFi. This keeps costs to a minimum and creates an open system. SchoolAIR is for students and by students!</p>
+            </div>
+            
+            <div class="components-table">
+                <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Planned Microcontroller Support</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Microcontroller</th>
+                            <th>Assigned School</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>M5Stack</strong></td>
+                            <td>Benjamin Franklin International</td>
+                            <td>-</td>
+                            <td style="color: #4caf50;">COMPLETED!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ESP32-based Microcontrollers</strong></td>
+                            <td>To be determined</td>
+                            <td>Q2 2025</td>
+                            <td style="color: #ff9800;">Planning</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arduino (WiFi Modules)</strong></td>
+                            <td>To be determined</td>
+                            <td>Q3 2025</td>
+                            <td style="color: #2196f3;">Looking for volunteers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raspberry Pi Pico W</strong></td>
+                            <td>To be determined</td>
+                            <td>Q4 2025</td>
+                            <td style="color: #2196f3;">Looking for volunteers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Announcements Section -->
+    <section id="announcements" class="announcements">
+        <div class="container">
+            <h2 class="section-title">Project Updates & News</h2>
+            <p class="section-subtitle">Latest developments in the schoolAIR community</p>
+            
+            <div class="announcements-container">
+                <div class="announcement-card featured">
+                    <div class="announcement-header">
+                        <span class="announcement-date">September 2024</span>
+                        <span class="announcement-type new">New Features</span>
+                    </div>
+                    <h3>Multi-language Support Launched</h3>
+                    <p>The schoolAIR website is now available in 5 languages: English, Spanish, French, Catalan, and Italian. Join our global community!</p>
+                    <div class="announcement-action">
+                        <i class="fas fa-globe"></i>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <span class="announcement-date">August 2024</span>
+                        <span class="announcement-type community">Community</span>
+                    </div>
+                    <h3>Looking for School Partners</h3>
+                    <p>We're actively seeking schools worldwide to pilot our air quality monitoring stations. Free kits available for qualifying educational institutions.</p>
+                    <div class="announcement-action">
+                        <i class="fas fa-school"></i>
+                        <span>Apply Now</span>
+                    </div>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <span class="announcement-date">July 2024</span>
+                        <span class="announcement-type development">Development</span>
+                    </div>
+                    <h3>Open Source Code Available</h3>
+                    <p>All hardware designs, software code, and assembly guides are now available on GitHub. Perfect for makers and educators!</p>
+                    <div class="announcement-action">
+                        <i class="fab fa-github"></i>
+                        <span>View on GitHub</span>
+                    </div>
+                </div>
+                
+                <div class="announcement-card volunteer">
+                    <div class="announcement-header">
+                        <span class="announcement-date">Ongoing</span>
+                        <span class="announcement-type volunteer">Volunteer</span>
+                    </div>
+                    <h3>Join Our Team</h3>
+                    <p>We need developers, educators, and environmental enthusiasts to help grow this project. 100% volunteer-driven initiative.</p>
+                    <div class="announcement-action">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Get Involved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="impact">
+        <div class="container">
+            <h2 class="section-title">Educational Impact</h2>
+            <p class="section-subtitle">Real numbers from schools using schoolAIR worldwide</p>
+            
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <div class="stat-label">Schools Participating</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15</span>
+                    <div class="stat-label">Students Engaged</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200K</span>
+                    <div class="stat-label">Data Points Collected</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <div class="stat-label">Countries Involved</div>
+                </div>
+            </div>
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3 style="color: #1b5e20; margin-bottom: 2rem; font-size: 1.8rem;">Curriculum Integration Areas</h3>
+                <div class="curriculum-integration">
+                    <div class="curriculum-card">
+                        <i class="fas fa-microscope"></i>
+                        <h3>Science Education</h3>
+                        <p>Meteorology, environmental science, physics, and chemistry through hands-on experimentation and real data analysis.</p>
+                    </div>
+                    <div class="curriculum-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Mathematics</h3>
+                        <p>Statistical analysis, data visualization, trend recognition, and mathematical modeling with real environmental datasets.</p>
+                    </div>
+                    <div class="curriculum-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Technology</h3>
+                        <p>Programming in Arduino C++ and Python, IoT protocols, database management, and understanding sensor technologies.</p>
+                    </div>
+                    <div class="curriculum-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3>Social Studies</h3>
+                        <p>Climate change awareness, global environmental challenges, and understanding the intersection of technology and society.</p>
+                    </div>
+                    <div class="curriculum-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>Engineering</h3>
+                        <p>Design thinking, system integration, troubleshooting, and understanding how complex technological systems work together.</p>
+                    </div>
+                    <div class="curriculum-card">
+                        <i class="fas fa-pen"></i>
+                        <h3>Communication</h3>
+                        <p>Technical writing, data presentation, collaborative documentation, and communicating scientific findings effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="get-involved">
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            <p class="section-subtitle">Multiple ways to participate in the schoolAIR project</p>
+            
+            <div class="involvement-options">
+                <div class="involvement-card">
+                    <i class="fas fa-box"></i>
+                    <h3>Request Complete Kit</h3>
+                    <p>Get everything you need: sensors, microcontroller, enclosure, and comprehensive setup guides.</p>
+                    <a href="#contact" class="btn-secondary">Request Kit</a>
+                </div>
+                <div class="involvement-card">
+                    <i class="fas fa-file-download"></i>
+                    <h3>Download Plans Only</h3>
+                    <p>Access detailed assembly instructions, software code, and educational materials to build your own.</p>
+                    <a href="#contact" class="btn-secondary">Get Plans</a>
+                </div>
+                <div class="involvement-card">
+                    <i class="fas fa-school"></i>
+                    <h3>School Partnership</h3>
+                    <p>Create a dedicated school page, share updates, and access global environmental data for research.</p>
+                    <a href="#contact" class="btn-secondary">Become Partner</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Ready to start your environmental monitoring project?</p>
+            
+            <div class="contact-content">
+                <form id="contactForm" action="mailto:info@alellagreentech.org" method="post" enctype="text/plain" onsubmit="handleContactSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">School/Organization (Optional)</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">I'm interested in</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Please select...</option>
+                            <option value="complete-kit">Complete Kit</option>
+                            <option value="plans-only">Plans & Instructions Only</option>
+                            <option value="school-partnership">School Partnership</option>
+                            <option value="volunteer">Volunteering</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your project goals, timeline, or any questions you have..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary full-width">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>schoolAIR Project</h3>
+                    <p>Empowering students to learn through hands-on environmental monitoring while protecting community health and contributing to global climate research.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about">About Project</a></p>
+                    <p><a href="#components">Components</a></p>
+                    <p><a href="how-it-works.html">How It Works</a></p>
+                    <p><a href="#get-involved">Get Involved</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#">Assembly Guide</a></p>
+                    <p><a href="#">Software Documentation</a></p>
+                    <p><a href="#">Global Data Access</a></p>
+                    <p><a href="#">Curriculum Materials</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="#contact">Contact Us</a></p>
+                    <p><a href="#">Community Forum</a></p>
+                    <p><a href="#">Technical Support</a></p>
+                    <p><a href="#">FAQs</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 schoolAIR Project. Open source educational initiative for environmental monitoring.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Audio Elements -->
     <audio id="preAudio" preload="auto">
@@ -976,12 +2928,150 @@
             navLinks.classList.toggle('active');
         }
 
+        // Initialize Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections except hero
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Make hero visible immediately
+        document.querySelector('.hero').classList.add('visible');
+
+        // Contact form submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Create email body
+            const emailBody = `SchoolAIR Contact Form Submission
+
+First Name: ${data.firstName || 'Not provided'}
+Last Name: ${data.lastName || 'Not provided'}
+Email: ${data.email || 'Not provided'}
+School/Organization: ${data.organization || 'Not provided'}
+Interest: ${data.interest || 'Not specified'}
+
+Message:
+${data.message || 'No message provided'}
+
+---
+Submitted from schoolAIR website contact form`;
+
+            // Create mailto URL
+            const subject = encodeURIComponent('SchoolAIR Contact Form Submission');
+            const body = encodeURIComponent(emailBody);
+            const mailtoUrl = `mailto:info@alellagreentech.org?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoUrl;
+            
+            // Show success message
+            setTimeout(() => {
+                alert('Thank you for your interest in the schoolAIR project! Your email client should open with the message ready to send. We will respond within 2 business days.');
+            }, 100);
+            
+            // Reset form after a short delay
+            setTimeout(() => {
+                event.target.reset();
+            }, 1000);
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.2;
+            
+            if (hero && scrolled < hero.offsetHeight) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Animate statistics when they come into view
+        const animateStats = () => {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const targets = ['500+', '15,000+', '2M+', '35'];
+            
+            statNumbers.forEach((stat, index) => {
+                const target = targets[index];
+                let current = 0;
+                const increment = target.includes('M') ? 100000 : target.includes(',') ? 500 : 10;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= parseInt(target.replace(/[^0-9]/g, ''))) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        if (target.includes('M')) {
+                            stat.textContent = (current / 1000000).toFixed(1) + 'M+';
+                        } else if (target.includes(',')) {
+                            stat.textContent = current.toLocaleString() + '+';
+                        } else {
+                            stat.textContent = current;
+                        }
+                    }
+                }, 50);
+            });
+        };
+
+        // Trigger stat animation when impact section is visible
+        const impactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    impactObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const impactSection = document.querySelector('.impact');
+        if (impactSection) {
+            impactObserver.observe(impactSection);
+        }
+
         // Close language menu when clicking outside
         document.addEventListener('click', function(event) {
             const dropdown = document.querySelector('.language-selector-dropdown');
             const menu = document.getElementById('languageMenu');
             
-            if (!dropdown.contains(event.target)) {
+            if (dropdown && !dropdown.contains(event.target)) {
                 menu.classList.remove('active');
             }
         });

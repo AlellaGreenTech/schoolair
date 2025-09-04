@@ -1400,6 +1400,111 @@
             }
         }
     </style>
+    <style>
+        /* PROPER ABOUT SECTION CSS */
+        .about {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop') center/cover !important;
+            padding: 5rem 0 !important;
+        }
+        .about .section-title {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 2.8rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+        }
+        .about .section-subtitle {
+            text-align: center !important;
+            font-size: 1.2rem !important;
+            color: #FF6F00 !important;
+            margin-bottom: 3rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .about-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 3rem !important;
+        }
+        .about-card {
+            background: #f8fffe !important;
+            border: 1px solid #e8f5e8 !important;
+            padding: 2rem !important;
+            border-radius: 15px !important;
+            text-align: center !important;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            display: block !important;
+            margin-bottom: 0 !important;
+            min-height: 400px !important;
+            max-width: 280px !important;
+            justify-self: center !important;
+        }
+        .card-image {
+            width: 100% !important;
+            height: 180px !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
+            margin-bottom: 1.5rem !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        }
+        .card-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform 0.3s ease;
+        }
+        .about-card:hover {
+            transform: translateY(-10px) !important;
+        }
+        .about-card h3 {
+            font-family: 'Roboto Slab', serif !important;
+            font-size: 1.3rem !important;
+            margin-bottom: 1rem !important;
+            color: #1B5E20 !important;
+            line-height: 1.3 !important;
+        }
+        .about-card p {
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+            color: #555 !important;
+        }
+        /* SCHOOL LOGOS FIX */
+        .logos-grid-overlay {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 1.5rem !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+        }
+        .logo-item-overlay {
+            transition: transform 0.3s ease, opacity 0.3s ease !important;
+            opacity: 0.8 !important;
+            flex-shrink: 0 !important;
+        }
+        .logo-item-overlay:hover {
+            transform: translateY(-3px) !important;
+            opacity: 1 !important;
+        }
+        .logo-item-overlay img {
+            max-width: 180px !important;
+            height: 72px !important;
+            object-fit: contain !important;
+            background: rgba(255, 255, 255, 0.4) !important;
+            padding: 0.5rem !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+            flex-shrink: 0 !important;
+        }
+        .logo-item-overlay:hover img {
+            background: rgba(255, 255, 255, 1) !important;
+            transform: scale(1.05) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -1419,7 +1524,6 @@
                     <li><a href="#about" data-i18n="nav.about">About</a></li>
                     <li><a href="#components" data-i18n="nav.products">Technologie</a></li>
                     <li><a href="how-it-works.html" data-i18n="nav.howItWorks">Comment Ça Marche</a></li>
-                    <li><a href="#workshops" data-i18n="nav.workshops">Ateliers & Événements</a></li>
                     <li><a href="#get-involved" data-i18n="nav.getInvolved">S'Impliquer</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -1458,9 +1562,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1><span data-i18n="hero.title">L'Air Pur <span class="break-mobile">Nourrit l'Apprentissage</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">Les enfants peuvent apprendre à faire la différence.</p>
-                    <p data-i18n="hero.description">Les élèves maîtrisent la programmation, l'électronique et la science des données en construisant des systèmes de surveillance de la qualité de l'air qui protègent leur communauté scolaire.</p>
+                    <h1><span data-i18n="hero.title">L'Air Pur <span class="break-mobile">Responsabilise l'Apprentissage</span></span></h1>
+                    <p class="subtitle" data-i18n="hero.subtitle">Les enfants peuvent apprendre la technologie pour l'assurer</p>
+                    <p data-i18n="hero.description">Les élèves utilisent des microcontrôleurs et des capteurs pour construire des stations de qualité de l'air et météo qui protègent la communauté scolaire, améliorent l'apprentissage et collectent des données pour l'analyse de projets et tendances.</p>
                     <div class="hero-buttons">
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Inscrire Votre École</a>
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Obtenir Kit Domestique</a>

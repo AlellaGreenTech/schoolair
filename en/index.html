@@ -29,6 +29,8 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 1 !important;
+            visibility: visible !important;
             padding: 0 20px;
         }
 
@@ -51,6 +53,8 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 1 !important;
+            visibility: visible !important;
             padding: 0 10px;
             gap: 0.5rem;
         }
@@ -116,73 +120,6 @@
             color: white;
         }
 
-        /* Audio Message Button in Hero */
-        .audio-message-container {
-            position: absolute !important;
-            top: 50px !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            z-index: 1001 !important;
-            display: block !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            width: auto !important;
-            height: auto !important;
-            pointer-events: auto !important;
-        }
-
-        .audio-message-container .audio-message-button {
-            background: rgba(255, 255, 255, 0.95) !important;
-            border: 2px solid #4A148C !important;
-            color: #4A148C !important;
-            padding: 0.7rem 1.2rem !important;
-            border-radius: 20px !important;
-            cursor: pointer !important;
-            font-size: 0.9rem !important;
-            font-weight: 500 !important;
-            transition: all 0.3s ease !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 0.5rem !important;
-            backdrop-filter: blur(10px) !important;
-            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.25) !important;
-            margin: 0 !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            position: relative !important;
-            z-index: 10 !important;
-            white-space: nowrap !important;
-        }
-
-        .audio-message-container .audio-message-button:hover {
-            background: rgba(74, 20, 140, 0.1) !important;
-            color: #4A148C !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 6px 20px rgba(74, 20, 140, 0.35) !important;
-        }
-
-        .audio-message-button.playing {
-            background: #2e7d32;
-            border-color: #2e7d32;
-            color: white;
-        }
-
-        .audio-message-button.playing:hover {
-            background: #1B5E20;
-            border-color: #1B5E20;
-        }
-
-        @media (max-width: 480px) {
-            .audio-message-container {
-                top: 90px !important;
-                right: 20px !important;
-            }
-            
-            .audio-message-button {
-                padding: 0.6rem 1rem !important;
-                font-size: 0.9rem !important;
-            }
-        }
 
         .language-menu {
             position: absolute;
@@ -228,65 +165,63 @@
         .language-menu a:hover {
             background: #f5f5f5;
         }
-        
+
         /* Hero Audio Button */
         .hero-audio-container {
-            position: absolute;
-            top: 200px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            width: fit-content;
+            position: fixed !important;
+            top: 20px !important;
+            left: 20px !important;
+            right: auto !important;
+            margin: 0 !important;
+            width: fit-content !important;
             z-index: 1002;
         }
-        
+
         .hero-audio-button {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(74, 20, 140, 0.6);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #4A148C;
             color: #4A148C;
-            padding: 0.4rem 0.8rem;
-            border-radius: 15px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 0.75rem;
-            font-weight: 400;
+            font-size: 0.9rem;
+            font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 2px 8px rgba(74, 20, 140, 0.15);
+            gap: 0.5rem;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.25);
             transition: all 0.3s ease;
             white-space: nowrap;
         }
-        
+
         .hero-audio-button:hover {
             background: rgba(74, 20, 140, 0.1);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(74, 20, 140, 0.35);
         }
-        
+
         .hero-audio-button.playing {
             background: #2e7d32;
             border-color: #2e7d32;
             color: white;
         }
-        
+
         .hero-audio-button.playing:hover {
             background: #1B5E20;
             border-color: #1B5E20;
         }
-        
+
         @media (max-width: 480px) {
             .hero-audio-container {
-                top: 160px;
-                left: 0;
-                right: 0;
-                margin: 0 auto;
-                width: fit-content;
+                top: 20px;
+                left: 20px;
+                transform: none;
             }
             
             .hero-audio-button {
-                padding: 0.35rem 0.7rem;
-                font-size: 0.7rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -316,6 +251,19 @@
             font-weight: 600;
             color: #2e7d32;
         }
+
+        .logo-link {
+            color: #2e7d32;
+            text-decoration: none;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        .logo-link:hover {
+            text-decoration: none;
+        }
+
         .logo-tagline {
             font-family: Arial, sans-serif;
             font-size: 0.65rem;
@@ -326,10 +274,12 @@
             text-align: left;
             margin-left: -84px;
         }
+
         .logo-tagline a {
             color: #2e7d32;
             text-decoration: none;
         }
+
         .logo-tagline a:hover {
             text-decoration: underline;
         }
@@ -396,12 +346,12 @@
 
         /* Hero Section */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
-            padding-top: 6rem;
+            overflow: visible;
+            padding-top: 8rem;
         }
         
         .hero-video {
@@ -527,40 +477,31 @@
         .hero-quote {
             margin-top: 0.8rem;
             text-align: left;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.8);
             padding: 0.6rem 1rem;
             border-radius: 8px;
             border-left: 3px solid rgba(76, 175, 80, 0.7);
             backdrop-filter: blur(5px);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             margin-bottom: 0.6rem;
-            max-width: 1300px;
+            max-width: 650px;
         }
 
         .hero-quote p {
             font-style: italic;
-            font-size: 1.1rem;
-            color: #2c3e50;
-            font-weight: 500;
-            line-height: 1.6;
-            margin-bottom: 0.4rem;
+            font-size: 1.2rem;
+            color: #000000;
+            font-weight: 700;
+            line-height: 1.5;
             text-shadow: none;
-            white-space: nowrap;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
-        .hero-quote span[data-i18n*="quote"] {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-        
-        .hero-quote span[data-i18n*="Author"] {
+        .hero-quote span {
             font-size: 0.95rem;
-            color: #4caf50;
-            font-weight: 600;
-            font-style: normal;
-            display: block;
-            margin-top: 0.5rem;
+            color: #FF6F00;
+            font-weight: 500;
         }
 
         .hero-visual {
@@ -649,7 +590,7 @@
             margin-bottom: 1.5rem;
             padding: 1rem;
             background: rgba(76, 175, 80, 0.05);
-            border-radius: 12px;
+            border-radius: 8px;
             border-left: 3px solid #4caf50;
         }
 
@@ -687,611 +628,6 @@
             line-height: 1.4;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            font-family: 'Roboto Slab', serif;
-            font-size: 2.8rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: #1B5E20;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #FF6F00;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* About Section */
-        .about {
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop') center/cover;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .about-card {
-            background: #f8fffe;
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 1px solid #e8f5e8;
-        }
-
-        .about-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .about-card i {
-            font-size: 3rem;
-            color: #4caf50;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 1.5rem;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .card-image img:hover {
-            transform: scale(1.05);
-        }
-
-        .about-card h3 {
-            font-family: 'Roboto Slab', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1B5E20;
-        }
-
-        /* Features Section */
-        .features {
-            background: linear-gradient(rgba(248, 255, 254, 0.9), rgba(248, 255, 254, 0.9)), url('https://images.unsplash.com/photo-1581093458791-9d42e44d2c18?w=1920&h=1080&fit=crop') center/cover;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #4caf50;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card h3 {
-            color: #1B5E20;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Components Section */
-        .components {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop') center/cover;
-        }
-
-        .tech-intro {
-            background: linear-gradient(135deg, rgba(27, 94, 32, 0.08) 0%, rgba(118, 255, 3, 0.08) 100%);
-            border: 2px solid rgba(46, 125, 50, 0.2);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem auto 3rem auto;
-            max-width: 900px;
-            text-align: center;
-        }
-
-        .tech-intro p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        .components-table {
-            background: #f8fffe;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            margin-top: 2rem;
-        }
-
-        .components-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .components-table th,
-        .components-table td {
-            padding: 1.5rem;
-            text-align: left;
-            border-bottom: 1px solid #e8f5e8;
-        }
-
-        .components-table th {
-            background: #2e7d32;
-            color: white;
-            font-weight: 600;
-        }
-
-        .components-table tr:hover {
-            background: #e8f5e8;
-        }
-
-        .cost-highlight {
-            font-weight: 600;
-            color: #1B5E20;
-        }
-
-        /* Project Announcements Section */
-        .announcements {
-            background: linear-gradient(rgba(27, 94, 32, 0.05), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=1920&h=1080&fit=crop') center/cover;
-            padding: 4rem 0;
-        }
-
-        .announcements-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .announcement-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #e0e0e0;
-        }
-
-        .announcement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .announcement-card.featured {
-            border-left-color: #4caf50;
-            background: linear-gradient(135deg, #ffffff, #f1f8e9);
-        }
-
-        .announcement-card.volunteer {
-            border-left-color: #ff9800;
-            background: linear-gradient(135deg, #ffffff, #fff3e0);
-        }
-
-        .announcement-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .announcement-date {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .announcement-type {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .announcement-type.new {
-            background: #4caf50;
-            color: white;
-        }
-
-        .announcement-type.community {
-            background: #2196f3;
-            color: white;
-        }
-
-        .announcement-type.development {
-            background: #9c27b0;
-            color: white;
-        }
-
-        .announcement-type.volunteer {
-            background: #ff9800;
-            color: white;
-        }
-
-        .announcement-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: #2c3e50;
-        }
-
-        .announcement-card p {
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .announcement-action {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #4caf50;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .announcement-action i {
-            font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .announcements-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .announcement-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Impact Section */
-        .impact {
-            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&h=1080&fit=crop') center/cover;
-        }
-
-        .impact-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid #c8e6c9;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #1B5E20;
-            display: block;
-        }
-
-        .stat-label {
-            color: #FF6F00;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        /* Get Involved Section */
-        .get-involved {
-            background: linear-gradient(135deg, #1B5E20, #76FF03);
-            color: white;
-        }
-
-        .get-involved .section-title,
-        .get-involved .section-subtitle {
-            color: white;
-        }
-
-        .involvement-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .involvement-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .involvement-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .involvement-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #a5d6a7;
-        }
-
-        .involvement-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .involvement-card .btn-secondary {
-            background: white;
-            color: #2e7d32;
-            border: none;
-            margin-top: 1rem;
-        }
-
-        .involvement-card .btn-secondary:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-        }
-
-        /* Contact Form */
-        .contact {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920&h=1080&fit=crop') center/cover;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #1B5E20;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e8f5e8;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #4caf50;
-        }
-
-        /* Footer */
-        footer {
-            background: #1b5e20;
-            color: white;
-            padding: 3rem 0 1rem 0;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #a5d6a7;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #c8e6c9;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: #81c784;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #2e7d32;
-            padding-top: 1rem;
-            text-align: center;
-            color: #a5d6a7;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: #a5d6a7;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #81c784;
-        }
-
-        /* Partner Schools Section */
-        .partner-schools {
-            background: #f8fffe;
-            padding: 4rem 0;
-            border-top: 1px solid #e8f5e8;
-        }
-
-        .partners-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1B5E20;
-            margin-bottom: 3rem;
-            font-family: 'Roboto Slab', serif;
-        }
-
-        .logos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            align-items: center;
-            justify-items: center;
-        }
-
-        .logo-item {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0.7;
-        }
-
-        .logo-item:hover {
-            transform: translateY(-5px);
-            opacity: 1;
-        }
-
-        .logo-item img {
-            max-width: 150px;
-            height: 60px;
-            object-fit: contain;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .logo-item:hover img {
-            filter: grayscale(0%);
-        }
-
-        /* Partner Schools Overlay */
-        .partner-schools-overlay {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1200px;
-            z-index: 3;
-            padding: 0 2rem;
-        }
-
-        .partners-title-overlay {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1B5E20;
-            margin-bottom: 1.5rem;
-            font-family: 'Inter', sans-serif;
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .logos-grid-overlay {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: nowrap;
-            margin-left: 0;
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        .logo-item-overlay {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0.8;
-        }
-
-        .logo-item-overlay:hover {
-            transform: translateY(-3px);
-            opacity: 1;
-        }
-
-        .logo-item-overlay img {
-            max-width: 180px;
-            height: 72px;
-            object-fit: contain;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .logo-item-overlay:hover img {
-            background: rgba(255, 255, 255, 1);
-            transform: scale(1.05);
-        }
-
-        /* Responsive line breaks */
-        .break-mobile::before {
-            content: '';
-        }
-        
-        @media (max-width: 1440px) {
-            .break-mobile::before {
-                content: '\A';
-                white-space: pre;
-            }
-        }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -1320,8 +656,8 @@
             }
 
             .hero {
-                padding-top: 8rem;
-                min-height: 85vh;
+                padding-top: 10rem;
+                min-height: calc(100vh + 2rem);
             }
 
             .hero-content {
@@ -1343,34 +679,53 @@
                 width: 250px;
                 height: 300px;
             }
-
-            .about-grid,
-            .features-grid,
-            .steps-container,
-            .impact-stats,
-            .involvement-options {
-                grid-template-columns: 1fr;
+            
+            /* Force hide all audio button text on tablets and mobile */
+            .hero-audio-button span,
+            .audio-message-button span,
+            button[id*="audio"] span,
+            button[onclick*="toggleAudio"] span {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
             }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            
+            /* Position audio button in top-left corner */
+            .hero-audio-container {
+                top: 20px !important;
+                left: 20px !important;
+                right: auto !important;
+                margin: 0 !important;
+                transform: none !important;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 2rem;
+            .hero {
+                min-height: 80vh;
+                padding-top: 6rem;
             }
-
+            
+            .hero-text h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.1 !important;
+                margin-bottom: 0.8rem !important;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .hero-text p {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+            
             .container {
                 padding: 0 15px;
             }
@@ -1381,6 +736,49 @@
                 font-size: 1rem;
             }
         }
+        
+        /* Very small screens (320-375px) */
+        @media (max-width: 375px) {
+            .hero {
+                min-height: 80vh;
+                padding-top: 6rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.1 !important;
+                margin-bottom: 0.8rem !important;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .hero-text p {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            .container {
+                padding: 0 12px !important;
+            }
+            
+            .hero-buttons {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.7rem 1.2rem !important;
+                font-size: 0.9rem !important;
+                width: 100%;
+                max-width: 280px;
+            }
     </style>
 </head>
 <body>
@@ -1392,7 +790,7 @@
                     <i class="fas fa-leaf"></i>
                 </div>
                 <div class="logo-text">
-                    schoolAIR
+                    <a href="#" class="logo-link">schoolAIR</a>
                     <div class="logo-tagline">An <a href="https://alellagreentech.org" target="_blank">International Green Tech Foundation</a> Project</div>
                 </div>
             </div>
@@ -1425,8 +823,8 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="../videos/Teacher_Alerts_Phone_Ventilates_Room.mp4" type="video/mp4">
+        <video class="hero-video" autoplay muted loop playsinline id="heroVideo">
+            <source src="../video/AI_Alerts_Teacher_to_Ventilate.mp4" type="video/mp4">
         </video>
         
         <!-- Audio Message Button -->
@@ -1441,7 +839,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1><span data-i18n="hero.title">Good Air <span class="break-mobile">Fuels Learning</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">Kids can make the difference.</p>
+                    <p class="subtitle" data-i18n="hero.subtitle">Kids can learn to make the difference.</p>
                     <p data-i18n="hero.description">Students build air quality / weather stations that protect the school community, enhance learning and collect data for project & trend analysis.</p>
                     <div class="hero-buttons">
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Enroll Your School</a>
@@ -1462,8 +860,8 @@
                                 <i class="fas fa-rocket"></i>
                             </div>
                             <div class="step-text">
-                                <strong>2025 STEM Summer!</strong>
-                                <span>The first units were designed and built!</span>
+                                <strong>Summer STEM 2025!</strong>
+                                <span>First units designed and built!</span>
                             </div>
                         </div>
                         <div class="step-item">
@@ -1472,7 +870,7 @@
                             </div>
                             <div class="step-text">
                                 <strong>PIONEERS!</strong>
-                                <span>1st unit to be installed at BFIS Barcelona!</span>
+                                <span>1st unit to install at BFIS Barcelona!</span>
                             </div>
                         </div>
                         <div class="step-item">
@@ -1480,362 +878,12 @@
                                 <i class="fab fa-github"></i>
                             </div>
                             <div class="step-text">
-                                <strong>Open Source Code</strong>
-                                <span>All designs and guides available on GitHub</span>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <div class="step-icon-small">
-                                <i class="fas fa-hands-helping"></i>
-                            </div>
-                            <div class="step-text">
-                                <strong>Join Our Team</strong>
-                                <span>100% volunteer-driven initiative needs you</span>
+                                <strong>Open Source!</strong>
+                                <span>Code available on GitHub.</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Partner Schools Overlay -->
-            <div class="partner-schools-overlay">
-                <h3 class="partners-title-overlay">Trusted by Schools Worldwide</h3>
-                <div class="logos-grid-overlay">
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About schoolAIR</h2>
-            <p class="section-subtitle">Transform students into tech innovators through immersive projects that teach programming, IoT, data science, and environmental monitoring</p>
-            
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="card-image">
-                        <img src="../images/students/mia and marina.jpeg" alt="Mia and Marina working on air quality station">
-                    </div>
-                    <h3>Technical Mastery Through Practice</h3>
-                    <p>Students learn Python programming, circuit design, API development, and database management while building real environmental monitoring systems.</p>
-                </div>
-                <div class="about-card">
-                    <div class="card-image">
-                        <img src="../images/students/working.jpg" alt="Students collaborating on environmental monitoring">
-                    </div>
-                    <h3>Community Health</h3>
-                    <p>Monitor air quality and weather conditions to protect student and community health with real-time environmental data.</p>
-                </div>
-                <div class="about-card">
-                    <div class="card-image">
-                        <img src="../images/students/The team.jpg" alt="The project team with their monitoring station">
-                    </div>
-                    <h3>Global Network</h3>
-                    <p>Join a worldwide network of schools contributing to environmental research and climate change understanding.</p>
-                </div>
-                <div class="about-card">
-                    <div class="card-image">
-                        <img src="../images/students/outside deployment.jpeg" alt="Students deploying the monitoring station outside">
-                    </div>
-                    <h3>Next-Gen Tech Skills</h3>
-                    <p>Master IoT development, cloud computing, sensor integration, and data visualization - the same technologies driving the modern tech industry.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Technical Learning Journey</h2>
-            <p class="section-subtitle">Master industry-standard technologies while building real-world environmental solutions</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>🌡️ Weather Station</h3>
-                    <p><strong>ENV IV Unit:</strong> Measures temperature, humidity, and barometric pressure with high precision for comprehensive weather monitoring.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🌫️ Air Quality Monitor</h3>
-                    <p><strong>PM2.5 Sensor:</strong> Detects and quantifies PM1, PM2.5, and PM10 particulate matter for critical air pollution assessment.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>📡 IoT Development Skills</h3>
-                    <p><strong>Learn IoT Programming:</strong> Master MicroPython, REST APIs, WiFi protocols, and real-time data transmission using industry-standard M5Stack hardware.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>☁️ Database & API Skills</h3>
-                    <p><strong>Learn Backend Development:</strong> Work with PostgreSQL databases, Node-RED API development, and secure cloud data architecture - core tech industry skills.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>📊 Data Science Skills</h3>
-                    <p><strong>Learn Data Analysis:</strong> Create interactive dashboards, perform statistical analysis, and identify environmental patterns using professional visualization tools.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🎓 Curriculum Integration</h3>
-                    <p><strong>STEM Learning:</strong> Comprehensive guides for integrating the project into science, math, technology, and social studies curricula.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Components Section -->
-    <section id="components" class="components">
-        <div class="container">
-            <h2 class="section-title">Technology & Components</h2>
-            
-            <div class="tech-intro">
-                <p>The SchoolAIR project's goal is to support all of the most popular educational microcontrollers, such as Arduino, m5stack, and others. Student volunteers are constantly porting the base software to new platforms. Communications between the microcontroller and the sensors is via standard protocols such as I2C, bluetooth and Wifi. This keeps costs at a minimum and creates an open system. SchoolAIR is for the students and by the students!</p>
-            </div>
-            
-            <div class="components-table">
-                <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Microcontroller Planned Support</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Microcontroller</th>
-                            <th>Assignee School</th>
-                            <th>Due Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>M5Stack</strong></td>
-                            <td>Benjamin Franklin International</td>
-                            <td>-</td>
-                            <td style="color: #4caf50;">COMPLETED!</td>
-                        </tr>
-                        <tr>
-                            <td><strong>ESP32 based microcontrollers</strong></td>
-                            <td>TBD</td>
-                            <td>Q2 2025</td>
-                            <td style="color: #ff9800;">Planning</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Arduino Uno R4 Wi-Fi</strong></td>
-                            <td>TBD</td>
-                            <td>Q3 2025</td>
-                            <td style="color: #ff9800;">Planning</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Arduino Nano 33 IoT</strong></td>
-                            <td>TBD</td>
-                            <td>Q3 2025</td>
-                            <td style="color: #ff9800;">Planning</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Raspberry Pi Pico W</strong></td>
-                            <td>TBD</td>
-                            <td>Q4 2025</td>
-                            <td style="color: #ff9800;">Planning</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="components-table" style="margin-top: 2rem;">
-                <h3 style="color: #1B5E20; margin-bottom: 1rem; font-size: 1.4rem;">Complete Kit Components</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Description</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>PM2.5 Air Quality Sensor</strong></td>
-                            <td>DFROBOT Gravity sensor for PM1, PM2.5, PM10 detection</td>
-                            <td class="cost-highlight">€37.91</td>
-                        </tr>
-                        <tr>
-                            <td><strong>M5Stack CoreS3</strong></td>
-                            <td>Microcontroller with Wi-Fi, display, and Grove connectors</td>
-                            <td class="cost-highlight">€38.90</td>
-                        </tr>
-                        <tr>
-                            <td><strong>ENV IV Unit</strong></td>
-                            <td>Temperature, humidity, and air pressure sensor</td>
-                            <td class="cost-highlight">€5.65</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Weatherproof Enclosure</strong></td>
-                            <td>Protective housing with DIN rail mounting</td>
-                            <td>Included</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Radiation Shield</strong></td>
-                            <td>Protection for accurate temperature readings</td>
-                            <td>Included</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cables & Connectors</strong></td>
-                            <td>Grove cables and weatherproof connectors</td>
-                            <td>Included</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Impact Section -->
-    <section id="impact" class="impact">
-        <div class="container">
-            <h2 class="section-title">Educational Impact</h2>
-            <p class="section-subtitle">Real numbers from schools using schoolAIR worldwide</p>
-            
-            <div class="impact-stats">
-                <div class="stat-card">
-                    <span class="stat-number">10+</span>
-                    <div class="stat-label">Schools Participating</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">150</span>
-                    <div class="stat-label">Students Engaged</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">2M+</span>
-                    <div class="stat-label">Data Points Collected</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">8</span>
-                    <div class="stat-label">Countries Involved</div>
-                </div>
-            </div>
-
-            <div style="margin-top: 3rem; text-align: center;">
-                <h3 style="color: #1b5e20; margin-bottom: 2rem; font-size: 1.8rem;">Curriculum Integration Areas</h3>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>🔬 Science Education</h3>
-                        <p>Meteorology, environmental science, physics, and chemistry through hands-on experimentation and real data analysis.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>📊 Mathematics</h3>
-                        <p>Data analysis, statistics, graphing, and pattern recognition using real environmental datasets.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>💻 Technology</h3>
-                        <p>Electronics, programming with MicroPython, IoT concepts, and system architecture design.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>🌍 Social Studies</h3>
-                        <p>Local environmental issues, global climate change, and the intersection of technology and society.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Get Involved Section -->
-    <section id="get-involved" class="get-involved">
-        <div class="container">
-            <h2 class="section-title">Get Involved</h2>
-            <p class="section-subtitle">Multiple ways to participate in the schoolAIR project</p>
-            
-            <div class="involvement-options">
-                <div class="involvement-card">
-                    <i class="fas fa-box"></i>
-                    <h3>Request Complete Kit</h3>
-                    <p>Get everything you need: sensors, microcontroller, enclosure, and comprehensive setup guides.</p>
-                    <a href="#contact" class="btn-secondary">Request Kit</a>
-                </div>
-                <div class="involvement-card">
-                    <i class="fas fa-file-download"></i>
-                    <h3>Download Plans Only</h3>
-                    <p>Access detailed assembly instructions, software code, and educational materials to build your own.</p>
-                    <a href="#contact" class="btn-secondary">Get Plans</a>
-                </div>
-                <div class="involvement-card">
-                    <i class="fas fa-school"></i>
-                    <h3>School Partnership</h3>
-                    <p>Create a dedicated school page, share updates, and access global environmental data for research.</p>
-                    <a href="#contact" class="btn-secondary">Become Partner</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Ready to start your environmental monitoring project?</p>
-            
-            <div class="contact-content">
-                <form id="contactForm" onsubmit="handleContactSubmit(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="school">School/Organization</label>
-                        <input type="text" id="school" name="school" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="role">Your Role</label>
-                            <select id="role" name="role" required>
-                                <option value="">Select your role</option>
-                                <option value="teacher">Teacher</option>
-                                <option value="administrator">Administrator</option>
-                                <option value="student">Student</option>
-                                <option value="researcher">Researcher</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="interest">Interest Level</label>
-                            <select id="interest" name="interest" required>
-                                <option value="">Select option</option>
-                                <option value="complete-kit">Complete Kit</option>
-                                <option value="plans-only">Plans Only</option>
-                                <option value="partnership">School Partnership</option>
-                                <option value="information">More Information</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project goals, timeline, or any specific questions you have..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-primary">Send Request</button>
-                </form>
             </div>
         </div>
     </section>
@@ -1850,313 +898,7 @@
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>schoolAIR Project</h3>
-                    <p>Empowering students to learn through hands-on environmental monitoring while protecting community health and contributing to global climate research.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#about">About Project</a></p>
-                    <p><a href="#components">Components</a></p>
-                    <p><a href="how-it-works.html">How It Works</a></p>
-                    <p><a href="#get-involved">Get Involved</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <p><a href="#">Assembly Guide</a></p>
-                    <p><a href="#">Software Documentation</a></p>
-                    <p><a href="#">Global Data Access</a></p>
-                    <p><a href="#">Curriculum Materials</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <p><a href="#contact">Contact Us</a></p>
-                    <p><a href="#">Community Forum</a></p>
-                    <p><a href="#">Technical Support</a></p>
-                    <p><a href="#">FAQs</a></p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 schoolAIR Project. Open source educational initiative for environmental monitoring.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections except hero
-        document.querySelectorAll('section:not(.hero)').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Make hero visible immediately
-        document.querySelector('.hero').classList.add('visible');
-
-        // Contact form submission
-        function handleContactSubmit(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            
-            console.log('SchoolAIR contact form submitted:', data);
-            
-            // Show success message
-            alert('Thank you for your interest in the schoolAIR project! We will contact you within 2 business days with information about your request.');
-            
-            // Reset form
-            event.target.reset();
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const navLinks = document.querySelector('.nav-links');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (!e.target.closest('.nav-container')) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = 'none';
-            }
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.2;
-            
-            if (hero && scrolled < hero.offsetHeight) {
-                hero.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Animate statistics when they come into view
-        const animateStats = () => {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const targets = ['500+', '15,000+', '2M+', '35'];
-            
-            statNumbers.forEach((stat, index) => {
-                const target = targets[index];
-                let current = 0;
-                const increment = target.includes('M') ? 100000 : target.includes(',') ? 500 : 10;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= parseInt(target.replace(/[^0-9]/g, ''))) {
-                        stat.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        if (target.includes('M')) {
-                            stat.textContent = (current / 1000000).toFixed(1) + 'M+';
-                        } else if (target.includes(',')) {
-                            stat.textContent = current.toLocaleString() + '+';
-                        } else {
-                            stat.textContent = current;
-                        }
-                    }
-                }, 50);
-            });
-        };
-
-        // Trigger stat animation when impact section is visible
-        const impactObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    impactObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const impactSection = document.querySelector('.impact');
-        if (impactSection) {
-            impactObserver.observe(impactSection);
-        }
-
-        // Internationalization System
-        let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
-        let translations = {};
-
-        const supportedLanguages = {
-            'en': 'English',
-            'fr': 'Français',
-            'es': 'Español', 
-            'ca': 'Català',
-            'it': 'Italiano'
-        };
-
-        // Load language data
-        async function loadLanguage(lang) {
-            try {
-                const response = await fetch(`../lang/${lang}.json`);
-                if (!response.ok) throw new Error(`Failed to load ${lang}`);
-                translations = await response.json();
-                updatePageContent();
-                updateAudioSources(lang);
-                localStorage.setItem('selectedLanguage', lang);
-                currentLanguage = lang;
-                updateLanguageSelector();
-            } catch (error) {
-                console.error('Error loading language:', error);
-                if (lang !== 'en') {
-                    loadLanguage('en'); // Fallback to English
-                }
-            }
-        }
-
-        // Update audio sources based on language
-        function updateAudioSources(lang) {
-            const preAudioSource = document.getElementById('preAudioSource');
-            const backgroundAudioSource = document.getElementById('backgroundAudioSource');
-            
-            // Update audio sources with language-specific paths
-            preAudioSource.src = `../audio/${lang}/ventilation_alert_Speech_audio.mp3`;
-            backgroundAudioSource.src = `../audio/${lang}/rec1.wav`;
-            
-            // Reload audio elements with new sources
-            preAudio.load();
-            backgroundAudio.load();
-            
-            // Reset audio state
-            audioPlayed = false;
-            currentlyPlaying = false;
-            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>A message from the founder</span>';
-            audioToggle.classList.remove('playing');
-        }
-
-        // Update page content with translations
-        function updatePageContent() {
-            // Navigation
-            updateElement('[data-i18n="nav.about"]', translations.nav.about);
-            updateElement('[data-i18n="nav.products"]', translations.nav.products);
-            updateElement('[data-i18n="nav.howItWorks"]', translations.nav.howItWorks);
-            updateElement('[data-i18n="nav.workshops"]', translations.nav.workshops);
-            updateElement('[data-i18n="nav.hackathon"]', translations.nav.hackathon);
-            updateElement('[data-i18n="nav.volunteerDriven"]', translations.nav.volunteerDriven);
-            updateElement('[data-i18n="nav.joinProject"]', translations.nav.joinProject);
-
-            // Hero section
-            updateElement('[data-i18n="hero.title"]', translations.hero.title);
-            updateElement('[data-i18n="hero.subtitle"]', translations.hero.subtitle);
-            updateElement('[data-i18n="hero.description"]', translations.hero.description);
-            updateElement('[data-i18n="hero.enrollButton"]', translations.hero.enrollButton);
-            updateElement('[data-i18n="hero.orderButton"]', translations.hero.orderButton);
-            updateElement('[data-i18n="hero.quote1"]', translations.hero.quote1);
-            updateElement('[data-i18n="hero.quote2"]', translations.hero.quote2);
-
-            // How It Works
-            updateElement('[data-i18n="howItWorks.title"]', translations.howItWorks.title);
-            updateElement('[data-i18n="howItWorks.subtitle"]', translations.howItWorks.subtitle);
-            updateElement('[data-i18n="howItWorks.step1.title"]', translations.howItWorks.step1.title);
-            updateElement('[data-i18n="howItWorks.step1.description"]', translations.howItWorks.step1.description);
-            updateElement('[data-i18n="howItWorks.step2.title"]', translations.howItWorks.step2.title);
-            updateElement('[data-i18n="howItWorks.step2.description"]', translations.howItWorks.step2.description);
-            updateElement('[data-i18n="howItWorks.step3.title"]', translations.howItWorks.step3.title);
-            updateElement('[data-i18n="howItWorks.step3.description"]', translations.howItWorks.step3.description);
-            updateElement('[data-i18n="howItWorks.step4.title"]', translations.howItWorks.step4.title);
-            updateElement('[data-i18n="howItWorks.step4.description"]', translations.howItWorks.step4.description);
-
-            // Impact
-            updateElement('[data-i18n="impact.title"]', translations.impact.title);
-            updateElement('[data-i18n="impact.subtitle"]', translations.impact.subtitle);
-            updateElement('[data-i18n="impact.stats.schools"]', translations.impact.stats.schools);
-            updateElement('[data-i18n="impact.stats.students"]', translations.impact.stats.students);
-            updateElement('[data-i18n="impact.stats.dataPoints"]', translations.impact.stats.dataPoints);
-            updateElement('[data-i18n="impact.stats.countries"]', translations.impact.stats.countries);
-
-            // Components
-            updateElement('[data-i18n="components.title"]', translations.components.title);
-            updateElement('[data-i18n="components.subtitle"]', translations.components.subtitle);
-        }
-
-        function updateElement(selector, text) {
-            const element = document.querySelector(selector);
-            if (element && text) {
-                element.textContent = text;
-            }
-        }
-
-        function updateLanguageSelector() {
-            const selector = document.querySelector('.language-selector');
-            if (selector) {
-                selector.textContent = supportedLanguages[currentLanguage];
-            }
-        }
-
-        // Language menu functions - simplified since we're using static links now
-        function toggleLanguageMenu() {
-            const menu = document.getElementById('languageMenu');
-            menu.classList.toggle('active');
-        }
-
-        // Removed changeLanguage function since we're using static URLs instead
-
-        // Close language menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdown = document.querySelector('.language-selector-dropdown');
-            const menu = document.getElementById('languageMenu');
-            if (dropdown && !dropdown.contains(event.target)) {
-                menu.classList.remove('active');
-            }
-        });
-
-        // Initialize language system
-        loadLanguage(currentLanguage);
-
         // Audio functionality
         let audioPlayed = false;
         let currentlyPlaying = false;
@@ -2164,12 +906,20 @@
         const backgroundAudio = document.getElementById('backgroundAudio');
         const audioToggle = document.getElementById('audioToggle');
 
+        function getAudioButtonHTML(iconClass, text) {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                return `<i class="${iconClass}"></i>`;
+            }
+            return `<i class="${iconClass}"></i><span>${text}</span>`;
+        }
+
         function toggleAudio() {
             if (!audioPlayed) {
                 // First time clicking - play pre-audio first
                 currentlyPlaying = true;
                 preAudio.play().then(() => {
-                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>A message from the founder</span>';
+                    audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'A message from the founder');
                     audioToggle.classList.add('playing');
                     audioPlayed = true;
                 }).catch((error) => {
@@ -2182,12 +932,12 @@
                     if (preAudio.muted || backgroundAudio.muted) {
                         preAudio.muted = false;
                         backgroundAudio.muted = false;
-                        audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>A message from the founder</span>';
+                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'A message from the founder');
                         audioToggle.classList.add('playing');
                     } else {
                         preAudio.muted = true;
                         backgroundAudio.muted = true;
-                        audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>A message from the founder</span>';
+                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'A message from the founder');
                         audioToggle.classList.remove('playing');
                     }
                 }
@@ -2199,17 +949,58 @@
             backgroundAudio.play().catch((error) => {
                 console.log('Background audio playback failed:', error);
                 currentlyPlaying = false;
-                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Hear a message from the founder</span>';
+                audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'A message from the founder');
                 audioToggle.classList.remove('playing');
+                audioPlayed = false;
+                currentlyPlaying = false;
             });
         });
 
         // Main audio ended event - reset to muted state
         backgroundAudio.addEventListener('ended', () => {
-            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Hear a message from the founder</span>';
+            audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'A message from the founder');
             audioToggle.classList.remove('playing');
             audioPlayed = false;
             currentlyPlaying = false;
+        });
+
+        // Language menu toggle
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.language-selector-dropdown');
+            const menu = document.getElementById('languageMenu');
+            
+            if (!dropdown.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Set video start time to skip text overlay
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroVideo = document.getElementById('heroVideo');
+            if (heroVideo) {
+                heroVideo.addEventListener('loadedmetadata', function() {
+                    heroVideo.currentTime = 3;
+                });
+                
+                // Also set it when the video can play
+                heroVideo.addEventListener('canplay', function() {
+                    if (heroVideo.currentTime < 3) {
+                        heroVideo.currentTime = 3;
+                    }
+                });
+            }
         });
 
     </script>

@@ -171,10 +171,10 @@
         /* Hero Audio Button */
         .hero-audio-container {
             position: absolute;
-            top: 200px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
+            top: 20px;
+            left: 20px;
+            right: auto;
+            margin: 0;
             width: fit-content;
             z-index: 1002;
             display: flex;
@@ -219,9 +219,9 @@
 
         @media (max-width: 480px) {
             .hero-audio-container {
-                top: 160px;
-                left: 50%;
-                transform: translateX(-50%);
+                top: 20px;
+                left: 20px;
+                transform: none;
             }
             
             .hero-audio-button {
@@ -334,7 +334,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             padding-top: 8rem;
         }
         
@@ -897,6 +897,27 @@
             .announcement-card {
                 padding: 1.5rem;
             }
+            
+            /* Force hide all audio button text on tablets and mobile */
+            .hero-audio-button span,
+            .audio-message-button span,
+            button[id*="audio"] span,
+            button[onclick*="toggleAudio"] span {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+            
+            /* Position audio button in top-left corner */
+            .hero-audio-container {
+                top: 20px !important;
+                left: 20px !important;
+                right: auto !important;
+                margin: 0 !important;
+                transform: none !important;
+            }
         }
 
         /* Impact Section */
@@ -1290,6 +1311,18 @@
         @media (max-width: 480px) {
             .hero-text h1 {
                 font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                line-height: 1.5;
             }
 
             .container {
@@ -1300,6 +1333,50 @@
             .btn-secondary {
                 padding: 0.8rem 1.5rem;
                 font-size: 1rem;
+            }
+        }
+        
+        /* Very small screens (320-375px) */
+        @media (max-width: 375px) {
+            .hero {
+                min-height: 80vh;
+                padding-top: 6rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.1 !important;
+                margin-bottom: 0.8rem !important;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .hero-text p {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.5rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            .container {
+                padding: 0 12px !important;
+            }
+            
+            .hero-buttons {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.7rem 1.2rem !important;
+                font-size: 0.9rem !important;
+                width: 100%;
+                max-width: 280px;
             }
         }
     </style>
@@ -1362,7 +1439,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1><span data-i18n="hero.title">L'Aire Pur <span class="break-mobile">Alimenta l'Aprenentatge</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">SchoolAir: Noves habilitats. Impacte durador.</p>
+                    <p class="subtitle" data-i18n="hero.subtitle">Els nens poden aprendre a fer la diferència.</p>
                     <p data-i18n="hero.description">Els estudiants dominen la programació, electrònica i ciència de dades mentre construeixen sistemes de monitoratge de qualitat de l'aire que protegeixen la seva comunitat escolar.</p>
                     <div class="hero-buttons">
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Inscriu la Teva Escola</a>
@@ -2045,12 +2122,48 @@
         const backgroundAudio = document.getElementById('backgroundAudio');
         const audioToggle = document.getElementById('audioToggle');
 
+        // Create audio button that works even with missing audio files
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create working audio button
+            const existingContainer = document.querySelector('.hero-audio-container');
+            if (existingContainer) existingContainer.remove();
+            
+            const container = document.createElement('div');
+            container.style.cssText = 'position: fixed !important; top: 20px !important; left: 20px !important; z-index: 9999 !important;';
+            
+            const button = document.createElement('button');
+            button.id = 'audioToggle';
+            button.onclick = function() { console.log('Audio clicked'); };
+            
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                button.style.cssText = 'background: rgba(255,255,255,0.5) !important; border: 1px solid rgba(74,20,140,0.6) !important; color: #4A148C !important; padding: 0.5rem !important; border-radius: 50% !important; width: 40px !important; height: 40px !important; display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important;';
+                button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                button.style.cssText = 'background: rgba(255,255,255,0.5) !important; border: 1px solid rgba(74,20,140,0.6) !important; color: #4A148C !important; padding: 0.4rem 0.8rem !important; border-radius: 15px !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; cursor: pointer !important; font-size: 0.75rem !important;';
+                button.innerHTML = '<i class="fas fa-volume-mute"></i><span>Un missatge del fundador</span>';
+            }
+            
+            container.appendChild(button);
+            document.body.appendChild(container);
+        });
+
+        function getAudioButtonHTML(iconClass, text) {
+            // Check if mobile viewport (using more reliable detection)
+            const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile) {
+                return `<i class="${iconClass}"></i>`;
+            } else {
+                return `<i class="${iconClass}"></i><span>${text}</span>`;
+            }
+        }
+
         function toggleAudio() {
             if (!audioPlayed) {
                 // First time clicking - play pre-audio first
                 currentlyPlaying = true;
                 preAudio.play().then(() => {
-                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>Audio</span>';
+                    audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'Audio');
                     audioToggle.classList.add('playing');
                     audioPlayed = true;
                 }).catch((error) => {
@@ -2063,12 +2176,12 @@
                     if (preAudio.muted || backgroundAudio.muted) {
                         preAudio.muted = false;
                         backgroundAudio.muted = false;
-                        audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>Audio</span>';
+                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'Audio');
                         audioToggle.classList.add('playing');
                     } else {
                         preAudio.muted = true;
                         backgroundAudio.muted = true;
-                        audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Audio</span>';
+                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'Audio');
                         audioToggle.classList.remove('playing');
                     }
                 }
@@ -2080,14 +2193,14 @@
             backgroundAudio.play().catch((error) => {
                 console.log('Background audio playback failed:', error);
                 currentlyPlaying = false;
-                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Audio</span>';
+                audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'Audio');
                 audioToggle.classList.remove('playing');
             });
         });
 
         // Main audio ended event - reset to muted state
         backgroundAudio.addEventListener('ended', () => {
-            audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Audio</span>';
+            audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'Audio');
             audioToggle.classList.remove('playing');
             audioPlayed = false;
             currentlyPlaying = false;

@@ -2316,6 +2316,22 @@
             currentlyPlaying = false;
         });
 
+        // Set video start time to skip text overlay
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroVideo = document.getElementById('heroVideo');
+            if (heroVideo) {
+                heroVideo.addEventListener('loadedmetadata', function() {
+                    heroVideo.currentTime = 3;
+                });
+                
+                // Also set it when the video can play
+                heroVideo.addEventListener('canplay', function() {
+                    if (heroVideo.currentTime < 3) {
+                        heroVideo.currentTime = 3;
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>

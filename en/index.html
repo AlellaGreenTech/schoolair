@@ -1703,47 +1703,100 @@
         }
     </style>
     
-    <!-- FINAL MOBILE HERO FIX - MUST BE LAST CSS BLOCK -->
+    <!-- EXACT COPY OF WORKING FRENCH PAGE MOBILE CSS -->
     <style>
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-top: 1px solid rgba(46, 125, 50, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .cta-nav {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 10rem;
+                min-height: calc(100vh + 2rem);
+            }
+
             .hero-content {
-                grid-template-columns: 1fr !important;
-                text-align: center !important;
-                gap: 2rem !important;
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
             }
 
             .hero-text h1 {
-                font-size: 2.5rem !important;
-                white-space: normal !important;
-                text-align: center !important;
-            }
-            
-            .hero-text p {
-                text-align: center !important;
-            }
-            
-            .hero-text .subtitle {
-                text-align: center !important;
+                font-size: 2.5rem;
+                white-space: normal;
             }
 
             .hero-buttons {
-                justify-content: center !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 1rem !important;
-                text-align: center !important;
+                justify-content: center;
+            }
+
+            .station-mockup {
+                width: 250px;
+                height: 300px;
+            }
+
+            .about-grid,
+            .features-grid,
+            .steps-container,
+            .impact-stats,
+            .involvement-options {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+                line-height: 1.2;
             }
             
-            .hero-quote {
-                text-align: center !important;
+            .hero-text .subtitle {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
             }
             
-            .hero-quote p {
-                text-align: center !important;
+            .hero-text p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                line-height: 1.5;
             }
-            
-            .hero-visual {
-                display: none !important;
+
+            .container {
+                padding: 0 15px;
             }
         }
     </style>

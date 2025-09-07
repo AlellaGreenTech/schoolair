@@ -28,6 +28,10 @@
             overflow-x: hidden;
         }
 
+        html {
+            scroll-padding-top: 120px;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1207,13 +1211,13 @@
 
         .logos-grid-overlay {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: nowrap;
-            margin-left: 0;
-            width: 100%;
             overflow-x: auto;
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .logo-item-overlay {
@@ -1480,6 +1484,8 @@
             gap: 1.5rem !important;
             flex-wrap: nowrap !important;
             overflow-x: auto !important;
+            width: 100% !important;
+            padding: 0 1rem !important;
         }
         .logo-item-overlay {
             transition: transform 0.3s ease, opacity 0.3s ease !important;
@@ -1510,7 +1516,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
+            <a href="./" class="logo" style="text-decoration: none; color: inherit;">
                 <div class="logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
@@ -1518,12 +1524,14 @@
                     schoolAIR
                     <div class="logo-tagline">An International Green Tech Foundation Project</div>
                 </div>
-            </div>
+            </a>
             <div class="nav-main">
                 <ul class="nav-links">
-                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#project" data-i18n="nav.project">Projet</a></li>
                     <li><a href="#components" data-i18n="nav.products">Technologie</a></li>
                     <li><a href="how-it-works.html" data-i18n="nav.howItWorks">Comment Ça Marche</a></li>
+                    <li><a href="dashboard.html" data-i18n="nav.dashboard">Tableau de Bord</a></li>
+                    <li><a href="events.html" data-i18n="nav.events">Événements</a></li>
                     <li><a href="#get-involved" data-i18n="nav.getInvolved">S'Impliquer</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -1563,8 +1571,8 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1><span data-i18n="hero.title">L'Air Pur <span class="break-mobile">Responsabilise l'Apprentissage</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">Les enfants peuvent apprendre la technologie pour l'assurer</p>
-                    <p data-i18n="hero.description">Rien n'est plus important pour nos enfants que l'air pur, l'eau propre — et la connaissance. Ce projet de l'International Green Tech Foundation donne aux jeunes esprits les moyens d'explorer les microcontrôleurs, les capteurs et la technologie IoT, tout en aidant à maintenir l'air de notre communauté propre. C'est de la science avec un but — inspirer la prochaine génération à construire une planète plus intelligente et plus durable.</p>
+                    <p class="subtitle" data-i18n="hero.subtitle">Les écoles et les étudiants peuvent exploiter la technologie pour l'assurer</p>
+                    <p data-i18n="hero.description">Rien n'est plus important pour l'avenir de nos enfants qu'un air sain, une eau propre — et les connaissances pour les protéger. Notre projet d'organisation à but non lucratif donne aux étudiants les moyens de protéger la qualité de l'air de leur école avec des stations de surveillance IoT.</p>
                     <div class="hero-buttons">
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Inscrire Votre École</a>
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Obtenir Kit Domestique</a>
@@ -1618,36 +1626,38 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Partner Schools Overlay -->
-            <div class="partner-schools-overlay">
-                <h3 class="partners-title-overlay">Trusted by Schools Worldwide</h3>
-                <div class="logos-grid-overlay">
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
-                    </div>
+        </div>
+    </section>
+
+    <!-- Partner Schools Section -->
+    <section class="partner-schools">
+        <div class="container">
+            <h3 class="partners-title">Des écoles du monde entier nous font confiance</h3>
+            <div class="logos-grid">
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Project Section -->
+    <section id="project" class="about">
         <div class="container">
-            <h2 class="section-title">About schoolAIR</h2>
-            <p class="section-subtitle">A comprehensive educational project that combines hands-on STEM learning with real-world environmental monitoring</p>
+            <h2 class="section-title">Le Projet schoolAIR</h2>
+            <p class="section-subtitle">Un projet éducatif complet qui combine l'apprentissage pratique des STEM avec la surveillance environnementale du monde réel. Il y a un but au-delà de l'éducation : Nos enfants pourraient être exposés à un air malsain. Ce projet donne aux écoles et aux étudiants des données en temps réel sur la région locale — pas seulement ce que les gouvernements publient largement.</p>
             
             <div class="about-grid">
                 <div class="about-card">
@@ -1662,7 +1672,7 @@
                         <img src="../images/students/working.jpg" alt="Students collaborating on environmental monitoring">
                     </div>
                     <h3>Community Health</h3>
-                    <p>Monitor air quality and weather conditions to protect student and community health with real-time environmental data.</p>
+                    <p>Surveiller la qualité de l'air pour protéger la santé communautaire avec des alertes en temps réel lorsque les indicateurs intérieurs ou extérieurs atteignent des niveaux malsains.</p>
                 </div>
                 <div class="about-card">
                     <div class="card-image">
@@ -1690,28 +1700,28 @@
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>🌡️ Weather Station</h3>
-                    <p><strong>ENV IV Unit:</strong> Measures temperature, humidity, and barometric pressure with high precision for comprehensive weather monitoring.</p>
+                    <h3>🛠️ Construisez à Votre Façon</h3>
+                    <p>Commandez un kit ou juste notre code et plans et faites-le fonctionner avec votre matériel préféré</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🌫️ Air Quality Monitor</h3>
-                    <p><strong>PM2.5 Sensor:</strong> Detects and quantifies PM1, PM2.5, and PM10 particulate matter for critical air pollution assessment.</p>
+                    <h3>💻 100% Open Source!</h3>
+                    <p>Téléchargez notre code depuis GitHub. Utilisez nos notes explicatives utiles.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📡 IoT Connectivity</h3>
-                    <p><strong>M5Stack CoreS3:</strong> Wi-Fi enabled microcontroller with built-in display for real-time data visualization and cloud connectivity.</p>
+                    <h3>🖨️ Imprimez les Accessoires en 3D</h3>
+                    <p>Utilisez nos modèles 3D pour imprimer les boîtiers et supports</p>
                 </div>
                 <div class="feature-card">
-                    <h3>☁️ Cloud Database</h3>
-                    <p><strong>PostgreSQL Storage:</strong> Secure data transmission via Node-RED API to persistent cloud database for historical analysis.</p>
+                    <h3>👥 Support Communautaire!</h3>
+                    <p>Notre communauté grandissante d'étudiants astucieux et de volontaires vous aidera</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📊 Data Visualization</h3>
-                    <p><strong>Data dashboards:</strong> Interactive, real-time dashboards for monitoring trends, patterns, and environmental changes.</p>
+                    <h3>📈 Soutient Vos Projets</h3>
+                    <p>Récupérez les données d'analyse de tendances de la base de données globale</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🎓 Curriculum Integration</h3>
-                    <p><strong>STEM Learning:</strong> Comprehensive guides for integrating the project into science, math, technology, and social studies curricula.</p>
+                    <h3>🚨 Automatisez Vos Alertes</h3>
+                    <p>Soyez averti lorsque les tendances indiquent un danger ou lorsque les seuils sont atteints</p>
                 </div>
             </div>
         </div>
@@ -2037,15 +2047,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>schoolAIR Project</h3>
-                    <p>Empowering students to learn through hands-on environmental monitoring while protecting community health and contributing to global climate research.</p>
+                    <h3>À Propos de Nous</h3>
+                    <p>L'International Green Tech Foundation est une organisation à but non lucratif qui fait progresser l'éducation technologique environnementale. Notre réseau mondial passionné d'éducateurs, d'ingénieurs et d'étudiants croit en l'autonomisation de la prochaine génération par l'apprentissage pratique.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#about">About Project</a></p>
-                    <p><a href="#components">Components</a></p>
+                    <h3>Liens Rapides</h3>
+                    <p><a href="#project">Projet</a></p>
+                    <p><a href="#components">Technologie</a></p>
                     <p><a href="how-it-works.html">Comment Ça Marche</a></p>
-                    <p><a href="#get-involved">Get Involved</a></p>
+                    <p><a href="dashboard.html">Tableau de Bord</a></p>
+                    <p><a href="events.html">Événements</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Resources</h3>

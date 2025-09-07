@@ -28,6 +28,10 @@
             overflow-x: hidden;
         }
 
+        html {
+            scroll-padding-top: 120px;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1187,13 +1191,13 @@
 
         .logos-grid-overlay {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: nowrap;
-            margin-left: 0;
-            width: 100%;
             overflow-x: auto;
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .logo-item-overlay {
@@ -1460,6 +1464,8 @@
             gap: 1.5rem !important;
             flex-wrap: nowrap !important;
             overflow-x: auto !important;
+            width: 100% !important;
+            padding: 0 1rem !important;
         }
         .logo-item-overlay {
             transition: transform 0.3s ease, opacity 0.3s ease !important;
@@ -1490,7 +1496,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
+            <a href="./" class="logo" style="text-decoration: none; color: inherit;">
                 <div class="logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
@@ -1498,12 +1504,14 @@
                     schoolAIR
                     <div class="logo-tagline">An International Green Tech Foundation Project</div>
                 </div>
-            </div>
+            </a>
             <div class="nav-main">
                 <ul class="nav-links">
-                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#project" data-i18n="nav.project">Projecte</a></li>
                     <li><a href="#components" data-i18n="nav.products">Tecnologia</a></li>
                     <li><a href="how-it-works.html" data-i18n="nav.howItWorks">Com Funciona</a></li>
+                    <li><a href="dashboard.html" data-i18n="nav.dashboard">Tauler de Control</a></li>
+                    <li><a href="events.html" data-i18n="nav.events">Esdeveniments</a></li>
                     <li><a href="#get-involved" data-i18n="nav.getInvolved">Participar</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -1543,8 +1551,8 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1><span data-i18n="hero.title">L'Aire Net <span class="break-mobile">Potencia l'Aprenentatge</span></span></h1>
-                    <p class="subtitle" data-i18n="hero.subtitle">Els nens poden aprendre la tecnologia per assegurar-ho</p>
-                    <p data-i18n="hero.description">Res no és més important per als nostres fills que l'aire net, l'aigua neta — i el coneixement. Aquest projecte de l'International Green Tech Foundation capacita les ments joves per explorar microcontroladors, sensors i tecnologia IoT, alhora que ajuda a mantenir l'aire de la nostra comunitat net. És ciència amb propòsit — inspirant la propera generació a construir un planeta més intel·ligent i sostenible.</p>
+                    <p class="subtitle" data-i18n="hero.subtitle">Les escoles i els estudiants poden aprofitar la tecnologia per assegurar-ho</p>
+                    <p data-i18n="hero.description">Res no és més important per al futur dels nostres fills que l'aire saludable, l'aigua neta — i el coneixement per protegir-los. El nostre projecte d'organització sense ànim de lucre capacita els estudiants per salvaguardar la qualitat de l'aire de la seva escola amb estacions de monitoratge IoT.</p>
                     <div class="hero-buttons">
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.enrollButton">Inscriu la Teva Escola</a>
                         <a href="#get-involved" class="btn-primary" data-i18n="hero.orderButton">Obtenir Kit Domèstic</a>
@@ -1598,36 +1606,38 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Partner Schools Overlay -->
-            <div class="partner-schools-overlay">
-                <h3 class="partners-title-overlay">Trusted by Schools Worldwide</h3>
-                <div class="logos-grid-overlay">
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
-                    </div>
-                    <div class="logo-item-overlay">
-                        <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
-                    </div>
+        </div>
+    </section>
+
+    <!-- Partner Schools Section -->
+    <section class="partner-schools">
+        <div class="container">
+            <h3 class="partners-title">Escoles de Tot el Món Confien en Nosaltres</h3>
+            <div class="logos-grid">
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.25.54.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.16.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.27.58.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.31.png" alt="Partner School Logo">
+                </div>
+                <div class="logo-item">
+                    <img src="../images/schoollogos/Screenshot 2025-08-29 at 00.28.50.png" alt="Partner School Logo">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="project" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre schoolAIR</h2>
-            <p class="section-subtitle">Un projecte educatiu integral que combina l'aprenentatge STEM pràctic amb el monitoratge ambiental del món real</p>
+            <h2 class="section-title">El Projecte schoolAIR</h2>
+            <p class="section-subtitle">Un projecte educatiu integral que combina l'aprenentatge STEM pràctic amb el monitoratge ambiental del món real. Hi ha un propòsit més enllà de l'educació: Els nostres fills podrien estar exposats a aire poc saludable. Aquest projecte ofereix a les escoles i estudiants dades en temps real sobre l'àrea local — no només el que els governs publiquen àmpliament.</p>
             
             <div class="about-grid">
                 <div class="about-card">
@@ -1642,7 +1652,7 @@
                         <img src="../images/students/working.jpg" alt="Students collaborating on environmental monitoring">
                     </div>
                     <h3>Salut Comunitària</h3>
-                    <p>Monitora la qualitat de l'aire i les condicions meteorològiques per protegir la salut dels estudiants i la comunitat amb dades ambientals en temps real.</p>
+                    <p>Monitora la qualitat de l'aire per protegir la salut comunitària amb alertes en temps real quan els indicadors interiors o exteriors arriben a nivells poc saludables.</p>
                 </div>
                 <div class="about-card">
                     <div class="card-image">
@@ -1670,28 +1680,28 @@
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>🌡️ Estació Meteorològica</h3>
-                    <p><strong>Unitat ENV IV:</strong> Mesura temperatura, humitat i pressió baromètrica amb alta precisió per al monitoratge meteorològic integral.</p>
+                    <h3>🛠️ Construeix-ho a la Teva Manera</h3>
+                    <p>Demana un kit o només el nostre codi i plans i fes-ho funcionar amb el teu maquinari favorit</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🌫️ Monitor de Qualitat de l'Aire</h3>
-                    <p><strong>Sensor PM2.5:</strong> Detecta i quantifica la matèria particulada PM1, PM2.5 i PM10 per a l'avaluació crítica de la contaminació atmosfèrica.</p>
+                    <h3>💻 100% Codi Obert!</h3>
+                    <p>Descarrega el nostre codi des de GitHub. Utilitza les nostres notes d'ajuda útils.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📡 Connectivitat IoT</h3>
-                    <p><strong>M5Stack CoreS3:</strong> Microcontrolador amb Wi-Fi i pantalla integrada per a la visualització de dades en temps real i connectivitat al núvol.</p>
+                    <h3>🖨️ Imprimeix els Accessoris en 3D</h3>
+                    <p>Utilitza els nostres models 3D per imprimir les caixes i suports</p>
                 </div>
                 <div class="feature-card">
-                    <h3>☁️ Base de Dades al Núvol</h3>
-                    <p><strong>Emmagatzematge PostgreSQL:</strong> Transmissió segura de dades via API Node-RED a base de dades persistent al núvol per a l'anàlisi històrica.</p>
+                    <h3>👥 Suport Comunitari!</h3>
+                    <p>La nostra comunitat creixent d'estudiants astuts i voluntaris t'ajudarà</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📊 Visualització de Dades</h3>
-                    <p><strong>Taulers de dades:</strong> Taulers interactius en temps real per monitorar tendències, patrons i canvis ambientals.</p>
+                    <h3>📈 Dona Suport als Teus Projectes</h3>
+                    <p>Obté dades d'anàlisi de tendències de la base de dades global</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🎓 Integració Curricular</h3>
-                    <p><strong>Aprenentatge STEM:</strong> Guies completes per integrar el projecte als currículums de ciències, matemàtiques, tecnologia i estudis socials.</p>
+                    <h3>🚨 Automatitza Les Teves Alertes</h3>
+                    <p>Rebràs avisos quan les tendències indiquin perill o quan s'assolesquin llindars crítics</p>
                 </div>
             </div>
         </div>
@@ -2017,15 +2027,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>schoolAIR Project</h3>
-                    <p>Empoderant els estudiants per aprendre mitjançant el monitoratge ambiental pràctic mentre protegeixen la salut comunitària i contribueixen a la recerca climàtica global.</p>
+                    <h3>Sobre Nosaltres</h3>
+                    <p>L'International Green Tech Foundation és una organització sense ànim de lucre que avança l'educació tecnològica ambiental. La nostra xarxa global apassionada d'educadors, enginyers i estudiants creu en l'empoderament de la pròxima generació a través de l'aprenentatge pràctic.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Enllaços Ràpids</h3>
-                    <p><a href="#about">Sobre el Projecte</a></p>
-                    <p><a href="#components">Components</a></p>
+                    <p><a href="#project">Projecte</a></p>
+                    <p><a href="#components">Tecnologia</a></p>
                     <p><a href="how-it-works.html">Com Funciona</a></p>
-                    <p><a href="#get-involved">Participa-hi</a></p>
+                    <p><a href="dashboard.html">Tauler de Control</a></p>
+                    <p><a href="events.html">Esdeveniments</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Recursos</h3>

@@ -2244,30 +2244,20 @@
         const backgroundAudio = document.getElementById('backgroundAudio');
         const audioToggle = document.getElementById('audioToggle');
 
-        // Create audio button that works even with missing audio files
+        // Initialize audio functionality properly
         document.addEventListener('DOMContentLoaded', function() {
-            // Create working audio button
-            const existingContainer = document.querySelector('.hero-audio-container');
-            if (existingContainer) existingContainer.remove();
-            
-            const container = document.createElement('div');
-            container.style.cssText = 'position: fixed !important; top: 20px !important; left: 20px !important; z-index: 9999 !important;';
-            
-            const button = document.createElement('button');
-            button.id = 'audioToggle';
-            button.onclick = function() { console.log('Audio clicked'); };
-            
-            const isMobile = window.innerWidth <= 768;
-            if (isMobile) {
-                button.style.cssText = 'background: rgba(255,255,255,0.5) !important; border: 1px solid rgba(74,20,140,0.6) !important; color: #4A148C !important; padding: 0.5rem !important; border-radius: 50% !important; width: 40px !important; height: 40px !important; display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important;';
-                button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            // Make sure the original audio button works correctly
+            const audioButton = document.getElementById('audioToggle');
+            if (audioButton) {
+                // Clear any existing onclick and add proper event listener
+                audioButton.onclick = null;
+                audioButton.addEventListener('click', function() {
+                    console.log('Audio button clicked');
+                    toggleAudio();
+                });
             } else {
-                button.style.cssText = 'background: rgba(255,255,255,0.5) !important; border: 1px solid rgba(74,20,140,0.6) !important; color: #4A148C !important; padding: 0.4rem 0.8rem !important; border-radius: 15px !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; cursor: pointer !important; font-size: 0.75rem !important;';
-                button.innerHTML = '<i class="fas fa-volume-mute"></i><span>A message from the founder</span>';
+                console.log('Audio toggle button not found');
             }
-            
-            container.appendChild(button);
-            document.body.appendChild(container);
         });
 
         function getAudioButtonHTML(iconClass, text) {
@@ -2281,31 +2271,55 @@
         }
 
         function toggleAudio() {
+            console.log('toggleAudio called, audioPlayed:', audioPlayed, 'currentlyPlaying:', currentlyPlaying);
+            
             if (!audioPlayed) {
                 // First time clicking - play pre-audio first
+                console.log('First time playing audio');
                 currentlyPlaying = true;
+                
+                // Update button immediately to show it's processing
+                if (audioToggle) {
+                    audioToggle.innerHTML = getAudioButtonHTML('fas fa-spinner fa-spin', 'Loading...');
+                }
+                
                 preAudio.play().then(() => {
-                    audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'Audio');
-                    audioToggle.classList.add('playing');
+                    console.log('Pre-audio started successfully');
+                    if (audioToggle) {
+                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'Playing');
+                        audioToggle.classList.add('playing');
+                    }
                     audioPlayed = true;
                 }).catch((error) => {
-                    console.log('Pre-audio playback failed:', error);
+                    console.error('Pre-audio playback failed:', error);
                     currentlyPlaying = false;
+                    if (audioToggle) {
+                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'Audio Failed');
+                    }
                 });
             } else {
                 // Subsequent clicks - toggle mute/unmute for both audios
+                console.log('Toggling audio mute/unmute');
                 if (currentlyPlaying) {
                     if (preAudio.muted || backgroundAudio.muted) {
                         preAudio.muted = false;
                         backgroundAudio.muted = false;
-                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'Audio');
-                        audioToggle.classList.add('playing');
+                        if (audioToggle) {
+                            audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-up', 'Playing');
+                            audioToggle.classList.add('playing');
+                        }
+                        console.log('Audio unmuted');
                     } else {
                         preAudio.muted = true;
                         backgroundAudio.muted = true;
-                        audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'Audio');
-                        audioToggle.classList.remove('playing');
+                        if (audioToggle) {
+                            audioToggle.innerHTML = getAudioButtonHTML('fas fa-volume-mute', 'Muted');
+                            audioToggle.classList.remove('playing');
+                        }
+                        console.log('Audio muted');
                     }
+                } else {
+                    console.log('No audio currently playing to toggle');
                 }
             }
         }

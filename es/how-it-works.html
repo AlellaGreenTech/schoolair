@@ -169,7 +169,6 @@
             margin-top: 2px;
             line-height: 1.2;
             text-align: left;
-            margin-left: -84px;
         }
 
         .nav-links {
@@ -401,7 +400,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
                 <div class="logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
@@ -409,17 +408,17 @@
                     schoolAIR
                     <div class="logo-tagline">An International Green Tech Foundation Project</div>
                 </div>
-            </div>
+            </a>
             <div class="nav-main">
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#about">Acerca</a></li>
-                    <li><a href="index.html#components">Tecnología</a></li>
-                    <li><a href="how-it-works.html">Cómo Funciona</a></li>
-                    <li><a href="#workshops">Talleres y Eventos</a></li>
+                    <li><a href="index.html#project" data-i18n="nav.project">Proyecto</a></li>
+                    <li><a href="index.html#components" data-i18n="nav.products">Tecnología</a></li>
+                    <li><a href="how-it-works.html" data-i18n="nav.howItWorks">Cómo Funciona</a></li>
+                    <li><a href="dashboard.html" data-i18n="nav.dashboard">Panel de Control</a></li>
+                    <li><a href="events.html" data-i18n="nav.events">Eventos</a></li>
+                    <li><a href="index.html#get-involved" data-i18n="nav.getInvolved">Participar</a></li>
                 </ul>
                 <div class="nav-actions">
-                    <a href="#get-involved" class="cta-nav"><span>100% Impulsado por Voluntarios</span><br><span>ÚNETE AL PROYECTO</span></a>
                     <div class="language-selector-dropdown">
                         <button class="language-selector" onclick="toggleLanguageMenu()">Español</button>
                         <div class="language-menu" id="languageMenu">

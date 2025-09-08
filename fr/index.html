@@ -1003,29 +1003,35 @@
             text-align: center;
             transition: transform 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
         }
 
         .involvement-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.15);
         }
 
         .involvement-card i {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #a5d6a7;
         }
 
         .involvement-card h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.4rem;
+            line-height: 1.3;
         }
 
         .involvement-card .btn-secondary {
             background: white;
             color: #2e7d32;
             border: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            align-self: center;
+            min-width: 140px;
         }
 
         .involvement-card .btn-secondary:hover {
@@ -1942,27 +1948,27 @@
     <!-- Get Involved Section -->
     <section id="get-involved" class="get-involved">
         <div class="container">
-            <h2 class="section-title">Get Involved</h2>
-            <p class="section-subtitle">Multiple ways to participate in the schoolAIR project</p>
+            <h2 class="section-title">S'Impliquer</h2>
+            <p class="section-subtitle">Plusieurs façons de participer au projet schoolAIR</p>
             
             <div class="involvement-options">
                 <div class="involvement-card">
                     <i class="fas fa-box"></i>
-                    <h3>Request Complete Kit</h3>
-                    <p>Get everything you need: sensors, microcontroller, enclosure, and comprehensive setup guides.</p>
-                    <a href="#contact" class="btn-secondary">Request Kit</a>
+                    <h3>Demander un Kit Complet</h3>
+                    <p>Obtenez tout ce dont vous avez besoin : capteurs, microcontrôleur, boîtier et guides d'installation complets.</p>
+                    <a href="#contact" class="btn-secondary">Demander un Kit</a>
                 </div>
                 <div class="involvement-card">
                     <i class="fas fa-file-download"></i>
-                    <h3>Download Plans Only</h3>
-                    <p>Access detailed assembly instructions, software code, and educational materials to build your own.</p>
-                    <a href="#contact" class="btn-secondary">Get Plans</a>
+                    <h3>Télécharger Seulement les Plans</h3>
+                    <p>Accédez aux instructions d'assemblage détaillées, au code logiciel et aux matériels éducatifs pour construire le vôtre.</p>
+                    <a href="#contact" class="btn-secondary">Obtenir les Plans</a>
                 </div>
                 <div class="involvement-card">
                     <i class="fas fa-school"></i>
-                    <h3>School Partnership</h3>
-                    <p>Create a dedicated school page, share updates, and access global environmental data for research.</p>
-                    <a href="#contact" class="btn-secondary">Become Partner</a>
+                    <h3>Partenariat Scolaire</h3>
+                    <p>Créez une page d'école dédiée, partagez des mises à jour et accédez aux données environnementales mondiales pour la recherche.</p>
+                    <a href="#contact" class="btn-secondary">Devenir Partenaire</a>
                 </div>
             </div>
         </div>
@@ -1971,62 +1977,62 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Ready to start your environmental monitoring project?</p>
+            <h2 class="section-title">Contactez-Nous</h2>
+            <p class="section-subtitle">Prêt à commencer votre projet de surveillance environnementale ?</p>
             
             <div class="contact-content">
                 <form id="contactForm" onsubmit="handleContactSubmit(event)">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">First Name</label>
+                            <label for="firstName">Prénom</label>
                             <input type="text" id="firstName" name="firstName" required>
                         </div>
                         <div class="form-group">
-                            <label for="lastName">Last Name</label>
+                            <label for="lastName">Nom</label>
                             <input type="text" id="lastName" name="lastName" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email Address</label>
+                        <label for="email">Adresse Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="school">School/Organization</label>
+                        <label for="school">École/Organisation</label>
                         <input type="text" id="school" name="school" required>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="role">Your Role</label>
+                            <label for="role">Votre Rôle</label>
                             <select id="role" name="role" required>
-                                <option value="">Select your role</option>
-                                <option value="teacher">Teacher</option>
-                                <option value="administrator">Administrator</option>
-                                <option value="student">Student</option>
-                                <option value="researcher">Researcher</option>
-                                <option value="other">Other</option>
+                                <option value="">Sélectionnez votre rôle</option>
+                                <option value="teacher">Enseignant</option>
+                                <option value="administrator">Administrateur</option>
+                                <option value="student">Étudiant</option>
+                                <option value="researcher">Chercheur</option>
+                                <option value="other">Autre</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="interest">Interest Level</label>
+                            <label for="interest">Niveau d'Intérêt</label>
                             <select id="interest" name="interest" required>
-                                <option value="">Select option</option>
-                                <option value="complete-kit">Complete Kit</option>
-                                <option value="plans-only">Plans Only</option>
-                                <option value="partnership">School Partnership</option>
-                                <option value="information">More Information</option>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="complete-kit">Kit Complet</option>
+                                <option value="plans-only">Plans Seulement</option>
+                                <option value="partnership">Partenariat Scolaire</option>
+                                <option value="information">Plus d'Informations</option>
                             </select>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project goals, timeline, or any specific questions you have..."></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Parlez-nous de vos objectifs de projet, de votre calendrier ou de toute question spécifique que vous avez..."></textarea>
                     </div>
                     
-                    <button type="submit" class="btn-primary">Send Request</button>
+                    <button type="submit" class="btn-primary">Envoyer la Demande</button>
                 </form>
             </div>
         </div>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - SchoolAIR Project</title>
+    <link rel="alternate" hreflang="en" href="../en/">
+    <link rel="alternate" hreflang="es" href="../es/">
+    <link rel="alternate" hreflang="fr" href="../fr/">
+    <link rel="alternate" hreflang="ca" href="../ca/">
+    <link rel="alternate" hreflang="it" href="../it/">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+            gap: 0.5rem;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-selector-dropdown {
+            position: relative;
+        }
+
+        .language-selector {
+            background: none;
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: #4A148C;
+            color: white;
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 120px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #eee;
+        }
+
+        .language-menu a:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .language-menu a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .language-menu a:hover {
+            background: #f5f5f5;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            top: -15px;
+        }
+
+        .logo-text {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .logo-tagline {
+            font-family: Arial, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 2px;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #2e7d32;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Content */
+        .page-header {
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 5rem 0;
+            background: #f8fffe;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #4caf50;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-card.featured {
+            border-left-color: #ff9800;
+            background: linear-gradient(135deg, #ffffff, #fff3e0);
+        }
+
+        .event-card.upcoming {
+            border-left-color: #2196f3;
+            background: linear-gradient(135deg, #ffffff, #e3f2fd);
+        }
+
+        .event-card.annual {
+            border-left-color: #9c27b0;
+            background: linear-gradient(135deg, #ffffff, #f3e5f5);
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .event-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .event-status.completed {
+            background: #4caf50;
+            color: white;
+        }
+
+        .event-status.coming-soon {
+            background: #ff9800;
+            color: white;
+        }
+
+        .event-status.tbd {
+            background: #9c27b0;
+            color: white;
+        }
+
+        .event-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1B5E20;
+        }
+
+        .event-card p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-highlights {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .event-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .event-highlights li {
+            padding: 0.25rem 0;
+            color: #1B5E20;
+            font-weight: 500;
+        }
+
+        .event-highlights li:before {
+            content: '✓ ';
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #1b5e20;
+            color: white;
+            padding: 3rem 0 1rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #a5d6a7;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #c8e6c9;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #81c784;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2e7d32;
+            padding-top: 1rem;
+            text-align: center;
+            color: #a5d6a7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #a5d6a7;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #81c784;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-top: 1px solid rgba(46, 125, 50, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    schoolAIR
+                    <div class="logo-tagline">An International Green Tech Foundation Project</div>
+                </div>
+            </a>
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <li><a href="index.html#project" data-i18n="nav.project">Project</a></li>
+                    <li><a href="index.html#components" data-i18n="nav.products">Technology</a></li>
+                    <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
+                    <li><a href="dashboard.html" data-i18n="nav.dashboard">Dashboard</a></li>
+                    <li><a href="events.html" data-i18n="nav.events" style="color: #2e7d32; font-weight: 600;">Events</a></li>
+                    <li><a href="index.html#get-involved" data-i18n="nav.getInvolved">Get Involved</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="language-selector-dropdown">
+                        <button class="language-selector" onclick="toggleLanguageMenu()">English</button>
+                        <div class="language-menu" id="languageMenu">
+                            <a href="../en/events.html">English</a>
+                            <a href="../fr/events.html">Français</a>
+                            <a href="../es/events.html">Español</a>
+                            <a href="../ca/events.html">Català</a>
+                            <a href="../it/events.html">Italiano</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Events & Workshops</h1>
+            <p class="page-subtitle">Join our global community through workshops, internships, and collaborative events that bring students and educators together to advance environmental monitoring technology.</p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <div class="events-grid">
+                
+                <!-- Summer Internship -->
+                <div class="event-card featured">
+                    <div class="event-header">
+                        <span class="event-date">Summer 2024</span>
+                        <span class="event-status completed">Completed</span>
+                    </div>
+                    <h3>Summer Internship/Workshop</h3>
+                    <p>International students from several different countries came to Alella Green Tech to design and build the very first Air Quality & Weather stations for their schools.</p>
+                    
+                    <div class="event-highlights">
+                        <ul>
+                            <li>First-ever SchoolAIR prototypes created</li>
+                            <li>Multi-national collaboration</li>
+                            <li>Hands-on engineering experience</li>
+                            <li>Real-world problem solving</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Impact:</strong> This groundbreaking program established the foundation for the global SchoolAIR network, with participating students becoming the first ambassadors of environmental monitoring technology in their home countries.</p>
+                </div>
+
+                <!-- School Staff Workshops -->
+                <div class="event-card upcoming">
+                    <div class="event-header">
+                        <span class="event-date">Coming Soon</span>
+                        <span class="event-status coming-soon">Coming Soon</span>
+                    </div>
+                    <h3>Workshops for School Staff</h3>
+                    <p>Getting the most out of the SchoolAIR project for your school. Comprehensive training sessions designed for educators and administrators.</p>
+                    
+                    <div class="event-highlights">
+                        <ul>
+                            <li>Curriculum integration strategies</li>
+                            <li>Technical setup and maintenance</li>
+                            <li>Data analysis and interpretation</li>
+                            <li>Student engagement techniques</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Who should attend:</strong> Teachers, administrators, IT coordinators, and educational staff interested in implementing environmental monitoring programs at their schools.</p>
+                </div>
+
+                <!-- Student Workshops -->
+                <div class="event-card upcoming">
+                    <div class="event-header">
+                        <span class="event-date">Dates TBA</span>
+                        <span class="event-status coming-soon">Coming Soon</span>
+                    </div>
+                    <h3>Workshops for Students</h3>
+                    <p>Interactive learning sessions for students featuring both online and in-person formats. Dates to be announced for both delivery methods.</p>
+                    
+                    <div class="event-highlights">
+                        <ul>
+                            <li>Online sessions for global participation</li>
+                            <li>In-person workshops at partner locations</li>
+                            <li>Hands-on building and programming</li>
+                            <li>Peer collaboration and networking</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Learning outcomes:</strong> Students will gain practical experience in IoT development, environmental science, data analysis, and collaborative problem-solving while contributing to real-world environmental monitoring.</p>
+                </div>
+
+                <!-- Annual Hackathon -->
+                <div class="event-card annual">
+                    <div class="event-header">
+                        <span class="event-date">Date TBD</span>
+                        <span class="event-status tbd">Date TBD</span>
+                    </div>
+                    <h3>THE ANNUAL SCHOOLAIR HACKATHON</h3>
+                    <p>Techies from all over will descend on Alella Green Tech's campus to build novel versions of the SchoolAIR stations. A collaborative innovation event bringing together the brightest minds in environmental technology.</p>
+                    
+                    <div class="event-highlights">
+                        <ul>
+                            <li>Global developer collaboration</li>
+                            <li>Innovation challenges and competitions</li>
+                            <li>Advanced prototype development</li>
+                            <li>Open source contributions</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Expected outcomes:</strong> New sensor technologies, improved station designs, enhanced data analytics, and expanded platform capabilities that will benefit the entire global SchoolAIR network.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>The International Green Tech Foundation is a non-profit organization advancing environmental technology education. Our passionate global network of educators, engineers, and students believes in empowering the next generation through hands-on learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html#project">Project</a></p>
+                    <p><a href="index.html#components">Technology</a></p>
+                    <p><a href="how-it-works.html">How It Works</a></p>
+                    <p><a href="dashboard.html">Dashboard</a></p>
+                    <p><a href="events.html">Events</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#">Assembly Guide</a></p>
+                    <p><a href="#">Software Documentation</a></p>
+                    <p><a href="#">Global Data Access</a></p>
+                    <p><a href="#">Curriculum Materials</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="index.html#get-involved">Contact Us</a></p>
+                    <p><a href="#">Community Forum</a></p>
+                    <p><a href="#">Technical Support</a></p>
+                    <p><a href="#">FAQ</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 schoolAIR Project. Open source educational initiative for environmental monitoring.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Language menu toggle function
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.language-selector-dropdown');
+            const menu = document.getElementById('languageMenu');
+            if (dropdown && !dropdown.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

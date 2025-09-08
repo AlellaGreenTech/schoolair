@@ -1003,29 +1003,35 @@
             text-align: center;
             transition: transform 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
         }
 
         .involvement-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.15);
         }
 
         .involvement-card i {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #a5d6a7;
         }
 
         .involvement-card h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.4rem;
+            line-height: 1.3;
         }
 
         .involvement-card .btn-secondary {
             background: white;
             color: #2e7d32;
             border: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            align-self: center;
+            min-width: 120px;
         }
 
         .involvement-card .btn-secondary:hover {

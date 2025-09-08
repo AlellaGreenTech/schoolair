@@ -25,19 +25,20 @@
             scroll-padding-top: 120px;
         }
 
-        /* Navigation */
-        nav {
+        /* SchoolAIR Navigation Styles */
+        .schoolair-nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            z-index: 1000;
+            z-index: 9999;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            font-family: 'Inter', sans-serif;
         }
 
-        .nav-container {
+        .schoolair-nav-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -47,14 +48,14 @@
             gap: 0.5rem;
         }
 
-        .nav-main {
+        .schoolair-nav-main {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
         }
 
-        .logo {
+        .schoolair-logo {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -62,7 +63,7 @@
             color: inherit;
         }
 
-        .logo-icon {
+        .schoolair-logo-icon {
             width: 40px;
             height: 40px;
             background: linear-gradient(135deg, #1B5E20, #76FF03);
@@ -76,14 +77,14 @@
             top: -15px;
         }
 
-        .logo-text {
+        .schoolair-logo-text {
             font-family: 'Roboto Slab', serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: #2e7d32;
         }
 
-        .logo-tagline {
+        .schoolair-logo-tagline {
             font-family: Arial, sans-serif;
             font-size: 0.65rem;
             font-weight: 400;
@@ -94,13 +95,13 @@
             margin-left: -84px;
         }
 
-        .nav-links {
+        .schoolair-nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
         }
 
-        .nav-links a {
+        .schoolair-nav-links a {
             color: #2c3e50;
             text-decoration: none;
             font-weight: 500;
@@ -108,15 +109,15 @@
             position: relative;
         }
 
-        .nav-links a:hover {
+        .schoolair-nav-links a:hover {
             color: #2e7d32;
         }
 
-        .nav-links a.active {
+        .schoolair-nav-links a.active {
             color: #2e7d32;
         }
 
-        .nav-links a.active::after {
+        .schoolair-nav-links a.active::after {
             content: '';
             position: absolute;
             width: 100%;
@@ -126,17 +127,17 @@
             background-color: #2e7d32;
         }
 
-        .nav-actions {
+        .schoolair-nav-actions {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .language-selector-dropdown {
+        .schoolair-language-dropdown {
             position: relative;
         }
 
-        .language-selector {
+        .schoolair-language-selector {
             background: none;
             border: 2px solid #4A148C;
             color: #4A148C;
@@ -148,12 +149,12 @@
             transition: all 0.3s ease;
         }
 
-        .language-selector:hover {
+        .schoolair-language-selector:hover {
             background: #4A148C;
             color: white;
         }
 
-        .language-menu {
+        .schoolair-language-menu {
             position: absolute;
             top: 100%;
             right: 0;
@@ -169,13 +170,13 @@
             transition: all 0.3s ease;
         }
 
-        .language-menu.active {
+        .schoolair-language-menu.active {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .language-menu a {
+        .schoolair-language-menu a {
             display: block;
             padding: 0.75rem 1rem;
             color: #333;
@@ -185,59 +186,11 @@
             border-bottom: 1px solid #eee;
         }
 
-        .language-menu a:hover {
+        .schoolair-language-menu a:hover {
             background: #f5f5f5;
         }
 
-        .dashboard-container {
-            margin-top: 120px;
-            min-height: calc(100vh - 120px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f0f8ff, #e8f5e8);
-        }
-
-        .coming-soon {
-            max-width: 600px;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .coming-soon h1 {
-            color: #2e7d32;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .coming-soon p {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .dashboard-preview {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .dashboard-preview i {
-            font-size: 4rem;
-            color: #2e7d32;
-            opacity: 0.7;
-        }
-
-        .mobile-menu {
+        .schoolair-mobile-menu {
             display: none;
             background: none;
             border: none;
@@ -246,8 +199,196 @@
             cursor: pointer;
         }
 
+        /* Dashboard Styles */
+        .dashboard-container {
+            margin-top: 120px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #2e7d32;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .change {
+            font-size: 0.9rem;
+            color: #4caf50;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .chart-container h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #666;
+        }
+
+        .chart-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2e7d32;
+        }
+
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .school-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .school-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .school-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .school-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4caf50;
+        }
+
+        .status-indicator.warning {
+            background: #ff9800;
+        }
+
+        .status-indicator.error {
+            background: #f44336;
+        }
+
+        .school-aqi {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            background: #2e7d32;
+            color: white;
+            border-color: #2e7d32;
+        }
+
+        .tab:hover:not(.active) {
+            border-color: #2e7d32;
+            color: #2e7d32;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
+            .schoolair-nav-links {
                 display: none;
                 position: absolute;
                 top: 100%;
@@ -260,39 +401,43 @@
                 border-top: 1px solid rgba(46, 125, 50, 0.1);
             }
 
-            .nav-links.active {
+            .schoolair-nav-links.active {
                 display: flex;
             }
 
-            .mobile-menu {
+            .schoolair-mobile-menu {
                 display: block;
             }
 
-            .coming-soon {
-                padding: 2rem;
+            .dashboard-header h1 {
+                font-size: 2rem;
             }
 
-            .coming-soon h1 {
-                font-size: 2rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="./" class="logo">
-                <div class="logo-icon">
+    <!-- SchoolAIR Navigation -->
+    <nav class="schoolair-nav">
+        <div class="schoolair-nav-container">
+            <a href="./" class="schoolair-logo">
+                <div class="schoolair-logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
-                <div class="logo-text">
+                <div class="schoolair-logo-text">
                     schoolAIR
-                    <div class="logo-tagline">Un Projet de la Fondation Internationale de Technologie Verte</div>
+                    <div class="schoolair-logo-tagline">Un Projet de la Fondation Internationale de Technologie Verte</div>
                 </div>
             </a>
-            <div class="nav-main">
-                <ul class="nav-links">
+            <div class="schoolair-nav-main">
+                <ul class="schoolair-nav-links">
                     <li><a href="index.html#project">Projet</a></li>
                     <li><a href="index.html#components">Technologie</a></li>
                     <li><a href="how-it-works.html">Comment Ça Marche</a></li>
@@ -300,10 +445,10 @@
                     <li><a href="events.html">Événements</a></li>
                     <li><a href="index.html#get-involved">S'impliquer</a></li>
                 </ul>
-                <div class="nav-actions">
-                    <div class="language-selector-dropdown">
-                        <button class="language-selector" onclick="toggleLanguageMenu()">Français</button>
-                        <div class="language-menu" id="languageMenu">
+                <div class="schoolair-nav-actions">
+                    <div class="schoolair-language-dropdown">
+                        <button class="schoolair-language-selector" onclick="toggleSchoolAirLanguageMenu()">Français</button>
+                        <div class="schoolair-language-menu" id="schoolairLanguageMenu">
                             <a href="../en/dashboard.html">English</a>
                             <a href="../fr/dashboard.html">Français</a>
                             <a href="../es/dashboard.html">Español</a>
@@ -312,7 +457,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="mobile-menu" onclick="toggleMobileMenu()">
+                <button class="schoolair-mobile-menu" onclick="toggleSchoolAirMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -321,17 +466,148 @@
 
     <!-- Dashboard Container -->
     <div class="dashboard-container">
-        <div class="coming-soon">
-            <h1>Tableau de Bord</h1>
-            <p>Le tableau de bord interactif sera disponible bientôt</p>
-            
-            <div class="dashboard-preview">
-                <i class="fas fa-chart-line"></i>
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <h1><i class="fas fa-wind"></i> Tableau de Bord SchoolAIR</h1>
+            <p>Surveillance de la Qualité de l'Air en Temps Réel & Éducation Environnementale</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('overview')">
+                <i class="fas fa-chart-line"></i> Aperçu
             </div>
-            
-            <p style="font-size: 1rem; color: #888;">
-                Surveillance en temps réel • Analyse de données • Alertes intelligentes
-            </p>
+            <div class="tab" onclick="switchTab('schools')">
+                <i class="fas fa-school"></i> Réseau d'Écoles
+            </div>
+            <div class="tab" onclick="switchTab('data')">
+                <i class="fas fa-database"></i> Analyse des Données
+            </div>
+            <div class="tab" onclick="switchTab('alerts')">
+                <i class="fas fa-bell"></i> Alertes
+            </div>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview-tab" class="tab-content active">
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>IQA Actuel</h3>
+                    <div class="value" id="current-aqi">42</div>
+                    <div class="change">+2% depuis hier</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Niveau PM2.5</h3>
+                    <div class="value" id="pm25-level">18</div>
+                    <div class="change">μg/m³</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Écoles Actives</h3>
+                    <div class="value" id="active-schools">127</div>
+                    <div class="change">+5 cette semaine</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Points de Données Aujourd'hui</h3>
+                    <div class="value" id="data-points">1,847</div>
+                    <div class="change">+12% depuis hier</div>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="chart-container">
+                <h2>Tendances de la Qualité de l'Air - Dernières 24 Heures</h2>
+                <div class="chart-placeholder">
+                    <i class="fas fa-chart-area"></i>
+                    <p>Graphiques interactifs montrant l'IQA, PM2.5 et autres métriques de qualité de l'air</p>
+                    <p style="font-size: 0.9rem; color: #999;">Visualisation de données en temps réel bientôt disponible</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schools Tab -->
+        <div id="schools-tab" class="tab-content">
+            <h2 style="margin-bottom: 1rem;">État du Réseau d'Écoles</h2>
+            <p style="margin-bottom: 2rem; color: #666; font-style: italic;">IQA = Indicateur de Qualité de l'Air</p>
+            <div class="schools-grid">
+                <div class="school-card">
+                    <h3>École Internationale de Barcelone</h3>
+                    <div class="school-status">
+                        <div class="status-indicator"></div>
+                        <span>En ligne - Tous les capteurs actifs</span>
+                    </div>
+                    <div class="school-aqi">IQA: Connectez-vous pour voir l'IQA de votre école</div>
+                    <p style="color: #666; margin-top: 0.5rem;">Dernière mise à jour: il y a 2 minutes</p>
+                </div>
+                <div class="school-card">
+                    <h3>École Verte Catalogne</h3>
+                    <div class="school-status">
+                        <div class="status-indicator warning"></div>
+                        <span>Maintenance programmée</span>
+                    </div>
+                    <div class="school-aqi">IQA: Connectez-vous pour voir l'IQA de votre école</div>
+                    <p style="color: #666; margin-top: 0.5rem;">Dernière mise à jour: il y a 15 minutes</p>
+                </div>
+                <div class="school-card">
+                    <h3>Institut Technologique</h3>
+                    <div class="school-status">
+                        <div class="status-indicator"></div>
+                        <span>En ligne - Tous les capteurs actifs</span>
+                    </div>
+                    <div class="school-aqi">IQA: Connectez-vous pour voir l'IQA de votre école</div>
+                    <p style="color: #666; margin-top: 0.5rem;">Dernière mise à jour: il y a 1 minute</p>
+                </div>
+                <div class="school-card">
+                    <h3>Ajoutez Votre École</h3>
+                    <div class="school-status">
+                        <div class="status-indicator" style="background: #2196F3;"></div>
+                        <span>Rejoignez le réseau SchoolAIR</span>
+                    </div>
+                    <div class="school-aqi" style="color: #2196F3;">Commencer</div>
+                    <p style="color: #666; margin-top: 0.5rem;">Contactez-nous pour installer des capteurs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Tab -->
+        <div id="data-tab" class="tab-content">
+            <h2 style="margin-bottom: 1.5rem;">Analyse et Export de Données</h2>
+            <div class="chart-container">
+                <h3>Tendances des Données Historiques</h3>
+                <div class="chart-placeholder">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>Analyse complète des données de qualité de l'air</p>
+                    <p style="font-size: 0.9rem; color: #999;">Options d'export: CSV, JSON, rapports PDF</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Comparaisons Régionales</h3>
+                <div class="chart-placeholder">
+                    <i class="fas fa-globe-europe"></i>
+                    <p>Comparez la qualité de l'air entre différentes régions et écoles</p>
+                    <p style="font-size: 0.9rem; color: #999;">Vue cartographique interactive et analyse statistique</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts Tab -->
+        <div id="alerts-tab" class="tab-content">
+            <h2 style="margin-bottom: 1.5rem;">Système d'Alertes</h2>
+            <div class="chart-container">
+                <h3>Alertes Actives</h3>
+                <div style="padding: 1rem 0;">
+                    <p style="color: #4caf50; margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Tous les systèmes fonctionnent normalement</p>
+                    <p style="color: #666;">Aucune alerte de qualité de l'air active pour votre région.</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Configuration des Alertes</h3>
+                <div class="chart-placeholder">
+                    <i class="fas fa-cog"></i>
+                    <p>Configurez des alertes personnalisées pour les seuils de qualité de l'air</p>
+                    <p style="font-size: 0.9rem; color: #999;">Options d'email, SMS et notifications push</p>
+                </div>
+            </div>
         </div>
     </div>
 

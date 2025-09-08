@@ -4,23 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - SchoolAIR Project</title>
-    <link rel="alternate" hreflang="en" href="https://schoolair.org/en/dashboard.html">
-    <link rel="alternate" hreflang="es" href="https://schoolair.org/es/dashboard.html">
-    <link rel="alternate" hreflang="fr" href="https://schoolair.org/fr/dashboard.html">
-    <link rel="alternate" hreflang="ca" href="https://schoolair.org/ca/dashboard.html">
-    <link rel="alternate" hreflang="it" href="https://schoolair.org/it/dashboard.html">
-    <link rel="alternate" hreflang="x-default" href="https://schoolair.org/en/dashboard.html">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Dashboard Dependencies -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/recharts@2.8.0/umd/Recharts.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         * {
@@ -34,19 +19,10 @@
             background-color: #ffffff;
             color: #2c3e50;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         html {
             scroll-padding-top: 120px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            opacity: 1 !important;
-            visibility: visible !important;
-            padding: 0 20px;
         }
 
         /* Navigation */
@@ -59,7 +35,6 @@
             z-index: 1000;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(46, 125, 50, 0.1);
-            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -68,8 +43,6 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            opacity: 1 !important;
-            visibility: visible !important;
             padding: 0 10px;
             gap: 0.5rem;
         }
@@ -79,6 +52,78 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1B5E20, #76FF03);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            top: -15px;
+        }
+
+        .logo-text {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .logo-tagline {
+            font-family: Arial, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 2px;
+            line-height: 1.2;
+            text-align: left;
+            margin-left: -84px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-links a.active {
+            color: #2e7d32;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #2e7d32;
         }
 
         .nav-actions {
@@ -140,96 +185,56 @@
             border-bottom: 1px solid #eee;
         }
 
-        .language-menu a:last-child {
-            border-bottom: none;
-            border-radius: 0 0 8px 8px;
-        }
-
-        .language-menu a:first-child {
-            border-radius: 8px 8px 0 0;
-        }
-
         .language-menu a:hover {
             background: #f5f5f5;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #1B5E20, #76FF03);
-            border-radius: 8px;
+        .dashboard-container {
+            margin-top: 120px;
+            min-height: calc(100vh - 120px);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            position: relative;
-            top: -15px;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0f8ff, #e8f5e8);
         }
 
-        .logo-text {
-            font-family: 'Roboto Slab', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
+        .coming-soon {
+            max-width: 600px;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .coming-soon h1 {
             color: #2e7d32;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .logo-tagline {
-            font-family: Arial, sans-serif;
-            font-size: 0.65rem;
-            font-weight: 400;
+        .coming-soon p {
             color: #666;
-            margin-top: 2px;
-            line-height: 1.2;
-            text-align: left;
-            margin-left: -84px;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
 
-        .nav-links {
+        .dashboard-preview {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+            border-radius: 10px;
             display: flex;
-            list-style: none;
-            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
         }
 
-        .nav-links a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
+        .dashboard-preview i {
+            font-size: 4rem;
             color: #2e7d32;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #2e7d32;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: #2e7d32;
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
+            opacity: 0.7;
         }
 
         .mobile-menu {
@@ -241,13 +246,6 @@
             cursor: pointer;
         }
 
-        /* Dashboard Container */
-        .dashboard-container {
-            margin-top: 120px;
-            min-height: calc(100vh - 120px);
-        }
-
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -270,8 +268,12 @@
                 display: block;
             }
 
-            .dashboard-container {
-                margin-top: 140px;
+            .coming-soon {
+                padding: 2rem;
+            }
+
+            .coming-soon h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -280,7 +282,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="./" class="logo" style="text-decoration: none; color: inherit;">
+            <a href="./" class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
@@ -291,12 +293,12 @@
             </a>
             <div class="nav-main">
                 <ul class="nav-links">
-                    <li><a href="index.html#project" data-i18n="nav.project">Project</a></li>
-                    <li><a href="index.html#components" data-i18n="nav.products">Technology</a></li>
-                    <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
-                    <li><a href="dashboard.html" class="active" data-i18n="nav.dashboard">Dashboard</a></li>
-                    <li><a href="events.html" data-i18n="nav.events">Events</a></li>
-                    <li><a href="index.html#get-involved" data-i18n="nav.getInvolved">Get Involved</a></li>
+                    <li><a href="index.html#project">Project</a></li>
+                    <li><a href="index.html#components">Technology</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="index.html#get-involved">Get Involved</a></li>
                 </ul>
                 <div class="nav-actions">
                     <div class="language-selector-dropdown">
@@ -319,661 +321,32 @@
 
     <!-- Dashboard Container -->
     <div class="dashboard-container">
-        <div id="root"></div>
+        <div class="coming-soon">
+            <h1>Dashboard</h1>
+            <p>The interactive dashboard will be available soon</p>
+            
+            <div class="dashboard-preview">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            
+            <p style="font-size: 1rem; color: #888;">
+                Real-time monitoring • Data analysis • Smart alerts
+            </p>
+        </div>
     </div>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
-        const { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } = Recharts;
-        
-        // Icon components
-        const Wind = () => React.createElement('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('path', { d: 'M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2' }),
-            React.createElement('path', { d: 'M9.6 4.6A2 2 0 1 1 11 8H2' }),
-            React.createElement('path', { d: 'M12.6 19.4A2 2 0 1 0 14 16H2' })
-        );
-
-        const Eye = () => React.createElement('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('path', { d: 'M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z' }),
-            React.createElement('circle', { cx: 12, cy: 12, r: 3 })
-        );
-
-        const Users = () => React.createElement('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('path', { d: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' }),
-            React.createElement('circle', { cx: 9, cy: 7, r: 4 }),
-            React.createElement('path', { d: 'M22 21v-2a4 4 0 0 0-3-3.87' }),
-            React.createElement('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' })
-        );
-
-        const School = () => React.createElement('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('path', { d: 'M14 22v-4a2 2 0 1 0-4 0v4' }),
-            React.createElement('path', { d: 'M18 22V8.35a1 1 0 0 0-.65-.95l-6-2.29a2 2 0 0 0-1.4 0l-6 2.3a1 1 0 0 0-.65.94V22' }),
-            React.createElement('path', { d: 'M12 7v0' }),
-            React.createElement('path', { d: 'M6 22v-4a2 2 0 1 1 4 0v4' }),
-            React.createElement('path', { d: 'M18 22v-4a2 2 0 1 1 4 0v4' })
-        );
-
-        const TrendingUp = () => React.createElement('svg', { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('polyline', { points: '22,7 13.5,15.5 8.5,10.5 2,17' }),
-            React.createElement('polyline', { points: '16,7 22,7 22,13' })
-        );
-
-        const Download = () => React.createElement('svg', { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('path', { d: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4' }),
-            React.createElement('polyline', { points: '7,10 12,15 17,10' }),
-            React.createElement('line', { x1: 12, y1: 15, x2: 12, y2: 3 })
-        );
-
-        const MapPin = () => React.createElement('svg', { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('path', { d: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z' }),
-            React.createElement('circle', { cx: 12, cy: 10, r: 3 })
-        );
-
-        const Plus = () => React.createElement('svg', { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('line', { x1: 12, y1: 5, x2: 12, y2: 19 }),
-            React.createElement('line', { x1: 5, y1: 12, x2: 19, y2: 12 })
-        );
-
-        const Bell = () => React.createElement('svg', { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('path', { d: 'M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9' }),
-            React.createElement('path', { d: 'M10.3 21a1.94 1.94 0 0 0 3.4 0' })
-        );
-
-        const Settings = () => React.createElement('svg', { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2 },
-            React.createElement('circle', { cx: 12, cy: 12, r: 3 }),
-            React.createElement('path', { d: 'M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z' })
-        );
-
-        const SchoolAirDashboard = () => {
-            const [activeTab, setActiveTab] = useState('overview');
-            const [selectedRegion, setSelectedRegion] = useState('global');
-            const [searchLocation, setSearchLocation] = useState('');
-
-            // Global aggregated data
-            const globalData = {
-                totalSchools: 2847,
-                activeStations: 2634,
-                studentsProtected: 890420,
-                countriesActive: 67,
-                avgAQI: 52,
-                avgPM25: 14.8,
-                avgCO2: 512,
-                avgTemp: 21.3
-            };
-
-            // Regional data
-            const regions = [
-                { id: 'global', name: 'Global Average', schools: 2847, avgAQI: 52, avgPM25: 14.8, population: 890420 },
-                { id: 'north_america', name: 'North America', schools: 847, avgAQI: 48, avgPM25: 12.3, population: 267340 },
-                { id: 'europe', name: 'Europe', schools: 692, avgAQI: 45, avgPM25: 11.8, population: 218760 },
-                { id: 'asia_pacific', name: 'Asia Pacific', schools: 934, avgAQI: 68, avgPM25: 21.4, population: 295180 },
-                { id: 'latin_america', name: 'Latin America', schools: 284, avgAQI: 55, avgPM25: 16.2, population: 89640 },
-                { id: 'africa', name: 'Africa', schools: 90, avgAQI: 72, avgPM25: 25.8, population: 28500 }
-            ];
-
-            // City/Local data for search
-            const cities = [
-                { name: 'Barcelona, Spain', schools: 28, avgAQI: 41, avgPM25: 10.5, region: 'europe' },
-                { name: 'Madrid, Spain', schools: 34, avgAQI: 43, avgPM25: 11.2, region: 'europe' },
-                { name: 'Paris, France', schools: 45, avgAQI: 38, avgPM25: 9.8, region: 'europe' },
-                { name: 'Berlin, Germany', schools: 52, avgAQI: 35, avgPM25: 8.9, region: 'europe' },
-                { name: 'Amsterdam, Netherlands', schools: 29, avgAQI: 32, avgPM25: 7.8, region: 'europe' },
-                { name: 'Milan, Italy', schools: 38, avgAQI: 47, avgPM25: 12.8, region: 'europe' }
-            ];
-
-            // Schools data
-            const schools = [
-                { id: 'benjamin_franklin_intl', name: 'Benjamin Franklin International', location: 'Barcelona, Spain', students: 850, status: 'active', lastUpdate: '2 min ago' },
-                { id: 'montessori_barcelona', name: 'Montessori Barcelona', location: 'Barcelona, Spain', students: 420, status: 'active', lastUpdate: '1 min ago' },
-                { id: 'learnlife_barcelona', name: 'LearnLife Barcelona', location: 'Barcelona, Spain', students: 320, status: 'active', lastUpdate: '3 min ago' },
-                { id: 'st_patricks_barcelona', name: 'St Patricks Barcelona', location: 'Barcelona, Spain', students: 680, status: 'active', lastUpdate: '5 min ago' },
-                { id: 'st_george_barcelona', name: 'St George Barcelona', location: 'Barcelona, Spain', students: 920, status: 'maintenance', lastUpdate: '45 min ago' }
-            ];
-
-            const [selectedCity, setSelectedCity] = useState(null);
-
-            // Generate sample chart data
-            const generateGlobalTimeSeriesData = () => {
-                const data = [];
-                for (let i = 23; i >= 0; i--) {
-                    const time = new Date(Date.now() - i * 60 * 60 * 1000);
-                    data.push({
-                        time: time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
-                        north_america: Math.max(25, Math.min(70, 48 + Math.sin(i * 0.25) * 12 + Math.random() * 6)),
-                        europe: Math.max(20, Math.min(65, 45 + Math.sin(i * 0.35) * 10 + Math.random() * 5)),
-                        asia_pacific: Math.max(40, Math.min(100, 68 + Math.sin(i * 0.4) * 20 + Math.random() * 10)),
-                        latin_america: Math.max(35, Math.min(85, 55 + Math.sin(i * 0.3) * 18 + Math.random() * 8)),
-                        africa: Math.max(45, Math.min(110, 72 + Math.sin(i * 0.45) * 25 + Math.random() * 12)),
-                        pm25_selected: Math.max(5, 14.8 + Math.sin(i * 0.3) * 8 + Math.random() * 4)
-                    });
-                }
-                return data;
-            };
-
-            const [globalTimeSeriesData, setGlobalTimeSeriesData] = useState(generateGlobalTimeSeriesData());
-
-            const getCurrentRegionData = () => {
-                if (selectedCity) {
-                    return {
-                        name: selectedCity.name,
-                        schools: selectedCity.schools,
-                        avgAQI: selectedCity.avgAQI,
-                        avgPM25: selectedCity.avgPM25,
-                        population: selectedCity.schools * 400
-                    };
-                }
-                return regions.find(r => r.id === selectedRegion) || regions[0];
-            };
-
-            const getAQIColor = (aqi) => {
-                if (aqi <= 50) return '#10B981';
-                if (aqi <= 100) return '#F59E0B';
-                if (aqi <= 150) return '#EF4444';
-                return '#7C2D12';
-            };
-
-            const getAQILabel = (aqi) => {
-                if (aqi <= 50) return 'Good';
-                if (aqi <= 100) return 'Moderate';
-                if (aqi <= 150) return 'Unhealthy for Sensitive';
-                return 'Unhealthy';
-            };
-
-            const handleLocationSearch = (searchTerm) => {
-                setSearchLocation(searchTerm);
-                if (searchTerm.length > 2) {
-                    const foundCity = cities.find(city => 
-                        city.name.toLowerCase().includes(searchTerm.toLowerCase())
-                    );
-                    if (foundCity) {
-                        setSelectedCity(foundCity);
-                        setSelectedRegion(foundCity.region);
-                    }
-                } else {
-                    setSelectedCity(null);
-                }
-            };
-
-            const MetricCard = ({ title, value, unit, icon: Icon, color }) => (
-                React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                    React.createElement('div', { className: "flex items-center justify-between" },
-                        React.createElement('div', null,
-                            React.createElement('p', { className: "text-sm font-medium text-gray-600" }, title),
-                            React.createElement('div', { className: "flex items-end gap-2" },
-                                React.createElement('p', { className: "text-2xl font-bold text-gray-900" }, value),
-                                React.createElement('p', { className: "text-sm text-gray-500" }, unit)
-                            )
-                        ),
-                        React.createElement('div', { className: `p-3 rounded-lg ${color}` },
-                            React.createElement(Icon)
-                        )
-                    )
-                )
-            );
-
-            const renderOverviewTab = () => {
-                const currentRegionData = getCurrentRegionData();
-                
-                return React.createElement('div', { className: "space-y-6" },
-                    // Global Header
-                    React.createElement('div', { className: "bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg p-6" },
-                        React.createElement('div', { className: "text-center" },
-                            React.createElement('h2', { className: "text-3xl font-bold mb-2" }, "SchoolAir Global Network"),
-                            React.createElement('p', { className: "text-lg opacity-90" }, `Real-time air quality monitoring across ${globalData.countriesActive} countries`),
-                            React.createElement('p', { className: "text-sm opacity-75 mt-1" }, "⚠️ Simulated Data For Purposes of Demonstration"),
-                            React.createElement('div', { className: "grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" },
-                                React.createElement('div', { className: "text-center" },
-                                    React.createElement('div', { className: "text-2xl font-bold" }, globalData.totalSchools.toLocaleString()),
-                                    React.createElement('div', { className: "text-sm opacity-90" }, "Schools")
-                                ),
-                                React.createElement('div', { className: "text-center" },
-                                    React.createElement('div', { className: "text-2xl font-bold" }, globalData.activeStations.toLocaleString()),
-                                    React.createElement('div', { className: "text-sm opacity-90" }, "Active Stations")
-                                ),
-                                React.createElement('div', { className: "text-center" },
-                                    React.createElement('div', { className: "text-2xl font-bold" }, `${(globalData.studentsProtected/1000).toFixed(0)}k`),
-                                    React.createElement('div', { className: "text-sm opacity-90" }, "Students Protected")
-                                ),
-                                React.createElement('div', { className: "text-center" },
-                                    React.createElement('div', { className: "text-2xl font-bold" }, globalData.countriesActive),
-                                    React.createElement('div', { className: "text-sm opacity-90" }, "Countries")
-                                )
-                            )
-                        )
-                    ),
-
-                    // Region Selector and Search
-                    React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                        React.createElement('div', { className: "flex flex-col md:flex-row gap-4 items-start md:items-center justify-between" },
-                            React.createElement('div', null,
-                                React.createElement('h3', { className: "text-lg font-semibold mb-2" }, "Regional View"),
-                                React.createElement('select', {
-                                    value: selectedRegion,
-                                    onChange: (e) => {
-                                        setSelectedRegion(e.target.value);
-                                        setSelectedCity(null);
-                                        setSearchLocation('');
-                                    },
-                                    className: "px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                },
-                                    regions.map(region => 
-                                        React.createElement('option', { key: region.id, value: region.id }, region.name)
-                                    )
-                                )
-                            ),
-                            
-                            React.createElement('div', { className: "flex-1 max-w-md" },
-                                React.createElement('label', { className: "block text-sm font-medium text-gray-700 mb-2" }, "Search by City/Location"),
-                                React.createElement('input', {
-                                    type: "text",
-                                    placeholder: "e.g., Barcelona, Paris, Berlin...",
-                                    value: searchLocation,
-                                    onChange: (e) => handleLocationSearch(e.target.value),
-                                    className: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                }),
-                                searchLocation.length > 2 && React.createElement('div', { className: "mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto" },
-                                    cities
-                                        .filter(city => city.name.toLowerCase().includes(searchLocation.toLowerCase()))
-                                        .map(city => 
-                                            React.createElement('button', {
-                                                key: city.name,
-                                                onClick: () => {
-                                                    setSelectedCity(city);
-                                                    setSearchLocation(city.name);
-                                                    setSelectedRegion(city.region);
-                                                },
-                                                className: "w-full text-left px-3 py-2 hover:bg-gray-50 flex justify-between items-center"
-                                            },
-                                                React.createElement('span', null, city.name),
-                                                React.createElement('span', { className: "text-sm text-gray-500" }, `${city.schools} schools`)
-                                            )
-                                        )
-                                )
-                            )
-                        )
-                    ),
-
-                    // Current Region Stats
-                    React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" },
-                        React.createElement(MetricCard, {
-                            title: `${currentRegionData.name} AQI`,
-                            value: currentRegionData.avgAQI.toFixed(0),
-                            unit: getAQILabel(currentRegionData.avgAQI),
-                            icon: Eye,
-                            color: "bg-gradient-to-br from-blue-500 to-blue-600"
-                        }),
-                        React.createElement(MetricCard, {
-                            title: "Average PM2.5",
-                            value: currentRegionData.avgPM25.toFixed(1),
-                            unit: "μg/m³",
-                            icon: Wind,
-                            color: "bg-gradient-to-br from-purple-500 to-purple-600"
-                        }),
-                        React.createElement(MetricCard, {
-                            title: "Schools Active",
-                            value: currentRegionData.schools.toLocaleString(),
-                            unit: "monitoring",
-                            icon: School,
-                            color: "bg-gradient-to-br from-green-500 to-green-600"
-                        }),
-                        React.createElement(MetricCard, {
-                            title: "Students Protected",
-                            value: (currentRegionData.population || currentRegionData.schools * 350).toLocaleString(),
-                            unit: "daily",
-                            icon: Users,
-                            color: "bg-gradient-to-br from-orange-500 to-orange-600"
-                        })
-                    ),
-
-                    // Charts Section
-                    React.createElement('div', { className: "grid grid-cols-1 lg:grid-cols-2 gap-6" },
-                        // Global AQI Trends by Region
-                        React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                            React.createElement('h3', { className: "text-lg font-semibold mb-4" }, "Global AQI Trends by Region (24h)"),
-                            React.createElement(ResponsiveContainer, { width: "100%", height: 300 },
-                                React.createElement(LineChart, { data: globalTimeSeriesData },
-                                    React.createElement(CartesianGrid, { strokeDasharray: "3 3" }),
-                                    React.createElement(XAxis, { dataKey: "time" }),
-                                    React.createElement(YAxis),
-                                    React.createElement(Tooltip),
-                                    React.createElement(Line, { type: "monotone", dataKey: "north_america", stroke: "#3B82F6", strokeWidth: 2, name: "North America" }),
-                                    React.createElement(Line, { type: "monotone", dataKey: "europe", stroke: "#10B981", strokeWidth: 2, name: "Europe" }),
-                                    React.createElement(Line, { type: "monotone", dataKey: "asia_pacific", stroke: "#F59E0B", strokeWidth: 2, name: "Asia Pacific" }),
-                                    React.createElement(Line, { type: "monotone", dataKey: "latin_america", stroke: "#8B5CF6", strokeWidth: 2, name: "Latin America" }),
-                                    React.createElement(Line, { type: "monotone", dataKey: "africa", stroke: "#EF4444", strokeWidth: 2, name: "Africa" })
-                                )
-                            )
-                        ),
-
-                        // Selected Region Detail
-                        React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                            React.createElement('h3', { className: "text-lg font-semibold mb-4" }, `${currentRegionData.name} - PM2.5 Levels (24h)`),
-                            React.createElement(ResponsiveContainer, { width: "100%", height: 300 },
-                                React.createElement(AreaChart, { data: globalTimeSeriesData },
-                                    React.createElement(CartesianGrid, { strokeDasharray: "3 3" }),
-                                    React.createElement(XAxis, { dataKey: "time" }),
-                                    React.createElement(YAxis),
-                                    React.createElement(Tooltip),
-                                    React.createElement(Area, {
-                                        type: "monotone",
-                                        dataKey: "pm25_selected",
-                                        stroke: "#8B5CF6",
-                                        fill: "#DDD6FE",
-                                        strokeWidth: 2,
-                                        name: "PM2.5 (μg/m³)"
-                                    })
-                                )
-                            )
-                        )
-                    ),
-
-                    // Regional Comparison
-                    React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                        React.createElement('h3', { className: "text-lg font-semibold mb-6" }, "Regional Air Quality Comparison"),
-                        React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" },
-                            regions.slice(1).map(region => 
-                                React.createElement('div', {
-                                    key: region.id,
-                                    className: `p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                                        selectedRegion === region.id 
-                                            ? 'border-blue-500 bg-blue-50' 
-                                            : 'border-gray-200 hover:border-gray-300'
-                                    }`,
-                                    onClick: () => {
-                                        setSelectedRegion(region.id);
-                                        setSelectedCity(null);
-                                        setSearchLocation('');
-                                    }
-                                },
-                                    React.createElement('div', { className: "flex items-center justify-between mb-2" },
-                                        React.createElement('h4', { className: "font-medium text-gray-900" }, region.name),
-                                        React.createElement('span', {
-                                            className: "px-2 py-1 rounded text-xs font-medium text-white",
-                                            style: { backgroundColor: getAQIColor(region.avgAQI) }
-                                        }, `AQI ${region.avgAQI}`)
-                                    ),
-                                    React.createElement('div', { className: "space-y-1 text-sm text-gray-600" },
-                                        React.createElement('div', { className: "flex justify-between" },
-                                            React.createElement('span', null, "Schools:"),
-                                            React.createElement('span', { className: "font-medium" }, region.schools)
-                                        ),
-                                        React.createElement('div', { className: "flex justify-between" },
-                                            React.createElement('span', null, "PM2.5:"),
-                                            React.createElement('span', { className: "font-medium" }, `${region.avgPM25} μg/m³`)
-                                        ),
-                                        React.createElement('div', { className: "flex justify-between" },
-                                            React.createElement('span', null, "Students:"),
-                                            React.createElement('span', { className: "font-medium" }, `${(region.population/1000).toFixed(0)}k`)
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    ),
-
-                    // Live Feed
-                    React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                        React.createElement('h3', { className: "text-lg font-semibold mb-4" }, "Recent Activity"),
-                        React.createElement('div', { className: "space-y-3" },
-                            [
-                                { time: '2 min ago', school: 'Green Valley Academy', event: 'AQI improved to Good (38)', type: 'good' },
-                                { time: '5 min ago', school: 'Sunrise International School', event: 'PM2.5 alert cleared (12.1 μg/m³)', type: 'good' },
-                                { time: '8 min ago', school: 'Riverside STEM Institute', event: 'New station came online', type: 'info' },
-                                { time: '12 min ago', school: 'Forest Hills Academy', event: 'CO₂ levels normalized', type: 'good' },
-                                { time: '15 min ago', school: 'Mountain View School', event: 'Maintenance completed successfully', type: 'info' },
-                                { time: '18 min ago', school: 'Ocean Breeze International', event: 'Air quality excellent (AQI 32)', type: 'good' },
-                                { time: '22 min ago', school: 'Meadowlands Eco School', event: 'Weekly calibration completed', type: 'info' }
-                            ].map((activity, idx) => 
-                                React.createElement('div', { key: idx, className: "flex items-center gap-3 p-3 border border-gray-200 rounded-lg" },
-                                    React.createElement('div', { 
-                                        className: `w-3 h-3 rounded-full ${
-                                            activity.type === 'good' ? 'bg-green-500' :
-                                            activity.type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500'
-                                        }`
-                                    }),
-                                    React.createElement('div', { className: "flex-1" },
-                                        React.createElement('div', { className: "flex items-center justify-between" },
-                                            React.createElement('span', { className: "font-medium text-gray-900" }, activity.school),
-                                            React.createElement('span', { className: "text-xs text-gray-500" }, activity.time)
-                                        ),
-                                        React.createElement('p', { className: "text-sm text-gray-600" }, activity.event)
-                                    )
-                                )
-                            )
-                        )
-                    )
-                );
-            };
-
-            const renderSchoolsTab = () => (
-                React.createElement('div', { className: "space-y-6" },
-                    React.createElement('div', { className: "flex justify-between items-center" },
-                        React.createElement('div', null,
-                            React.createElement('h2', { className: "text-2xl font-bold text-gray-900" }, "School Network Directory"),
-                            React.createElement('p', { className: "text-sm text-gray-600 mt-1" }, "⚠️ Individual school data is private. Only anonymized aggregate data is shown.")
-                        ),
-                        React.createElement('button', { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2" },
-                            React.createElement(Plus),
-                            "Enroll New School"
-                        )
-                    ),
-
-                    React.createElement('div', { className: "bg-white rounded-lg shadow-sm border overflow-hidden" },
-                        React.createElement('div', { className: "p-6 border-b border-gray-200" },
-                            React.createElement('div', { className: "flex gap-4" },
-                                React.createElement('input', {
-                                    type: "text",
-                                    placeholder: "Search schools...",
-                                    className: "flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                }),
-                                React.createElement('select', { className: "px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" },
-                                    React.createElement('option', { value: "all" }, "All Status"),
-                                    React.createElement('option', { value: "active" }, "Active"),
-                                    React.createElement('option', { value: "maintenance" }, "Maintenance"),
-                                    React.createElement('option', { value: "offline" }, "Offline")
-                                )
-                            )
-                        ),
-                        
-                        React.createElement('div', { className: "overflow-x-auto" },
-                            React.createElement('table', { className: "w-full" },
-                                React.createElement('thead', { className: "bg-gray-50" },
-                                    React.createElement('tr', null,
-                                        React.createElement('th', { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase" }, "School"),
-                                        React.createElement('th', { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase" }, "Location"),
-                                        React.createElement('th', { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase" }, "Students"),
-                                        React.createElement('th', { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase" }, "Status"),
-                                        React.createElement('th', { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase" }, "Last Update"),
-                                        React.createElement('th', { className: "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase" }, "Data Access")
-                                    )
-                                ),
-                                React.createElement('tbody', { className: "divide-y divide-gray-200" },
-                                    schools.map((school) => 
-                                        React.createElement('tr', { key: school.id, className: "hover:bg-gray-50" },
-                                            React.createElement('td', { className: "px-6 py-4" },
-                                                React.createElement('div', { className: "flex items-center gap-3" },
-                                                    React.createElement(School, { className: "text-blue-600", size: 20 }),
-                                                    React.createElement('span', { className: "font-medium text-gray-900" }, school.name)
-                                                )
-                                            ),
-                                            React.createElement('td', { className: "px-6 py-4" },
-                                                React.createElement('div', { className: "flex items-center gap-1 text-gray-600" },
-                                                    React.createElement(MapPin, { size: 16 }),
-                                                    school.location
-                                                )
-                                            ),
-                                            React.createElement('td', { className: "px-6 py-4 text-gray-900" }, school.students.toLocaleString()),
-                                            React.createElement('td', { className: "px-6 py-4" },
-                                                React.createElement('span', {
-                                                    className: `inline-flex px-2 py-1 rounded-full text-xs font-medium ${
-                                                        school.status === 'active' 
-                                                            ? 'bg-green-100 text-green-800' 
-                                                            : 'bg-yellow-100 text-yellow-800'
-                                                    }`
-                                                }, school.status)
-                                            ),
-                                            React.createElement('td', { className: "px-6 py-4 text-gray-600" }, school.lastUpdate),
-                                            React.createElement('td', { className: "px-6 py-4" },
-                                                React.createElement('span', { className: "text-gray-400 text-xs" }, "🔒 Private Data")
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            );
-
-            const renderVolunteersTab = () => (
-                React.createElement('div', { className: "space-y-6" },
-                    React.createElement('h2', { className: "text-2xl font-bold text-gray-900" }, "Volunteer Network"),
-                    React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                        React.createElement('p', { className: "text-gray-600" }, "Volunteer management features available in the full version.")
-                    )
-                )
-            );
-
-            const renderDataTab = () => (
-                React.createElement('div', { className: "space-y-6" },
-                    React.createElement('h2', { className: "text-2xl font-bold text-gray-900" }, "Data Export & API"),
-                    React.createElement('div', { className: "bg-white rounded-lg shadow-sm border p-6" },
-                        React.createElement('h3', { className: "text-lg font-semibold mb-4" }, "Export Anonymized Data"),
-                        React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 gap-6" },
-                            React.createElement('div', null,
-                                React.createElement('label', { className: "block text-sm font-medium text-gray-700 mb-2" }, "Date Range"),
-                                React.createElement('div', { className: "flex gap-2" },
-                                    React.createElement('input', { type: "date", className: "flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" }),
-                                    React.createElement('input', { type: "date", className: "flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" })
-                                )
-                            ),
-                            React.createElement('div', null,
-                                React.createElement('label', { className: "block text-sm font-medium text-gray-700 mb-2" }, "Region/City Filter"),
-                                React.createElement('select', { className: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" },
-                                    React.createElement('option', null, "All Regions"),
-                                    React.createElement('option', null, "Europe"),
-                                    React.createElement('option', null, "Barcelona, Spain"),
-                                    React.createElement('option', null, "Paris, France"),
-                                    React.createElement('option', null, "Berlin, Germany")
-                                )
-                            )
-                        ),
-                        
-                        React.createElement('div', { className: "mt-4" },
-                            React.createElement('label', { className: "block text-sm font-medium text-gray-700 mb-2" }, "Data Types (Anonymized Only)"),
-                            React.createElement('div', { className: "grid grid-cols-2 md:grid-cols-4 gap-2" },
-                                ['PM2.5', 'PM10', 'CO₂', 'Temperature', 'Humidity', 'Pressure', 'AQI', 'VOCs'].map(type => 
-                                    React.createElement('label', { key: type, className: "flex items-center" },
-                                        React.createElement('input', { type: "checkbox", defaultChecked: true, className: "rounded border-gray-300 text-blue-600 mr-2" }),
-                                        React.createElement('span', { className: "text-sm text-gray-700" }, type)
-                                    )
-                                )
-                            ),
-                            React.createElement('p', { className: "text-xs text-gray-500 mt-2" }, "⚠️ Only anonymized aggregate data is available for download. Individual school data remains private.")
-                        ),
-
-                        React.createElement('div', { className: "mt-6 flex gap-3" },
-                            React.createElement('button', { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2" },
-                                React.createElement(Download, { size: 16 }),
-                                "Export Anonymized CSV"
-                            ),
-                            React.createElement('button', { className: "bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2" },
-                                React.createElement(Download, { size: 16 }),
-                                "Export Anonymized JSON"
-                            )
-                        )
-                    )
-                )
-            );
-
-            return React.createElement('div', { className: "min-h-screen bg-gray-50" },
-                // Header
-                React.createElement('div', { className: "bg-white shadow-sm border-b" },
-                    React.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
-                        React.createElement('div', { className: "flex items-center justify-between h-16" },
-                            React.createElement('div', { className: "flex items-center gap-3" },
-                                React.createElement('div', { className: "w-8 h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center" },
-                                    React.createElement(Wind, { className: "text-white", size: 20 })
-                                ),
-                                React.createElement('h1', { className: "text-xl font-bold text-gray-900" }, "SchoolAir Dashboard")
-                            ),
-                            
-                            React.createElement('div', { className: "flex items-center gap-4" },
-                                React.createElement('div', { className: "flex items-center gap-2" },
-                                    React.createElement('div', { 
-                                        className: `w-3 h-3 rounded-full ${globalData.avgAQI <= 50 ? 'bg-green-500' : globalData.avgAQI <= 100 ? 'bg-yellow-500' : 'bg-red-500'}`
-                                    }),
-                                    React.createElement('span', { 
-                                        className: "text-sm font-medium",
-                                        style: { color: getAQIColor(globalData.avgAQI) }
-                                    }, `Global AQI ${globalData.avgAQI} - ${getAQILabel(globalData.avgAQI)}`)
-                                ),
-                                React.createElement('div', { className: "flex items-center gap-2 text-sm text-gray-600" },
-                                    React.createElement(Users, { size: 16 }),
-                                    React.createElement('span', null, `${globalData.totalSchools.toLocaleString()} Schools Worldwide`)
-                                ),
-                                React.createElement('button', { className: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm" }, "Login to Your School"),
-                                React.createElement(Bell, { className: "text-gray-600 cursor-pointer", size: 20 }),
-                                React.createElement(Settings, { className: "text-gray-600 cursor-pointer", size: 20 })
-                            )
-                        )
-                    )
-                ),
-
-                // Navigation
-                React.createElement('div', { className: "bg-white border-b" },
-                    React.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
-                        React.createElement('nav', { className: "flex space-x-8" },
-                            [
-                                { id: 'overview', label: 'Overview', icon: TrendingUp },
-                                { id: 'schools', label: 'Schools', icon: School },
-                                { id: 'volunteers', label: 'Volunteers', icon: Users },
-                                { id: 'data', label: 'Data & API', icon: Download }
-                            ].map(tab => 
-                                React.createElement('button', {
-                                    key: tab.id,
-                                    onClick: () => setActiveTab(tab.id),
-                                    className: `flex items-center gap-2 px-1 py-4 border-b-2 font-medium text-sm ${
-                                        activeTab === tab.id
-                                            ? 'border-blue-500 text-blue-600'
-                                            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                                    }`
-                                },
-                                    React.createElement(tab.icon, { size: 16 }),
-                                    tab.label
-                                )
-                            )
-                        )
-                    )
-                ),
-
-                // Main Content
-                React.createElement('div', { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" },
-                    activeTab === 'overview' && renderOverviewTab(),
-                    activeTab === 'schools' && renderSchoolsTab(),
-                    activeTab === 'volunteers' && renderVolunteersTab(),
-                    activeTab === 'data' && renderDataTab()
-                )
-            );
-        };
-
-        ReactDOM.render(React.createElement(SchoolAirDashboard), document.getElementById('root'));
-    </script>
-
     <script>
-        // Mobile menu toggle
+        // Navigation JavaScript
         function toggleMobileMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
 
-        // Language menu toggle function
         function toggleLanguageMenu() {
             const menu = document.getElementById('languageMenu');
             menu.classList.toggle('active');
         }
 
-        // Close language menu when clicking outside
         document.addEventListener('click', function(event) {
             const dropdown = document.querySelector('.language-selector-dropdown');
             const menu = document.getElementById('languageMenu');
@@ -982,25 +355,10 @@
             }
         });
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             const navLinks = document.querySelector('.nav-links');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
             if (!e.target.closest('.nav-container')) {
                 navLinks.classList.remove('active');
-            }
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = 'none';
             }
         });
     </script>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tauler de Control - Projecte SchoolAIR</title>
+    
+    <!-- SchoolAIR Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -16,28 +18,25 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            background-color: #f8fafc;
             color: #2c3e50;
             line-height: 1.6;
         }
 
-        html {
-            scroll-padding-top: 120px;
-        }
-
-        /* Navigation */
-        nav {
+        /* SchoolAIR Navigation Styles */
+        .schoolair-nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            z-index: 1000;
+            z-index: 9999;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            font-family: 'Inter', sans-serif;
         }
 
-        .nav-container {
+        .schoolair-nav-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -47,14 +46,14 @@
             gap: 0.5rem;
         }
 
-        .nav-main {
+        .schoolair-nav-main {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
         }
 
-        .logo {
+        .schoolair-logo {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -62,7 +61,7 @@
             color: inherit;
         }
 
-        .logo-icon {
+        .schoolair-logo-icon {
             width: 40px;
             height: 40px;
             background: linear-gradient(135deg, #1B5E20, #76FF03);
@@ -76,14 +75,14 @@
             top: -15px;
         }
 
-        .logo-text {
+        .schoolair-logo-text {
             font-family: 'Roboto Slab', serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: #2e7d32;
         }
 
-        .logo-tagline {
+        .schoolair-logo-tagline {
             font-family: Arial, sans-serif;
             font-size: 0.65rem;
             font-weight: 400;
@@ -94,13 +93,13 @@
             margin-left: -84px;
         }
 
-        .nav-links {
+        .schoolair-nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
         }
 
-        .nav-links a {
+        .schoolair-nav-links a {
             color: #2c3e50;
             text-decoration: none;
             font-weight: 500;
@@ -108,15 +107,15 @@
             position: relative;
         }
 
-        .nav-links a:hover {
+        .schoolair-nav-links a:hover {
             color: #2e7d32;
         }
 
-        .nav-links a.active {
+        .schoolair-nav-links a.active {
             color: #2e7d32;
         }
 
-        .nav-links a.active::after {
+        .schoolair-nav-links a.active::after {
             content: '';
             position: absolute;
             width: 100%;
@@ -126,17 +125,17 @@
             background-color: #2e7d32;
         }
 
-        .nav-actions {
+        .schoolair-nav-actions {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .language-selector-dropdown {
+        .schoolair-language-dropdown {
             position: relative;
         }
 
-        .language-selector {
+        .schoolair-language-selector {
             background: none;
             border: 2px solid #4A148C;
             color: #4A148C;
@@ -148,12 +147,12 @@
             transition: all 0.3s ease;
         }
 
-        .language-selector:hover {
+        .schoolair-language-selector:hover {
             background: #4A148C;
             color: white;
         }
 
-        .language-menu {
+        .schoolair-language-menu {
             position: absolute;
             top: 100%;
             right: 0;
@@ -169,13 +168,13 @@
             transition: all 0.3s ease;
         }
 
-        .language-menu.active {
+        .schoolair-language-menu.active {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .language-menu a {
+        .schoolair-language-menu a {
             display: block;
             padding: 0.75rem 1rem;
             color: #333;
@@ -185,59 +184,11 @@
             border-bottom: 1px solid #eee;
         }
 
-        .language-menu a:hover {
+        .schoolair-language-menu a:hover {
             background: #f5f5f5;
         }
 
-        .dashboard-container {
-            margin-top: 120px;
-            min-height: calc(100vh - 120px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f0f8ff, #e8f5e8);
-        }
-
-        .coming-soon {
-            max-width: 600px;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .coming-soon h1 {
-            color: #2e7d32;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .coming-soon p {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .dashboard-preview {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .dashboard-preview i {
-            font-size: 4rem;
-            color: #2e7d32;
-            opacity: 0.7;
-        }
-
-        .mobile-menu {
+        .schoolair-mobile-menu {
             display: none;
             background: none;
             border: none;
@@ -246,8 +197,141 @@
             cursor: pointer;
         }
 
+        /* Dashboard Container */
+        .dashboard-container {
+            margin-top: 120px;
+            min-height: calc(100vh - 120px);
+            padding: 2rem;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .dashboard-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .global-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            color: #2e7d32;
+            border-bottom-color: #2e7d32;
+        }
+
+        .tab:hover {
+            color: #2e7d32;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .btn {
+            background: #2e7d32;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1b5e20;
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
+            .schoolair-nav-links {
                 display: none;
                 position: absolute;
                 top: 100%;
@@ -260,39 +344,39 @@
                 border-top: 1px solid rgba(46, 125, 50, 0.1);
             }
 
-            .nav-links.active {
+            .schoolair-nav-links.active {
                 display: flex;
             }
 
-            .mobile-menu {
+            .schoolair-mobile-menu {
                 display: block;
             }
 
-            .coming-soon {
-                padding: 2rem;
+            .dashboard-header h1 {
+                font-size: 2rem;
             }
 
-            .coming-soon h1 {
-                font-size: 2rem;
+            .tabs {
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="./" class="logo">
-                <div class="logo-icon">
+    <!-- SchoolAIR Navigation -->
+    <nav class="schoolair-nav">
+        <div class="schoolair-nav-container">
+            <a href="./" class="schoolair-logo">
+                <div class="schoolair-logo-icon">
                     <i class="fas fa-leaf"></i>
                 </div>
-                <div class="logo-text">
+                <div class="schoolair-logo-text">
                     schoolAIR
-                    <div class="logo-tagline">Un Projecte de la Fundació Internacional de Tecnologia Verda</div>
+                    <div class="schoolair-logo-tagline">Un Projecte de la Fundació Internacional de Tecnologia Verda</div>
                 </div>
             </a>
-            <div class="nav-main">
-                <ul class="nav-links">
+            <div class="schoolair-nav-main">
+                <ul class="schoolair-nav-links">
                     <li><a href="index.html#project">Projecte</a></li>
                     <li><a href="index.html#components">Tecnologia</a></li>
                     <li><a href="how-it-works.html">Com Funciona</a></li>
@@ -300,10 +384,10 @@
                     <li><a href="events.html">Esdeveniments</a></li>
                     <li><a href="index.html#get-involved">Participa</a></li>
                 </ul>
-                <div class="nav-actions">
-                    <div class="language-selector-dropdown">
-                        <button class="language-selector" onclick="toggleLanguageMenu()">Català</button>
-                        <div class="language-menu" id="languageMenu">
+                <div class="schoolair-nav-actions">
+                    <div class="schoolair-language-dropdown">
+                        <button class="schoolair-language-selector" onclick="toggleSchoolAirLanguageMenu()">Català</button>
+                        <div class="schoolair-language-menu" id="schoolairLanguageMenu">
                             <a href="../en/dashboard.html">English</a>
                             <a href="../fr/dashboard.html">Français</a>
                             <a href="../es/dashboard.html">Español</a>
@@ -312,7 +396,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="mobile-menu" onclick="toggleMobileMenu()">
+                <button class="schoolair-mobile-menu" onclick="toggleSchoolAirMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -321,46 +405,511 @@
 
     <!-- Dashboard Container -->
     <div class="dashboard-container">
-        <div class="coming-soon">
-            <h1>Tauler de Control</h1>
-            <p>El tauler de control interactiu estarà disponible aviat</p>
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <h1><i class="fas fa-wind"></i> Xarxa Global SchoolAIR</h1>
+            <p>Monitoratge de la qualitat de l'aire en temps real en 67 països</p>
+            <p style="font-size: 0.9rem; opacity: 0.7;">⚠️ Dades Simulades amb Fins de Demostració</p>
             
-            <div class="dashboard-preview">
-                <i class="fas fa-chart-line"></i>
+            <div class="global-stats">
+                <div class="stat-item">
+                    <span class="stat-number">2,847</span>
+                    <span class="stat-label">Escoles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2,634</span>
+                    <span class="stat-label">Estacions Actives</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">890k</span>
+                    <span class="stat-label">Estudiants Protegits</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">67</span>
+                    <span class="stat-label">Països</span>
+                </div>
             </div>
             
-            <p style="font-size: 1rem; color: #888;">
-                Monitorització en temps real • Anàlisi de dades • Alertes intel·ligents
-            </p>
+            <!-- School Login Section -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn" onclick="showSchoolLogin()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; margin-right: 1rem;">
+                    <i class="fas fa-sign-in-alt"></i> Accés Escolar
+                </button>
+                <button class="btn" onclick="showSchoolSignup()" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); color: white;">
+                    <i class="fas fa-school"></i> Registra la Teva Escola
+                </button>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.8rem;">Accedeix a les dades detallades d'IQA i analítiques de la teva escola</p>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('overview')">
+                <i class="fas fa-chart-line"></i> Resum
+            </button>
+            <button class="tab" onclick="switchTab('schools')">
+                <i class="fas fa-school"></i> Escoles
+            </button>
+            <button class="tab" onclick="switchTab('volunteers')">
+                <i class="fas fa-users"></i> Voluntaris
+            </button>
+            <button class="tab" onclick="switchTab('data')">
+                <i class="fas fa-download"></i> Dades i API
+            </button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview-tab" class="tab-content active">
+            <h2 style="margin-bottom: 2rem;">Resum Global de la Qualitat de l'Aire</h2>
+            
+            <!-- School Search Section -->
+            <div style="background: linear-gradient(135deg, #E3F2FD, #F3E5F5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: #1B5E20;">
+                    <i class="fas fa-search"></i> Troba la Teva Escola
+                </h3>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div style="position: relative; margin-bottom: 1rem;">
+                        <input type="text" id="school-search" placeholder="Cerca per nom d'escola, ciutat o país..." 
+                               style="width: 100%; padding: 1rem 3rem 1rem 1rem; border: 2px solid #ddd; border-radius: 25px; font-size: 1rem; outline: none; transition: all 0.3s ease;"
+                               oninput="searchSchools(this.value)" onfocus="this.style.borderColor='#2e7d32'" onblur="this.style.borderColor='#ddd'">
+                        <i class="fas fa-search" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #666;"></i>
+                    </div>
+                    <div id="school-search-results" style="background: white; border-radius: 12px; padding: 1rem; min-height: 200px; border: 1px solid #e0e0e0;">
+                        <div style="text-align: center; color: #666; padding: 2rem;">
+                            <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                            <p>Cerca la teva escola per veure informació pública</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">*Les dades d'IQA requereixen accés escolar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>IQA Global Actual</h3>
+                    <div style="font-size: 2rem; color: #10B981; font-weight: bold;">52</div>
+                    <p>Moderat - Acceptable per a la majoria de persones</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-wind"></i>
+                    <h3>PM2.5 Mitjà</h3>
+                    <div style="font-size: 2rem; color: #2e7d32; font-weight: bold;">14.8</div>
+                    <p>μg/m³ - Dins les directrius de l'OMS</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-area"></i>
+                    <h3>Monitoratge en Temps Real</h3>
+                    <div style="font-size: 2rem; color: #3B82F6; font-weight: bold;">24/7</div>
+                    <p>Recollida de dades contínua arreu del món</p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                <h3>Dades Regionals</h3>
+                <div style="margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid #eee;">
+                        <span><strong>Europa:</strong> 692 escoles</span>
+                        <span style="color: #10B981;">IQA: 45 (Bo)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid #eee;">
+                        <span><strong>Amèrica del Nord:</strong> 847 escoles</span>
+                        <span style="color: #10B981;">IQA: 48 (Bo)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid #eee;">
+                        <span><strong>Àsia Pacífic:</strong> 954 escoles</span>
+                        <span style="color: #F59E0B;">IQA: 58 (Moderat)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem;">
+                        <span><strong>Amèrica Llatina:</strong> 354 escoles</span>
+                        <span style="color: #F59E0B;">IQA: 55 (Moderat)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schools Tab -->
+        <div id="schools-tab" class="tab-content">
+            <h2 style="margin-bottom: 1rem;">Directori de la Xarxa d'Escoles</h2>
+            <p style="margin-bottom: 2rem; color: #666; font-style: italic;">IQA = Indicador de Qualitat de l'Aire</p>
+            <p style="margin-bottom: 2rem; color: #666;">⚠️ Les dades individuals de les escoles són privades. Només es mostren dades agregades anonimitzades.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Escola Internacional de Barcelona</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
+                        <span>En línia - Tots els sensors actius</span>
+                    </div>
+                    <p><strong>IQA:</strong> Inicia sessió per veure l'IQA de la teva escola</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Última actualització: fa 2 minuts</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Acadèmia de la Vall Verda</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
+                        <span>En línia - Tots els sensors actius</span>
+                    </div>
+                    <p><strong>IQA:</strong> Inicia sessió per veure l'IQA de la teva escola</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Última actualització: fa 1 minut</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Institut STEM de Tòquio</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff9800;"></div>
+                        <span>Manteniment programat</span>
+                    </div>
+                    <p><strong>IQA:</strong> Inicia sessió per veure l'IQA de la teva escola</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Última actualització: fa 15 minuts</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn">
+                    <i class="fas fa-plus"></i> Inscriure Nova Escola
+                </button>
+            </div>
+        </div>
+
+        <!-- Volunteers Tab -->
+        <div id="volunteers-tab" class="tab-content">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Voluntaris Comunitaris</h2>
+            <p style="text-align: center; margin-bottom: 3rem; color: #666;">Uneix-te a la nostra xarxa global de defensors ambientals ajudant les escoles a monitoritzar la qualitat de l'aire</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                    <i class="fas fa-users" style="color: white;"></i>
+                    <h3 style="color: white;">1,247</h3>
+                    <p>Voluntaris Actius</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #10B981, #059669); color: white;">
+                    <i class="fas fa-school" style="color: white;"></i>
+                    <h3 style="color: white;">384</h3>
+                    <p>Escoles Ajudades</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white;">
+                    <i class="fas fa-globe" style="color: white;"></i>
+                    <h3 style="color: white;">52</h3>
+                    <p>Països</p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                <h3>Com Participar</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #E3F2FD; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-user-plus" style="color: #1976D2;"></i>
+                        </div>
+                        <div>
+                            <h4>Ambaixador Escolar</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Ajudar les escoles a configurar el monitoratge</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #E8F5E8; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-tools" style="color: #2e7d32;"></i>
+                        </div>
+                        <div>
+                            <h4>Suport Tècnic</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Instal·lació i manteniment de sensors</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #F3E5F5; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-graduation-cap" style="color: #7B1FA2;"></i>
+                        </div>
+                        <div>
+                            <h4>Divulgació Educativa</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Ensenyar ciències ambientals</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #FFF3E0; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-chart-line" style="color: #F57C00;"></i>
+                        </div>
+                        <div>
+                            <h4>Anàlisi de Dades</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Interpretar dades i crear informes</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn">Uneix-te a la Nostra Comunitat</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data & API Tab -->
+        <div id="data-tab" class="tab-content">
+            <h2 style="margin-bottom: 2rem;">Accés a Dades i API</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Accedeix a dades de qualitat de l'aire en temps real i històriques a través de la nostra API</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
+                    <h3 style="margin-bottom: 1rem;">Punts Finals d'API</h3>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <code>GET /api/v1/schools</code>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Llistar totes les escoles participants</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <code>GET /api/v1/aqi/{regió}</code>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Obtenir dades regionals de qualitat de l'aire</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <code>GET /api/v1/historical/{school_id}</code>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Dades històriques per escola específica</p>
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
+                    <h3 style="margin-bottom: 1rem;">Exportació de Dades</h3>
+                    <button style="width: 100%; background: #E3F2FD; border: 1px solid #2196F3; color: #1976D2; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Exportar CSV</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Dades en brut en format de full de càlcul</p>
+                    </button>
+                    <button style="width: 100%; background: #E8F5E8; border: 1px solid #4CAF50; color: #2e7d32; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Exportar JSON</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Dades estructurades per desenvolupadors</p>
+                    </button>
+                    <button style="width: 100%; background: #F3E5F5; border: 1px solid #9C27B0; color: #7B1FA2; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Informe PDF</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Informe formatat amb visualitzacions</p>
+                    </button>
+                </div>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <h3>Exemple d'Integració</h3>
+                <div style="background: #1a1a1a; color: #00ff00; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; margin: 2rem 0;">
+curl -X GET https://api.schoolair.org/v1/aqi/europe \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Accept: application/json"
+
+# Resposta:
+{
+  "region": "europe",
+  "avg_aqi": 45,
+  "schools": 692,
+  "last_updated": "2024-01-15T10:30:00Z"
+}
+                </div>
+                <div style="margin-top: 1rem;">
+                    <button class="btn" style="margin-right: 1rem;">Obtenir Clau API</button>
+                    <button class="btn" style="background: #666;">Veure Documentació</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Navigation JavaScript
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // SchoolAIR Navigation JavaScript
+        function toggleSchoolAirMobileMenu() {
+            const navLinks = document.querySelector('.schoolair-nav-links');
             navLinks.classList.toggle('active');
         }
 
-        function toggleLanguageMenu() {
-            const menu = document.getElementById('languageMenu');
+        function toggleSchoolAirLanguageMenu() {
+            const menu = document.getElementById('schoolairLanguageMenu');
             menu.classList.toggle('active');
         }
 
         document.addEventListener('click', function(event) {
-            const dropdown = document.querySelector('.language-selector-dropdown');
-            const menu = document.getElementById('languageMenu');
+            const dropdown = document.querySelector('.schoolair-language-dropdown');
+            const menu = document.getElementById('schoolairLanguageMenu');
             if (dropdown && !dropdown.contains(event.target)) {
                 menu.classList.remove('active');
             }
         });
 
         document.addEventListener('click', (e) => {
-            const navLinks = document.querySelector('.nav-links');
-            if (!e.target.closest('.nav-container')) {
+            const navLinks = document.querySelector('.schoolair-nav-links');
+            if (!e.target.closest('.schoolair-nav-container')) {
                 navLinks.classList.remove('active');
             }
         });
+
+        // Log successful load
+        console.log('SchoolAIR Dashboard loaded successfully!');
+        
+        // Show confirmation that dashboard is working
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard DOM loaded');
+        });
+
+        // School Login Functionality
+        function showSchoolLogin() {
+            const loginHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 400px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-sign-in-alt"></i> Accés Escolar</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <form onsubmit="handleSchoolLogin(event)">
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">ID o Codi d'Escola:</label>
+                                <input type="text" id="schoolId" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">Clau d'Accés:</label>
+                                <input type="password" id="accessKey" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <button type="submit" style="width: 100%; padding: 1rem; background: #2e7d32; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+                                <i class="fas fa-sign-in-alt"></i> Iniciar Sessió
+                            </button>
+                        </form>
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                            No tens accés? <a href="javascript:showSchoolSignup()" style="color: #2e7d32;">Registra la teva escola</a>
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', loginHTML);
+        }
+
+        function showSchoolSignup() {
+            const signupHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-school"></i> Registra la Teva Escola</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; color: #666;">
+                            <i class="fas fa-envelope" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
+                            <h4 style="color: #333; margin-bottom: 1rem;">Preparat per unir-te a la xarxa SchoolAIR?</h4>
+                            <p style="margin-bottom: 2rem;">Contacta'ns per registrar la teva escola i obtenir la teva estació de monitoratge SchoolAIR!</p>
+                            <a href="../ca/index.html#get-involved" style="background: #2e7d32; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block;">
+                                <i class="fas fa-paper-plane"></i> Posar-se en Contacte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', signupHTML);
+        }
+
+        function handleSchoolLogin(event) {
+            event.preventDefault();
+            const schoolId = document.getElementById('schoolId').value;
+            const accessKey = document.getElementById('accessKey').value;
+            
+            // Simulate login validation (in real app, this would be API call)
+            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+                alert('Inici de sessió reeixit! Redirigint al tauler de l\'escola...');
+                closeModal();
+                // In real app, redirect to authenticated school dashboard
+            } else {
+                alert('Credencials invàlides. Prova ID escola: "demo" i clau: "demo123"');
+            }
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('[style*="position: fixed"][style*="z-index: 10000"]');
+            modals.forEach(modal => modal.remove());
+        }
+
+        // School Search Functionality  
+        const schoolsDatabase = [
+            {name: "Escola Internacional de Barcelona", city: "Barcelona", country: "Espanya", students: 450, established: 2019, status: "Active", sensors: 4},
+            {name: "Acadèmia de la Vall Verda", city: "Portland", country: "Estats Units", students: 680, established: 2020, status: "Active", sensors: 6}, 
+            {name: "Institut STEM de Tòquio", city: "Tòquio", country: "Japó", students: 520, established: 2021, status: "Maintenance", sensors: 5},
+            {name: "Escola Ambiental de Berlín", city: "Berlín", country: "Alemanya", students: 390, established: 2020, status: "Active", sensors: 3},
+            {name: "Acadèmia Tecnològica de São Paulo", city: "São Paulo", country: "Brasil", students: 750, established: 2022, status: "Active", sensors: 7},
+            {name: "Centre Científic de Mumbai", city: "Mumbai", country: "Índia", students: 880, established: 2021, status: "Active", sensors: 8},
+            {name: "Institut Ambiental de Londres", city: "Londres", country: "Regne Unit", students: 420, established: 2019, status: "Active", sensors: 4},
+            {name: "Escola de Sostenibilitat de Sydney", city: "Sydney", country: "Austràlia", students: 350, established: 2022, status: "Active", sensors: 3},
+            {name: "Acadèmia Verda de Montreal", city: "Montreal", country: "Canadà", students: 480, established: 2020, status: "Active", sensors: 5},
+            {name: "Escola Eco de Ciutat del Cap", city: "Ciutat del Cap", country: "Sud-àfrica", students: 320, established: 2023, status: "Setup", sensors: 2}
+        ];
+
+        function searchSchools(query) {
+            const resultsDiv = document.getElementById('school-search-results');
+            
+            if (!query.trim()) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>Cerca la teva escola per veure informació pública</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">*Les dades d'IQA requereixen accés escolar</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const filtered = schoolsDatabase.filter(school => 
+                school.name.toLowerCase().includes(query.toLowerCase()) ||
+                school.city.toLowerCase().includes(query.toLowerCase()) ||
+                school.country.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-search" style="font-size: 2rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>No s'han trobat escoles que coincideixin amb "${query}"</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Prova a cercar per nom d'escola, ciutat o país</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const resultsHTML = filtered.map(school => {
+                const statusColor = school.status === 'Active' ? '#4caf50' : school.status === 'Setup' ? '#ff9800' : '#f44336';
+                const statusText = school.status === 'Active' ? 'Actiu' : school.status === 'Setup' ? 'Configuració' : 'Manteniment';
+                return `
+                    <div style="padding: 1rem; border-bottom: 1px solid #eee; last-child:border-bottom: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <h4 style="color: #2e7d32; margin: 0;">${school.name}</h4>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: ${statusColor};"></div>
+                                <span style="font-size: 0.8rem; color: #666;">${statusText}</span>
+                            </div>
+                        </div>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-map-marker-alt"></i> ${school.city}, ${school.country}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-users"></i> ${school.students} estudiants</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-calendar"></i> Establerta el ${school.established}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-microchip"></i> ${school.sensors} sensors instal·lats</p>
+                        <p style="color: #2e7d32; font-weight: 500; margin-top: 0.5rem; font-size: 0.9rem;">
+                            <i class="fas fa-lock"></i> Dades d'IQA disponibles amb accés escolar
+                        </p>
+                    </div>
+                `;
+            }).join('');
+
+            resultsDiv.innerHTML = `
+                <div style="max-height: 400px; overflow-y: auto;">
+                    ${resultsHTML}
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>

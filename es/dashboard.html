@@ -226,6 +226,28 @@
             opacity: 0.9;
         }
 
+        .global-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -412,6 +434,49 @@
             display: block;
         }
 
+        .btn {
+            background: #2e7d32;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1b5e20;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
         @media (max-width: 768px) {
             .schoolair-nav-links {
                 display: none;
@@ -493,60 +558,122 @@
     <div class="dashboard-container">
         <!-- Dashboard Header -->
         <div class="dashboard-header">
-            <h1><i class="fas fa-wind"></i> Panel de Control SchoolAIR</h1>
-            <p>Monitoreo de Calidad del Aire en Tiempo Real y Educación Ambiental</p>
+            <h1><i class="fas fa-wind"></i> Red Global SchoolAIR</h1>
+            <p>Monitoreo de la calidad del aire en tiempo real en 67 países</p>
+            <p style="font-size: 0.9rem; opacity: 0.7;">⚠️ Datos Simulados con Fines de Demostración</p>
+            
+            <div class="global-stats">
+                <div class="stat-item">
+                    <span class="stat-number">2,847</span>
+                    <span class="stat-label">Escuelas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2,634</span>
+                    <span class="stat-label">Estaciones Activas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">890k</span>
+                    <span class="stat-label">Estudiantes Protegidos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">67</span>
+                    <span class="stat-label">Países</span>
+                </div>
+            </div>
+            
+            <!-- School Login Section -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn" onclick="showSchoolLogin()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; margin-right: 1rem;">
+                    <i class="fas fa-sign-in-alt"></i> Acceso Escolar
+                </button>
+                <button class="btn" onclick="showSchoolSignup()" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); color: white;">
+                    <i class="fas fa-school"></i> Registra Tu Escuela
+                </button>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.8rem;">Accede a los datos detallados de ICA y análisis de tu escuela</p>
+            </div>
         </div>
 
         <!-- Tabs -->
         <div class="tabs">
-            <div class="tab active" onclick="switchTab('overview')">
+            <button class="tab active" onclick="switchTab('overview')">
                 <i class="fas fa-chart-line"></i> Resumen
-            </div>
-            <div class="tab" onclick="switchTab('schools')">
-                <i class="fas fa-school"></i> Red de Escuelas
-            </div>
-            <div class="tab" onclick="switchTab('data')">
-                <i class="fas fa-database"></i> Análisis de Datos
-            </div>
-            <div class="tab" onclick="switchTab('alerts')">
-                <i class="fas fa-bell"></i> Alertas
-            </div>
+            </button>
+            <button class="tab" onclick="switchTab('schools')">
+                <i class="fas fa-school"></i> Escuelas
+            </button>
+            <button class="tab" onclick="switchTab('volunteers')">
+                <i class="fas fa-users"></i> Voluntarios
+            </button>
+            <button class="tab" onclick="switchTab('data')">
+                <i class="fas fa-download"></i> Datos y API
+            </button>
         </div>
 
         <!-- Overview Tab -->
         <div id="overview-tab" class="tab-content active">
-            <!-- Stats Grid -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>ICA Actual</h3>
-                    <div class="value" id="current-aqi">42</div>
-                    <div class="change">+2% desde ayer</div>
+            <h2 style="margin-bottom: 2rem;">Resumen Global de la Calidad del Aire</h2>
+            
+            <!-- School Search Section -->
+            <div style="background: linear-gradient(135deg, #E3F2FD, #F3E5F5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: #1B5E20;">
+                    <i class="fas fa-search"></i> Encuentra Tu Escuela
+                </h3>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div style="position: relative; margin-bottom: 1rem;">
+                        <input type="text" id="school-search" placeholder="Buscar por nombre de escuela, ciudad o país..." 
+                               style="width: 100%; padding: 1rem 3rem 1rem 1rem; border: 2px solid #ddd; border-radius: 25px; font-size: 1rem; outline: none; transition: all 0.3s ease;"
+                               oninput="searchSchools(this.value)" onfocus="this.style.borderColor='#2e7d32'" onblur="this.style.borderColor='#ddd'">
+                        <i class="fas fa-search" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #666;"></i>
+                    </div>
+                    <div id="school-search-results" style="background: white; border-radius: 12px; padding: 1rem; min-height: 200px; border: 1px solid #e0e0e0;">
+                        <div style="text-align: center; color: #666; padding: 2rem;">
+                            <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                            <p>Busca tu escuela para ver información pública</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">*Los datos de ICA requieren acceso escolar</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <h3>Nivel PM2.5</h3>
-                    <div class="value" id="pm25-level">18</div>
-                    <div class="change">μg/m³</div>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>ICA Global Actual</h3>
+                    <div style="font-size: 2rem; color: #10B981; font-weight: bold;">52</div>
+                    <p>Moderado - Aceptable para la mayoría de las personas</p>
                 </div>
-                <div class="stat-card">
-                    <h3>Escuelas Activas</h3>
-                    <div class="value" id="active-schools">127</div>
-                    <div class="change">+5 esta semana</div>
+                <div class="feature-card">
+                    <i class="fas fa-wind"></i>
+                    <h3>PM2.5 Promedio</h3>
+                    <div style="font-size: 2rem; color: #2e7d32; font-weight: bold;">14.8</div>
+                    <p>μg/m³ - Dentro de las directrices de la OMS</p>
                 </div>
-                <div class="stat-card">
-                    <h3>Puntos de Datos Hoy</h3>
-                    <div class="value" id="data-points">1,847</div>
-                    <div class="change">+12% desde ayer</div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-area"></i>
+                    <h3>Monitoreo en Tiempo Real</h3>
+                    <div style="font-size: 2rem; color: #3B82F6; font-weight: bold;">24/7</div>
+                    <p>Recolección continua de datos en todo el mundo</p>
                 </div>
             </div>
 
-            <!-- Chart -->
-            <div class="chart-container">
-                <h2>Tendencias de Calidad del Aire - Últimas 24 Horas</h2>
-                <div class="chart-placeholder">
-                    <div class="fake-chart" id="trend-chart"></div>
-                    <div style="position: relative; z-index: 2;">
-                        <i class="fas fa-chart-area"></i>
-                        <p>Gráficos interactivos mostrando ICA, PM2.5 y otras métricas de calidad del aire</p>
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                <h3>Datos Regionales</h3>
+                <div style="margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid #eee;">
+                        <span><strong>Europa:</strong> 692 escuelas</span>
+                        <span style="color: #10B981;">ICA: 45 (Bueno)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid #eee;">
+                        <span><strong>América del Norte:</strong> 847 escuelas</span>
+                        <span style="color: #10B981;">ICA: 48 (Bueno)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid #eee;">
+                        <span><strong>Asia Pacífico:</strong> 954 escuelas</span>
+                        <span style="color: #F59E0B;">ICA: 58 (Moderado)</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem;">
+                        <span><strong>América Latina:</strong> 354 escuelas</span>
+                        <span style="color: #F59E0B;">ICA: 55 (Moderado)</span>
                     </div>
                 </div>
             </div>
@@ -554,94 +681,186 @@
 
         <!-- Schools Tab -->
         <div id="schools-tab" class="tab-content">
-            <h2 style="margin-bottom: 1rem;">Estado de la Red de Escuelas</h2>
+            <h2 style="margin-bottom: 1rem;">Directorio de la Red de Escuelas</h2>
             <p style="margin-bottom: 2rem; color: #666; font-style: italic;">ICA = Indicador de Calidad del Aire</p>
-            <div class="schools-grid">
-                <div class="school-card">
+            <p style="margin-bottom: 2rem; color: #666;">⚠️ Los datos individuales de las escuelas son privados. Solo se muestran datos agregados anonimizados.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
                     <h3>Escuela Internacional de Barcelona</h3>
-                    <div class="school-status">
-                        <div class="status-indicator"></div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
                         <span>En línea - Todos los sensores activos</span>
                     </div>
-                    <div class="school-aqi">ICA: Inicia sesión para ver el ICA de tu escuela</div>
-                    <p style="color: #666; margin-top: 0.5rem;">Última actualización: hace 2 minutos</p>
+                    <p><strong>ICA:</strong> Inicia sesión para ver el ICA de tu escuela</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Última actualización: hace 2 minutos</p>
                 </div>
-                <div class="school-card">
-                    <h3>Escuela Verde Cataluña</h3>
-                    <div class="school-status">
-                        <div class="status-indicator warning"></div>
+                <div class="feature-card">
+                    <h3>Academia del Valle Verde</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
+                        <span>En línea - Todos los sensores activos</span>
+                    </div>
+                    <p><strong>ICA:</strong> Inicia sesión para ver el ICA de tu escuela</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Última actualización: hace 1 minuto</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Instituto STEM de Tokio</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff9800;"></div>
                         <span>Mantenimiento programado</span>
                     </div>
-                    <div class="school-aqi">ICA: Inicia sesión para ver el ICA de tu escuela</div>
-                    <p style="color: #666; margin-top: 0.5rem;">Última actualización: hace 15 minutos</p>
+                    <p><strong>ICA:</strong> Inicia sesión para ver el ICA de tu escuela</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Última actualización: hace 15 minutos</p>
                 </div>
-                <div class="school-card">
-                    <h3>Instituto Tecnológico</h3>
-                    <div class="school-status">
-                        <div class="status-indicator"></div>
-                        <span>En línea - Todos los sensores activos</span>
-                    </div>
-                    <div class="school-aqi">ICA: Inicia sesión para ver el ICA de tu escuela</div>
-                    <p style="color: #666; margin-top: 0.5rem;">Última actualización: hace 1 minuto</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn">
+                    <i class="fas fa-plus"></i> Inscribir Nueva Escuela
+                </button>
+            </div>
+        </div>
+
+        <!-- Volunteers Tab -->
+        <div id="volunteers-tab" class="tab-content">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Voluntarios Comunitarios</h2>
+            <p style="text-align: center; margin-bottom: 3rem; color: #666;">Únete a nuestra red global de defensores ambientales ayudando a las escuelas a monitorear la calidad del aire</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                    <i class="fas fa-users" style="color: white;"></i>
+                    <h3 style="color: white;">1,247</h3>
+                    <p>Voluntarios Activos</p>
                 </div>
-                <div class="school-card">
-                    <h3>Añade Tu Escuela</h3>
-                    <div class="school-status">
-                        <div class="status-indicator" style="background: #2196F3;"></div>
-                        <span>Únete a la red SchoolAIR</span>
+                <div class="feature-card" style="background: linear-gradient(135deg, #10B981, #059669); color: white;">
+                    <i class="fas fa-school" style="color: white;"></i>
+                    <h3 style="color: white;">384</h3>
+                    <p>Escuelas Ayudadas</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white;">
+                    <i class="fas fa-globe" style="color: white;"></i>
+                    <h3 style="color: white;">52</h3>
+                    <p>Países</p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                <h3>Cómo Participar</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #E3F2FD; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-user-plus" style="color: #1976D2;"></i>
+                        </div>
+                        <div>
+                            <h4>Embajador Escolar</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Ayudar a las escuelas a configurar el monitoreo</p>
+                        </div>
                     </div>
-                    <div class="school-aqi" style="color: #2196F3;">Comenzar</div>
-                    <p style="color: #666; margin-top: 0.5rem;">Contáctanos para instalar sensores</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #E8F5E8; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-tools" style="color: #2e7d32;"></i>
+                        </div>
+                        <div>
+                            <h4>Soporte Técnico</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Instalación y mantenimiento de sensores</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #F3E5F5; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-graduation-cap" style="color: #7B1FA2;"></i>
+                        </div>
+                        <div>
+                            <h4>Divulgación Educativa</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Enseñar ciencias ambientales</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="background: #FFF3E0; padding: 0.5rem; border-radius: 50%; height: fit-content;">
+                            <i class="fas fa-chart-line" style="color: #F57C00;"></i>
+                        </div>
+                        <div>
+                            <h4>Análisis de Datos</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Interpretar datos y crear informes</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn">Únete a Nuestra Comunidad</button>
                 </div>
             </div>
         </div>
 
-        <!-- Data Tab -->
+        <!-- Data & API Tab -->
         <div id="data-tab" class="tab-content">
-            <h2 style="margin-bottom: 1.5rem;">Análisis y Exportación de Datos</h2>
-            <div class="chart-container">
-                <h3>Tendencias de Datos Históricos</h3>
-                <div class="chart-placeholder">
-                    <div class="fake-chart" id="historical-chart"></div>
-                    <div style="position: relative; z-index: 2;">
-                        <i class="fas fa-chart-bar"></i>
-                        <p>Análisis completo de datos de calidad del aire</p>
-                        <p style="font-size: 0.9rem; color: #999;">Opciones de exportación: CSV, JSON, reportes PDF</p>
+            <h2 style="margin-bottom: 2rem;">Acceso a Datos y API</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Accede a datos de calidad del aire en tiempo real e históricos a través de nuestra API</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
+                    <h3 style="margin-bottom: 1rem;">Endpoints de API</h3>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <code>GET /api/v1/schools</code>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Listar todas las escuelas participantes</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <code>GET /api/v1/aqi/{región}</code>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Obtener datos regionales de calidad del aire</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <code>GET /api/v1/historical/{school_id}</code>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Datos históricos para escuela específica</p>
                     </div>
                 </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
+                    <h3 style="margin-bottom: 1rem;">Exportación de Datos</h3>
+                    <button style="width: 100%; background: #E3F2FD; border: 1px solid #2196F3; color: #1976D2; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Exportar CSV</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Datos sin procesar en formato de hoja de cálculo</p>
+                    </button>
+                    <button style="width: 100%; background: #E8F5E8; border: 1px solid #4CAF50; color: #2e7d32; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Exportar JSON</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Datos estructurados para desarrolladores</p>
+                    </button>
+                    <button style="width: 100%; background: #F3E5F5; border: 1px solid #9C27B0; color: #7B1FA2; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Reporte PDF</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Informe formateado con visualizaciones</p>
+                    </button>
+                </div>
             </div>
-            <div class="chart-container">
-                <h3>Comparaciones Regionales</h3>
-                <div class="chart-placeholder">
-                    <div class="fake-chart" id="regional-chart"></div>
-                    <div style="position: relative; z-index: 2;">
-                        <i class="fas fa-globe-europe"></i>
-                        <p>Compara la calidad del aire entre diferentes regiones y escuelas</p>
-                        <p style="font-size: 0.9rem; color: #999;">Vista de mapa interactivo y análisis estadístico</p>
-                    </div>
+
+            <div style="margin: 2rem 0;">
+                <h3>Ejemplo de Integración</h3>
+                <div style="background: #1a1a1a; color: #00ff00; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; margin: 2rem 0;">
+curl -X GET https://api.schoolair.org/v1/aqi/europe \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Accept: application/json"
+
+# Respuesta:
+{
+  "region": "europe",
+  "avg_aqi": 45,
+  "schools": 692,
+  "last_updated": "2024-01-15T10:30:00Z"
+}
+                </div>
+                <div style="margin-top: 1rem;">
+                    <button class="btn" style="margin-right: 1rem;">Obtener Clave API</button>
+                    <button class="btn" style="background: #666;">Ver Documentación</button>
                 </div>
             </div>
         </div>
 
-        <!-- Alerts Tab -->
-        <div id="alerts-tab" class="tab-content">
-            <h2 style="margin-bottom: 1.5rem;">Sistema de Alertas</h2>
-            <div class="chart-container">
-                <h3>Alertas Activas</h3>
-                <div style="padding: 1rem 0;">
-                    <p style="color: #4caf50; margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Todos los sistemas funcionan normalmente</p>
-                    <p style="color: #666;">No hay alertas de calidad del aire activas para tu región.</p>
-                </div>
-            </div>
-            <div class="chart-container">
-                <h3>Configuración de Alertas</h3>
-                <div class="chart-placeholder">
-                    <i class="fas fa-cog"></i>
-                    <p>Configura alertas personalizadas para umbrales de calidad del aire</p>
-                    <p style="font-size: 0.9rem; color: #999;">Opciones de email, SMS y notificaciones push</p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -688,64 +907,161 @@
             }
         });
 
-        // Create fake chart data
-        function createFakeChart(containerId, barCount = 24) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            
-            container.innerHTML = '';
-            
-            for (let i = 0; i < barCount; i++) {
-                const bar = document.createElement('div');
-                bar.className = 'chart-bar';
-                // Generate random heights between 20% and 100%
-                const height = Math.random() * 80 + 20;
-                bar.style.height = height + '%';
-                container.appendChild(bar);
-            }
-        }
-
-        // Simulate real-time data updates
-        function updateStats() {
-            const currentAqi = document.getElementById('current-aqi');
-            const pm25Level = document.getElementById('pm25-level');
-            const activeSchools = document.getElementById('active-schools');
-            const dataPoints = document.getElementById('data-points');
-
-            // Simulate slight variations in the data
-            if (currentAqi) {
-                const baseAqi = 42;
-                const variation = Math.floor(Math.random() * 6) - 3; // -3 to +3
-                currentAqi.textContent = Math.max(0, baseAqi + variation);
-            }
-
-            if (pm25Level) {
-                const basePm25 = 18;
-                const variation = Math.floor(Math.random() * 4) - 2; // -2 to +2
-                pm25Level.textContent = Math.max(0, basePm25 + variation);
-            }
-
-            if (dataPoints) {
-                const currentPoints = parseInt(dataPoints.textContent.replace(',', ''));
-                dataPoints.textContent = (currentPoints + Math.floor(Math.random() * 5) + 1).toLocaleString();
-            }
-
-            // Update charts with new fake data
-            createFakeChart('trend-chart', 24);
-            createFakeChart('historical-chart', 30);
-            createFakeChart('regional-chart', 12);
-        }
-
-        // Update stats every 30 seconds
-        setInterval(updateStats, 30000);
-
-        // Initial load
+        // Log successful load
+        console.log('SchoolAIR Dashboard loaded successfully!');
+        
+        // Show confirmation that dashboard is working
         document.addEventListener('DOMContentLoaded', function() {
-            createFakeChart('trend-chart', 24);
-            createFakeChart('historical-chart', 30);
-            createFakeChart('regional-chart', 12);
-            console.log('SchoolAIR Dashboard loaded successfully');
+            console.log('Dashboard DOM loaded');
         });
+
+        // School Login Functionality
+        function showSchoolLogin() {
+            const loginHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 400px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-sign-in-alt"></i> Acceso Escolar</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <form onsubmit="handleSchoolLogin(event)">
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">ID o Código de Escuela:</label>
+                                <input type="text" id="schoolId" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">Clave de Acceso:</label>
+                                <input type="password" id="accessKey" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <button type="submit" style="width: 100%; padding: 1rem; background: #2e7d32; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+                                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                            </button>
+                        </form>
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                            ¿No tienes acceso? <a href="javascript:showSchoolSignup()" style="color: #2e7d32;">Registra tu escuela</a>
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', loginHTML);
+        }
+
+        function showSchoolSignup() {
+            const signupHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-school"></i> Registra Tu Escuela</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; color: #666;">
+                            <i class="fas fa-envelope" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
+                            <h4 style="color: #333; margin-bottom: 1rem;">¿Listo para unirte a la red SchoolAIR?</h4>
+                            <p style="margin-bottom: 2rem;">¡Contáctanos para registrar tu escuela y obtener tu estación de monitoreo SchoolAIR!</p>
+                            <a href="../es/index.html#get-involved" style="background: #2e7d32; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block;">
+                                <i class="fas fa-paper-plane"></i> Ponerse en Contacto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', signupHTML);
+        }
+
+        function handleSchoolLogin(event) {
+            event.preventDefault();
+            const schoolId = document.getElementById('schoolId').value;
+            const accessKey = document.getElementById('accessKey').value;
+            
+            // Simulate login validation (in real app, this would be API call)
+            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+                alert('¡Inicio de sesión exitoso! Redirigiendo al panel de la escuela...');
+                closeModal();
+                // In real app, redirect to authenticated school dashboard
+            } else {
+                alert('Credenciales inválidas. Prueba ID escuela: "demo" y clave: "demo123"');
+            }
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('[style*="position: fixed"][style*="z-index: 10000"]');
+            modals.forEach(modal => modal.remove());
+        }
+
+        // School Search Functionality  
+        const schoolsDatabase = [
+            {name: "Escuela Internacional de Barcelona", city: "Barcelona", country: "España", students: 450, established: 2019, status: "Active", sensors: 4},
+            {name: "Academia del Valle Verde", city: "Portland", country: "Estados Unidos", students: 680, established: 2020, status: "Active", sensors: 6}, 
+            {name: "Instituto STEM de Tokio", city: "Tokio", country: "Japón", students: 520, established: 2021, status: "Maintenance", sensors: 5},
+            {name: "Escuela Ambiental de Berlín", city: "Berlín", country: "Alemania", students: 390, established: 2020, status: "Active", sensors: 3},
+            {name: "Academia Tecnológica de São Paulo", city: "São Paulo", country: "Brasil", students: 750, established: 2022, status: "Active", sensors: 7},
+            {name: "Centro Científico de Mumbai", city: "Mumbai", country: "India", students: 880, established: 2021, status: "Active", sensors: 8},
+            {name: "Instituto Ambiental de Londres", city: "Londres", country: "Reino Unido", students: 420, established: 2019, status: "Active", sensors: 4},
+            {name: "Escuela de Sostenibilidad de Sídney", city: "Sídney", country: "Australia", students: 350, established: 2022, status: "Active", sensors: 3},
+            {name: "Academia Verde de Montreal", city: "Montreal", country: "Canadá", students: 480, established: 2020, status: "Active", sensors: 5},
+            {name: "Escuela Eco de Ciudad del Cabo", city: "Ciudad del Cabo", country: "Sudáfrica", students: 320, established: 2023, status: "Setup", sensors: 2}
+        ];
+
+        function searchSchools(query) {
+            const resultsDiv = document.getElementById('school-search-results');
+            
+            if (!query.trim()) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>Busca tu escuela para ver información pública</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">*Los datos de ICA requieren acceso escolar</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const filtered = schoolsDatabase.filter(school => 
+                school.name.toLowerCase().includes(query.toLowerCase()) ||
+                school.city.toLowerCase().includes(query.toLowerCase()) ||
+                school.country.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-search" style="font-size: 2rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>No se encontraron escuelas que coincidan con "${query}"</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Intenta buscar por nombre de escuela, ciudad o país</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const resultsHTML = filtered.map(school => {
+                const statusColor = school.status === 'Active' ? '#4caf50' : school.status === 'Setup' ? '#ff9800' : '#f44336';
+                const statusText = school.status === 'Active' ? 'Activo' : school.status === 'Setup' ? 'Configuración' : 'Mantenimiento';
+                return `
+                    <div style="padding: 1rem; border-bottom: 1px solid #eee; last-child:border-bottom: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <h4 style="color: #2e7d32; margin: 0;">${school.name}</h4>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: ${statusColor};"></div>
+                                <span style="font-size: 0.8rem; color: #666;">${statusText}</span>
+                            </div>
+                        </div>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-map-marker-alt"></i> ${school.city}, ${school.country}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-users"></i> ${school.students} estudiantes</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-calendar"></i> Establecida en ${school.established}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-microchip"></i> ${school.sensors} sensores instalados</p>
+                        <p style="color: #2e7d32; font-weight: 500; margin-top: 0.5rem; font-size: 0.9rem;">
+                            <i class="fas fa-lock"></i> Datos de ICA disponibles con acceso escolar
+                        </p>
+                    </div>
+                `;
+            }).join('');
+
+            resultsDiv.innerHTML = `
+                <div style="max-height: 400px; overflow-y: auto;">
+                    ${resultsHTML}
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>

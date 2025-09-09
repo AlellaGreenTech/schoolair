@@ -612,31 +612,204 @@
     </div>
 
     <script>
-        // Navigation JavaScript
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // SchoolAIR Navigation JavaScript
+        function toggleSchoolAirMobileMenu() {
+            const navLinks = document.querySelector('.schoolair-nav-links');
             navLinks.classList.toggle('active');
         }
 
-        function toggleLanguageMenu() {
-            const menu = document.getElementById('languageMenu');
+        function toggleSchoolAirLanguageMenu() {
+            const menu = document.getElementById('schoolairLanguageMenu');
             menu.classList.toggle('active');
         }
 
         document.addEventListener('click', function(event) {
-            const dropdown = document.querySelector('.language-selector-dropdown');
-            const menu = document.getElementById('languageMenu');
+            const dropdown = document.querySelector('.schoolair-language-dropdown');
+            const menu = document.getElementById('schoolairLanguageMenu');
             if (dropdown && !dropdown.contains(event.target)) {
                 menu.classList.remove('active');
             }
         });
 
         document.addEventListener('click', (e) => {
-            const navLinks = document.querySelector('.nav-links');
-            if (!e.target.closest('.nav-container')) {
+            const navLinks = document.querySelector('.schoolair-nav-links');
+            if (!e.target.closest('.schoolair-nav-container')) {
                 navLinks.classList.remove('active');
             }
         });
+
+        // Log successful load
+        console.log('SchoolAIR Dashboard loaded successfully!');
+        
+        // Show confirmation that dashboard is working
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard DOM loaded');
+        });
+
+        // School Login Functionality
+        function showSchoolLogin() {
+            const loginHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 400px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-sign-in-alt"></i> Connexion École</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <form onsubmit="handleSchoolLogin(event)">
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">ID ou Code d'École:</label>
+                                <input type="text" id="schoolId" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">Clé d'Accès:</label>
+                                <input type="password" id="accessKey" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <button type="submit" style="width: 100%; padding: 1rem; background: #2e7d32; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+                                <i class="fas fa-sign-in-alt"></i> Se Connecter
+                            </button>
+                        </form>
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                            Pas d'accès? <a href="javascript:showSchoolSignup()" style="color: #2e7d32;">Inscrivez votre école</a>
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', loginHTML);
+        }
+
+        function showSchoolSignup() {
+            const signupHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-school"></i> Inscrire Votre École</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; color: #666;">
+                            <i class="fas fa-envelope" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
+                            <h4 style="color: #333; margin-bottom: 1rem;">Prêt à rejoindre le réseau SchoolAIR?</h4>
+                            <p style="margin-bottom: 2rem;">Contactez-nous pour inscrire votre école et obtenir votre station de surveillance SchoolAIR!</p>
+                            <a href="../fr/index.html#get-involved" style="background: #2e7d32; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block;">
+                                <i class="fas fa-paper-plane"></i> Nous Contacter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', signupHTML);
+        }
+
+        function handleSchoolLogin(event) {
+            event.preventDefault();
+            const schoolId = document.getElementById('schoolId').value;
+            const accessKey = document.getElementById('accessKey').value;
+            
+            // Simulate login validation (in real app, this would be API call)
+            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+                alert('Connexion réussie! Redirection vers le tableau de bord de l\'école...');
+                closeModal();
+                // In real app, redirect to authenticated school dashboard
+            } else {
+                alert('Identifiants invalides. Essayez ID école: "demo" et clé: "demo123"');
+            }
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('[style*="position: fixed"][style*="z-index: 10000"]');
+            modals.forEach(modal => modal.remove());
+        }
+
+        // School Search Functionality  
+        const schoolsDatabase = [
+            {name: "École Internationale de Barcelone", city: "Barcelone", country: "Espagne", students: 450, established: 2019, status: "Active", sensors: 4},
+            {name: "Académie de la Vallée Verte", city: "Portland", country: "États-Unis", students: 680, established: 2020, status: "Active", sensors: 6}, 
+            {name: "Institut STEM de Tokyo", city: "Tokyo", country: "Japon", students: 520, established: 2021, status: "Maintenance", sensors: 5},
+            {name: "École Environnementale de Berlin", city: "Berlin", country: "Allemagne", students: 390, established: 2020, status: "Active", sensors: 3},
+            {name: "Académie Technologique de São Paulo", city: "São Paulo", country: "Brésil", students: 750, established: 2022, status: "Active", sensors: 7},
+            {name: "Centre Scientifique de Mumbai", city: "Mumbai", country: "Inde", students: 880, established: 2021, status: "Active", sensors: 8},
+            {name: "Institut Environnemental de Londres", city: "Londres", country: "Royaume-Uni", students: 420, established: 2019, status: "Active", sensors: 4},
+            {name: "École de Durabilité de Sydney", city: "Sydney", country: "Australie", students: 350, established: 2022, status: "Active", sensors: 3},
+            {name: "Académie Verte de Montréal", city: "Montréal", country: "Canada", students: 480, established: 2020, status: "Active", sensors: 5},
+            {name: "École Éco du Cap", city: "Le Cap", country: "Afrique du Sud", students: 320, established: 2023, status: "Installation", sensors: 2}
+        ];
+
+        function searchSchools(query) {
+            const resultsDiv = document.getElementById('school-search-results');
+            
+            if (!query.trim()) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>Recherchez votre école pour voir les informations publiques</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">*Les données d'IQA nécessitent une connexion école</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const filtered = schoolsDatabase.filter(school => 
+                school.name.toLowerCase().includes(query.toLowerCase()) ||
+                school.city.toLowerCase().includes(query.toLowerCase()) ||
+                school.country.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-search" style="font-size: 2rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>Aucune école trouvée correspondant à "${query}"</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Essayez de rechercher par nom d'école, ville ou pays</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const resultsHTML = filtered.map(school => {
+                const statusColor = school.status === 'Active' ? '#4caf50' : school.status === 'Installation' ? '#ff9800' : '#f44336';
+                const statusText = school.status === 'Active' ? 'Active' : school.status === 'Installation' ? 'Installation' : 'Maintenance';
+                return `
+                    <div style="padding: 1rem; border-bottom: 1px solid #eee; last-child:border-bottom: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <h4 style="color: #2e7d32; margin: 0;">${school.name}</h4>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: ${statusColor};"></div>
+                                <span style="font-size: 0.8rem; color: #666;">${statusText}</span>
+                            </div>
+                        </div>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-map-marker-alt"></i> ${school.city}, ${school.country}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-users"></i> ${school.students} élèves</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-calendar"></i> Établie en ${school.established}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-microchip"></i> ${school.sensors} capteurs installés</p>
+                        <p style="color: #2e7d32; font-weight: 500; margin-top: 0.5rem; font-size: 0.9rem;">
+                            <i class="fas fa-lock"></i> Données d'IQA disponibles avec connexion école
+                        </p>
+                    </div>
+                `;
+            }).join('');
+
+            resultsDiv.innerHTML = `
+                <div style="max-height: 400px; overflow-y: auto;">
+                    ${resultsHTML}
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>

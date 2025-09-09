@@ -438,6 +438,17 @@
                     <span class="stat-label">Countries</span>
                 </div>
             </div>
+            
+            <!-- School Login Section -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn" onclick="showSchoolLogin()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; margin-right: 1rem;">
+                    <i class="fas fa-sign-in-alt"></i> School Login
+                </button>
+                <button class="btn" onclick="showSchoolSignup()" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); color: white;">
+                    <i class="fas fa-school"></i> Register Your School
+                </button>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.8rem;">Access your school's detailed AQI data and analytics</p>
+            </div>
         </div>
 
         <!-- Tabs -->
@@ -459,6 +470,28 @@
         <!-- Overview Tab -->
         <div id="overview-tab" class="tab-content active">
             <h2 style="margin-bottom: 2rem;">Global Air Quality Overview</h2>
+            
+            <!-- School Search Section -->
+            <div style="background: linear-gradient(135deg, #E3F2FD, #F3E5F5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: #1B5E20;">
+                    <i class="fas fa-search"></i> Find Your School
+                </h3>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div style="position: relative; margin-bottom: 1rem;">
+                        <input type="text" id="school-search" placeholder="Search by school name, city, or country..." 
+                               style="width: 100%; padding: 1rem 3rem 1rem 1rem; border: 2px solid #ddd; border-radius: 25px; font-size: 1rem; outline: none; transition: all 0.3s ease;"
+                               oninput="searchSchools(this.value)" onfocus="this.style.borderColor='#2e7d32'" onblur="this.style.borderColor='#ddd'">
+                        <i class="fas fa-search" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #666;"></i>
+                    </div>
+                    <div id="school-search-results" style="background: white; border-radius: 12px; padding: 1rem; min-height: 200px; border: 1px solid #e0e0e0;">
+                        <div style="text-align: center; color: #666; padding: 2rem;">
+                            <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                            <p>Search for your school to view public information</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">*AQI data requires school login</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <div class="feature-grid">
                 <div class="feature-card">
@@ -738,6 +771,153 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Dashboard DOM loaded');
         });
+
+        // School Login Functionality
+        function showSchoolLogin() {
+            const loginHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 400px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-sign-in-alt"></i> School Login</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <form onsubmit="handleSchoolLogin(event)">
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">School ID or Code:</label>
+                                <input type="text" id="schoolId" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: #333;">Access Key:</label>
+                                <input type="password" id="accessKey" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <button type="submit" style="width: 100%; padding: 1rem; background: #2e7d32; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </button>
+                        </form>
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                            Don't have access? <a href="javascript:showSchoolSignup()" style="color: #2e7d32;">Register your school</a>
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', loginHTML);
+        }
+
+        function showSchoolSignup() {
+            const signupHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="closeModal(event)">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; position: relative;" onclick="event.stopPropagation();">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <h3 style="color: #2e7d32; margin: 0;"><i class="fas fa-school"></i> Register Your School</h3>
+                            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; color: #666; cursor: pointer;">&times;</button>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; color: #666;">
+                            <i class="fas fa-envelope" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
+                            <h4 style="color: #333; margin-bottom: 1rem;">Ready to join the SchoolAIR network?</h4>
+                            <p style="margin-bottom: 2rem;">Contact us to register your school and get your SchoolAIR monitoring station!</p>
+                            <a href="../en/index.html#get-involved" style="background: #2e7d32; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block;">
+                                <i class="fas fa-paper-plane"></i> Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', signupHTML);
+        }
+
+        function handleSchoolLogin(event) {
+            event.preventDefault();
+            const schoolId = document.getElementById('schoolId').value;
+            const accessKey = document.getElementById('accessKey').value;
+            
+            // Simulate login validation (in real app, this would be API call)
+            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+                alert('Login successful! Redirecting to school dashboard...');
+                closeModal();
+                // In real app, redirect to authenticated school dashboard
+            } else {
+                alert('Invalid credentials. Try school ID: "demo" and key: "demo123"');
+            }
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('[style*="position: fixed"][style*="z-index: 10000"]');
+            modals.forEach(modal => modal.remove());
+        }
+
+        // School Search Functionality  
+        const schoolsDatabase = [
+            {name: "Barcelona International School", city: "Barcelona", country: "Spain", students: 450, established: 2019, status: "Active", sensors: 4},
+            {name: "Green Valley Academy", city: "Portland", country: "USA", students: 680, established: 2020, status: "Active", sensors: 6}, 
+            {name: "Tokyo STEM Institute", city: "Tokyo", country: "Japan", students: 520, established: 2021, status: "Maintenance", sensors: 5},
+            {name: "Berlin Environmental School", city: "Berlin", country: "Germany", students: 390, established: 2020, status: "Active", sensors: 3},
+            {name: "São Paulo Tech Academy", city: "São Paulo", country: "Brazil", students: 750, established: 2022, status: "Active", sensors: 7},
+            {name: "Mumbai Science Center", city: "Mumbai", country: "India", students: 880, established: 2021, status: "Active", sensors: 8},
+            {name: "London Environmental Institute", city: "London", country: "UK", students: 420, established: 2019, status: "Active", sensors: 4},
+            {name: "Sydney Sustainability School", city: "Sydney", country: "Australia", students: 350, established: 2022, status: "Active", sensors: 3},
+            {name: "Montreal Green Academy", city: "Montreal", country: "Canada", students: 480, established: 2020, status: "Active", sensors: 5},
+            {name: "Cape Town Eco School", city: "Cape Town", country: "South Africa", students: 320, established: 2023, status: "Setup", sensors: 2}
+        ];
+
+        function searchSchools(query) {
+            const resultsDiv = document.getElementById('school-search-results');
+            
+            if (!query.trim()) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>Search for your school to view public information</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">*AQI data requires school login</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const filtered = schoolsDatabase.filter(school => 
+                school.name.toLowerCase().includes(query.toLowerCase()) ||
+                school.city.toLowerCase().includes(query.toLowerCase()) ||
+                school.country.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        <i class="fas fa-search" style="font-size: 2rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                        <p>No schools found matching "${query}"</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Try searching by school name, city, or country</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const resultsHTML = filtered.map(school => {
+                const statusColor = school.status === 'Active' ? '#4caf50' : school.status === 'Setup' ? '#ff9800' : '#f44336';
+                return `
+                    <div style="padding: 1rem; border-bottom: 1px solid #eee; last-child:border-bottom: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <h4 style="color: #2e7d32; margin: 0;">${school.name}</h4>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: ${statusColor};"></div>
+                                <span style="font-size: 0.8rem; color: #666;">${school.status}</span>
+                            </div>
+                        </div>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-map-marker-alt"></i> ${school.city}, ${school.country}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-users"></i> ${school.students} students</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-calendar"></i> Established ${school.established}</p>
+                        <p style="color: #666; margin: 0.25rem 0;"><i class="fas fa-microchip"></i> ${school.sensors} sensors installed</p>
+                        <p style="color: #2e7d32; font-weight: 500; margin-top: 0.5rem; font-size: 0.9rem;">
+                            <i class="fas fa-lock"></i> AQI data available with school login
+                        </p>
+                    </div>
+                `;
+            }).join('');
+
+            resultsDiv.innerHTML = `
+                <div style="max-height: 400px; overflow-y: auto;">
+                    ${resultsHTML}
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>

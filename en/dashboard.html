@@ -544,6 +544,15 @@
             <p style="margin-bottom: 2rem; color: #666;">⚠️ Individual school data is private. Only anonymized aggregate data is shown.</p>
             
             <div class="feature-grid">
+                <div class="feature-card" style="border: 2px solid #2e7d32; background: linear-gradient(135deg, #f8fff8, #e8f5e8);">
+                    <h3 style="color: #1B5E20;">🌬️ Air School</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
+                        <span>Online - Real-time monitoring</span>
+                    </div>
+                    <p><strong>AQI:</strong> <span style="color: #2e7d32; font-weight: 600;">Interactive Dashboard Available</span></p>
+                    <p style="font-size: 0.9rem; color: #2e7d32; margin-top: 0.5rem; font-weight: 500;">Live demo - Try login: "Air School" / "airschool2024"</p>
+                </div>
                 <div class="feature-card">
                     <h3>Barcelona International School</h3>
                     <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
@@ -829,14 +838,23 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
             event.preventDefault();
             const schoolId = document.getElementById('schoolId').value;
             const accessKey = document.getElementById('accessKey').value;
-            
+
             // Simulate login validation (in real app, this would be API call)
-            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+            if (schoolId.toLowerCase().includes('air school') || schoolId.toLowerCase().includes('airschool')) {
+                if (accessKey === 'airschool2024' || accessKey === 'demo123') {
+                    alert('Welcome to Air School! Redirecting to your dashboard...');
+                    closeModal();
+                    // Redirect to Air School dashboard
+                    window.open('../../../index.html', '_blank');
+                } else {
+                    alert('Invalid credentials for Air School. Try access key: "airschool2024"');
+                }
+            } else if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
                 alert('Login successful! Redirecting to school dashboard...');
                 closeModal();
                 // In real app, redirect to authenticated school dashboard
             } else {
-                alert('Invalid credentials. Try school ID: "demo" and key: "demo123"');
+                alert('Invalid credentials. Try school ID: "demo" and key: "demo123", or "Air School" with key: "airschool2024"');
             }
         }
 
@@ -847,8 +865,9 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
 
         // School Search Functionality  
         const schoolsDatabase = [
+            {name: "Air School", city: "Barcelona", country: "Spain", students: 320, established: 2024, status: "Active", sensors: 5},
             {name: "Barcelona International School", city: "Barcelona", country: "Spain", students: 450, established: 2019, status: "Active", sensors: 4},
-            {name: "Green Valley Academy", city: "Portland", country: "USA", students: 680, established: 2020, status: "Active", sensors: 6}, 
+            {name: "Green Valley Academy", city: "Portland", country: "USA", students: 680, established: 2020, status: "Active", sensors: 6},
             {name: "Tokyo STEM Institute", city: "Tokyo", country: "Japan", students: 520, established: 2021, status: "Maintenance", sensors: 5},
             {name: "Berlin Environmental School", city: "Berlin", country: "Germany", students: 390, established: 2020, status: "Active", sensors: 3},
             {name: "São Paulo Tech Academy", city: "São Paulo", country: "Brazil", students: 750, established: 2022, status: "Active", sensors: 7},

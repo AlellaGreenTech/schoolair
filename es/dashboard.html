@@ -974,12 +974,20 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
             const accessKey = document.getElementById('accessKey').value;
             
             // Simulate login validation (in real app, this would be API call)
-            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+            if (schoolId.toLowerCase().includes('air school') || schoolId.toLowerCase().includes('airschool')) {
+                if (accessKey === '1234' || accessKey === 'demo123') {
+                    closeModal();
+                    // Redirect to Air School dashboard
+                    window.open('../air-school/index.html', '_blank');
+                } else {
+                    alert('Credenciales inválidas para Air School. Prueba clave: "1234"');
+                }
+            } else if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
                 alert('¡Inicio de sesión exitoso! Redirigiendo al panel de la escuela...');
                 closeModal();
                 // In real app, redirect to authenticated school dashboard
             } else {
-                alert('Credenciales inválidas. Prueba ID escuela: "demo" y clave: "demo123"');
+                alert('Credenciales inválidas. Prueba ID escuela: "demo" y clave: "demo123", o "Air School" con clave: "1234"');
             }
         }
 
@@ -990,6 +998,7 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
 
         // School Search Functionality  
         const schoolsDatabase = [
+            {name: "Air School", city: "Barcelona", country: "España", students: 320, established: 2024, status: "Active", sensors: 5},
             {name: "Escuela Internacional de Barcelona", city: "Barcelona", country: "España", students: 450, established: 2019, status: "Active", sensors: 4},
             {name: "Academia del Valle Verde", city: "Portland", country: "Estados Unidos", students: 680, established: 2020, status: "Active", sensors: 6}, 
             {name: "Instituto STEM de Tokio", city: "Tokio", country: "Japón", students: 520, established: 2021, status: "Maintenance", sensors: 5},

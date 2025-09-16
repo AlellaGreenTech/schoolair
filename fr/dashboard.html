@@ -722,12 +722,20 @@
             const accessKey = document.getElementById('accessKey').value;
             
             // Simulate login validation (in real app, this would be API call)
-            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+            if (schoolId.toLowerCase().includes('air school') || schoolId.toLowerCase().includes('airschool')) {
+                if (accessKey === '1234' || accessKey === 'demo123') {
+                    closeModal();
+                    // Redirect to Air School dashboard
+                    window.open('../air-school/index.html', '_blank');
+                } else {
+                    alert('Identifiants invalides pour Air School. Essayez clé: "1234"');
+                }
+            } else if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
                 alert('Connexion réussie! Redirection vers le tableau de bord de l\'école...');
                 closeModal();
                 // In real app, redirect to authenticated school dashboard
             } else {
-                alert('Identifiants invalides. Essayez ID école: "demo" et clé: "demo123"');
+                alert('Identifiants invalides. Essayez ID école: "demo" et clé: "demo123", ou "Air School" avec clé: "1234"');
             }
         }
 
@@ -738,6 +746,7 @@
 
         // School Search Functionality  
         const schoolsDatabase = [
+            {name: "Air School", city: "Barcelone", country: "Espagne", students: 320, established: 2024, status: "Active", sensors: 5},
             {name: "École Internationale de Barcelone", city: "Barcelone", country: "Espagne", students: 450, established: 2019, status: "Active", sensors: 4},
             {name: "Académie de la Vallée Verte", city: "Portland", country: "États-Unis", students: 680, established: 2020, status: "Active", sensors: 6}, 
             {name: "Institut STEM de Tokyo", city: "Tokyo", country: "Japon", students: 520, established: 2021, status: "Maintenance", sensors: 5},

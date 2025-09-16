@@ -822,12 +822,20 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
             const accessKey = document.getElementById('accessKey').value;
             
             // Simulate login validation (in real app, this would be API call)
-            if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
+            if (schoolId.toLowerCase().includes('air school') || schoolId.toLowerCase().includes('airschool')) {
+                if (accessKey === '1234' || accessKey === 'demo123') {
+                    closeModal();
+                    // Redirect to Air School dashboard
+                    window.open('../air-school/index.html', '_blank');
+                } else {
+                    alert('Credencials invàlides per Air School. Prova clau: "1234"');
+                }
+            } else if (schoolId.toLowerCase().includes('demo') || accessKey === 'demo123') {
                 alert('Inici de sessió reeixit! Redirigint al tauler de l\'escola...');
                 closeModal();
                 // In real app, redirect to authenticated school dashboard
             } else {
-                alert('Credencials invàlides. Prova ID escola: "demo" i clau: "demo123"');
+                alert('Credencials invàlides. Prova ID escola: "demo" i clau: "demo123", o "Air School" amb clau: "1234"');
             }
         }
 
@@ -838,6 +846,7 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
 
         // School Search Functionality  
         const schoolsDatabase = [
+            {name: "Air School", city: "Barcelona", country: "Espanya", students: 320, established: 2024, status: "Active", sensors: 5},
             {name: "Escola Internacional de Barcelona", city: "Barcelona", country: "Espanya", students: 450, established: 2019, status: "Active", sensors: 4},
             {name: "Acadèmia de la Vall Verda", city: "Portland", country: "Estats Units", students: 680, established: 2020, status: "Active", sensors: 6}, 
             {name: "Institut STEM de Tòquio", city: "Tòquio", country: "Japó", students: 520, established: 2021, status: "Maintenance", sensors: 5},

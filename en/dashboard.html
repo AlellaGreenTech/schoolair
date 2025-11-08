@@ -439,15 +439,12 @@
                 </div>
             </div>
             
-            <!-- School Login Section -->
+            <!-- Register School Section -->
             <div style="text-align: center; margin-top: 2rem;">
-                <button class="btn" onclick="showSchoolLogin()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; margin-right: 1rem;">
-                    <i class="fas fa-sign-in-alt"></i> School Login
-                </button>
-                <button class="btn" onclick="showSchoolSignup()" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); color: white;">
+                <button class="btn" onclick="showSchoolSignup()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white;">
                     <i class="fas fa-school"></i> Register Your School
                 </button>
-                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.8rem;">Access your school's detailed AQI data and analytics</p>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.8rem;">Join the SchoolAir network</p>
             </div>
         </div>
 
@@ -471,26 +468,15 @@
         <div id="overview-tab" class="tab-content active">
             <h2 style="margin-bottom: 2rem;">Global Air Quality Overview</h2>
             
-            <!-- School Search Section -->
-            <div style="background: linear-gradient(135deg, #E3F2FD, #F3E5F5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                <h3 style="text-align: center; margin-bottom: 1.5rem; color: #1B5E20;">
-                    <i class="fas fa-search"></i> Find Your School
+            <!-- Example School Dashboard -->
+            <div style="background: linear-gradient(135deg, #E3F2FD, #F3E5F5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; text-align: center;">
+                <h3 style="margin-bottom: 1.5rem; color: #1B5E20;">
+                    <i class="fas fa-chart-line"></i> View Sample Dashboard
                 </h3>
-                <div style="max-width: 500px; margin: 0 auto;">
-                    <div style="position: relative; margin-bottom: 1rem;">
-                        <input type="text" id="school-search" placeholder="Search by school name, city, or country..." 
-                               style="width: 100%; padding: 1rem 3rem 1rem 1rem; border: 2px solid #ddd; border-radius: 25px; font-size: 1rem; outline: none; transition: all 0.3s ease;"
-                               oninput="searchSchools(this.value)" onfocus="this.style.borderColor='#2e7d32'" onblur="this.style.borderColor='#ddd'">
-                        <i class="fas fa-search" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #666;"></i>
-                    </div>
-                    <div id="school-search-results" style="background: white; border-radius: 12px; padding: 1rem; min-height: 200px; border: 1px solid #e0e0e0;">
-                        <div style="text-align: center; color: #666; padding: 2rem;">
-                            <i class="fas fa-school" style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;"></i>
-                            <p>Search for your school to view public information</p>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">*AQI data requires school login</p>
-                        </div>
-                    </div>
-                </div>
+                <p style="color: #666; margin-bottom: 1.5rem;">See what a school's air quality dashboard looks like</p>
+                <a href="school/1234/" style="display: inline-block; background: #2e7d32; color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
+                    <i class="fas fa-eye"></i> See Example School Dashboard
+                </a>
             </div>
             
             <div class="feature-grid">

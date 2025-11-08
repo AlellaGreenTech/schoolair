@@ -2139,77 +2139,53 @@
         // Make hero visible immediately
         document.querySelector('.hero').classList.add('visible');
 
-        // Contact form submission
-        function handleContactSubmit(event) {
+        // Contact form submission via Supabase Edge Function
+        async function handleContactSubmit(event) {
             event.preventDefault();
-            
+
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
-            
+
             console.log('SchoolAIR contact form submitted:', data);
-            
+
             // Show loading state
             const submitButton = event.target.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitButton.disabled = true;
-            
-            // Create email body
-            const emailBody = `
-SchoolAIR Project Contact Form Submission
 
-Name: ${data.firstName} ${data.lastName}
-Email: ${data.email}
-School/Organization: ${data.school}
-Role: ${data.role}
-Interest Level: ${data.interest}
+            try {
+                // Send email via Supabase Edge Function
+                const response = await fetch('https://gzbuvywxrzcovqohmbol.supabase.co/functions/v1/send-contact-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: `${data.firstName} ${data.lastName}`,
+                        email: data.email,
+                        message: `School/Organization: ${data.school}\nRole: ${data.role}\nInterest Level: ${data.interest}\n\nMessage:\n${data.message}`,
+                        requestType: data.interest,
+                        language: 'en'
+                    })
+                });
 
-Message:
-${data.message}
+                const result = await response.json();
 
----
-Submitted from: ${window.location.href}
-Timestamp: ${new Date().toISOString()}
-            `.trim();
-            
-            // Try to send email using EmailJS (if available) or fallback to mailto
-            if (typeof emailjs !== 'undefined') {
-                // EmailJS integration (if configured)
-                emailjs.send('default_service', 'contact_form', {
-                    from_name: `${data.firstName} ${data.lastName}`,
-                    from_email: data.email,
-                    school: data.school,
-                    role: data.role,
-                    interest: data.interest,
-                    message: emailBody,
-                    to_email: 'info@alellagreentech.com'
-                }).then(function(response) {
-                    console.log('Email sent successfully:', response);
+                if (result.success) {
+                    console.log('Email sent successfully via Supabase');
                     showSuccessMessage();
                     event.target.reset();
-                }).catch(function(error) {
-                    console.error('Email send failed:', error);
-                    fallbackToMailto(data, emailBody);
-                }).finally(function() {
-                    submitButton.innerHTML = originalText;
-                    submitButton.disabled = false;
-                });
-            } else {
-                // Fallback to mailto link
-                fallbackToMailto(data, emailBody);
+                } else {
+                    throw new Error(result.error || 'Failed to send email');
+                }
+            } catch (error) {
+                console.error('Error sending email:', error);
+                showSuccessMessage('There was an issue sending your message. Please email us directly at info@alellagreentech.com');
+            } finally {
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
             }
-        }
-        
-        function fallbackToMailto(data, emailBody) {
-            const subject = `SchoolAIR Project - Contact from ${data.firstName} ${data.lastName}`;
-            const mailtoLink = `mailto:info@alellagreentech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open mailto link
-            window.open(mailtoLink, '_blank');
-            
-            showSuccessMessage('Your email client should open with the pre-filled message. Please send it to complete your contact request.');
         }
         
         function showSuccessMessage(customMessage = null) {

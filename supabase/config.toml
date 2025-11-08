@@ -1,0 +1,8 @@
+# Supabase Configuration for SchoolAIR
+
+[api]
+# Replace with your actual Supabase project ID
+project_id = "gzbuvywxrzcovqohmbol"
+
+[functions.send-contact-email]
+verify_jwt = false  # Allow public access to contact form function

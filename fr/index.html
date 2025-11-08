@@ -2198,14 +2198,14 @@
             
             // Create and show success modal
             const modalHTML = `
-                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+                <div id="successModal" onclick="if(event.target.id === 'successModal') this.remove()" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;">
                     <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; text-align: center;">
                         <div style="color: #4caf50; font-size: 3rem; margin-bottom: 1rem;">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <h3 style="color: #2e7d32; margin-bottom: 1rem;">Message Envoyé!</h3>
                         <p style="color: #666; margin-bottom: 2rem;">${message}</p>
-                        <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" 
+                        <button onclick="document.getElementById('successModal').remove()"
                                 style="background: #2e7d32; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">
                             Fermer
                         </button>

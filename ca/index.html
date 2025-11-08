@@ -2169,6 +2169,7 @@
         function showSuccessMessage(customMessage = null) {
             // Create modal overlay
             const overlay = document.createElement('div');
+            overlay.id = 'successModal';
             overlay.style.cssText = `
                 position: fixed;
                 top: 0;
@@ -2183,7 +2184,8 @@
                 opacity: 0;
                 transition: opacity 0.3s ease;
             `;
-            
+            overlay.onclick = (e) => { if(e.target.id === 'successModal') e.target.remove(); };
+
             // Create modal
             const modal = document.createElement('div');
             modal.style.cssText = `
@@ -2196,12 +2198,12 @@
                 transform: scale(0.9);
                 transition: transform 0.3s ease;
             `;
-            
+
             modal.innerHTML = `
                 <div style="font-size: 3rem; color: #4CAF50; margin-bottom: 1rem;">✓</div>
                 <h3 style="color: #333; margin-bottom: 1rem;">Missatge Enviat!</h3>
                 <p style="color: #666; margin-bottom: 1.5rem;">${customMessage || 'Gràcies pel teu interès en el projecte schoolAIR. Ens posarem en contacte amb tu en un termini de 2 dies laborables.'}</p>
-                <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" style="
+                <button onclick="document.getElementById('successModal').remove()" style="
                     background: #4CAF50;
                     color: white;
                     border: none;
@@ -2211,7 +2213,7 @@
                     font-size: 1rem;
                 ">Tancar</button>
             `;
-            
+
             overlay.appendChild(modal);
             document.body.appendChild(overlay);
             

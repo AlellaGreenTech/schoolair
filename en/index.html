@@ -2028,6 +2028,15 @@
                     </div>
                     
                     <button type="submit" class="btn-primary">Send Request</button>
+                    <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                        <p style="margin-bottom: 1rem; opacity: 0.8;">Or contact us directly:</p>
+                        <a href="mailto:info@alellagreentech.com?subject=SchoolAIR Project Inquiry" 
+                           style="display: inline-block; background: rgba(255,255,255,0.1); color: white; padding: 1rem 2rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; text-decoration: none; transition: all 0.3s ease;"
+                           onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.5)'"
+                           onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.3)'">
+                            <i class="fas fa-envelope"></i> info@alellagreentech.com
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -2139,11 +2148,90 @@
             
             console.log('SchoolAIR contact form submitted:', data);
             
-            // Show success message
-            alert('Thank you for your interest in the schoolAIR project! We will contact you within 2 business days with information about your request.');
+            // Show loading state
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
             
-            // Reset form
-            event.target.reset();
+            // Create email body
+            const emailBody = `
+SchoolAIR Project Contact Form Submission
+
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+School/Organization: ${data.school}
+Role: ${data.role}
+Interest Level: ${data.interest}
+
+Message:
+${data.message}
+
+---
+Submitted from: ${window.location.href}
+Timestamp: ${new Date().toISOString()}
+            `.trim();
+            
+            // Try to send email using EmailJS (if available) or fallback to mailto
+            if (typeof emailjs !== 'undefined') {
+                // EmailJS integration (if configured)
+                emailjs.send('default_service', 'contact_form', {
+                    from_name: `${data.firstName} ${data.lastName}`,
+                    from_email: data.email,
+                    school: data.school,
+                    role: data.role,
+                    interest: data.interest,
+                    message: emailBody,
+                    to_email: 'info@alellagreentech.com'
+                }).then(function(response) {
+                    console.log('Email sent successfully:', response);
+                    showSuccessMessage();
+                    event.target.reset();
+                }).catch(function(error) {
+                    console.error('Email send failed:', error);
+                    fallbackToMailto(data, emailBody);
+                }).finally(function() {
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                });
+            } else {
+                // Fallback to mailto link
+                fallbackToMailto(data, emailBody);
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
+        }
+        
+        function fallbackToMailto(data, emailBody) {
+            const subject = `SchoolAIR Project - Contact from ${data.firstName} ${data.lastName}`;
+            const mailtoLink = `mailto:info@alellagreentech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open mailto link
+            window.open(mailtoLink, '_blank');
+            
+            showSuccessMessage('Your email client should open with the pre-filled message. Please send it to complete your contact request.');
+        }
+        
+        function showSuccessMessage(customMessage = null) {
+            const message = customMessage || 'Thank you for your interest in the schoolAIR project! We will contact you within 2 business days with information about your request.';
+            
+            // Create and show success modal
+            const modalHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; text-align: center;">
+                        <div style="color: #4caf50; font-size: 3rem; margin-bottom: 1rem;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 style="color: #2e7d32; margin-bottom: 1rem;">Message Sent!</h3>
+                        <p style="color: #666; margin-bottom: 2rem;">${message}</p>
+                        <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" 
+                                style="background: #2e7d32; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
         }
 
         // Close mobile menu when clicking outside

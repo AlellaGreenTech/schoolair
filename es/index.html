@@ -2029,6 +2029,14 @@
                     </div>
                     
                     <button type="submit" class="btn-primary">Enviar Solicitud</button>
+                    <p style="text-align: center; margin: 1rem 0; color: #666;">O contáctanos directamente:</p>
+                    <div style="text-align: center;">
+                        <a href="mailto:info@alellagreentech.com?subject=Consulta sobre schoolAIR" 
+                           class="btn-primary" 
+                           style="background: transparent; color: #4CAF50; border: 2px solid #4CAF50; text-decoration: none; display: inline-block;">
+                            <i class="fas fa-envelope"></i> info@alellagreentech.com
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -2131,20 +2139,133 @@
         // Make hero visible immediately
         document.querySelector('.hero').classList.add('visible');
 
-        // Contact form submission
+        // Contact form submission with EmailJS integration
         function handleContactSubmit(event) {
             event.preventDefault();
+            
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitButton.disabled = true;
             
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
             
             console.log('SchoolAIR contact form submitted:', data);
             
-            // Show success message
-            alert('Thank you for your interest in the schoolAIR project! We will contact you within 2 business days with information about your request.');
+            // Create email body
+            const emailBody = `Nuevo formulario de contacto de schoolAIR:
+
+Nombre: ${data.name}
+Email: ${data.email}
+Tipo de solicitud: ${data.request_type}
+Mensaje: ${data.message}`;
             
-            // Reset form
-            event.target.reset();
+            // Try EmailJS first, fallback to mailto
+            if (typeof emailjs !== 'undefined') {
+                emailjs.send('default_service', 'contact_form', {
+                    from_name: data.name,
+                    from_email: data.email,
+                    request_type: data.request_type,
+                    message: data.message,
+                    to_email: 'info@alellagreentech.com'
+                })
+                .then(() => {
+                    console.log('Email sent successfully via EmailJS');
+                    showSuccessMessage('¡Mensaje Enviado! Nos pondremos en contacto contigo en un plazo de 2 días laborables.');
+                    event.target.reset();
+                }, (error) => {
+                    console.log('EmailJS failed:', error);
+                    fallbackToMailto(data, emailBody);
+                })
+                .finally(() => {
+                    // Reset button
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                });
+            } else {
+                console.log('EmailJS not available, using mailto fallback');
+                fallbackToMailto(data, emailBody);
+                
+                // Reset button
+                setTimeout(() => {
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }, 1000);
+            }
+        }
+        
+        function fallbackToMailto(data, emailBody) {
+            const subject = `Solicitud de schoolAIR - ${data.request_type}`;
+            const mailtoLink = `mailto:info@alellagreentech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            window.location.href = mailtoLink;
+            showSuccessMessage('Se ha abierto tu cliente de correo. Si no se abre automáticamente, por favor envía un email a info@alellagreentech.com');
+        }
+        
+        function showSuccessMessage(customMessage = null) {
+            // Create modal overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            
+            // Create modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                background: white;
+                padding: 2rem;
+                border-radius: 10px;
+                text-align: center;
+                max-width: 400px;
+                margin: 1rem;
+                transform: scale(0.9);
+                transition: transform 0.3s ease;
+            `;
+            
+            modal.innerHTML = `
+                <div style="font-size: 3rem; color: #4CAF50; margin-bottom: 1rem;">✓</div>
+                <h3 style="color: #333; margin-bottom: 1rem;">¡Mensaje Enviado!</h3>
+                <p style="color: #666; margin-bottom: 1.5rem;">${customMessage || 'Gracias por tu interés en el proyecto schoolAIR. Nos pondremos en contacto contigo en un plazo de 2 días laborables.'}</p>
+                <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" style="
+                    background: #4CAF50;
+                    color: white;
+                    border: none;
+                    padding: 0.5rem 1.5rem;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                ">Cerrar</button>
+            `;
+            
+            overlay.appendChild(modal);
+            document.body.appendChild(overlay);
+            
+            // Animate in
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+                modal.style.transform = 'scale(1)';
+            }, 10);
+            
+            // Auto close after 5 seconds
+            setTimeout(() => {
+                if (document.body.contains(overlay)) {
+                    overlay.remove();
+                }
+            }, 5000);
         }
 
         // Close mobile menu when clicking outside

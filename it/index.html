@@ -1659,7 +1659,17 @@
         <div class="container">
             <h2 class="section-title">Il Progetto schoolAIR</h2>
             <p class="section-subtitle">Un progetto educativo completo che combina l'apprendimento pratico STEM con il monitoraggio ambientale del mondo reale. C'è uno scopo oltre l'educazione: I nostri bambini potrebbero essere esposti ad aria non salutare. Questo progetto fornisce a scuole e studenti dati in tempo reale sull'area locale — non solo quello che i governi pubblicano ampiamente.</p>
-            
+
+            <!-- Info Sheet Section -->
+            <div style="text-align: center; margin: 2rem 0;">
+                <button onclick="toggleInfoSheet()" class="cta-button" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3); transition: all 0.3s ease;">
+                    <i class="fas fa-file-alt"></i> Vedi il Nostro Foglio Informativo
+                </button>
+            </div>
+            <div id="infoSheetContainer" style="display: none; margin: 2rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                <iframe src="https://docs.google.com/document/d/e/2PACX-1vRM7tPQ8GgyFQe6l_eFZj6k8FoVKmRMmYUK9R7F_mYzocsSiUg2haVK1WNU5nMhy65DM-jb8sXQsPRW/pub?embedded=true" style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+
             <div class="about-grid">
                 <div class="about-card">
                     <div class="card-image">
@@ -2114,6 +2124,17 @@
         function toggleMobileMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
+        }
+
+        // Toggle info sheet
+        function toggleInfoSheet() {
+            const container = document.getElementById('infoSheetContainer');
+            if (container.style.display === 'none') {
+                container.style.display = 'block';
+                container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                container.style.display = 'none';
+            }
         }
 
         // Scroll animations

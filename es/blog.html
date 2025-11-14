@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog SchoolAir - Noticias y Actualizaciones</title>
+    <link rel="alternate" hreflang="en" href="https://schoolair.org/en/blog.html">
+    <link rel="alternate" hreflang="es" href="https://schoolair.org/es/blog.html">
+    <link rel="alternate" hreflang="fr" href="https://schoolair.org/fr/blog.html">
+    <link rel="alternate" hreflang="ca" href="https://schoolair.org/ca/blog.html">
+    <link rel="alternate" hreflang="it" href="https://schoolair.org/it/blog.html">
+    <link rel="alternate" hreflang="x-default" href="https://schoolair.org/en/blog.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-padding-top: 120px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+            gap: 0.5rem;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2e7d32;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2e7d32, #4A148C);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-tagline {
+            font-size: 0.5rem;
+            font-weight: 400;
+            color: #666;
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-selector-dropdown {
+            position: relative;
+        }
+
+        .language-selector {
+            background: none;
+            border: 2px solid #4A148C;
+            color: #4A148C;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: #4A148C;
+            color: white;
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 120px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #eee;
+        }
+
+        .language-menu a:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .language-menu a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .language-menu a:hover {
+            background: #f5f5f5;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2e7d32;
+            cursor: pointer;
+        }
+
+        /* Blog Header */
+        .blog-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .blog-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .featured-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .featured-content {
+            padding: 2rem 0;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #2e7d32, #4A148C);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-content h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .post-meta i {
+            margin-right: 0.5rem;
+            color: #2e7d32;
+        }
+
+        .featured-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: linear-gradient(135deg, #2e7d32, #4A148C);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .read-more:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: #e0e0e0;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card-content h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-card-content p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .blog-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .blog-date i {
+            margin-right: 0.5rem;
+        }
+
+        .blog-link {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: #4A148C;
+        }
+
+        .blog-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1b5e20 0%, #4A148C 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 350px;
+            }
+
+            .featured-content h2 {
+                font-size: 2rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="./" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    SchoolAir
+                    <div class="logo-tagline">Un Proyecto de International Green Tech Foundation</div>
+                </div>
+            </a>
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <li><a href="index.html#project">Proyecto</a></li>
+                    <li><a href="index.html#components">Tecnología</a></li>
+                    <li><a href="how-it-works.html">Cómo Funciona</a></li>
+                    <li><a href="dashboard.html">Panel de Control</a></li>
+                    <li><a href="events.html">Eventos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#get-involved">Participar</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="language-selector-dropdown">
+                        <button class="language-selector" onclick="toggleLanguageMenu()">Español</button>
+                        <div class="language-menu" id="languageMenu">
+                            <a href="../en/blog.html">English</a>
+                            <a href="../fr/blog.html">Français</a>
+                            <a href="../es/blog.html">Español</a>
+                            <a href="../ca/blog.html">Català</a>
+                            <a href="../it/blog.html">Italiano</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <h1>Blog SchoolAir</h1>
+            <p>Últimas noticias, actualizaciones e información sobre nuestro proyecto de monitoreo de calidad del aire</p>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post">
+        <div class="container">
+            <div class="featured-container">
+                <div class="featured-image">
+                    <img src="../images/ws booth2.png" alt="SchoolAir en Web Summit">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-badge">Destacado</span>
+                    <h2>SchoolAir Presenta en Web Summit 2024</h2>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i>14 de noviembre, 2024</span>
+                        <span><i class="far fa-user"></i>Equipo SchoolAir</span>
+                    </div>
+                    <p>Estamos encantados de compartir nuestra experiencia presentando el proyecto SchoolAir en Web Summit 2024, la conferencia tecnológica más grande del mundo. Nuestro stand mostró cómo los estudiantes están construyendo estaciones de monitoreo de calidad del aire IoT para crear ambientes de aprendizaje más saludables.</p>
+                    <a href="#" class="read-more">Leer Historia Completa <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+        <div class="container">
+            <div class="section-title">
+                <h2>Publicaciones Recientes</h2>
+                <p>Mantente actualizado con nuestras últimas noticias y desarrollos</p>
+            </div>
+            <div class="posts-grid">
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop" alt="Tecnología">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Tecnología</span>
+                        <h3>Comprendiendo las Métricas de Calidad del Aire Interior</h3>
+                        <p>Aprende sobre CO2, PM2.5, VOCs y otras mediciones clave que nuestras estaciones IoT rastrean para asegurar ambientes escolares saludables.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-date"><i class="far fa-calendar"></i>10 nov, 2024</span>
+                            <a href="#" class="blog-link">Leer Más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop" alt="Estudiantes">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Educación</span>
+                        <h3>Historias de Éxito Estudiantil: Construyendo para el Cambio</h3>
+                        <p>Escucha de estudiantes que construyeron sus propias estaciones de monitoreo de calidad del aire y el impacto que tuvo en su viaje de aprendizaje.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-date"><i class="far fa-calendar"></i>5 nov, 2024</span>
+                            <a href="#" class="blog-link">Leer Más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Aula">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Investigación</span>
+                        <h3>El Impacto de la Calidad del Aire en el Rendimiento Estudiantil</h3>
+                        <p>Estudios recientes muestran cómo la ventilación adecuada y el monitoreo de calidad del aire pueden mejorar la concentración y los resultados académicos.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-date"><i class="far fa-calendar"></i>28 oct, 2024</span>
+                            <a href="#" class="blog-link">Leer Más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Card 4 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop" alt="Dispositivo IoT">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Tutorial</span>
+                        <h3>Construyendo Tu Primer Monitor de Calidad del Aire</h3>
+                        <p>Una guía paso a paso para ensamblar y programar tu propia estación de monitoreo de calidad del aire IoT con componentes accesibles.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-date"><i class="far fa-calendar"></i>20 oct, 2024</span>
+                            <a href="#" class="blog-link">Leer Más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Card 5 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=600&fit=crop" alt="Escuela Verde">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Impacto</span>
+                        <h3>Cómo las Escuelas Están Usando Datos en Tiempo Real de Calidad del Aire</h3>
+                        <p>Descubre cómo los maestros están integrando datos de calidad del aire en sus rutinas diarias para crear espacios de aprendizaje más saludables.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-date"><i class="far fa-calendar"></i>15 oct, 2024</span>
+                            <a href="#" class="blog-link">Leer Más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Card 6 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&h=600&fit=crop" alt="Equipo">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Comunidad</span>
+                        <h3>Únete a Nuestra Red Global de Campeones Ambientales</h3>
+                        <p>Conéctate con educadores, estudiantes y defensores ambientales que están marcando la diferencia en escuelas de todo el mundo.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-date"><i class="far fa-calendar"></i>8 oct, 2024</span>
+                            <a href="#" class="blog-link">Leer Más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre Nosotros</h3>
+                    <p>La International Green Tech Foundation es una organización sin fines de lucro que avanza la educación en tecnología ambiental.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <p><a href="index.html#project">Proyecto</a></p>
+                    <p><a href="index.html#components">Tecnología</a></p>
+                    <p><a href="how-it-works.html">Cómo Funciona</a></p>
+                    <p><a href="dashboard.html">Panel de Control</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Participar</h3>
+                    <p><a href="index.html#get-involved">Inscribe Tu Escuela</a></p>
+                    <p><a href="events.html">Eventos</a></p>
+                    <p><a href="blog.html">Blog</a></p>
+                    <p><a href="index.html#contact">Contáctanos</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Email: info@schoolair.org</p>
+                    <p>Síguenos en redes sociales para actualizaciones</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 International Green Tech Foundation. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.language-selector-dropdown');
+            const menu = document.getElementById('languageMenu');
+            if (!dropdown.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

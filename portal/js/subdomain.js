@@ -58,7 +58,7 @@ class SchoolPortal {
                 slug: 'bfis',
                 name: 'Benjamin Franklin International School',
                 location: 'Barcelona, Spain',
-                coverImage: '../images/bfis-cover.jpg',
+                coverImage: '../images/students/working.jpg',
                 logo: '../images/bfis-logo.png',
                 primaryColor: '#1e3a8a',
                 secondaryColor: '#3b82f6',

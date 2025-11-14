@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Portal - SchoolAIR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+    <!-- Loading State -->
+    <div id="loading" class="loading-screen">
+        <div class="spinner"></div>
+        <p>Loading school portal...</p>
+    </div>
+
+    <!-- Portal Navigation -->
+    <nav class="portal-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="https://schoolair.org" class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>SchoolAIR</span>
+                </a>
+                <div class="school-name" id="schoolName">Loading...</div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-link" onclick="scrollToSection('cover')"><i class="fas fa-image"></i> Cover</button>
+                <button class="nav-link" onclick="scrollToSection('users')"><i class="fas fa-users"></i> Users & API Keys</button>
+                <button class="nav-link" onclick="scrollToSection('dashboard')"><i class="fas fa-sliders-h"></i> Dashboard</button>
+                <button class="nav-link" onclick="scrollToSection('reports')"><i class="fas fa-chart-line"></i> Reports</button>
+                <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Portal Content -->
+    <main class="portal-main">
+        <!-- 1. Cover Artwork Section -->
+        <section id="cover" class="portal-section cover-section">
+            <div class="cover-hero" id="coverHero">
+                <div class="cover-overlay">
+                    <h1 id="coverSchoolName">Benjamin Franklin International School</h1>
+                    <p id="coverLocation">Barcelona, Spain</p>
+                    <button class="btn-edit-cover"><i class="fas fa-edit"></i> Edit Cover Artwork</button>
+                </div>
+            </div>
+            <div class="cover-stats">
+                <div class="stat-card">
+                    <i class="fas fa-wifi"></i>
+                    <div class="stat-value" id="statSensors">12</div>
+                    <div class="stat-label">Active Sensors</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <div class="stat-value" id="statStudents">45</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-database"></i>
+                    <div class="stat-value" id="statData">125K</div>
+                    <div class="stat-label">Data Points</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bell"></i>
+                    <div class="stat-value" id="statAlerts">23</div>
+                    <div class="stat-label">Alerts</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. User & API Key Management Section -->
+        <section id="users" class="portal-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> User & API Key Management</h2>
+                <button class="btn-primary" onclick="showAddUserModal()"><i class="fas fa-plus"></i> Add User</button>
+            </div>
+
+            <!-- Role Filter Tabs -->
+            <div class="role-tabs">
+                <button class="role-tab active" data-role="all">All Users</button>
+                <button class="role-tab" data-role="admin">Administrators</button>
+                <button class="role-tab" data-role="teacher">Teachers</button>
+                <button class="role-tab" data-role="student">Students</button>
+                <button class="role-tab" data-role="researcher">Researchers</button>
+                <button class="role-tab" data-role="mentor">Mentors</button>
+            </div>
+
+            <!-- Users Table -->
+            <div class="table-container">
+                <table class="data-table" id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Joined</th>
+                            <th>Last Active</th>
+                            <th>API Keys</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- API Keys Section -->
+            <div class="section-header" style="margin-top: 3rem;">
+                <h3><i class="fas fa-key"></i> API Keys</h3>
+                <button class="btn-secondary" onclick="showCreateKeyModal()"><i class="fas fa-plus"></i> Create New Key</button>
+            </div>
+
+            <div class="api-keys-grid" id="apiKeysGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- 3. Dashboard Configuration Section -->
+        <section id="dashboard" class="portal-section">
+            <div class="section-header">
+                <h2><i class="fas fa-sliders-h"></i> Dashboard Configuration</h2>
+                <button class="btn-primary" onclick="showAddThresholdModal()"><i class="fas fa-plus"></i> Add Threshold</button>
+            </div>
+
+            <div class="config-intro">
+                <p>Configure alert thresholds and automated actions for your school's air quality monitoring system. When sensor readings exceed these thresholds, the system will automatically trigger the specified actions.</p>
+            </div>
+
+            <!-- Thresholds Table -->
+            <div class="table-container">
+                <table class="data-table" id="thresholdsTable">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Threshold</th>
+                            <th>Condition</th>
+                            <th>Action</th>
+                            <th>Severity</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="thresholdsTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. Data Reports Section -->
+        <section id="reports" class="portal-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Data Reports</h2>
+                <div class="report-controls">
+                    <select class="select-input" id="reportPeriod">
+                        <option value="24h">Last 24 Hours</option>
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                    <button class="btn-secondary" onclick="exportData()"><i class="fas fa-download"></i> Export Data</button>
+                </div>
+            </div>
+
+            <!-- Chart Grid -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>CO₂ Levels (ppm)</h3>
+                    <canvas id="co2Chart"></canvas>
+                    <div class="chart-summary">
+                        <span class="summary-stat">Avg: <strong>850 ppm</strong></span>
+                        <span class="summary-stat">Max: <strong>1420 ppm</strong></span>
+                        <span class="summary-stat">Min: <strong>420 ppm</strong></span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Temperature (°C)</h3>
+                    <canvas id="tempChart"></canvas>
+                    <div class="chart-summary">
+                        <span class="summary-stat">Avg: <strong>22.5°C</strong></span>
+                        <span class="summary-stat">Max: <strong>24.8°C</strong></span>
+                        <span class="summary-stat">Min: <strong>20.1°C</strong></span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Humidity (%)</h3>
+                    <canvas id="humidityChart"></canvas>
+                    <div class="chart-summary">
+                        <span class="summary-stat">Avg: <strong>55%</strong></span>
+                        <span class="summary-stat">Max: <strong>68%</strong></span>
+                        <span class="summary-stat">Min: <strong>42%</strong></span>
+                    </div>
+                </div>
+
+                <div class="chart-card summary-card">
+                    <h3>Weekly Summary</h3>
+                    <div class="summary-content">
+                        <div class="summary-item">
+                            <div class="summary-icon good"><i class="fas fa-check-circle"></i></div>
+                            <div class="summary-text">
+                                <strong>Good Air Quality</strong>
+                                <p>72% of readings within optimal range</p>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-icon warning"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="summary-text">
+                                <strong>23 Threshold Alerts</strong>
+                                <p>Primarily during peak classroom hours</p>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-icon info"><i class="fas fa-lightbulb"></i></div>
+                            <div class="summary-text">
+                                <strong>Recommendation</strong>
+                                <p>Consider increased ventilation in afternoon sessions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/subdomain.js"></script>
+    <script src="js/mock-data.js"></script>
+    <script src="js/portal.js"></script>
+</body>
+</html>

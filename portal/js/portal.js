@@ -74,8 +74,8 @@ function updateSchoolInfo() {
     // Update dashboard link
     const dashboardLink = document.getElementById('viewFullDashboard');
     if (dashboardLink) {
-        // Link to the main site's dashboard for this school
-        dashboardLink.href = `https://schoolair.org/en/#dashboard?school=${portal.schoolSlug}`;
+        // Link to the example dashboard
+        dashboardLink.href = 'https://schoolair.org/en/dashboard.html';
     }
 }
 

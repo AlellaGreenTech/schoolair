@@ -66,7 +66,7 @@ class SchoolPortal {
                 joinedDate: '2024-06',
                 stats: {
                     sensors: 12,
-                    students: 750,
+                    students: 25,
                     dataPoints: 980000,
                     alerts: 1
                 }

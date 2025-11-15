@@ -40,7 +40,6 @@ async function initializePortal() {
         loadUsers();
         loadAPIKeys();
         loadThresholds();
-        loadCharts();
 
         // Hide loading screen
         loading.classList.add('hidden');
@@ -258,68 +257,6 @@ function toggleThreshold(id) {
     console.log('Toggle threshold:', id);
     // In production, this would update Supabase
     alert(`Threshold ${id} toggled!`);
-}
-
-// ============================================
-// CHARTS SECTION
-// ============================================
-
-function loadCharts() {
-    // CO2 Chart
-    createLineChart('co2Chart', MockData.sensorData.co2, 'CO₂ (ppm)', '#dc2626');
-
-    // Temperature Chart
-    createLineChart('tempChart', MockData.sensorData.temperature, 'Temperature (°C)', '#2563eb');
-
-    // Humidity Chart
-    createLineChart('humidityChart', MockData.sensorData.humidity, 'Humidity (%)', '#16a34a');
-}
-
-function createLineChart(canvasId, data, label, color) {
-    const ctx = document.getElementById(canvasId).getContext('2d');
-
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: data.map(d => new Date(d.timestamp).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })),
-            datasets: [{
-                label: label,
-                data: data.map(d => d.value.toFixed(1)),
-                borderColor: color,
-                backgroundColor: color + '20',
-                borderWidth: 2,
-                tension: 0.4,
-                fill: true,
-                pointRadius: 0,
-                pointHoverRadius: 5
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    grid: {
-                        color: '#f1f5f9'
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false
-                    },
-                    ticks: {
-                        maxTicksLimit: 12
-                    }
-                }
-            }
-        }
-    });
 }
 
 // ============================================

@@ -849,8 +849,8 @@ curl -X GET https://api.schoolair.org/v1/aqi/europe \
             if (schoolId.toLowerCase().includes('air school') || schoolId.toLowerCase().includes('airschool')) {
                 if (accessKey === '1234' || accessKey === 'demo123') {
                     closeModal();
-                    // Redirect to Air School dashboard
-                    window.open('../air-school/index.html', '_blank');
+                    // Redirect to BFIS portal
+                    window.open('https://schoolair.org/portal/?school=bfis', '_blank');
                 } else {
                     alert('Invalid credentials for Air School. Try access key: "1234"');
                 }

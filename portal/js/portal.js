@@ -70,6 +70,13 @@ function updateSchoolInfo() {
     document.getElementById('statStudents').textContent = currentSchool.stats.students;
     document.getElementById('statData').textContent = formatNumber(currentSchool.stats.dataPoints);
     document.getElementById('statAlerts').textContent = currentSchool.stats.alerts;
+
+    // Update dashboard link
+    const dashboardLink = document.getElementById('viewFullDashboard');
+    if (dashboardLink) {
+        // Link to the main site's dashboard for this school
+        dashboardLink.href = `https://schoolair.org/en/#dashboard?school=${portal.schoolSlug}`;
+    }
 }
 
 function formatNumber(num) {

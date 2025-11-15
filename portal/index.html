@@ -27,9 +27,9 @@
             </div>
             <div class="nav-right">
                 <button class="nav-link" onclick="scrollToSection('cover')"><i class="fas fa-image"></i> Cover</button>
+                <button class="nav-link" onclick="scrollToSection('reports')"><i class="fas fa-chart-line"></i> Reports</button>
                 <button class="nav-link" onclick="scrollToSection('users')"><i class="fas fa-users"></i> Users & API Keys</button>
                 <button class="nav-link" onclick="scrollToSection('dashboard')"><i class="fas fa-sliders-h"></i> Dashboard</button>
-                <button class="nav-link" onclick="scrollToSection('reports')"><i class="fas fa-chart-line"></i> Reports</button>
                 <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
             </div>
         </div>
@@ -70,87 +70,7 @@
             </div>
         </section>
 
-        <!-- 2. User & API Key Management Section -->
-        <section id="users" class="portal-section">
-            <div class="section-header">
-                <h2><i class="fas fa-users"></i> User & API Key Management</h2>
-                <button class="btn-primary" onclick="showAddUserModal()"><i class="fas fa-plus"></i> Add User</button>
-            </div>
-
-            <!-- Role Filter Tabs -->
-            <div class="role-tabs">
-                <button class="role-tab active" data-role="all">All Users</button>
-                <button class="role-tab" data-role="admin">Administrators</button>
-                <button class="role-tab" data-role="teacher">Teachers</button>
-                <button class="role-tab" data-role="student">Students</button>
-                <button class="role-tab" data-role="researcher">Researchers</button>
-                <button class="role-tab" data-role="mentor">Mentors</button>
-            </div>
-
-            <!-- Users Table -->
-            <div class="table-container">
-                <table class="data-table" id="usersTable">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Joined</th>
-                            <th>Last Active</th>
-                            <th>API Keys</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersTableBody">
-                        <!-- Populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- API Keys Section -->
-            <div class="section-header" style="margin-top: 3rem;">
-                <h3><i class="fas fa-key"></i> API Keys</h3>
-                <button class="btn-secondary" onclick="showCreateKeyModal()"><i class="fas fa-plus"></i> Create New Key</button>
-            </div>
-
-            <div class="api-keys-grid" id="apiKeysGrid">
-                <!-- Populated by JavaScript -->
-            </div>
-        </section>
-
-        <!-- 3. Dashboard Configuration Section -->
-        <section id="dashboard" class="portal-section">
-            <div class="section-header">
-                <h2><i class="fas fa-sliders-h"></i> Dashboard Configuration</h2>
-                <button class="btn-primary" onclick="showAddThresholdModal()"><i class="fas fa-plus"></i> Add Threshold</button>
-            </div>
-
-            <div class="config-intro">
-                <p>Configure alert thresholds and automated actions for your school's air quality monitoring system. When sensor readings exceed these thresholds, the system will automatically trigger the specified actions.</p>
-            </div>
-
-            <!-- Thresholds Table -->
-            <div class="table-container">
-                <table class="data-table" id="thresholdsTable">
-                    <thead>
-                        <tr>
-                            <th>Parameter</th>
-                            <th>Threshold</th>
-                            <th>Condition</th>
-                            <th>Action</th>
-                            <th>Severity</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="thresholdsTableBody">
-                        <!-- Populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- 4. Data Reports Section -->
+        <!-- 2. Data Reports Section -->
         <section id="reports" class="portal-section">
             <div class="section-header">
                 <h2><i class="fas fa-chart-line"></i> Data Reports</h2>
@@ -322,6 +242,86 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 3. User & API Key Management Section -->
+        <section id="users" class="portal-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> User & API Key Management</h2>
+                <button class="btn-primary" onclick="showAddUserModal()"><i class="fas fa-plus"></i> Add User</button>
+            </div>
+
+            <!-- Role Filter Tabs -->
+            <div class="role-tabs">
+                <button class="role-tab active" data-role="all">All Users</button>
+                <button class="role-tab" data-role="admin">Administrators</button>
+                <button class="role-tab" data-role="teacher">Teachers</button>
+                <button class="role-tab" data-role="student">Students</button>
+                <button class="role-tab" data-role="researcher">Researchers</button>
+                <button class="role-tab" data-role="mentor">Mentors</button>
+            </div>
+
+            <!-- Users Table -->
+            <div class="table-container">
+                <table class="data-table" id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Joined</th>
+                            <th>Last Active</th>
+                            <th>API Keys</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- API Keys Section -->
+            <div class="section-header" style="margin-top: 3rem;">
+                <h3><i class="fas fa-key"></i> API Keys</h3>
+                <button class="btn-secondary" onclick="showCreateKeyModal()"><i class="fas fa-plus"></i> Create New Key</button>
+            </div>
+
+            <div class="api-keys-grid" id="apiKeysGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- 4. Dashboard Configuration Section -->
+        <section id="dashboard" class="portal-section">
+            <div class="section-header">
+                <h2><i class="fas fa-sliders-h"></i> Dashboard Configuration</h2>
+                <button class="btn-primary" onclick="showAddThresholdModal()"><i class="fas fa-plus"></i> Add Threshold</button>
+            </div>
+
+            <div class="config-intro">
+                <p>Configure alert thresholds and automated actions for your school's air quality monitoring system. When sensor readings exceed these thresholds, the system will automatically trigger the specified actions.</p>
+            </div>
+
+            <!-- Thresholds Table -->
+            <div class="table-container">
+                <table class="data-table" id="thresholdsTable">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Threshold</th>
+                            <th>Condition</th>
+                            <th>Action</th>
+                            <th>Severity</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="thresholdsTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>

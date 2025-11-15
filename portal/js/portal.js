@@ -53,7 +53,7 @@ async function initializePortal() {
 function updateSchoolInfo() {
     // Update navigation
     document.getElementById('schoolName').textContent = currentSchool.name;
-    document.title = `${currentSchool.name} Portal - SchoolAIR`;
+    document.title = `${currentSchool.name} - SchoolAIR`;
 
     // Update cover section
     const coverHero = document.getElementById('coverHero');

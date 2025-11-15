@@ -606,6 +606,172 @@ input:checked + .toggle-slider:before {
     font-size: 0.9rem;
 }
 
+/* AQI Dashboard */
+.aqi-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.aqi-card {
+    background: #f8faf8;
+    border: 1px solid #e0e7e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.aqi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.aqi-header h3 {
+    font-size: 1rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.aqi-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.aqi-badge.aqi-good {
+    background: #4caf50;
+    color: white;
+}
+
+.aqi-badge.aqi-moderate {
+    background: #ff9800;
+    color: white;
+}
+
+.aqi-badge.aqi-poor {
+    background: #f44336;
+    color: white;
+}
+
+.aqi-circle-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.aqi-circle {
+    position: relative;
+    width: 180px;
+    height: 180px;
+}
+
+.aqi-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.aqi-circle-bg {
+    fill: none;
+    stroke: #e0e7e0;
+    stroke-width: 12;
+}
+
+.aqi-circle-progress {
+    fill: none;
+    stroke-width: 12;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.aqi-progress-good {
+    stroke: #4caf50;
+}
+
+.aqi-progress-moderate {
+    stroke: #ff9800;
+}
+
+.aqi-progress-poor {
+    stroke: #f44336;
+}
+
+.aqi-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.aqi-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.aqi-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1;
+}
+
+.aqi-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.legend-item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-item.good {
+    color: #4caf50;
+}
+
+.legend-item.good::before {
+    background: #4caf50;
+}
+
+.legend-item.moderate {
+    color: #ff9800;
+}
+
+.legend-item.moderate::before {
+    background: #ff9800;
+}
+
+.legend-item.poor {
+    color: #f44336;
+}
+
+.legend-item.poor::before {
+    background: #f44336;
+}
+
 /* Controls */
 .report-controls {
     display: flex;

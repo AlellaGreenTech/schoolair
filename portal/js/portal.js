@@ -74,8 +74,8 @@ function updateSchoolInfo() {
     // Update dashboard link
     const dashboardLink = document.getElementById('viewFullDashboard');
     if (dashboardLink) {
-        // Link to the example dashboard
-        dashboardLink.href = 'https://schoolair.org/en/dashboard.html';
+        // Link to the full dashboard with gauges and PM data
+        dashboardLink.href = '../air-school/index.html';
     }
 }
 

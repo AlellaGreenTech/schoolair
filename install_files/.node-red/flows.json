@@ -1,0 +1,2187 @@
+[
+    {
+        "id": "esp32_i2c_flow",
+        "type": "tab",
+        "label": "ambiental sensors",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "wifi_flow",
+        "type": "tab",
+        "label": "WiFi Configuration",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "19be5e4722ce30e8",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "1443564c12c7ad23",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "ff607e5c9310378c",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "f9b234589571a40c",
+        "type": "ui-page",
+        "name": "Pi Dashboard",
+        "ui": "1443564c12c7ad23",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "notebook",
+        "theme": "ff607e5c9310378c",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "f753ccb1f8cc9992",
+        "type": "ui-group",
+        "name": "Live Sensors",
+        "page": "f9b234589571a40c",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "35ce63521d529701",
+        "type": "ui-page",
+        "name": "Registration UI",
+        "ui": "1443564c12c7ad23",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "ff607e5c9310378c",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "3288753ecd8d947f",
+        "type": "ui-group",
+        "name": "Register Alert",
+        "page": "f9b234589571a40c",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c2e3c663db9939a6",
+        "type": "ui-group",
+        "name": "Device Registration",
+        "page": "35ce63521d529701",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "a414b79f90d39bc0",
+        "type": "inject",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "80e45eac27ae5808"
+            ]
+        ]
+    },
+    {
+        "id": "73aefdd62223a38c",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "7e6adf86ed2d4d40",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "d": true,
+        "command": "/home/admin/i2c/read_pm.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 950,
+        "y": 160,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7b0f4201f3399145",
+        "type": "inject",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/home/admin/i2c/read_pm.sh",
+        "payloadType": "str",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "7536583181028b5c"
+            ]
+        ]
+    },
+    {
+        "id": "0e888c539a966c15",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "/home/admin/i2c/read_sht40.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 610,
+        "y": 100,
+        "wires": [
+            [
+                "5507d2ab566d45d7"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e5cd6c05a60ec87a",
+        "type": "inject",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/home/admin/i2c/read_pm.sh",
+        "payloadType": "str",
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "473227cea3d11e8f"
+            ]
+        ]
+    },
+    {
+        "id": "37e85bbc6e9a1005",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "/home/admin/i2c/read_bmp280.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "c8de65b427e7d3d8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "227e56e17d3ba7cf",
+        "type": "inject",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/home/admin/i2c/read_pm.sh",
+        "payloadType": "str",
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "37e85bbc6e9a1005"
+            ]
+        ]
+    },
+    {
+        "id": "5507d2ab566d45d7",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 3",
+        "func": "try{\n    msg.sht_40 = JSON.parse(msg.payload)\n    if(msg.sht_40.success !== true){\n        msg.sht_40 = {}\n    }\n}\ncatch (error){\n    msg.sht_40 = {}\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "7a4a5d20507503ca",
+                "6599dad836745d4a"
+            ]
+        ]
+    },
+    {
+        "id": "c8de65b427e7d3d8",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 4",
+        "func": "try{\n    msg.bmp_280 = JSON.parse(msg.payload)\n    if(msg.bmp_280.success !== true){\n        msg.bmp_280 = {}\n    }\n}\ncatch (error){\n    msg.bmp_280 = {}\n}\ndelete msg.payload\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 160,
+        "wires": [
+            [
+                "5a8d83d4ea035531"
+            ]
+        ]
+    },
+    {
+        "id": "12175bdb4c3aaf7a",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 5",
+        "func": "// 1. Initialize retry counter\nlet retryCount = context.get('retryCount') || 0;\nlet data;\n\n// 2. Your existing parsing logic\ntry {\n    data = JSON.parse(msg.payload);\n} catch (e) {\n    data = { success: false };\n}\n\n// 3. Logic Check\nif (data.success === true) {\n    // SUCCESS: Clear counter and pass data forward\n    context.set('retryCount', 0);\n    msg.hm3301 = data;\n    return [null, msg];\n}\nelse {\n    // FAILURE: Check if we try again\n    if (retryCount < 2) {\n        retryCount++;\n        context.set('retryCount', retryCount);\n\n        // Output 2: Trigger retry (loop back to exec node)\n        // We pass the original msg to keep any headers/topics\n        return [msg, null];\n    }\n    else {\n        // FINAL FAILURE (Attempt 3): Clear counter and pass empty object\n        context.set('retryCount', 0);\n\n        // We set success to false but keep the object structure \n        // so downstream nodes don't crash\n        msg.hm3301 = {\n            success: false,\n            data: {},\n            error: \"Max retries reached\"\n        };\n\n        // Output 1: Continue the flow so other sensors can run\n        return [null, msg];\n    }\n}",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 220,
+        "wires": [
+            [
+                "203ab5c9b35690e8",
+                "138372c5639c4a54"
+            ],
+            [
+                "c05363b3a27e40d3",
+                "dfaf81982e8e087d"
+            ]
+        ]
+    },
+    {
+        "id": "382ed5928df0a4d8",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 1",
+        "func": "// Calcular AQI des de PM2.5 (EPA)\nfunction calcAQI(pm) {\n    const breakpoints = [\n        [0, 12, 0, 50],\n        [12.1, 35.4, 51, 100],\n        [35.5, 55.4, 101, 150],\n        [55.5, 150.4, 151, 200],\n        [150.5, 250.4, 201, 300],\n        [250.5, 500, 301, 500]\n    ];\n    \n    for (let [cLow, cHigh, iLow, iHigh] of breakpoints) {\n        if (pm >= cLow && pm <= cHigh) {\n            return Math.round(((iHigh - iLow) / (cHigh - cLow)) * (pm - cLow) + iLow);\n        }\n    }\n    return 500; // Hazardous\n}\n\nlet pm25 = msg.payload.concentrations_ugm3.pm2_5_standard;\nmsg.payload.aqi = calcAQI(pm25);\nmsg.payload.aqi_level = msg.payload.aqi <= 50 ? \"Good\" : \n                        msg.payload.aqi <= 100 ? \"Moderate\" : \n                        msg.payload.aqi <= 150 ? \"Unhealthy (sensitive)\" : \"Unhealthy\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 880,
+        "wires": [
+            [
+                "62eee3d3963616e5"
+            ]
+        ]
+    },
+    {
+        "id": "62eee3d3963616e5",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 9",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "2d5065902b82e4c1",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 2",
+        "func": "function calcAQI_PM25(pm) {\n    const bp = [\n        [0, 12, 0, 50],\n        [12.1, 35.4, 51, 100],\n        [35.5, 55.4, 101, 150],\n        [55.5, 150.4, 151, 200],\n        [150.5, 250.4, 201, 300],\n        [250.5, 500, 301, 500]\n    ];\n    return calcFromBreakpoints(pm, bp);\n}\n\nfunction calcAQI_PM10(pm) {\n    const bp = [\n        [0, 54, 0, 50],\n        [55, 154, 51, 100],\n        [155, 254, 101, 150],\n        [255, 354, 151, 200],\n        [355, 424, 201, 300],\n        [425, 604, 301, 500]\n    ];\n    return calcFromBreakpoints(pm, bp);\n}\n\nfunction calcFromBreakpoints(pm, bp) {\n    for (let [cLow, cHigh, iLow, iHigh] of bp) {\n        if (pm >= cLow && pm <= cHigh) {\n            return Math.round(((iHigh - iLow) / (cHigh - cLow)) * (pm - cLow) + iLow);\n        }\n    }\n    return 500;\n}\n\n// CALCULAR AQI COMBINAT\nlet pm25 = msg.payload.concentrations_ugm3.pm2_5_standard;\nlet pm10 = msg.payload.concentrations_ugm3.pm10_standard;\n\nlet aqi25 = calcAQI_PM25(pm25);\nlet aqi10 = calcAQI_PM10(pm10);\n\nmsg.payload.aqi = Math.max(aqi25, aqi10); // EL PITJOR!\nmsg.payload.aqi_level = msg.payload.aqi <= 50 ? \"Good\" : \n                        msg.payload.aqi <= 100 ? \"Moderate\" : \"Unhealthy\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 920,
+        "wires": [
+            [
+                "c17bb38945c20ff3"
+            ]
+        ]
+    },
+    {
+        "id": "c17bb38945c20ff3",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 10",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "5a8d83d4ea035531",
+        "type": "delay",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "473227cea3d11e8f"
+            ]
+        ]
+    },
+    {
+        "id": "7a4a5d20507503ca",
+        "type": "delay",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 980,
+        "y": 100,
+        "wires": [
+            [
+                "37e85bbc6e9a1005"
+            ]
+        ]
+    },
+    {
+        "id": "80e45eac27ae5808",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "sudo i2cdetect -y 1",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 290,
+        "y": 40,
+        "wires": [
+            [
+                "b18b52cde040c74f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b18b52cde040c74f",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 6",
+        "func": "// msg.payload conté la sortida d'i2cdetect\n\nconst lines = msg.payload.split('\\n');\nconst devices = [];\n\n// Processar cada línia (començant des de la línia 1, saltant la capçalera)\nfor (let i = 1; i < lines.length; i++) {\n    const line = lines[i].trim();\n    if (!line) continue;\n    \n    // Extreure els valors (separats per espais)\n    const parts = line.split(/\\s+/);\n    \n    // El primer element és el prefix de fila (00:, 10:, etc.)\n    const rowPrefix = parts[0].replace(':', '');\n    \n    // Processar cada columna (de 1 a 16)\n    for (let col = 1; col < parts.length && col <= 16; col++) {\n        const value = parts[col];\n        \n        // Si no és '--', hi ha un dispositiu\n        if (value !== '--') {\n            const address = '0x' + value;\n            devices.push({\n                address: address,\n                decimal: parseInt(value, 16)\n            });\n        }\n    }\n}\n\n// Identificar dispositius coneguts (opcional)\nconst knownDevices = {\n    '0x44': 'SHT40 (Temperature/Humidity)',\n    '0x76': 'BMP280 (Pressure/Temperature)',\n    '0x77': 'BMP280 (alt address)',\n};\n\n// Enriquir amb noms coneguts\ndevices.forEach(dev => {\n    dev.name = knownDevices[dev.address] || 'Unknown device';\n});\n\nmsg.payload = {\n    devices: devices,\n    count: devices.length,\n    addresses: devices.map(d => d.address)\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 20,
+        "wires": [
+            [
+                "73aefdd62223a38c"
+            ]
+        ]
+    },
+    {
+        "id": "d118f0cc19be5296",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 7",
+        "func": "msg.payload = {\n    timestamp: new Date().toISOString(),\n    sht_40: msg.sht_40?.data || {},\n    bmp_280: msg.bmp_280?.data || {},\n    hm3301: msg.hm3301?.data || {}\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "8ec1feb66e04d45b",
+                "b592fcac1afb164c",
+                "f41fbfbe90227eeb",
+                "0eec4165c8d26a31",
+                "e84bcb0f174370bc"
+            ]
+        ]
+    },
+    {
+        "id": "8ec1feb66e04d45b",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6599dad836745d4a",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b592fcac1afb164c",
+        "type": "change",
+        "z": "esp32_i2c_flow",
+        "name": "Get Temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.sht_40.temperature_celsius",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 320,
+        "wires": [
+            [
+                "a0e83e89f00d8886"
+            ]
+        ]
+    },
+    {
+        "id": "520d253eee164b20",
+        "type": "ui-text",
+        "z": "esp32_i2c_flow",
+        "group": "f753ccb1f8cc9992",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "$round(payload,1) & \"°C\"",
+        "valueType": "jsonata",
+        "x": 830,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a0e83e89f00d8886",
+        "type": "rbe",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "func": "deadbandEq",
+        "gap": "0.2",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 680,
+        "y": 320,
+        "wires": [
+            [
+                "520d253eee164b20"
+            ]
+        ]
+    },
+    {
+        "id": "f41fbfbe90227eeb",
+        "type": "change",
+        "z": "esp32_i2c_flow",
+        "name": "Get PM2.5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.hm3301.pm2_5_atm",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "e1dbb9a7da2414b5"
+            ]
+        ]
+    },
+    {
+        "id": "e1dbb9a7da2414b5",
+        "type": "rbe",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "func": "rbe",
+        "gap": "1",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "94c39e8b0cf0b923"
+            ]
+        ]
+    },
+    {
+        "id": "0eec4165c8d26a31",
+        "type": "change",
+        "z": "esp32_i2c_flow",
+        "name": "Get Time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$fromMillis($toMillis(payload.timestamp), '[H01]:[m01]:[s01]')",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "d6aecdb475a728b4"
+            ]
+        ]
+    },
+    {
+        "id": "d6aecdb475a728b4",
+        "type": "ui-text",
+        "z": "esp32_i2c_flow",
+        "group": "f753ccb1f8cc9992",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last Sync",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 680,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "94c39e8b0cf0b923",
+        "type": "ui-markdown",
+        "z": "esp32_i2c_flow",
+        "group": "f753ccb1f8cc9992",
+        "name": "PM2.5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "content": "<div style=\"display: flex; justify-content: space-between; align-items: center; min-height: 32px; font-size: 16px;\">\n  <span style=\"color: var(--v-theme-on-surface);\">PM2.5</span>\n  <span style=\"color: {{msg.payload > 30 ? '#ff4d4d' : 'white'}}; font-weight: bold;\">\n    {{msg.payload}}µg/m³\n  </span>\n</div>",
+        "className": "",
+        "x": 810,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "473227cea3d11e8f",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "/home/admin/i2c/alt_pm/read_hm3301.sh",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 350,
+        "y": 220,
+        "wires": [
+            [
+                "12175bdb4c3aaf7a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "977c39684894cef3",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get CPU Serial",
+        "x": 280,
+        "y": 560,
+        "wires": [
+            [
+                "e9638fa32089e43b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4175c4d17cdc9bd6",
+        "type": "inject",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "977c39684894cef3"
+            ]
+        ]
+    },
+    {
+        "id": "e9638fa32089e43b",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "Store CPU Serial",
+        "func": "global.set(\"cpu_serial\", msg.payload.trim());\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 560,
+        "wires": [
+            [
+                "ed3be105c7b75fd5"
+            ]
+        ]
+    },
+    {
+        "id": "91973b18c73a196a",
+        "type": "http request",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://data.schoolair.org/node/aqc/register",
+        "tls": "19be5e4722ce30e8",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 490,
+        "y": 700,
+        "wires": [
+            [
+                "8db21cf7dd713f35"
+            ]
+        ]
+    },
+    {
+        "id": "ed3be105c7b75fd5",
+        "type": "file in",
+        "z": "esp32_i2c_flow",
+        "name": "Fetch Existing Token",
+        "filename": "/home/admin/.device_token",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 660,
+        "y": 560,
+        "wires": [
+            [
+                "7a1b22e94d4073ec"
+            ]
+        ]
+    },
+    {
+        "id": "7a1b22e94d4073ec",
+        "type": "switch",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 560,
+        "wires": [
+            [
+                "abb5752951a07cee"
+            ],
+            [
+                "bf73fc90f34f18de"
+            ]
+        ]
+    },
+    {
+        "id": "9d69260e80322dae",
+        "type": "file",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "filename": "/home/admin/.device_token",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1120,
+        "y": 660,
+        "wires": [
+            [
+                "df9c2a0cc8d8bc66",
+                "2fc8ef404cc796b9"
+            ]
+        ]
+    },
+    {
+        "id": "abb5752951a07cee",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "Store Auth Tokens",
+        "func": "try {\n    // Attempt to parse the file as JSON\n    const creds = JSON.parse(msg.payload);\n    \n    global.set(\"device_auth_token\", creds.token);\n    global.set(\"device_id\", creds.device_id);\n    global.set(\"nickname\", creds.nickname);\n    \n    msg.payload = `✅ Active: ${creds.nickname} (${creds.device_id})`;\n    node.status({fill:\"green\", shape:\"dot\", text:\"Authenticated\"});\n} catch (e) {\n    // FALLBACK: If the file is just the old raw token string\n    global.set(\"device_auth_token\", msg.payload);\n    msg.payload = \"⚠️ Token loaded, but nickname missing. Please re-register.\";\n    node.status({fill:\"yellow\", shape:\"ring\", text:\"Legacy Token\"});\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 540,
+        "wires": [
+            [
+                "5398ab8c5fe19857",
+                "2fc8ef404cc796b9"
+            ]
+        ]
+    },
+    {
+        "id": "e84bcb0f174370bc",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "Prep Ingest Header",
+        "func": "const token = global.get(\"device_auth_token\");\nconst nickname = global.get(\"nickname\");\n\n// Ensure token is a clean string and trim any accidental whitespace\nconst cleanToken = String(token).trim();\n\nmsg.headers = {\n    \"Authorization\": \"Bearer \" + cleanToken,\n    \"Content-Type\": \"application/json\"\n};\n\n// Ensure the URL has NO leading/trailing spaces\nmsg.url = \"https://data.schoolair.org/node/aqc/v1/ingest\";\n\n// Optional: Add nickname to payload\nif (nickname) {\n    msg.payload.nickname = nickname;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "056e35d71a40a451"
+            ]
+        ]
+    },
+    {
+        "id": "056e35d71a40a451",
+        "type": "http request",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "19be5e4722ce30e8",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "c1ded0b97b028ee4"
+            ]
+        ]
+    },
+    {
+        "id": "c1ded0b97b028ee4",
+        "type": "delay",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 440,
+        "wires": [
+            [
+                "2fc8ef404cc796b9"
+            ]
+        ]
+    },
+    {
+        "id": "c2b64d38cc1ee138",
+        "type": "ui-form",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "group": "c2e3c663db9939a6",
+        "label": "Registration Form",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Organization Token (check e-mail)",
+                "key": "org_token",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Device Nickname (e.g. Football Court)",
+                "key": "nickname",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "org_token": "",
+            "nickname": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "clear",
+        "resetOnSubmit": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "passthru": false,
+        "dropdownOptions": [],
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "876901c291aa052d"
+            ]
+        ]
+    },
+    {
+        "id": "8db21cf7dd713f35",
+        "type": "switch",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 700,
+        "wires": [
+            [
+                "3ceaa68b2909825e",
+                "372c1237d0ac7df6"
+            ],
+            [
+                "67aaada0222e3c42"
+            ]
+        ]
+    },
+    {
+        "id": "67aaada0222e3c42",
+        "type": "change",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reg_status",
+                "pt": "msg",
+                "to": "\"Error: Please Verify your Token and Internet Connection\"",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 740,
+        "wires": [
+            [
+                "5398ab8c5fe19857"
+            ]
+        ]
+    },
+    {
+        "id": "7bda856ba4e35fba",
+        "type": "ui-button",
+        "z": "esp32_i2c_flow",
+        "group": "3288753ecd8d947f",
+        "name": "",
+        "label": "Register Your Device",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "\"/page2\"",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#B22222",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1240,
+        "y": 580,
+        "wires": [
+            [
+                "131c33b49f46c51a"
+            ]
+        ]
+    },
+    {
+        "id": "131c33b49f46c51a",
+        "type": "ui-control",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "ui": "1443564c12c7ad23",
+        "events": "all",
+        "x": 1420,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf73fc90f34f18de",
+        "type": "change",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_update.visible",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 580,
+        "wires": [
+            [
+                "7bda856ba4e35fba"
+            ]
+        ]
+    },
+    {
+        "id": "df9c2a0cc8d8bc66",
+        "type": "change",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_update.label",
+                "pt": "msg",
+                "to": "\"Your Device is Registered✌️\"",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 620,
+        "wires": [
+            [
+                "7bda856ba4e35fba"
+            ]
+        ]
+    },
+    {
+        "id": "876901c291aa052d",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 8",
+        "func": "const serial = global.get(\"cpu_serial\");\nconst nickname = msg.payload.nickname; // Capture it here\n\nmsg.headers = {\n    \"Authorization\": \"Bearer \" + msg.payload.org_token,\n    \"Content-Type\": \"application/json\"\n};\n\n// Store nickname in the top-level msg object so it survives the HTTP call\nmsg.nickname = nickname;\n\nmsg.payload = {\n    cpu_serial: serial,\n    nickname: nickname\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 700,
+        "wires": [
+            [
+                "91973b18c73a196a"
+            ]
+        ]
+    },
+    {
+        "id": "3ceaa68b2909825e",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "Format File for Storage",
+        "func": "// msg.payload comes from your Server Success Handler\n// It contains { status: \"success\", token: \"...\", device_id: \"...\" }\n\nmsg.payload = JSON.stringify({\n    token: msg.payload.token,       // CHANGED FROM auth_token TO token\n    device_id: msg.payload.device_id,\n    nickname: msg.nickname          // Carried over from the form submission\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 660,
+        "wires": [
+            [
+                "9d69260e80322dae"
+            ]
+        ]
+    },
+    {
+        "id": "372c1237d0ac7df6",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "function 9",
+        "func": "// 1. Save Device ID to global context\nglobal.set(\"device_id\", msg.payload.device_id);\n\n// 2. Save Nickname to global context (This is the missing piece!)\n// We get it from the original registration request data\nif (msg.nickname) {\n    global.set(\"nickname\", msg.nickname);\n}\n\n// 3. Prepare the UI feedback\nif (msg.payload.new_registration) {\n    msg.payload = \"🎉 \" + (msg.nickname || \"Device\") + \" was added successfully!\";\n} else {\n    msg.payload = \"👋 Welcome Back! Connection restored.\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 700,
+        "wires": [
+            [
+                "5398ab8c5fe19857"
+            ]
+        ]
+    },
+    {
+        "id": "5398ab8c5fe19857",
+        "type": "ui-template",
+        "z": "esp32_i2c_flow",
+        "group": "c2e3c663db9939a6",
+        "page": "",
+        "ui": "",
+        "name": "Feedback as Template",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<div style=\"background: #2c3e50; color: white; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #34495e;\">\n  {{msg.payload}}\n</div>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1160,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2fc8ef404cc796b9",
+        "type": "delay",
+        "z": "esp32_i2c_flow",
+        "name": "5m rate limit",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "6",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 440,
+        "wires": [
+            [
+                "7536583181028b5c"
+            ]
+        ]
+    },
+    {
+        "id": "203ab5c9b35690e8",
+        "type": "delay",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 220,
+        "wires": [
+            [
+                "473227cea3d11e8f"
+            ]
+        ]
+    },
+    {
+        "id": "7536583181028b5c",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "i2cset -y 1 0x40 0x88",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Wake HM3301",
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "e2b66094dcc77929"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c05363b3a27e40d3",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "i2cset -y 1 0x40 0x88",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Shut HM3301",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "d118f0cc19be5296"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e2b66094dcc77929",
+        "type": "delay",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "0e888c539a966c15"
+            ]
+        ]
+    },
+    {
+        "id": "138372c5639c4a54",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "dfaf81982e8e087d",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "http_get_wifi",
+        "type": "http in",
+        "z": "wifi_flow",
+        "name": "GET /wifi",
+        "url": "/wifi",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "template_wifi"
+            ]
+        ]
+    },
+    {
+        "id": "template_wifi",
+        "type": "template",
+        "z": "wifi_flow",
+        "name": "WiFi UI",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>WiFi Configuration</title>\n    <style>\n        * {\n            box-sizing: border-box;\n            margin: 0;\n            padding: 0;\n        }\n        \n        body {\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif;\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            min-height: 100vh;\n            padding: 20px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n        }\n        \n        .container {\n            background: white;\n            border-radius: 16px;\n            box-shadow: 0 10px 40px rgba(0,0,0,0.2);\n            max-width: 500px;\n            width: 100%;\n            padding: 30px;\n        }\n        \n        h1 {\n            color: #333;\n            margin-bottom: 10px;\n            font-size: 24px;\n        }\n        \n        .subtitle {\n            color: #666;\n            margin-bottom: 25px;\n            font-size: 14px;\n        }\n        \n        .status-section {\n            background: #f9fafb;\n            border-radius: 8px;\n            padding: 15px;\n            margin-bottom: 25px;\n            border: 2px solid #e5e7eb;\n        }\n        \n        .status-header {\n            font-weight: 600;\n            color: #333;\n            margin-bottom: 10px;\n            font-size: 14px;\n        }\n        \n        .status-item {\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            padding: 8px 0;\n            border-bottom: 1px solid #e5e7eb;\n        }\n        \n        .status-item:last-child {\n            border-bottom: none;\n        }\n        \n        .status-label {\n            color: #666;\n            font-size: 14px;\n        }\n        \n        .status-value {\n            color: #333;\n            font-weight: 500;\n            font-size: 14px;\n        }\n        \n        .status-connected {\n            color: #10b981;\n        }\n        \n        .status-disconnected {\n            color: #ef4444;\n        }\n        \n        .scan-section {\n            margin-bottom: 25px;\n        }\n        \n        .btn {\n            background: #667eea;\n            color: white;\n            border: none;\n            padding: 12px 24px;\n            border-radius: 8px;\n            font-size: 16px;\n            cursor: pointer;\n            width: 100%;\n            transition: all 0.3s ease;\n            font-weight: 500;\n        }\n        \n        .btn:hover {\n            background: #5568d3;\n            transform: translateY(-2px);\n            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);\n        }\n        \n        .btn:active {\n            transform: translateY(0);\n        }\n        \n        .btn:disabled {\n            background: #ccc;\n            cursor: not-allowed;\n            transform: none;\n        }\n        \n        .btn-connect {\n            background: #10b981;\n            margin-top: 20px;\n        }\n        \n        .btn-connect:hover {\n            background: #059669;\n            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);\n        }\n        \n        .btn-disconnect {\n            background: #ef4444;\n            margin-top: 10px;\n        }\n        \n        .btn-disconnect:hover {\n            background: #dc2626;\n            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);\n        }\n        \n        .btn-cancel {\n            background: #6b7280;\n            margin-top: 10px;\n        }\n        \n        .btn-cancel:hover {\n            background: #4b5563;\n            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);\n        }\n        \n        .btn-group {\n            display: flex;\n            gap: 10px;\n            margin-top: 20px;\n        }\n        \n        .btn-group .btn {\n            margin-top: 0;\n        }\n        \n        .input-error {\n            border-color: #ef4444 !important;\n        }\n        \n        .error-text {\n            color: #ef4444;\n            font-size: 12px;\n            margin-top: 4px;\n        }\n        \n        .networks-list {\n            margin: 20px 0;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .network-item {\n            padding: 15px;\n            border: 2px solid #e5e7eb;\n            border-radius: 8px;\n            margin-bottom: 10px;\n            cursor: pointer;\n            transition: all 0.2s ease;\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n        }\n        \n        .network-item:hover {\n            border-color: #667eea;\n            background: #f9fafb;\n        }\n        \n        .network-item.selected {\n            border-color: #667eea;\n            background: #eef2ff;\n        }\n        \n        .network-item.known {\n            background: #f0fdf4;\n            border-color: #86efac;\n        }\n        \n        .network-item.known:hover {\n            background: #dcfce7;\n        }\n        \n        .known-badge {\n            background: #10b981;\n            color: white;\n            font-size: 10px;\n            padding: 2px 6px;\n            border-radius: 4px;\n            margin-left: 8px;\n            font-weight: 600;\n        }\n        \n        .network-name {\n            font-weight: 600;\n            color: #333;\n            flex: 1;\n        }\n        \n        .network-signal {\n            display: flex;\n            align-items: center;\n            gap: 8px;\n            color: #666;\n            font-size: 14px;\n        }\n        \n        .signal-bars {\n            display: flex;\n            gap: 2px;\n            align-items: flex-end;\n        }\n        \n        .signal-bar {\n            width: 4px;\n            background: #d1d5db;\n            border-radius: 2px;\n        }\n        \n        .signal-bar.active {\n            background: #10b981;\n        }\n        \n        .signal-bar:nth-child(1) { height: 6px; }\n        .signal-bar:nth-child(2) { height: 10px; }\n        .signal-bar:nth-child(3) { height: 14px; }\n        .signal-bar:nth-child(4) { height: 18px; }\n        \n        .lock-icon {\n            color: #f59e0b;\n        }\n        \n        .form-group {\n            margin-bottom: 20px;\n        }\n        \n        label {\n            display: block;\n            margin-bottom: 8px;\n            color: #374151;\n            font-weight: 500;\n            font-size: 14px;\n        }\n        \n        input[type=\"text\"],\n        input[type=\"password\"] {\n            width: 100%;\n            padding: 12px;\n            border: 2px solid #e5e7eb;\n            border-radius: 8px;\n            font-size: 16px;\n            transition: border-color 0.2s ease;\n        }\n        \n        input[type=\"text\"]:focus,\n        input[type=\"password\"]:focus {\n            outline: none;\n            border-color: #667eea;\n        }\n        \n        .loading {\n            text-align: center;\n            padding: 20px;\n            color: #666;\n        }\n        \n        .spinner {\n            border: 3px solid #f3f4f6;\n            border-top: 3px solid #667eea;\n            border-radius: 50%;\n            width: 40px;\n            height: 40px;\n            animation: spin 1s linear infinite;\n            margin: 0 auto 10px;\n        }\n        \n        @keyframes spin {\n            0% { transform: rotate(0deg); }\n            100% { transform: rotate(360deg); }\n        }\n        \n        .message {\n            padding: 12px;\n            border-radius: 8px;\n            margin-bottom: 20px;\n            font-size: 14px;\n        }\n        \n        .message.success {\n            background: #d1fae5;\n            color: #065f46;\n            border: 1px solid #10b981;\n        }\n        \n        .message.error {\n            background: #fee2e2;\n            color: #991b1b;\n            border: 1px solid #ef4444;\n        }\n        \n        .hidden {\n            display: none;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <h1>🌐 WiFi Configuration</h1>\n        <p class=\"subtitle\">Raspberry Pi Zero - nmcli</p>\n        \n        <div id=\"message\" class=\"message hidden\"></div>\n        \n        <div class=\"status-section\">\n            <div class=\"status-header\">Current Status</div>\n            <div class=\"status-item\">\n                <span class=\"status-label\">WiFi Status:</span>\n                <span class=\"status-value\" id=\"wifiStatus\">Loading...</span>\n            </div>\n            <div class=\"status-item\">\n                <span class=\"status-label\">Connected to:</span>\n                <span class=\"status-value\" id=\"currentSSID\">-</span>\n            </div>\n            <div class=\"status-item\">\n                <span class=\"status-label\">WiFi IP:</span>\n                <span class=\"status-value\" id=\"wifiIP\">-</span>\n            </div>\n            <div class=\"status-item\">\n                <span class=\"status-label\">Ethernet IP:</span>\n                <span class=\"status-value\" id=\"ethernetIP\">-</span>\n            </div>\n            <button class=\"btn btn-disconnect\" id=\"disconnectBtn\" onclick=\"disconnectWifi()\" style=\"display: none;\">\n                🔌 Disconnect\n            </button>\n        </div>\n        \n        <div class=\"scan-section\">\n            <button class=\"btn\" id=\"scanBtn\" onclick=\"scanNetworks()\">\n                📡 Scan Networks\n            </button>\n        </div>\n        \n        <div id=\"loading\" class=\"loading hidden\">\n            <div class=\"spinner\"></div>\n            <p>Scanning WiFi networks...</p>\n        </div>\n        \n        <div id=\"networksList\" class=\"networks-list hidden\"></div>\n        \n        <form onsubmit=\"connectWifi(event)\">\n            <div class=\"form-group\">\n                <label for=\"ssid\">SSID (Network Name):</label>\n                <input type=\"text\" id=\"ssid\" name=\"ssid\" required placeholder=\"Enter or select a network\">\n            </div>\n            \n            <div class=\"form-group\">\n                <label for=\"password\">Password (minimum 8 characters):</label>\n                <input type=\"password\" id=\"password\" name=\"password\" placeholder=\"WiFi Password\" minlength=\"8\">\n                <div id=\"passwordError\" class=\"error-text hidden\">Password must be at least 8 characters</div>\n            </div>\n            \n            <div class=\"btn-group\">\n                <button type=\"submit\" class=\"btn btn-connect\" id=\"connectBtn\">\n                    🔌 Connect\n                </button>\n                <button type=\"button\" class=\"btn btn-cancel\" id=\"cancelBtn\" onclick=\"cancelForm()\">\n                    ✖ Cancel\n                </button>\n            </div>\n            <button class=\"btn btn-cancel\" onclick=\"fetch('/wifi/reboot', {method:'POST'})\">\n                🔄 Reset This Device\n            </button>\n        </form>\n    </div>\n\n    <script>\n        let selectedNetwork = null;\n        let connectionTimeout = null;\n        let knownNetworks = [];\n\n        window.onload = function() {\n            loadStatus();\n            loadKnownNetworks();\n            setInterval(loadStatus, 10000);\n        };\n\n        function loadKnownNetworks() {\n            fetch('/wifi/known')\n            .then(response => response.json())\n            .then(data => {\n                knownNetworks = data.networks || [];\n            })\n            .catch(error => {\n                console.error('Error loading known networks:', error);\n            });\n        }\n\n        function loadStatus() {\n            fetch('/wifi/status')\n            .then(response => response.json())\n            .then(data => {\n                const statusEl = document.getElementById('wifiStatus');\n                const ssidEl = document.getElementById('currentSSID');\n                const wifiIPEl = document.getElementById('wifiIP');\n                const ethIPEl = document.getElementById('ethernetIP');\n                const disconnectBtn = document.getElementById('disconnectBtn');\n                \n                if (data.connected) {\n                    statusEl.textContent = 'Connected';\n                    statusEl.className = 'status-value status-connected';\n                    ssidEl.textContent = data.ssid || '-';\n                    wifiIPEl.textContent = data.wifiIP || '-';\n                    disconnectBtn.style.display = 'block';\n                } else {\n                    statusEl.textContent = 'Disconnected';\n                    statusEl.className = 'status-value status-disconnected';\n                    ssidEl.textContent = '-';\n                    wifiIPEl.textContent = '-';\n                    disconnectBtn.style.display = 'none';\n                }\n                \n                ethIPEl.textContent = data.ethernetIP || '-';\n            })\n            .catch(error => {\n                console.error('Error loading status:', error);\n            });\n        }\n\n        function showMessage(text, type) {\n            const messageEl = document.getElementById('message');\n            messageEl.textContent = text;\n            messageEl.className = `message ${type}`;\n            messageEl.classList.remove('hidden');\n            \n            if (type === 'success') {\n                setTimeout(() => {\n                    messageEl.classList.add('hidden');\n                }, 5000);\n            }\n        }\n\n        function cancelForm() {\n            document.getElementById('ssid').value = '';\n            document.getElementById('password').value = '';\n            document.getElementById('passwordError').classList.add('hidden');\n            document.getElementById('password').classList.remove('input-error');\n            document.querySelectorAll('.network-item').forEach(item => {\n                item.classList.remove('selected');\n            });\n            selectedNetwork = null;\n        }\n\n        function scanNetworks() {\n            document.getElementById('loading').classList.remove('hidden');\n            document.getElementById('networksList').classList.add('hidden');\n            document.getElementById('scanBtn').disabled = true;\n            \n            fetch('/wifi/scan', {\n                method: 'POST'\n            })\n            .then(response => response.json())\n            .then(data => {\n                displayNetworks(data.networks);\n                document.getElementById('loading').classList.add('hidden');\n                document.getElementById('scanBtn').disabled = false;\n            })\n            .catch(error => {\n                showMessage('Error scanning networks: ' + error.message, 'error');\n                document.getElementById('loading').classList.add('hidden');\n                document.getElementById('scanBtn').disabled = false;\n            });\n        }\n\n        function getSignalStrength(signal) {\n            if (signal >= 75) return 4;\n            if (signal >= 50) return 3;\n            if (signal >= 25) return 2;\n            return 1;\n        }\n\n        function displayNetworks(networks) {\n            const listEl = document.getElementById('networksList');\n            listEl.innerHTML = '';\n            \n            if (!networks || networks.length === 0) {\n                listEl.innerHTML = '<p style=\"text-align: center; color: #666;\">No networks found</p>';\n                listEl.classList.remove('hidden');\n                return;\n            }\n            \n            networks.forEach(network => {\n                const div = document.createElement('div');\n                const isKnown = knownNetworks.includes(network.ssid);\n                div.className = isKnown ? 'network-item known' : 'network-item';\n                div.onclick = () => selectNetwork(network.ssid, div);\n                \n                const strength = getSignalStrength(network.signal);\n                const bars = Array.from({length: 4}, (_, i) => \n                    `<div class=\"signal-bar ${i < strength ? 'active' : ''}\"></div>`\n                ).join('');\n                \n                const lockIcon = network.security ? '🔒' : '';\n                const knownBadge = isKnown ? '<span class=\"known-badge\">SAVED</span>' : '';\n                \n                div.innerHTML = `\n                    <span class=\"network-name\">${network.ssid}${knownBadge}</span>\n                    <div class=\"network-signal\">\n                        <span class=\"lock-icon\">${lockIcon}</span>\n                        <div class=\"signal-bars\">${bars}</div>\n                        <span>${network.signal}%</span>\n                    </div>\n                `;\n                \n                listEl.appendChild(div);\n            });\n            \n            listEl.classList.remove('hidden');\n        }\n\n        function selectNetwork(ssid, element) {\n            document.querySelectorAll('.network-item').forEach(item => {\n                item.classList.remove('selected');\n            });\n            \n            element.classList.add('selected');\n            document.getElementById('ssid').value = ssid;\n            selectedNetwork = ssid;\n        }\n\n        function connectWifi(event) {\n            event.preventDefault();\n            \n            const ssid = document.getElementById('ssid').value;\n            const password = document.getElementById('password').value;\n            const passwordInput = document.getElementById('password');\n            const passwordError = document.getElementById('passwordError');\n            \n            if (!ssid) {\n                showMessage('Please enter an SSID', 'error');\n                return;\n            }\n            \n            if (password && password.length > 0 && password.length < 8) {\n                passwordInput.classList.add('input-error');\n                passwordError.classList.remove('hidden');\n                showMessage('Password must be at least 8 characters', 'error');\n                return;\n            }\n            \n            passwordInput.classList.remove('input-error');\n            passwordError.classList.add('hidden');\n            \n            document.getElementById('connectBtn').disabled = true;\n            showMessage('Connecting to ' + ssid + '...', 'success');\n            \n            if (connectionTimeout) clearTimeout(connectionTimeout);\n            connectionTimeout = setTimeout(() => {\n                showMessage('⏱️ Connection timeout - network may be out of range or credentials incorrect', 'error');\n                document.getElementById('connectBtn').disabled = false;\n            }, 30000);\n            \n            fetch('/wifi/connect', {\n                method: 'POST',\n                headers: {\n                    'Content-Type': 'application/json'\n                },\n                body: JSON.stringify({\n                    ssid: ssid,\n                    password: password\n                })\n            })\n            .then(response => response.json())\n            .then(data => {\n                if (connectionTimeout) clearTimeout(connectionTimeout);\n                \n                if (data.success) {\n                    showMessage('✅ Successfully connected to ' + ssid, 'success');\n                    document.getElementById('password').value = '';\n                    loadStatus();\n                } else {\n                    showMessage('❌ Connection error: ' + data.error, 'error');\n                }\n                document.getElementById('connectBtn').disabled = false;\n            })\n            .catch(error => {\n                if (connectionTimeout) clearTimeout(connectionTimeout);\n                showMessage('❌ Error: ' + error.message, 'error');\n                document.getElementById('connectBtn').disabled = false;\n            });\n        }\n\n        function disconnectWifi() {\n            if (!confirm('Are you sure you want to disconnect from WiFi?')) {\n                return;\n            }\n            \n            document.getElementById('disconnectBtn').disabled = true;\n            showMessage('Disconnecting...', 'success');\n            \n            fetch('/wifi/disconnect', {\n                method: 'POST'\n            })\n            .then(response => response.json())\n            .then(data => {\n                if (data.success) {\n                    showMessage('✅ Disconnected successfully', 'success');\n                    loadStatus();\n                } else {\n                    showMessage('❌ Disconnect error: ' + data.error, 'error');\n                }\n                document.getElementById('disconnectBtn').disabled = false;\n            })\n            .catch(error => {\n                showMessage('❌ Error: ' + error.message, 'error');\n                document.getElementById('disconnectBtn').disabled = false;\n            });\n        }\n    </script>\n</body>\n</html>",
+        "output": "str",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "http_response_page"
+            ]
+        ]
+    },
+    {
+        "id": "http_response_page",
+        "type": "http response",
+        "z": "wifi_flow",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 490,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "http_post_scan",
+        "type": "http in",
+        "z": "wifi_flow",
+        "name": "POST /wifi/scan",
+        "url": "/wifi/scan",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "exec_rescan"
+            ]
+        ]
+    },
+    {
+        "id": "exec_rescan",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "nmcli device wifi rescan",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Rescan WiFi",
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "exec_list"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "exec_list",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "nmcli -f SSID,SIGNAL,SECURITY device wifi list",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "List Networks",
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "function_parse"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "function_parse",
+        "type": "function",
+        "z": "wifi_flow",
+        "name": "Parse Networks",
+        "func": "// Parse nmcli output - Fixed for exec output\nconst output = msg.payload.stdout || msg.payload;\nconst lines = output.trim().split('\\n');\n\n// Skip header\nconst networks = [];\nfor (let i = 1; i < lines.length; i++) {\n    const line = lines[i].trim();\n    if (!line) continue;\n    \n    // Split by multiple spaces\n    const parts = line.split(/\\s{2,}/);\n    \n    if (parts.length >= 2) {\n        const ssid = parts[0].trim();\n        const signal = parseInt(parts[1]) || 0;\n        const security = parts.length > 2 && parts[2].trim() !== '--';\n        \n        // Avoid empty SSIDs and duplicates\n        if (ssid && !networks.find(n => n.ssid === ssid)) {\n            networks.push({\n                ssid: ssid,\n                signal: signal,\n                security: security\n            });\n        }\n    }\n}\n\n// Sort by signal strength\nnetworks.sort((a, b) => b.signal - a.signal);\n\nmsg.payload = {\n    networks: networks\n};\n\nmsg.headers = {\n    'Content-Type': 'application/json'\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 160,
+        "wires": [
+            [
+                "http_response_scan"
+            ]
+        ]
+    },
+    {
+        "id": "http_response_scan",
+        "type": "http response",
+        "z": "wifi_flow",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 920,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "http_post_connect",
+        "type": "http in",
+        "z": "wifi_flow",
+        "name": "POST /wifi/connect",
+        "url": "/wifi/connect",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "function_prepare",
+                "0e7e44529b727cfb"
+            ]
+        ]
+    },
+    {
+        "id": "function_prepare",
+        "type": "function",
+        "z": "wifi_flow",
+        "d": true,
+        "name": "Prepare Command",
+        "func": "const ssid = msg.payload.ssid;\nconst password = msg.payload.password;\n\nif (!ssid) {\n    msg.payload = {\n        success: false,\n        error: \"SSID required\"\n    };\n    return msg;\n}\n\n// Build nmcli command\nif (password && password.length > 0) {\n    // Network with password\n    msg.payload = `nmcli device wifi connect \"${ssid}\" password \"${password}\"`;\n} else {\n    // Open network\n    msg.payload = `nmcli device wifi connect \"${ssid}\"`;\n}\n\n// Save data for response\nmsg.ssid = ssid;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "exec_connect"
+            ]
+        ]
+    },
+    {
+        "id": "exec_connect",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Connect WiFi",
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "function_response",
+                "0ea39abab8f5c6da"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "function_response",
+        "type": "function",
+        "z": "wifi_flow",
+        "name": "Format Response",
+        "func": "const exitCode = msg.payload.code || 0;\nconst stderr = msg.payload.stderr || '';\nconst stdout = msg.payload.stdout || '';\n\nif (exitCode === 0) {\n    msg.payload = {\n        success: true,\n        message: `Connected to ${msg.ssid}`,\n        ssid: msg.ssid\n    };\n} else {\n    msg.payload = {\n        success: false,\n        error: stderr || stdout || \"Unknown error\"\n    };\n}\n\nmsg.statusCode = 200;\nmsg.headers = {\n    'Content-Type': 'application/json'\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 200,
+        "wires": [
+            [
+                "http_response_connect"
+            ]
+        ]
+    },
+    {
+        "id": "http_response_connect",
+        "type": "http response",
+        "z": "wifi_flow",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "http_get_status",
+        "type": "http in",
+        "z": "wifi_flow",
+        "name": "GET /wifi/status",
+        "url": "/wifi/status",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "exec_status"
+            ]
+        ]
+    },
+    {
+        "id": "exec_status",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "nmcli -t -f GENERAL.CONNECTION,GENERAL.STATE,IP4.ADDRESS device show wlan0",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Get WiFi Status",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "exec_eth_ip"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "exec_eth_ip",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "nmcli -t -f IP4.ADDRESS device show eth0 2>/dev/null || echo ''",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Get Ethernet IP",
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "function_status_parse"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "function_status_parse",
+        "type": "function",
+        "z": "wifi_flow",
+        "name": "Parse Status",
+        "func": "// Parse WiFi status from first command\nconst wifiOutput = msg.payload.stdout || '';\nconst lines = wifiOutput.trim().split('\\n');\n\nlet connected = false;\nlet ssid = '';\nlet wifiIP = '';\n\n// Parse nmcli output\nlines.forEach(line => {\n    if (line.includes('GENERAL.CONNECTION:')) {\n        ssid = line.split(':')[1].trim();\n        if (ssid && ssid !== '--') {\n            connected = true;\n        }\n    }\n    if (line.includes('IP4.ADDRESS[1]:')) {\n        wifiIP = line.split(':')[1].trim().split('/')[0];\n    }\n});\n\n// Get ethernet IP from context (passed through from previous exec)\nlet ethernetIP = '';\nconst ethOutput = msg.payload.stdout || '';\nif (ethOutput.includes('IP4.ADDRESS')) {\n    const ethLines = ethOutput.trim().split('\\n');\n    ethLines.forEach(line => {\n        if (line.includes('IP4.ADDRESS')) {\n            ethernetIP = line.split(':')[1].trim().split('/')[0];\n        }\n    });\n}\n\nmsg.payload = {\n    connected: connected,\n    ssid: ssid || null,\n    wifiIP: wifiIP || null,\n    ethernetIP: ethernetIP || null\n};\n\nmsg.headers = {\n    'Content-Type': 'application/json'\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "http_response_status"
+            ]
+        ]
+    },
+    {
+        "id": "http_response_status",
+        "type": "http response",
+        "z": "wifi_flow",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "http_post_disconnect",
+        "type": "http in",
+        "z": "wifi_flow",
+        "name": "POST /wifi/disconnect",
+        "url": "/wifi/disconnect",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "exec_disconnect"
+            ]
+        ]
+    },
+    {
+        "id": "exec_disconnect",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "nmcli device disconnect wlan0",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Disconnect WiFi",
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "function_disconnect_response"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "function_disconnect_response",
+        "type": "function",
+        "z": "wifi_flow",
+        "name": "Format Response",
+        "func": "const exitCode = msg.payload.code || 0;\nconst stderr = msg.payload.stderr || '';\nconst stdout = msg.payload.stdout || '';\n\nif (exitCode === 0) {\n    msg.payload = {\n        success: true,\n        message: 'Disconnected from WiFi'\n    };\n} else {\n    msg.payload = {\n        success: false,\n        error: stderr || stdout || 'Unknown error'\n    };\n}\n\nmsg.statusCode = 200;\nmsg.headers = {\n    'Content-Type': 'application/json'\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "http_response_disconnect"
+            ]
+        ]
+    },
+    {
+        "id": "http_response_disconnect",
+        "type": "http response",
+        "z": "wifi_flow",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "http_get_known",
+        "type": "http in",
+        "z": "wifi_flow",
+        "name": "GET /wifi/known",
+        "url": "/wifi/known",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "exec_known"
+            ]
+        ]
+    },
+    {
+        "id": "exec_known",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "nmcli -t -f NAME,TYPE connection show",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Get Known Networks",
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "function_known_parse"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "function_known_parse",
+        "type": "function",
+        "z": "wifi_flow",
+        "name": "Parse Known Networks",
+        "func": "const output = msg.payload.stdout || '';\nconst lines = output.trim().split('\\n');\n\nconst networks = [];\n\nlines.forEach(line => {\n    if (!line) return;\n    \n    const parts = line.split(':');\n    if (parts.length >= 2) {\n        const name = parts[0].trim();\n        const type = parts[1].trim();\n        \n        // Only include WiFi connections (802-11-wireless)\n        if (type === '802-11-wireless' && name) {\n            networks.push(name);\n        }\n    }\n});\n\nmsg.payload = {\n    networks: networks\n};\n\nmsg.headers = {\n    'Content-Type': 'application/json'\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 460,
+        "wires": [
+            [
+                "http_response_known"
+            ]
+        ]
+    },
+    {
+        "id": "http_response_known",
+        "type": "http response",
+        "z": "wifi_flow",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "0e7e44529b727cfb",
+        "type": "function",
+        "z": "wifi_flow",
+        "name": "function 10",
+        "func": "const ssid = msg.payload.ssid;\nconst password = msg.payload.password;\n\n// We use --wait 15 so it doesn't block Node-RED forever\nif (password && password.length > 0) {\n    msg.payload = `sudo nmcli device wifi connect \"${ssid}\" password \"${password}\" --wait 15`;\n} else {\n    msg.payload = `sudo nmcli device wifi connect \"${ssid}\" --wait 15`;\n}\n\nmsg.ssid = ssid;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "exec_connect"
+            ]
+        ]
+    },
+    {
+        "id": "0ea39abab8f5c6da",
+        "type": "delay",
+        "z": "wifi_flow",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "8e139d47c8b91be3"
+            ]
+        ]
+    },
+    {
+        "id": "8e139d47c8b91be3",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "ping -c 1 8.8.8.8",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Test Ping",
+        "x": 880,
+        "y": 260,
+        "wires": [
+            [
+                "3f18bc6e4dbbfaf8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3f18bc6e4dbbfaf8",
+        "type": "switch",
+        "z": "wifi_flow",
+        "name": "",
+        "property": "payload.code",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 260,
+        "wires": [
+            [],
+            [
+                "0a43a32d9f929a0e"
+            ]
+        ]
+    },
+    {
+        "id": "0a43a32d9f929a0e",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "sudo systemctl start hostapd && sudo systemctl start dnsmasq",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Restore Hotspot",
+        "x": 1170,
+        "y": 260,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f046a1a0f9bfb430",
+        "type": "http in",
+        "z": "wifi_flow",
+        "name": "POST /wifi/reboot",
+        "url": "/wifi/reboot",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "8857990e50a21786"
+            ]
+        ]
+    },
+    {
+        "id": "8857990e50a21786",
+        "type": "exec",
+        "z": "wifi_flow",
+        "command": "sudo reboot",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 330,
+        "y": 520,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    }
+]

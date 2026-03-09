@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# run this script on a fresh SchoolAir RPiZ with the following command:
+# curl -sSL https://raw.githubusercontent.com/AlellaGreenTech/schoolair/main/install_files/schoolair_setup.sh | bash
+
 # --- 1. System Dependencies ---
 echo "Step 1: Installing networking, I2C tools, and Git..."
 sudo apt update

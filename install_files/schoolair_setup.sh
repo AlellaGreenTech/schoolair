@@ -95,6 +95,22 @@ sudo systemctl enable autohotspot.service
 
 # --- 7. Final Cleanup ---
 rm -rf /tmp/schoolair
+
+# --- 8. Web Redirect (Port 80 to Dashboard) ---
+echo "Step 8: Configuring automatic dashboard redirect..."
+sudo apt install -y nginx
+
+# Configure Nginx to redirect root traffic to the Node-RED UI
+sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
+server {
+    listen 80;
+    server_name _;
+    return 301 http://\$host:1880/wifi;
+}
+EOF
+
+sudo systemctl restart nginx
+
 echo "-------------------------------------------------------"
 echo "SETUP COMPLETE. SYSTEM IS NOW CONFIGURED FOR SCHOOLAIR."
 echo "REBOOT TO START SENSORS AND NETWORKING."

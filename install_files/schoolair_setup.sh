@@ -1,36 +1,40 @@
 #!/bin/bash
 
-# --- 1. Variables ---
-REPO_URL="https://github.com/yourusername/schoolair-scripts.git"
-echo "Step 1: Installing dependencies..."
+# --- 1. System Dependencies ---
+echo "Installing networking and I2C tools..."
 sudo apt update
-sudo apt install -y hostapd dnsmasq nmcli git i2c-tools
+sudo apt install -y hostapd dnsmasq nmcli i2c-tools
 
-# --- 2. Hardware Tweak: Conditional Baudrate ---
-echo "Step 2: Checking for HM3301 (0x40)..."
-sudo raspi-config nonint do_i2c 0 # Enable I2C
+# --- 2. Conditional I2C Baudrate Tweak ---
+echo "Scanning for HM3301 (0x40)..."
+sudo raspi-config nonint do_i2c 0 # Ensure I2C is active
 
+# Check if HM3301 is present before slowing the bus
 if i2cdetect -y 1 | grep -q "40: 40"; then
-    echo "HM3301 detected. Setting I2C baudrate to 100kHz."
-    # Update /boot/config.txt safely
+    echo "HM3301 detected! Setting I2C baudrate to 100kHz for stability."
     sudo sed -i '/dtparam=i2c_arm_baudrate/d' /boot/config.txt
     echo "dtparam=i2c_arm_baudrate=100000" | sudo tee -a /boot/config.txt
 else
-    echo "HM3301 not found. Standard I2C speed maintained."
+    echo "HM3301 (0x40) not found. Leaving I2C at standard speed."
 fi
 
-# --- 3. Remote Script Deployment ---
-echo "Step 3: Pulling sensor scripts from remote repo..."
-rm -rf ~/i2c  # Clean start
-git clone $REPO_URL ~/i2c
+# --- 3. Deploy Sensor Scripts ---
+echo "Deploying I2C scripts to ~/i2c/..."
+mkdir -p ~/i2c
+cp ./i2c/*.sh ~/i2c/
 chmod +x ~/i2c/*.sh
 
-# --- 4. Networking Setup (The "Garage-Tower-Setup") ---
-# This part stays local as it configures the specific Pi OS files
-# [Include the cat <<EOF blocks for /etc/hostapd/hostapd.conf and /etc/dnsmasq.conf here]
-
-# --- 5. Node-RED ---
-echo "Step 5: Installing Node-RED..."
+# --- 4. Node-RED Setup ---
+echo "Installing Node-RED..."
+# Standard Pi installer
 bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --confirm-install --confirm-pi
 
-echo "Setup complete. Reboot to apply changes."
+# Move your pre-configured flows into place
+mkdir -p ~/.node-red
+cp ./flows.json ~/.node-red/flows.json
+
+# --- 5. Networking (Hotspot Recovery) ---
+echo "Configuring Garage-Tower-Setup hotspot..."
+# [The script would continue here with the cat <<EOF blocks for hostapd/dnsmasq]
+
+echo "Installation complete. Please reboot."

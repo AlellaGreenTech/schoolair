@@ -24,10 +24,8 @@ cat <<EOF
 {
   "success": true,
   "data": {
-    "sht_30": {
-      "temperature_celsius": $temp_c,
-      "humidity_percent": $humidity
-    }
+    "temperature_celsius": $temp_c,
+    "humidity_percent": $humidity
   }
 }
 EOF

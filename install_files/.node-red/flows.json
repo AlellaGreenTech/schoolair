@@ -184,6 +184,7 @@
         "id": "a414b79f90d39bc0",
         "type": "inject",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -213,12 +214,14 @@
         "id": "73aefdd62223a38c",
         "type": "debug",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 620,
@@ -238,8 +241,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 950,
-        "y": 160,
+        "x": 1050,
+        "y": 320,
         "wires": [
             [],
             [],
@@ -330,6 +333,7 @@
         "id": "37e85bbc6e9a1005",
         "type": "exec",
         "z": "esp32_i2c_flow",
+        "d": true,
         "command": "/home/admin/i2c/read_bmp280.py",
         "addpay": "",
         "append": "",
@@ -338,12 +342,10 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 320,
+        "x": 1040,
         "y": 160,
         "wires": [
-            [
-                "c8de65b427e7d3d8"
-            ],
+            [],
             [],
             []
         ]
@@ -373,7 +375,7 @@
         "y": 160,
         "wires": [
             [
-                "37e85bbc6e9a1005"
+                "fd3dc90eee9e2625"
             ]
         ]
     },
@@ -430,7 +432,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 550,
         "y": 220,
         "wires": [
             [
@@ -447,6 +449,7 @@
         "id": "382ed5928df0a4d8",
         "type": "function",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "function 1",
         "func": "// Calcular AQI des de PM2.5 (EPA)\nfunction calcAQI(pm) {\n    const breakpoints = [\n        [0, 12, 0, 50],\n        [12.1, 35.4, 51, 100],\n        [35.5, 55.4, 101, 150],\n        [55.5, 150.4, 151, 200],\n        [150.5, 250.4, 201, 300],\n        [250.5, 500, 301, 500]\n    ];\n    \n    for (let [cLow, cHigh, iLow, iHigh] of breakpoints) {\n        if (pm >= cLow && pm <= cHigh) {\n            return Math.round(((iHigh - iLow) / (cHigh - cLow)) * (pm - cLow) + iLow);\n        }\n    }\n    return 500; // Hazardous\n}\n\nlet pm25 = msg.payload.concentrations_ugm3.pm2_5_standard;\nmsg.payload.aqi = calcAQI(pm25);\nmsg.payload.aqi_level = msg.payload.aqi <= 50 ? \"Good\" : \n                        msg.payload.aqi <= 100 ? \"Moderate\" : \n                        msg.payload.aqi <= 150 ? \"Unhealthy (sensitive)\" : \"Unhealthy\";\n\nreturn msg;",
         "outputs": 1,
@@ -467,12 +470,14 @@
         "id": "62eee3d3963616e5",
         "type": "debug",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "debug 9",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 320,
@@ -483,6 +488,7 @@
         "id": "2d5065902b82e4c1",
         "type": "function",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "function 2",
         "func": "function calcAQI_PM25(pm) {\n    const bp = [\n        [0, 12, 0, 50],\n        [12.1, 35.4, 51, 100],\n        [35.5, 55.4, 101, 150],\n        [55.5, 150.4, 151, 200],\n        [150.5, 250.4, 201, 300],\n        [250.5, 500, 301, 500]\n    ];\n    return calcFromBreakpoints(pm, bp);\n}\n\nfunction calcAQI_PM10(pm) {\n    const bp = [\n        [0, 54, 0, 50],\n        [55, 154, 51, 100],\n        [155, 254, 101, 150],\n        [255, 354, 151, 200],\n        [355, 424, 201, 300],\n        [425, 604, 301, 500]\n    ];\n    return calcFromBreakpoints(pm, bp);\n}\n\nfunction calcFromBreakpoints(pm, bp) {\n    for (let [cLow, cHigh, iLow, iHigh] of bp) {\n        if (pm >= cLow && pm <= cHigh) {\n            return Math.round(((iHigh - iLow) / (cHigh - cLow)) * (pm - cLow) + iLow);\n        }\n    }\n    return 500;\n}\n\n// CALCULAR AQI COMBINAT\nlet pm25 = msg.payload.concentrations_ugm3.pm2_5_standard;\nlet pm10 = msg.payload.concentrations_ugm3.pm10_standard;\n\nlet aqi25 = calcAQI_PM25(pm25);\nlet aqi10 = calcAQI_PM10(pm10);\n\nmsg.payload.aqi = Math.max(aqi25, aqi10); // EL PITJOR!\nmsg.payload.aqi_level = msg.payload.aqi <= 50 ? \"Good\" : \n                        msg.payload.aqi <= 100 ? \"Moderate\" : \"Unhealthy\";\n\nreturn msg;",
         "outputs": 1,
@@ -503,12 +509,14 @@
         "id": "c17bb38945c20ff3",
         "type": "debug",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "debug 10",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 320,
@@ -561,7 +569,7 @@
         "y": 100,
         "wires": [
             [
-                "37e85bbc6e9a1005"
+                "fd3dc90eee9e2625"
             ]
         ]
     },
@@ -569,6 +577,7 @@
         "id": "80e45eac27ae5808",
         "type": "exec",
         "z": "esp32_i2c_flow",
+        "d": true,
         "command": "sudo i2cdetect -y 1",
         "addpay": "",
         "append": "",
@@ -591,8 +600,9 @@
         "id": "b18b52cde040c74f",
         "type": "function",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "function 6",
-        "func": "// msg.payload conté la sortida d'i2cdetect\n\nconst lines = msg.payload.split('\\n');\nconst devices = [];\n\n// Processar cada línia (començant des de la línia 1, saltant la capçalera)\nfor (let i = 1; i < lines.length; i++) {\n    const line = lines[i].trim();\n    if (!line) continue;\n    \n    // Extreure els valors (separats per espais)\n    const parts = line.split(/\\s+/);\n    \n    // El primer element és el prefix de fila (00:, 10:, etc.)\n    const rowPrefix = parts[0].replace(':', '');\n    \n    // Processar cada columna (de 1 a 16)\n    for (let col = 1; col < parts.length && col <= 16; col++) {\n        const value = parts[col];\n        \n        // Si no és '--', hi ha un dispositiu\n        if (value !== '--') {\n            const address = '0x' + value;\n            devices.push({\n                address: address,\n                decimal: parseInt(value, 16)\n            });\n        }\n    }\n}\n\n// Identificar dispositius coneguts (opcional)\nconst knownDevices = {\n    '0x44': 'SHT40 (Temperature/Humidity)',\n    '0x76': 'BMP280 (Pressure/Temperature)',\n    '0x77': 'BMP280 (alt address)',\n};\n\n// Enriquir amb noms coneguts\ndevices.forEach(dev => {\n    dev.name = knownDevices[dev.address] || 'Unknown device';\n});\n\nmsg.payload = {\n    devices: devices,\n    count: devices.length,\n    addresses: devices.map(d => d.address)\n};\n\nreturn msg;",
+        "func": "// msg.payload conté la sortida d'i2cdetect\n\nconst lines = msg.payload.split('\\n');\nconst devices = [];\n\n// Processar cada línia (començant des de la línia 1, saltant la capçalera)\nfor (let i = 1; i < lines.length; i++) {\n    const line = lines[i].trim();\n    if (!line) continue;\n    \n    // Extreure els valors (separats per espais)\n    const parts = line.split(/\\s+/);\n    \n    // El primer element és el prefix de fila (00:, 10:, etc.)\n    const rowPrefix = parts[0].replace(':', '');\n    \n    // Processar cada columna (de 1 a 16)\n    for (let col = 1; col < parts.length && col <= 16; col++) {\n        const value = parts[col];\n        \n        // Si no és '--', hi ha un dispositiu\n        if (value !== '--') {\n            const address = '0x' + value;\n            devices.push({\n                address: address,\n                decimal: parseInt(value, 16)\n            });\n        }\n    }\n}\n\n// Identificar dispositius coneguts (opcional)\nconst knownDevices = {\n    '0x40': 'HM3301 (Particulate Matter)',\n    '0x44': 'SHT40 (Temperature/Humidity)',\n    '0x76': 'BMP280 (Pressure/Temperature)',\n    '0x77': 'BMP280 (alt address)',\n};\n\n// Enriquir amb noms coneguts\ndevices.forEach(dev => {\n    dev.name = knownDevices[dev.address] || 'Unknown device';\n});\n\nmsg.payload = {\n    devices: devices,\n    count: devices.length,\n    addresses: devices.map(d => d.address)\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -635,12 +645,14 @@
         "id": "8ec1feb66e04d45b",
         "type": "debug",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 660,
@@ -651,12 +663,14 @@
         "id": "6599dad836745d4a",
         "type": "debug",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 980,
@@ -853,7 +867,7 @@
         "id": "473227cea3d11e8f",
         "type": "exec",
         "z": "esp32_i2c_flow",
-        "command": "/home/admin/i2c/alt_pm/read_hm3301.sh",
+        "command": "/home/admin/i2c/read_hm3301.sh",
         "addpay": "payload",
         "append": "",
         "useSpawn": "false",
@@ -861,7 +875,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 350,
+        "x": 320,
         "y": 220,
         "wires": [
             [
@@ -1321,7 +1335,7 @@
                 "t": "set",
                 "p": "ui_update.label",
                 "pt": "msg",
-                "to": "\"Your Device is Registered✌️\"",
+                "to": "Your Device is Registered✌️",
                 "tot": "str"
             }
         ],
@@ -1464,7 +1478,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 800,
+        "x": 720,
         "y": 220,
         "wires": [
             [
@@ -1545,22 +1559,25 @@
         "id": "138372c5639c4a54",
         "type": "debug",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 220,
+        "x": 840,
+        "y": 180,
         "wires": []
     },
     {
         "id": "dfaf81982e8e087d",
         "type": "debug",
         "z": "esp32_i2c_flow",
+        "d": true,
         "name": "debug 5",
         "active": true,
         "tosidebar": true,
@@ -1570,9 +1587,31 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 260,
+        "x": 160,
+        "y": 280,
         "wires": []
+    },
+    {
+        "id": "fd3dc90eee9e2625",
+        "type": "exec",
+        "z": "esp32_i2c_flow",
+        "command": "/home/admin/i2c/read_bmp280.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "c8de65b427e7d3d8"
+            ],
+            [],
+            []
+        ]
     },
     {
         "id": "http_get_wifi",

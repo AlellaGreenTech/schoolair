@@ -105,7 +105,7 @@ sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
 server {
     listen 80;
     server_name _;
-    return 301 http://\$host:1880/wifi;
+    return 301 http://\$host:1880/dashboard;
 }
 EOF
 

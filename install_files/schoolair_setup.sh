@@ -6,51 +6,54 @@
 # --- 1. System Dependencies ---
 echo "Step 1: Installing networking, I2C tools, and Git..."
 sudo apt update
-sudo apt install -y hostapd dnsmasq nmcli git i2c-tools
+# --needed/already installed check is native to apt, but we ensure no prompts
+sudo apt install -y hostapd dnsmasq git i2c-tools nginx
 
 # --- 2. Download Project Files ---
-echo "Step 2: Cloning the SchoolAir repository to /tmp..."
+echo "Step 2: Syncing SchoolAir repository..."
 rm -rf /tmp/schoolair
 git clone --depth 1 https://github.com/AlellaGreenTech/schoolair.git /tmp/schoolair
 
 # --- 3. Hardware Tweak: Conditional Baudrate ---
-echo "Step 3: Scanning I2C bus for HM3301 (0x40)..."
-sudo raspi-config nonint do_i2c 0 # Ensure I2C is active
+echo "Step 3: Configuring I2C..."
+sudo raspi-config nonint do_i2c 0 
 
-# HM3301 requires 100kHz for stability on the Pi Zero
-if i2cdetect -y 1 | grep -q "40: 40"; then
-    echo "HM3301 detected! Setting I2C baudrate to 100kHz."
-    sudo sed -i '/dtparam=i2c_arm_baudrate/d' /boot/config.txt
-    echo "dtparam=i2c_arm_baudrate=100000" | sudo tee -a /boot/config.txt
-else
-    echo "HM3301 not found. Leaving I2C at standard speed."
+# Use a 'grep' check to prevent duplicate lines in config.txt
+CONFIG_FILE="/boot/config.txt"
+BAUD_LINE="dtparam=i2c_arm_baudrate=100000"
+
+if i2cdetect -y 1 | grep -q "40: 40" || i2cdetect -y 1 | grep -q "6b: 6b"; then
+    echo "High-precision sensor detected! Ensuring 100kHz baudrate."
+    if ! grep -qF "$BAUD_LINE" "$CONFIG_FILE"; then
+        # Remove any existing baudrate lines first to keep it clean
+        sudo sed -i '/dtparam=i2c_arm_baudrate/d' "$CONFIG_FILE"
+        echo "$BAUD_LINE" | sudo tee -a "$CONFIG_FILE"
+    fi
 fi
 
 # --- 4. Node-RED Installation ---
-echo "Step 4: Installing Node-RED (this may take several minutes)..."
-# Official installer for Raspberry Pi
-bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --confirm-install --confirm-pi
+# The official script handles 'already installed' cases well
+echo "Step 4: Ensuring Node-RED is installed..."
+curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered | bash -s -- --confirm-install --confirm-pi
 
-# --- 5. Targeted File Deployment (Post-Installation) ---
+# --- 5. Targeted File Deployment ---
 echo "Step 5: Deploying project files..."
-
-# Deploy Shell-based Sensor Scripts
 mkdir -p ~/i2c
-cp -r /tmp/schoolair/install_files/i2c/*.sh ~/i2c/
+# Use -u (update) to only copy newer files
+cp -u /tmp/schoolair/install_files/i2c/*.sh ~/i2c/
 chmod +x ~/i2c/*.sh
 
-# Deploy Node-RED Configuration (including settings, flows, and package.json)
 mkdir -p ~/.node-red
-cp -r /tmp/schoolair/install_files/.node-red/* ~/.node-red/
+# CAUTION: We use -n (no-clobber) for the flows file so we don't wipe student work
+cp -n /tmp/schoolair/install_files/.node-red/flows.json ~/.node-red/ 2>/dev/null || true
+cp -u /tmp/schoolair/install_files/.node-red/settings.js ~/.node-red/
+cp -u /tmp/schoolair/install_files/.node-red/package.json ~/.node-red/
 
-# Auto-install missing nodes from package.json
-echo "Installing Node-RED dependencies from package.json..."
-cd ~/.node-red && npm install
+echo "Installing Node-RED dependencies..."
+cd ~/.node-red && npm install --no-audit --no-fund
 
-# --- 6. Networking & Hotspot Recovery ---
-echo "Step 6: Setting up Garage-Tower-Setup Hotspot..."
-
-# hostapd config
+# --- 6. Networking & Hotspot ---
+# Teeing the config is fine as it overwrites (doesn't append)
 sudo tee /etc/hostapd/hostapd.conf > /dev/null <<EOF
 interface=wlan0
 driver=nl80211
@@ -62,11 +65,11 @@ wpa_key_mgmt=WPA-PSK
 wpa_passphrase=password123
 EOF
 
-# Auto-Hotspot Switch Script (Captive Portal gateway)
+# Same for the service and script - overwriting is safer than appending
 sudo tee /usr/bin/autohotspot.sh > /dev/null <<EOF
 #!/bin/bash
 sleep 10
-if ! nmcli -t -f TYPE,STATE dev | grep -q "wireless:connected"; then
+if ! ip addr show wlan0 | grep -q "inet "; then
     sudo ifconfig wlan0 192.168.4.1 netmask 255.255.255.0
     sudo systemctl start hostapd
     sudo systemctl start dnsmasq
@@ -74,7 +77,6 @@ fi
 EOF
 sudo chmod +x /usr/bin/autohotspot.sh
 
-# Systemd Service for boot trigger
 sudo tee /etc/systemd/system/autohotspot.service > /dev/null <<EOF
 [Unit]
 Description=Auto Hotspot if no WiFi
@@ -88,30 +90,26 @@ ExecStart=/usr/bin/autohotspot.sh
 WantedBy=multi-user.target
 EOF
 
-sudo systemctl unmask hostapd
-sudo systemctl enable hostapd
-sudo systemctl enable dnsmasq
-sudo systemctl enable autohotspot.service
+# --- 7. Final Cleanup & Service Start ---
+sudo systemctl unmask hostapd 2>/dev/null || true
+sudo systemctl enable --now hostapd dnsmasq autohotspot.service
 
-# --- 7. Final Cleanup ---
-rm -rf /tmp/schoolair
-
-# --- 8. Web Redirect (Port 80 to Dashboard) ---
-echo "Step 8: Configuring automatic dashboard redirect..."
-sudo apt install -y nginx
-
-# Configure Nginx to redirect root traffic to the Node-RED UI
+# Nginx Redirect (Overwrites existing default)
 sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
 server {
     listen 80;
     server_name _;
-    return 301 http://\$host:1880/dashboard;
+    location / {
+        return 301 http://\$host:1880/ui;
+    }
 }
 EOF
 
-sudo systemctl restart nginx
+sudo systemctl enable --now nginx
+rm -rf /tmp/schoolair
 
 echo "-------------------------------------------------------"
-echo "SETUP COMPLETE. SYSTEM IS NOW CONFIGURED FOR SCHOOLAIR."
+echo "IDEMPOTENT SETUP COMPLETE."
+echo "-------------------------------------------------------"
 echo "REBOOT TO START SENSORS AND NETWORKING."
 echo "-------------------------------------------------------"

@@ -1,0 +1,25 @@
+CC = gcc
+# -I. looks here, -I./raspberry-pi-i2c-sen63c looks inside the repo folder
+CFLAGS = -Wall -I. -I./raspberry-pi-i2c-sen63c
+
+# Define where the library files live
+LIB_DIR = raspberry-pi-i2c-sen63c
+
+# Prefix the library files with the directory path
+SRCS = sen63c_d.c \
+       $(LIB_DIR)/sen63c_i2c.c \
+       $(LIB_DIR)/sensirion_i2c.c \
+       $(LIB_DIR)/sensirion_common.c \
+       $(LIB_DIR)/sensirion_i2c_hal.c
+
+TARGET = sen6x_d
+
+.PHONY: all clean
+
+all: $(TARGET)
+
+$(TARGET): $(SRCS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
+
+clean:
+	rm -f $(TARGET)

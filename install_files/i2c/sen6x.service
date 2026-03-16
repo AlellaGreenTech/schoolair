@@ -1,0 +1,15 @@
+[Unit]
+Description=Sensirion SEN6x Sensor Daemon for SchoolAir
+After=network.target
+
+[Service]
+# Path to your compiled binary
+ExecStart=/home/admin/i2c/sen6x/sen6x_d
+Restart=always
+RestartSec=10
+# Directs C's stderr to the system log
+StandardError=journal
+User=admin
+
+[Install]
+WantedBy=multi-user.target

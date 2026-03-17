@@ -3,6 +3,9 @@
 
 echo "--- Starting Professional Cleanup ---"
 
+# 0. Remove SchoolAir Tokens
+rm ~/.device_token
+
 # 1. Stop all production services
 sudo systemctl stop node-red
 sudo systemctl stop sen6x.service

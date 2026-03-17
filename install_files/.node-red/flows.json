@@ -181,271 +181,6 @@
         "groupType": "default"
     },
     {
-        "id": "a414b79f90d39bc0",
-        "type": "inject",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 40,
-        "wires": [
-            [
-                "80e45eac27ae5808"
-            ]
-        ]
-    },
-    {
-        "id": "73aefdd62223a38c",
-        "type": "debug",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 20,
-        "wires": []
-    },
-    {
-        "id": "7e6adf86ed2d4d40",
-        "type": "exec",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "command": "/home/admin/i2c/read_pm.sh",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 1050,
-        "y": 320,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "7b0f4201f3399145",
-        "type": "inject",
-        "z": "esp32_i2c_flow",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "/home/admin/i2c/read_pm.sh",
-        "payloadType": "str",
-        "x": 90,
-        "y": 80,
-        "wires": [
-            [
-                "7536583181028b5c"
-            ]
-        ]
-    },
-    {
-        "id": "0e888c539a966c15",
-        "type": "exec",
-        "z": "esp32_i2c_flow",
-        "command": "/home/admin/i2c/read_sht40.sh",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 610,
-        "y": 100,
-        "wires": [
-            [
-                "5507d2ab566d45d7"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "e5cd6c05a60ec87a",
-        "type": "inject",
-        "z": "esp32_i2c_flow",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "/home/admin/i2c/read_pm.sh",
-        "payloadType": "str",
-        "x": 90,
-        "y": 220,
-        "wires": [
-            [
-                "473227cea3d11e8f"
-            ]
-        ]
-    },
-    {
-        "id": "37e85bbc6e9a1005",
-        "type": "exec",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "command": "/home/admin/i2c/read_bmp280.py",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 1040,
-        "y": 160,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "227e56e17d3ba7cf",
-        "type": "inject",
-        "z": "esp32_i2c_flow",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "/home/admin/i2c/read_pm.sh",
-        "payloadType": "str",
-        "x": 90,
-        "y": 160,
-        "wires": [
-            [
-                "fd3dc90eee9e2625"
-            ]
-        ]
-    },
-    {
-        "id": "5507d2ab566d45d7",
-        "type": "function",
-        "z": "esp32_i2c_flow",
-        "name": "function 3",
-        "func": "try{\n    msg.sht_40 = JSON.parse(msg.payload)\n    if(msg.sht_40.success !== true){\n        msg.sht_40 = {}\n    }\n}\ncatch (error){\n    msg.sht_40 = {}\n}\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 100,
-        "wires": [
-            [
-                "7a4a5d20507503ca",
-                "6599dad836745d4a"
-            ]
-        ]
-    },
-    {
-        "id": "c8de65b427e7d3d8",
-        "type": "function",
-        "z": "esp32_i2c_flow",
-        "name": "function 4",
-        "func": "try{\n    msg.bmp_280 = JSON.parse(msg.payload)\n    if(msg.bmp_280.success !== true){\n        msg.bmp_280 = {}\n    }\n}\ncatch (error){\n    msg.bmp_280 = {}\n}\ndelete msg.payload\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 160,
-        "wires": [
-            [
-                "5a8d83d4ea035531"
-            ]
-        ]
-    },
-    {
-        "id": "12175bdb4c3aaf7a",
-        "type": "function",
-        "z": "esp32_i2c_flow",
-        "name": "function 5",
-        "func": "// 1. Initialize retry counter\nlet retryCount = context.get('retryCount') || 0;\nlet data;\n\n// 2. Your existing parsing logic\ntry {\n    data = JSON.parse(msg.payload);\n} catch (e) {\n    data = { success: false };\n}\n\n// 3. Logic Check\nif (data.success === true) {\n    // SUCCESS: Clear counter and pass data forward\n    context.set('retryCount', 0);\n    msg.hm3301 = data;\n    return [null, msg];\n}\nelse {\n    // FAILURE: Check if we try again\n    if (retryCount < 2) {\n        retryCount++;\n        context.set('retryCount', retryCount);\n\n        // Output 2: Trigger retry (loop back to exec node)\n        // We pass the original msg to keep any headers/topics\n        return [msg, null];\n    }\n    else {\n        // FINAL FAILURE (Attempt 3): Clear counter and pass empty object\n        context.set('retryCount', 0);\n\n        // We set success to false but keep the object structure \n        // so downstream nodes don't crash\n        msg.hm3301 = {\n            success: false,\n            data: {},\n            error: \"Max retries reached\"\n        };\n\n        // Output 1: Continue the flow so other sensors can run\n        return [null, msg];\n    }\n}",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 220,
-        "wires": [
-            [
-                "203ab5c9b35690e8",
-                "138372c5639c4a54"
-            ],
-            [
-                "c05363b3a27e40d3",
-                "dfaf81982e8e087d"
-            ]
-        ]
-    },
-    {
         "id": "382ed5928df0a4d8",
         "type": "function",
         "z": "esp32_i2c_flow",
@@ -458,8 +193,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 140,
-        "y": 880,
+        "x": 110,
+        "y": 520,
         "wires": [
             [
                 "62eee3d3963616e5"
@@ -480,8 +215,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 320,
-        "y": 880,
+        "x": 280,
+        "y": 520,
         "wires": []
     },
     {
@@ -497,8 +232,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 140,
-        "y": 920,
+        "x": 110,
+        "y": 560,
         "wires": [
             [
                 "c17bb38945c20ff3"
@@ -519,162 +254,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 320,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "5a8d83d4ea035531",
-        "type": "delay",
-        "z": "esp32_i2c_flow",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 700,
-        "y": 160,
-        "wires": [
-            [
-                "473227cea3d11e8f"
-            ]
-        ]
-    },
-    {
-        "id": "7a4a5d20507503ca",
-        "type": "delay",
-        "z": "esp32_i2c_flow",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 980,
-        "y": 100,
-        "wires": [
-            [
-                "fd3dc90eee9e2625"
-            ]
-        ]
-    },
-    {
-        "id": "80e45eac27ae5808",
-        "type": "exec",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "command": "sudo i2cdetect -y 1",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 290,
-        "y": 40,
-        "wires": [
-            [
-                "b18b52cde040c74f"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "b18b52cde040c74f",
-        "type": "function",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "name": "function 6",
-        "func": "// msg.payload conté la sortida d'i2cdetect\n\nconst lines = msg.payload.split('\\n');\nconst devices = [];\n\n// Processar cada línia (començant des de la línia 1, saltant la capçalera)\nfor (let i = 1; i < lines.length; i++) {\n    const line = lines[i].trim();\n    if (!line) continue;\n    \n    // Extreure els valors (separats per espais)\n    const parts = line.split(/\\s+/);\n    \n    // El primer element és el prefix de fila (00:, 10:, etc.)\n    const rowPrefix = parts[0].replace(':', '');\n    \n    // Processar cada columna (de 1 a 16)\n    for (let col = 1; col < parts.length && col <= 16; col++) {\n        const value = parts[col];\n        \n        // Si no és '--', hi ha un dispositiu\n        if (value !== '--') {\n            const address = '0x' + value;\n            devices.push({\n                address: address,\n                decimal: parseInt(value, 16)\n            });\n        }\n    }\n}\n\n// Identificar dispositius coneguts (opcional)\nconst knownDevices = {\n    '0x40': 'HM3301 (Particulate Matter)',\n    '0x44': 'SHT40 (Temperature/Humidity)',\n    '0x76': 'BMP280 (Pressure/Temperature)',\n    '0x77': 'BMP280 (alt address)',\n};\n\n// Enriquir amb noms coneguts\ndevices.forEach(dev => {\n    dev.name = knownDevices[dev.address] || 'Unknown device';\n});\n\nmsg.payload = {\n    devices: devices,\n    count: devices.length,\n    addresses: devices.map(d => d.address)\n};\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 20,
-        "wires": [
-            [
-                "73aefdd62223a38c"
-            ]
-        ]
-    },
-    {
-        "id": "d118f0cc19be5296",
-        "type": "function",
-        "z": "esp32_i2c_flow",
-        "name": "function 7",
-        "func": "msg.payload = {\n    timestamp: new Date().toISOString(),\n    sht_40: msg.sht_40?.data || {},\n    bmp_280: msg.bmp_280?.data || {},\n    hm3301: msg.hm3301?.data || {}\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 300,
-        "wires": [
-            [
-                "8ec1feb66e04d45b",
-                "b592fcac1afb164c",
-                "f41fbfbe90227eeb",
-                "0eec4165c8d26a31",
-                "e84bcb0f174370bc"
-            ]
-        ]
-    },
-    {
-        "id": "8ec1feb66e04d45b",
-        "type": "debug",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "6599dad836745d4a",
-        "type": "debug",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 980,
-        "y": 60,
+        "x": 280,
+        "y": 560,
         "wires": []
     },
     {
@@ -687,7 +268,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "payload.sht_40.temperature_celsius",
+                "to": "payload.sen6x.temp",
                 "tot": "msg"
             }
         ],
@@ -696,8 +277,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 320,
+        "x": 940,
+        "y": 40,
         "wires": [
             [
                 "a0e83e89f00d8886"
@@ -724,8 +305,8 @@
         "className": "",
         "value": "$round(payload,1) & \"°C\"",
         "valueType": "jsonata",
-        "x": 830,
-        "y": 320,
+        "x": 1230,
+        "y": 40,
         "wires": []
     },
     {
@@ -740,8 +321,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 680,
-        "y": 320,
+        "x": 1080,
+        "y": 40,
         "wires": [
             [
                 "520d253eee164b20"
@@ -758,7 +339,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "payload.hm3301.pm2_5_atm",
+                "to": "payload.sen6x.pm25",
                 "tot": "msg"
             }
         ],
@@ -767,8 +348,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 550,
-        "y": 360,
+        "x": 950,
+        "y": 80,
         "wires": [
             [
                 "e1dbb9a7da2414b5"
@@ -787,8 +368,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 690,
-        "y": 360,
+        "x": 1090,
+        "y": 80,
         "wires": [
             [
                 "94c39e8b0cf0b923"
@@ -814,8 +395,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 400,
+        "x": 940,
+        "y": 120,
         "wires": [
             [
                 "d6aecdb475a728b4"
@@ -842,8 +423,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 680,
-        "y": 400,
+        "x": 1080,
+        "y": 120,
         "wires": []
     },
     {
@@ -857,31 +438,9 @@
         "height": 0,
         "content": "<div style=\"display: flex; justify-content: space-between; align-items: center; min-height: 32px; font-size: 16px;\">\n  <span style=\"color: var(--v-theme-on-surface);\">PM2.5</span>\n  <span style=\"color: {{msg.payload > 30 ? '#ff4d4d' : 'white'}}; font-weight: bold;\">\n    {{msg.payload}}µg/m³\n  </span>\n</div>",
         "className": "",
-        "x": 810,
-        "y": 360,
+        "x": 1210,
+        "y": 80,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "473227cea3d11e8f",
-        "type": "exec",
-        "z": "esp32_i2c_flow",
-        "command": "/home/admin/i2c/read_hm3301.sh",
-        "addpay": "payload",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 320,
-        "y": 220,
-        "wires": [
-            [
-                "12175bdb4c3aaf7a"
-            ],
-            [],
             []
         ]
     },
@@ -898,7 +457,7 @@
         "oldrc": false,
         "name": "Get CPU Serial",
         "x": 280,
-        "y": 560,
+        "y": 280,
         "wires": [
             [
                 "e9638fa32089e43b"
@@ -924,12 +483,12 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "5",
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "x": 110,
-        "y": 560,
+        "y": 280,
         "wires": [
             [
                 "977c39684894cef3"
@@ -949,7 +508,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 560,
+        "y": 280,
         "wires": [
             [
                 "ed3be105c7b75fd5"
@@ -973,7 +532,7 @@
         "senderr": false,
         "headers": [],
         "x": 490,
-        "y": 700,
+        "y": 420,
         "wires": [
             [
                 "8db21cf7dd713f35"
@@ -993,7 +552,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 660,
-        "y": 560,
+        "y": 280,
         "wires": [
             [
                 "7a1b22e94d4073ec"
@@ -1019,7 +578,7 @@
         "repair": false,
         "outputs": 2,
         "x": 830,
-        "y": 560,
+        "y": 280,
         "wires": [
             [
                 "abb5752951a07cee"
@@ -1041,11 +600,11 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 1120,
-        "y": 660,
+        "y": 380,
         "wires": [
             [
                 "df9c2a0cc8d8bc66",
-                "2fc8ef404cc796b9"
+                "db06a985e1bec648"
             ]
         ]
     },
@@ -1062,7 +621,7 @@
         "finalize": "",
         "libs": [],
         "x": 990,
-        "y": 540,
+        "y": 260,
         "wires": [
             [
                 "5398ab8c5fe19857",
@@ -1082,8 +641,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 440,
+        "x": 150,
+        "y": 200,
         "wires": [
             [
                 "056e35d71a40a451"
@@ -1106,8 +665,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 410,
-        "y": 440,
+        "x": 330,
+        "y": 200,
         "wires": [
             [
                 "c1ded0b97b028ee4"
@@ -1131,8 +690,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 600,
-        "y": 440,
+        "x": 480,
+        "y": 200,
         "wires": [
             [
                 "2fc8ef404cc796b9"
@@ -1180,7 +739,7 @@
         "passthru": false,
         "dropdownOptions": [],
         "x": 130,
-        "y": 700,
+        "y": 420,
         "wires": [
             [
                 "876901c291aa052d"
@@ -1208,7 +767,7 @@
         "repair": false,
         "outputs": 2,
         "x": 650,
-        "y": 700,
+        "y": 420,
         "wires": [
             [
                 "3ceaa68b2909825e",
@@ -1239,7 +798,7 @@
         "to": "",
         "reg": false,
         "x": 850,
-        "y": 740,
+        "y": 460,
         "wires": [
             [
                 "5398ab8c5fe19857"
@@ -1263,7 +822,7 @@
         "className": "",
         "icon": "",
         "iconPosition": "left",
-        "payload": "\"/page2\"",
+        "payload": "/page2",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
@@ -1277,8 +836,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1240,
-        "y": 580,
+        "x": 1260,
+        "y": 300,
         "wires": [
             [
                 "131c33b49f46c51a"
@@ -1292,8 +851,8 @@
         "name": "",
         "ui": "1443564c12c7ad23",
         "events": "all",
-        "x": 1420,
-        "y": 580,
+        "x": 1440,
+        "y": 300,
         "wires": [
             []
         ]
@@ -1318,7 +877,7 @@
         "to": "",
         "reg": false,
         "x": 1010,
-        "y": 580,
+        "y": 300,
         "wires": [
             [
                 "7bda856ba4e35fba"
@@ -1344,8 +903,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
-        "y": 620,
+        "x": 1390,
+        "y": 380,
         "wires": [
             [
                 "7bda856ba4e35fba"
@@ -1365,7 +924,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 700,
+        "y": 420,
         "wires": [
             [
                 "91973b18c73a196a"
@@ -1385,7 +944,7 @@
         "finalize": "",
         "libs": [],
         "x": 870,
-        "y": 660,
+        "y": 380,
         "wires": [
             [
                 "9d69260e80322dae"
@@ -1405,7 +964,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 700,
+        "y": 420,
         "wires": [
             [
                 "5398ab8c5fe19857"
@@ -1430,8 +989,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1160,
-        "y": 720,
+        "x": 1120,
+        "y": 440,
         "wires": [
             []
         ]
@@ -1440,12 +999,12 @@
         "id": "2fc8ef404cc796b9",
         "type": "delay",
         "z": "esp32_i2c_flow",
-        "name": "5m rate limit",
+        "name": "",
         "pauseType": "rate",
         "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "1",
-        "nbRateUnits": "6",
+        "nbRateUnits": "5",
         "rateUnits": "minute",
         "randomFirst": "1",
         "randomLast": "5",
@@ -1453,21 +1012,130 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 750,
-        "y": 440,
+        "x": 120,
+        "y": 80,
         "wires": [
             [
-                "7536583181028b5c"
+                "2a9a6ac3b41a549f"
             ]
         ]
     },
     {
-        "id": "203ab5c9b35690e8",
+        "id": "94ecd20385b8cad6",
+        "type": "inject",
+        "z": "esp32_i2c_flow",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "2a9a6ac3b41a549f"
+            ]
+        ]
+    },
+    {
+        "id": "2a9a6ac3b41a549f",
+        "type": "file in",
+        "z": "esp32_i2c_flow",
+        "name": "Get SEN6x JSON",
+        "filename": "/home/admin/i2c/sen6x/sen6x.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 310,
+        "y": 40,
+        "wires": [
+            [
+                "ad43fe764051b6e4"
+            ]
+        ]
+    },
+    {
+        "id": "ad43fe764051b6e4",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "JSON Parser",
+        "func": "try {\n    // Parse the string from the File node\n    msg.sen6x = JSON.parse(msg.payload);\n    \n} \ncatch (error) {\n    // If the file was empty or corrupted during a write, catch the error\n    msg.sen6x = {};\n}\n\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 40,
+        "wires": [
+            [
+                "799c242e105f6736"
+            ]
+        ]
+    },
+    {
+        "id": "ccc9dd81be38562c",
+        "type": "function",
+        "z": "esp32_i2c_flow",
+        "name": "Combiner",
+        "func": "msg.payload = {\n    timestamp: new Date().toISOString(),\n    sen6x: msg.sen6x || {},\n    mgs: msg.mgs || {}\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 100,
+        "wires": [
+            [
+                "b592fcac1afb164c",
+                "f41fbfbe90227eeb",
+                "0eec4165c8d26a31",
+                "e84bcb0f174370bc",
+                "3a3d79f638db79e7"
+            ]
+        ]
+    },
+    {
+        "id": "3a3d79f638db79e7",
+        "type": "debug",
+        "z": "esp32_i2c_flow",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "db06a985e1bec648",
         "type": "delay",
         "z": "esp32_i2c_flow",
         "name": "",
         "pauseType": "delay",
-        "timeout": "5",
+        "timeout": "1",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -1478,66 +1146,64 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 720,
-        "y": 220,
+        "x": 480,
+        "y": 320,
         "wires": [
             [
-                "473227cea3d11e8f"
+                "ed3be105c7b75fd5"
             ]
         ]
     },
     {
-        "id": "7536583181028b5c",
+        "id": "7abc907d03d7ee45",
         "type": "exec",
         "z": "esp32_i2c_flow",
-        "command": "i2cset -y 1 0x40 0x88",
+        "command": "~/i2c/MGSv2/read_mgs.py",
         "addpay": "payload",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Wake HM3301",
-        "x": 240,
+        "name": "",
+        "x": 380,
         "y": 100,
         "wires": [
             [
-                "e2b66094dcc77929"
+                "d71e59d551a9674f"
             ],
             [],
             []
         ]
     },
     {
-        "id": "c05363b3a27e40d3",
-        "type": "exec",
+        "id": "d71e59d551a9674f",
+        "type": "function",
         "z": "esp32_i2c_flow",
-        "command": "i2cset -y 1 0x40 0x88",
-        "addpay": "payload",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Shut HM3301",
-        "x": 160,
-        "y": 320,
+        "name": "JSON Parser",
+        "func": "try {\n    // Parse the string from the File node\n    msg.mgs = JSON.parse(msg.payload);\n} \ncatch (error) {\n    // If the file was empty or corrupted during a write, catch the error\n    msg.mgs = {};\n}\n\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 100,
         "wires": [
             [
-                "d118f0cc19be5296"
-            ],
-            [],
-            []
+                "ccc9dd81be38562c"
+            ]
         ]
     },
     {
-        "id": "e2b66094dcc77929",
+        "id": "799c242e105f6736",
         "type": "delay",
         "z": "esp32_i2c_flow",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
-        "timeoutUnits": "minutes",
+        "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
         "rateUnits": "second",
@@ -1547,70 +1213,30 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 400,
-        "y": 100,
+        "x": 640,
+        "y": 40,
         "wires": [
             [
-                "0e888c539a966c15"
+                "7abc907d03d7ee45"
             ]
         ]
     },
     {
-        "id": "138372c5639c4a54",
-        "type": "debug",
+        "id": "a44b6cf4c7a56b3a",
+        "type": "catch",
         "z": "esp32_i2c_flow",
         "d": true,
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 840,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "dfaf81982e8e087d",
-        "type": "debug",
-        "z": "esp32_i2c_flow",
-        "d": true,
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 160,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "fd3dc90eee9e2625",
-        "type": "exec",
-        "z": "esp32_i2c_flow",
-        "command": "/home/admin/i2c/read_bmp280.sh",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
         "name": "",
-        "x": 320,
-        "y": 160,
+        "scope": [
+            "056e35d71a40a451"
+        ],
+        "uncaught": false,
+        "x": 350,
+        "y": 180,
         "wires": [
             [
-                "c8de65b427e7d3d8"
-            ],
-            [],
-            []
+                "c1ded0b97b028ee4"
+            ]
         ]
     },
     {

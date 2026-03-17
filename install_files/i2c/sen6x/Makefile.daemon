@@ -1,3 +1,5 @@
+# Run with `make -f Makefile.daemon`
+# possibly add `&& ./sen6x_d &`
 CC = gcc
 # -I. looks here, -I./raspberry-pi-i2c-sen63c looks inside the repo folder
 CFLAGS = -Wall -I. -I./raspberry-pi-i2c-sen63c

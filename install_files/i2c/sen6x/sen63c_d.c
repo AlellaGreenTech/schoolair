@@ -37,7 +37,8 @@ int main(void) {
     float humidity = 0.0;
     float temperature = 0.0;
     uint16_t co2 = 0;
-    while (1) {
+
+    for (uint8_t retry_count = 0 ; retry_count < 10 ; ++retry_count) {
         error = sen63c_read_measured_values(
             &mass_concentration_pm1p0, &mass_concentration_pm2p5,
             &mass_concentration_pm4p0, &mass_concentration_pm10p0, &humidity,
@@ -50,7 +51,7 @@ int main(void) {
     while (1) {
         // First, check if the PREVIOUS read was successful
         if (error == NO_ERROR) {
-            FILE *f = fopen("/tmp/sen6x.json.tmp", "w");
+            FILE *f = fopen("/home/admin/i2c/sen6x/.sen6x.json.tmp", "w");
             if (f) {
                 char timestr[20];
                 time_t now = time(NULL);
@@ -75,7 +76,7 @@ int main(void) {
                         mass_concentration_pm4p0,
                         mass_concentration_pm10p0);
                 fclose(f);
-                rename("/tmp/sen6x.json.tmp", "/tmp/sen6x.json");
+                rename("/home/admin/i2c/sen6x/.sen6x.json.tmp", "/home/admin/i2c/sen6x/sen6x.json");
             }
         } else {
             // Real errors are logged to systemd journal

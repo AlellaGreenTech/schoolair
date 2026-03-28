@@ -63,6 +63,7 @@ function startCheckout(type, kitType, tier) {
     // Reset form
     document.getElementById('checkoutEmail').value = ''
     document.getElementById('checkoutDisplayName').value = ''
+    document.getElementById('checkoutClassroom').value = ''
     document.getElementById('checkoutDedication').value = ''
     const btn = document.getElementById('checkoutSubmitBtn')
     btn.disabled = false
@@ -77,6 +78,7 @@ async function submitCheckout() {
     const modal = document.getElementById('checkoutModal')
     const email = document.getElementById('checkoutEmail').value.trim()
     const displayName = document.getElementById('checkoutDisplayName').value.trim()
+    const classroom = document.getElementById('checkoutClassroom').value.trim()
     const dedication = document.getElementById('checkoutDedication').value.trim()
 
     if (!email) {
@@ -98,6 +100,7 @@ async function submitCheckout() {
                 tier: modal.dataset.tier ? parseInt(modal.dataset.tier) : undefined,
                 email,
                 display_name: displayName || undefined,
+                classroom: classroom || undefined,
                 dedication: dedication || undefined,
                 success_url: window.location.origin + window.location.pathname + '?success=true',
                 cancel_url: window.location.origin + window.location.pathname + '?cancelled=true',

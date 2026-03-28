@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor a Classroom - SchoolAIR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/sponsor.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sponsor-nav">
+        <div class="nav-inner">
+            <a href="https://schoolair.org" class="logo">
+                <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+                <span class="logo-text">schoolAIR</span>
+            </a>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Portal</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="sponsor-main-content">
+
+        <!-- Hero -->
+        <section class="sponsor-hero">
+            <h1>Help Every Classroom Breathe Clean Air</h1>
+            <p class="story-text">
+                The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. The total cost of components in a kit is now about &euro;50 &mdash; even with the best possible maker-level components selected. The housing and installation cost a little more, but the grand total is still surprisingly low. And each unit will forever protect a classroom by letting teachers know when it&rsquo;s time to ventilate &mdash; or shut a window due to poor outside air quality.
+            </p>
+        </section>
+
+        <!-- Progress Bar -->
+        <section class="progress-section">
+            <div class="progress-header">
+                <h3>Classrooms Protected</h3>
+                <span class="progress-count"><strong id="progressCount">2</strong> of <span id="progressTotal">48</span></span>
+            </div>
+            <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="progressBar" style="width: 4.2%;"></div>
+            </div>
+        </section>
+
+        <!-- Sponsor Cards -->
+        <section class="cards-section">
+            <h2><i class="fas fa-box-open"></i> Sponsor a Kit</h2>
+            <p class="section-subtitle">One-time purchase &mdash; each kit protects one classroom forever</p>
+
+            <div class="sponsor-cards">
+                <div class="sponsor-card">
+                    <div class="card-icon"><i class="fas fa-tools" style="color: #f59e0b;"></i></div>
+                    <h3>Home Build Kit</h3>
+                    <p>DIY air quality monitor kit &mdash; build it with your kids! Includes all components, housing, and step-by-step guide.</p>
+                    <div class="price"><span class="currency">&euro;</span>65</div>
+                    <button class="btn-sponsor" onclick="startCheckout('sponsor', 'home_build')">
+                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Kit
+                    </button>
+                </div>
+
+                <div class="sponsor-card featured">
+                    <span class="featured-badge">Most Impact</span>
+                    <div class="card-icon"><i class="fas fa-shield-alt" style="color: #2e7d32;"></i></div>
+                    <h3>Installed Kit</h3>
+                    <p>Fully assembled and professionally installed air quality monitor for one classroom. Ready to protect from day one.</p>
+                    <div class="price"><span class="currency">&euro;</span>95</div>
+                    <button class="btn-sponsor" onclick="startCheckout('sponsor', 'installed')">
+                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Kit
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patron Cards -->
+        <section class="cards-section">
+            <h2><i class="fas fa-heart"></i> Become a Monthly Patron</h2>
+            <p class="section-subtitle">Recurring support for maintenance, calibration, and expansion</p>
+
+            <div class="patron-cards">
+                <div class="patron-card">
+                    <div class="card-icon"><i class="fas fa-seedling" style="color: #4caf50;"></i></div>
+                    <h3>Supporter</h3>
+                    <p>Help keep sensors calibrated and running smoothly</p>
+                    <div class="price"><span class="currency">&euro;</span>5<span class="period">/mo</span></div>
+                    <button class="btn-patron" onclick="startCheckout('patron', null, 5)">
+                        <i class="fas fa-heart"></i> Start Supporting
+                    </button>
+                </div>
+
+                <div class="patron-card">
+                    <div class="card-icon"><i class="fas fa-trophy" style="color: #3b82f6;"></i></div>
+                    <h3>Champion</h3>
+                    <p>Fund sensor replacements and classroom expansion</p>
+                    <div class="price"><span class="currency">&euro;</span>10<span class="period">/mo</span></div>
+                    <button class="btn-patron" onclick="startCheckout('patron', null, 10)">
+                        <i class="fas fa-heart"></i> Start Supporting
+                    </button>
+                </div>
+
+                <div class="patron-card">
+                    <div class="card-icon"><i class="fas fa-star" style="color: #8b5cf6;"></i></div>
+                    <h3>Guardian</h3>
+                    <p>Maximum impact &mdash; help bring SchoolAIR to new schools</p>
+                    <div class="price"><span class="currency">&euro;</span>25<span class="period">/mo</span></div>
+                    <button class="btn-patron" onclick="startCheckout('patron', null, 25)">
+                        <i class="fas fa-heart"></i> Start Supporting
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Wall -->
+        <section class="wall-section">
+            <h2><i class="fas fa-users"></i> Our Sponsors &amp; Patrons</h2>
+            <div class="sponsors-grid" id="sponsorsGrid">
+                <p class="empty-wall">Be the first to sponsor a classroom!</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal" onclick="if(event.target===this)closeCheckoutModal()">
+        <div class="checkout-modal-card">
+            <button class="close-btn" onclick="closeCheckoutModal()">&times;</button>
+            <h3 id="checkoutTitle">Complete Your Sponsorship</h3>
+
+            <div class="form-group">
+                <label for="checkoutEmail">Email <span style="color: #ef4444;">*</span></label>
+                <input type="email" id="checkoutEmail" placeholder="you@example.com" required>
+                <p class="hint">We'll send your receipt and display name edit link here</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutDisplayName">Display Name</label>
+                <input type="text" id="checkoutDisplayName" placeholder="e.g. Harry & Sally Brooks">
+                <p class="hint">Shown on the sponsors wall and classroom plaque (optional)</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutDedication">Dedication</label>
+                <textarea id="checkoutDedication" rows="2" placeholder="e.g. For Ms. Garcia's 3rd grade class"></textarea>
+                <p class="hint">Optional message shown with your name</p>
+            </div>
+
+            <button class="btn-checkout-submit" id="checkoutSubmitBtn" onclick="submitCheckout()">
+                Proceed to Payment
+            </button>
+        </div>
+    </div>
+
+    <!-- Label Edit (shown when ?edit=TOKEN) -->
+    <div class="label-edit" id="labelEdit">
+        <div class="label-edit-card">
+            <h2>Update Your Display Name</h2>
+            <p class="subtitle">This is how your name will appear on the sponsors wall and classroom plaque</p>
+            <form id="labelForm">
+                <div class="form-group">
+                    <label for="editDisplayName">Display Name</label>
+                    <input type="text" id="editDisplayName" placeholder="e.g. Harry & Sally Brooks" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDedication">Dedication (optional)</label>
+                    <textarea id="editDedication" rows="2" placeholder="e.g. For Ms. Garcia's 3rd grade class"></textarea>
+                </div>
+                <button type="submit" class="btn-checkout-submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/sponsor.js"></script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+/* Sponsor Page Styles */
+
+.sponsor-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+.sponsor-nav .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sponsor-nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sponsor-nav .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #1B5E20, #76FF03);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}
+
+.sponsor-nav .logo-text {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+.sponsor-nav .back-link {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.2s;
+}
+
+.sponsor-nav .back-link:hover {
+    opacity: 0.7;
+}
+
+/* Main Content */
+.sponsor-main-content {
+    padding-top: 5rem;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* Hero */
+.sponsor-hero {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 20px 2rem;
+    text-align: center;
+}
+
+.sponsor-hero h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1B5E20;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.sponsor-hero .story-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #475569;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Progress Section */
+.progress-section {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+}
+
+.progress-header h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.progress-count {
+    font-size: 1rem;
+    color: #64748b;
+}
+
+.progress-count strong {
+    color: #2e7d32;
+    font-size: 1.2rem;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 24px;
+    background: #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2e7d32, #4caf50);
+    border-radius: 12px;
+    transition: width 1s ease;
+    min-width: 2%;
+}
+
+/* Cards Section */
+.cards-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+}
+
+.cards-section h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.cards-section .section-subtitle {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.sponsor-cards,
+.patron-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.sponsor-card,
+.patron-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.sponsor-card:hover,
+.patron-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.sponsor-card.featured {
+    border-color: #2e7d32;
+    border-width: 3px;
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.sponsor-card h3,
+.patron-card h3 {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.sponsor-card p,
+.patron-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2e7d32;
+    margin-bottom: 1.5rem;
+}
+
+.price .currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+    line-height: 2;
+}
+
+.price .period {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+.btn-sponsor {
+    display: inline-block;
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-sponsor:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.btn-patron {
+    display: inline-block;
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-patron:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Sponsors Wall */
+.wall-section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 20px;
+}
+
+.wall-section h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.sponsor-tile {
+    background: white;
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+}
+
+.sponsor-tile strong {
+    display: block;
+    color: #1e293b;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.tile-dedication {
+    display: block;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.tile-type {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.empty-wall {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    padding: 3rem 1rem;
+    grid-column: 1 / -1;
+}
+
+/* Checkout Modal */
+.checkout-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-modal-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+}
+
+.checkout-modal-card h3 {
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.checkout-modal-card .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.form-group .hint {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 0.3rem;
+}
+
+.btn-checkout-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-checkout-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Banners */
+.banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    z-index: 10001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    animation: slideDown 0.3s ease;
+}
+
+.banner-success {
+    background: #dcfce7;
+    color: #166534;
+    border-bottom: 2px solid #2e7d32;
+}
+
+.banner-cancel {
+    background: #fef3c7;
+    color: #92400e;
+    border-bottom: 2px solid #f59e0b;
+}
+
+.banner button {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: inherit;
+    padding: 0 0.5rem;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Label Edit */
+.label-edit {
+    display: none;
+    max-width: 500px;
+    margin: 6rem auto;
+    padding: 2rem 20px;
+}
+
+.label-edit-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.label-edit-card h2 {
+    font-family: 'Roboto Slab', serif;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.label-edit-card .subtitle {
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.label-edit-card .form-group {
+    text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sponsor-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .sponsor-cards,
+    .patron-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    .sponsor-nav .back-link span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsor-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .sponsor-hero .story-text {
+        font-size: 0.95rem;
+    }
+
+    .sponsor-card,
+    .patron-card {
+        padding: 1.5rem;
+    }
+}

@@ -41,6 +41,66 @@ header p {
     opacity: 0.9;
 }
 
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.toggle-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+    color: white;
+}
+
+.toggle-btn.active {
+    background: white;
+    color: #2e7d32;
+    border-color: white;
+    font-weight: 600;
+}
+
+.live-data-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+}
+
+.live-data-wrapper iframe {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.live-data-caption {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+.live-data-caption a {
+    color: white;
+    text-decoration: underline;
+}
+
 .dashboard {
     max-width: 1200px;
     margin: 0 auto;

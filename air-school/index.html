@@ -11,9 +11,27 @@
     <header>
         <h1>Air School</h1>
         <p>Real-time classroom monitoring</p>
+        <div class="view-toggle">
+            <button class="toggle-btn active" id="btn-simulation" onclick="switchView('simulation')">Simulation</button>
+            <button class="toggle-btn" id="btn-live" onclick="switchView('live')">Live Data</button>
+        </div>
     </header>
 
-    <main class="dashboard">
+    <!-- Live Data View (iframe) -->
+    <div id="view-live" class="view-container" style="display: none;">
+        <div class="live-data-wrapper">
+            <iframe
+                id="live-data-iframe"
+                src="about:blank"
+                data-src="https://data.schoolair.org/node/admin-dashboard?token=BFISSecretToken"
+                title="Live Air Quality Data"
+                allowfullscreen>
+            </iframe>
+            <p class="live-data-caption">Live sensor data from BFIS monitoring units — powered by <a href="https://data.schoolair.org" target="_blank">data.schoolair.org</a></p>
+        </div>
+    </div>
+
+    <main class="dashboard" id="view-simulation">
         <div class="classroom-grid">
 
             <div class="classroom-card" data-room="nursery">
@@ -291,5 +309,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script>
+        function switchView(view) {
+            const simulation = document.getElementById('view-simulation');
+            const live = document.getElementById('view-live');
+            const btnSim = document.getElementById('btn-simulation');
+            const btnLive = document.getElementById('btn-live');
+            const iframe = document.getElementById('live-data-iframe');
+
+            if (view === 'live') {
+                simulation.style.display = 'none';
+                live.style.display = 'block';
+                btnSim.classList.remove('active');
+                btnLive.classList.add('active');
+                // Lazy-load iframe on first switch
+                if (iframe.src === 'about:blank') {
+                    iframe.src = iframe.dataset.src;
+                }
+            } else {
+                simulation.style.display = 'block';
+                live.style.display = 'none';
+                btnSim.classList.add('active');
+                btnLive.classList.remove('active');
+            }
+        }
+    </script>
 </body>
 </html>

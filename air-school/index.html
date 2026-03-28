@@ -9,21 +9,20 @@
 </head>
 <body>
     <header>
-        <h1>Air School</h1>
-        <p>Real-time classroom monitoring</p>
+        <h1>Benjamin Franklin International</h1>
+        <p>Real-time air quality monitoring</p>
         <div class="view-toggle">
-            <button class="toggle-btn active" id="btn-simulation" onclick="switchView('simulation')">Simulation</button>
-            <button class="toggle-btn" id="btn-live" onclick="switchView('live')">Live Data</button>
+            <button class="toggle-btn" id="btn-simulation" onclick="switchView('simulation')">Simulation</button>
+            <button class="toggle-btn active" id="btn-live" onclick="switchView('live')">Live Data</button>
         </div>
     </header>
 
     <!-- Live Data View (iframe) -->
-    <div id="view-live" class="view-container" style="display: none;">
+    <div id="view-live" class="view-container">
         <div class="live-data-wrapper">
             <iframe
                 id="live-data-iframe"
-                src="about:blank"
-                data-src="https://data.schoolair.org/node/admin-dashboard?token=BFISSecretToken"
+                src="https://data.schoolair.org/node/admin-dashboard?token=BFISSecretToken"
                 title="Live Air Quality Data"
                 allowfullscreen>
             </iframe>
@@ -31,7 +30,7 @@
         </div>
     </div>
 
-    <main class="dashboard" id="view-simulation">
+    <main class="dashboard" id="view-simulation" style="display: none;">
         <div class="classroom-grid">
 
             <div class="classroom-card" data-room="nursery">
@@ -322,10 +321,6 @@
                 live.style.display = 'block';
                 btnSim.classList.remove('active');
                 btnLive.classList.add('active');
-                // Lazy-load iframe on first switch
-                if (iframe.src === 'about:blank') {
-                    iframe.src = iframe.dataset.src;
-                }
             } else {
                 simulation.style.display = 'block';
                 live.style.display = 'none';

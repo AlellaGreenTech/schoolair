@@ -90,8 +90,32 @@
     font-size: 1.05rem;
     line-height: 1.7;
     color: #475569;
-    max-width: 700px;
+}
+
+.hero-split {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+.hero-text-col {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-video-col {
+    flex: 0 0 280px;
+}
+
+.video-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+    margin-top: 0.6rem;
+    line-height: 1.4;
 }
 
 /* Progress Section */
@@ -513,6 +537,21 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero-split {
+        flex-direction: column;
+    }
+
+    .hero-video-col {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .hero-text-col {
+        text-align: center;
+    }
+
     .sponsor-hero h1 {
         font-size: 1.8rem;
     }

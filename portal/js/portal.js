@@ -67,7 +67,7 @@ function updateSchoolInfo() {
     // Update stats
     document.getElementById('statSensors').textContent = currentSchool.stats.sensors;
     document.getElementById('statStudents').textContent = currentSchool.stats.students;
-    document.getElementById('statData').textContent = formatNumber(currentSchool.stats.dataPoints);
+    document.getElementById('statData').textContent = typeof currentSchool.stats.dataPoints === 'string' ? currentSchool.stats.dataPoints : formatNumber(currentSchool.stats.dataPoints);
     document.getElementById('statAlerts').textContent = currentSchool.stats.alerts;
 
     // Update dashboard link

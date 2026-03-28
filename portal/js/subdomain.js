@@ -65,10 +65,10 @@ class SchoolPortal {
                 description: 'Pioneering air quality monitoring in Barcelona',
                 joinedDate: '2024-06',
                 stats: {
-                    sensors: 48,
-                    students: 25,
-                    dataPoints: 980000,
-                    alerts: 1
+                    sensors: '2 of 48',
+                    students: 10,
+                    dataPoints: '1K',
+                    alerts: 0
                 }
             }
         };

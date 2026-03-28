@@ -478,10 +478,158 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Tabs Section (Overview, Schools, Volunteers, Data & API) -->
+            <div style="margin-top: 4rem;">
+                <div class="tabs" style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid #e0e0e0;">
+                    <button class="tab active" onclick="switchTab('overview', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid #2e7d32; cursor: pointer; font-size: 1rem; font-weight: 500; color: #2e7d32;">
+                        <i class="fas fa-chart-line"></i> Overview
+                    </button>
+                    <button class="tab" onclick="switchTab('schools', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 500; color: #666;">
+                        <i class="fas fa-school"></i> Schools
+                    </button>
+                    <button class="tab" onclick="switchTab('volunteers', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 500; color: #666;">
+                        <i class="fas fa-users"></i> Volunteers
+                    </button>
+                    <button class="tab" onclick="switchTab('data', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 500; color: #666;">
+                        <i class="fas fa-download"></i> Data &amp; API
+                    </button>
+                </div>
+
+                <!-- Overview Tab -->
+                <div id="overview-tab" class="tab-content" style="display: block; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                            <i class="fas fa-eye" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Current Global AQI</h3>
+                            <div style="font-size: 2rem; color: #10B981; font-weight: bold;">52</div>
+                            <p>Moderate - Acceptable for most people</p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                            <i class="fas fa-wind" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Average PM2.5</h3>
+                            <div style="font-size: 2rem; color: #2e7d32; font-weight: bold;">14.8</div>
+                            <p>μg/m³ - Within WHO guidelines</p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                            <i class="fas fa-chart-area" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Real-time Monitoring</h3>
+                            <div style="font-size: 2rem; color: #3B82F6; font-weight: bold;">24/7</div>
+                            <p>Continuous data collection worldwide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schools Tab -->
+                <div id="schools-tab" class="tab-content" style="display: none; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h2 style="margin-bottom: 1rem;">School Network Directory</h2>
+                    <p style="margin-bottom: 2rem; color: #666; font-style: italic;">AQI = Air Quality Indicator</p>
+                    <p style="margin-bottom: 2rem; color: #666;">⚠️ Individual school data is private. Only anonymized aggregate data is shown.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; border: 2px solid #2e7d32; background: linear-gradient(135deg, #f8fff8, #e8f5e8);">
+                            <h3 style="color: #1B5E20;">🌬️ Air School</h3>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
+                                <span>Online - Real-time monitoring</span>
+                            </div>
+                            <p><strong>AQI:</strong> <span style="color: #2e7d32; font-weight: 600;">Interactive Dashboard Available</span></p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                            <h3>Barcelona International School</h3>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
+                                <span>Online - All sensors active</span>
+                            </div>
+                            <p><strong>AQI:</strong> Login to see your school's AQI</p>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                            <h3>Green Valley Academy</h3>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                                <div style="width: 10px; height: 10px; border-radius: 50%; background: #4caf50;"></div>
+                                <span>Online - All sensors active</span>
+                            </div>
+                            <p><strong>AQI:</strong> Login to see your school's AQI</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volunteers Tab -->
+                <div id="volunteers-tab" class="tab-content" style="display: none; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h2 style="text-align: center; margin-bottom: 2rem;">Community Volunteers</h2>
+                    <p style="text-align: center; margin-bottom: 3rem; color: #666;">Join our global network of environmental advocates helping schools monitor air quality</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
+                            <i class="fas fa-users" style="font-size: 3rem; color: white; margin-bottom: 1rem;"></i>
+                            <h3 style="color: white; font-size: 1.5rem;">1,247</h3>
+                            <p>Active Volunteers</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
+                            <i class="fas fa-school" style="font-size: 3rem; color: white; margin-bottom: 1rem;"></i>
+                            <h3 style="color: white; font-size: 1.5rem;">384</h3>
+                            <p>Schools Helped</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
+                            <i class="fas fa-globe" style="font-size: 3rem; color: white; margin-bottom: 1rem;"></i>
+                            <h3 style="color: white; font-size: 1.5rem;">52</h3>
+                            <p>Countries</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data & API Tab -->
+                <div id="data-tab" class="tab-content" style="display: none; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h2 style="margin-bottom: 2rem;">Data &amp; API Access</h2>
+                    <p style="margin-bottom: 2rem; color: #666;">Access real-time and historical air quality data through our API</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                        <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
+                            <h3 style="margin-bottom: 1rem;">API Endpoints</h3>
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                                <code>GET /api/v1/schools</code>
+                                <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">List all participating schools</p>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                                <code>GET /api/v1/aqi/{region}</code>
+                                <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Get regional air quality data</p>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                                <code>GET /api/v1/historical/{school_id}</code>
+                                <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Historical data for specific school</p>
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
+                            <h3 style="margin-bottom: 1rem;">Integration Example</h3>
+                            <div style="background: #1a1a1a; color: #00ff00; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.85rem;">
+curl -X GET https://api.schoolair.org/v1/aqi/europe \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# Response:
+{
+  "region": "europe",
+  "avg_aqi": 45,
+  "schools": 692
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <script>
+        // Tab switching
+        function switchTab(tabName, btn) {
+            document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+            document.querySelectorAll('.tab').forEach(t => {
+                t.style.borderBottomColor = 'transparent';
+                t.style.color = '#666';
+            });
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            btn.style.borderBottomColor = '#2e7d32';
+            btn.style.color = '#2e7d32';
+        }
+
         // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.querySelector('.nav-links');

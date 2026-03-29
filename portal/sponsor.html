@@ -28,11 +28,11 @@
 
         <!-- Hero -->
         <section class="sponsor-hero">
-            <h1>Help Every Classroom Breathe Clean Air</h1>
+            <h1>Help every Area of BFIS have Clean Air</h1>
             <div class="hero-split">
                 <div class="hero-text-col">
                     <p class="story-text">
-                        The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. The total cost of components in a kit is now about &euro;50 &mdash; even with the best possible maker-level components selected. The housing and installation cost a little more, but the grand total is still surprisingly low. And each unit will forever protect a classroom by letting teachers know when it&rsquo;s time to ventilate &mdash; or shut a window due to poor outside air quality.
+                        The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. The total cost of components in a kit is now about &euro;50 &mdash; even with the best possible maker-level components selected. The home build kit includes all components and step-by-step instructions; it does not include housing. You'll proudly deliver a working unit to your school for installation - or use it at home! Each unit forever protects a classroom by letting teachers know when it&rsquo;s time to ventilate &mdash; or shut a window due to poor outside air quality.
                     </p>
                 </div>
                 <div class="hero-video-col">
@@ -47,9 +47,10 @@
         <!-- Progress Bar -->
         <section class="progress-section">
             <div class="progress-header">
-                <h3>Classrooms Protected</h3>
+                <h3>BFIS Classrooms/Play Fields Protected</h3>
                 <span class="progress-count"><strong id="progressCount">2</strong> of <span id="progressTotal">48</span></span>
             </div>
+            <p class="plaque-note" style="margin:0.6rem 0 0.8rem; color: #1f2937; font-weight: 500;">Classrooms with airquality units will proudly exhibit a plaque: This Classroom Protected thanks to Jane & Jennifer Rameriz</p>
             <div class="progress-bar-track">
                 <div class="progress-bar-fill" id="progressBar" style="width: 4.2%;"></div>
             </div>
@@ -64,10 +65,10 @@
                 <div class="sponsor-card">
                     <div class="card-icon"><i class="fas fa-tools" style="color: #f59e0b;"></i></div>
                     <h3>Home Build Kit</h3>
-                    <p>DIY air quality monitor kit &mdash; build it with your kids! Includes all components, housing, and step-by-step guide.</p>
+                    <p>DIY air quality monitor kit &mdash; build it with your kids! Includes all components (housing not included) and step-by-step instructions. You'll proudly deliver a working unit to your school for installation - or use it at home!</p>
                     <div class="price"><span class="currency">&euro;</span>65</div>
                     <button class="btn-sponsor" onclick="startCheckout('sponsor', 'home_build')">
-                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Kit
+                        <i class="fas fa-hand-holding-heart"></i> Get Your Build Kit
                     </button>
                 </div>
 
@@ -186,6 +187,30 @@
         </div>
     </div>
 
+    <script src="js/subdomain.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const portal = new SchoolPortal();
+            await portal.loadSchoolConfig();
+
+            const schoolSlug = portal.schoolSlug || 'schoolair';
+            const schoolName = portal.config?.name || 'Your School';
+            const brandName = schoolSlug === 'bfis' ? 'BFIS' : schoolName;
+
+            const headline = `Help every Area of ${brandName} have Clean Air`;
+            document.title = `${headline} - SchoolAIR`;
+            const heroHeading = document.querySelector('.sponsor-hero h1');
+            if (heroHeading) heroHeading.textContent = headline;
+
+            const progressHeading = document.querySelector('.progress-header h3');
+            if (progressHeading) progressHeading.textContent = `${brandName} Classrooms/Play Fields Protected`;
+
+            const plaqueText = document.querySelector('.plaque-note');
+            if (plaqueText) {
+                plaqueText.textContent = `Classrooms with airquality units will proudly exhibit a plaque: This Classroom Protected thanks to Jane & Jennifer Rameriz`;
+            }
+        });
+    </script>
     <script src="js/sponsor.js"></script>
 </body>
 </html>

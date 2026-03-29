@@ -1861,119 +1861,104 @@
         </div>
     </section>
 
-    <!-- Project Announcements Section -->
-    <section id="announcements" class="announcements">
-        <div class="container">
-            <h2 class="section-title">Project Updates & News</h2>
-            <p class="section-subtitle">Latest developments in the schoolAIR community</p>
-            
-            <div class="announcements-container">
-                <div class="announcement-card featured">
-                    <div class="announcement-header">
-                        <span class="announcement-date">April 2026</span>
-                        <span class="announcement-type new">New</span>
-                    </div>
-                    <h3>Parent &amp; Patron Sponsorships Open</h3>
-                    <p>SchoolAir opens its doors to parent and patron sponsorships. Now parents can directly protect a classroom in their school!</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <span>Sponsor a Classroom</span>
-                    </div>
-                </div>
-
-                <div class="announcement-card featured">
-                    <div class="announcement-header">
-                        <span class="announcement-date">March 2026</span>
-                        <span class="announcement-type community">Community</span>
-                    </div>
-                    <h3>Royal Melbourne Institute of Technology Joins!</h3>
-                    <p>A team of 5 computer science students take on building the Applications Programming Interface (API) for data sharing with enhanced privacy.</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-university"></i>
-                        <span>Partnership</span>
-                    </div>
-                </div>
-
-                <div class="announcement-card">
-                    <div class="announcement-header">
-                        <span class="announcement-date">March 2026</span>
-                        <span class="announcement-type development">Development</span>
-                    </div>
-                    <h3>First Institutions Complete Their Kit Builds!</h3>
-                    <p>BFIS first install exterior units in multiple locations.</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Milestone</span>
-                    </div>
-                </div>
-
-                <div class="announcement-card">
-                    <div class="announcement-header">
-                        <span class="announcement-date">February 2026</span>
-                        <span class="announcement-type development">Development</span>
-                    </div>
-                    <h3>Support for Raspberry Pi Completed</h3>
-                    <p>For cheaper, faster SchoolAir units.</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-microchip"></i>
-                        <span>Platform Update</span>
-                    </div>
-                </div>
-
-                <div class="announcement-card featured">
-                    <div class="announcement-header">
-                        <span class="announcement-date">September 2024</span>
-                        <span class="announcement-type new">New Features</span>
-                    </div>
-                    <h3>Multi-language Support Launched</h3>
-                    <p>The schoolAIR website is now available in 5 languages: English, Spanish, French, Catalan, and Italian. Join our global community!</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-globe"></i>
-                        <span>Available Now</span>
-                    </div>
-                </div>
-                
-                <div class="announcement-card">
-                    <div class="announcement-header">
-                        <span class="announcement-date">August 2024</span>
-                        <span class="announcement-type community">Community</span>
-                    </div>
-                    <h3>Looking for School Partners</h3>
-                    <p>We're actively seeking schools worldwide to pilot our air quality monitoring stations. Free kits available for qualifying educational institutions.</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-school"></i>
-                        <span>Apply Now</span>
-                    </div>
-                </div>
-                
-                <div class="announcement-card">
-                    <div class="announcement-header">
-                        <span class="announcement-date">July 2024</span>
-                        <span class="announcement-type development">Development</span>
-                    </div>
-                    <h3>Open Source Code Available</h3>
-                    <p>All hardware designs, software code, and assembly guides are now available on GitHub. Perfect for makers and educators!</p>
-                    <div class="announcement-action">
-                        <i class="fab fa-github"></i>
-                        <span>View on GitHub</span>
-                    </div>
-                </div>
-                
-                <div class="announcement-card volunteer">
-                    <div class="announcement-header">
-                        <span class="announcement-date">Ongoing</span>
-                        <span class="announcement-type volunteer">Volunteer</span>
-                    </div>
-                    <h3>Join Our Team</h3>
-                    <p>We need developers, educators, and environmental enthusiasts to help grow this project. 100% volunteer-driven initiative.</p>
-                    <div class="announcement-action">
-                        <i class="fas fa-hands-helping"></i>
-                        <span>Get Involved</span>
-                    </div>
-                </div>
+    <!-- News Ticker -->
+    <div class="news-ticker" id="newsTicker">
+        <span class="ticker-label"><i class="fas fa-bullhorn"></i> News</span>
+        <div class="ticker-track">
+            <div class="ticker-content">
+                <span class="ticker-item"><strong>Apr 2026:</strong> Parent &amp; Patron Sponsorships Open &mdash; now parents can directly protect a classroom!</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item"><strong>Mar 2026:</strong> Royal Melbourne Institute of Technology joins &mdash; 5 CS students building the API for data sharing with enhanced privacy</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item"><strong>Mar 2026:</strong> First institutions complete their kit builds! BFIS installs exterior units in multiple locations</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item"><strong>Feb 2026:</strong> Raspberry Pi support completed &mdash; cheaper, faster SchoolAir units</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item"><strong>Sep 2024:</strong> Multi-language support launched &mdash; now in 5 languages</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item"><strong>Ongoing:</strong> Looking for school partners &amp; volunteers worldwide</span>
             </div>
         </div>
-    </section>
+        <button class="ticker-close" onclick="document.getElementById('newsTicker').style.display='none'" title="Close">&times;</button>
+    </div>
+    <style>
+        .news-ticker {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #1B5E20, #2e7d32);
+            color: white;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            height: 38px;
+            overflow: hidden;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+        }
+        .ticker-label {
+            background: #FF6F00;
+            color: white;
+            padding: 0 1rem;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .ticker-track {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        .ticker-content {
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            white-space: nowrap;
+            animation: tickerScroll 45s linear infinite;
+            padding-left: 100%;
+        }
+        .ticker-item {
+            font-size: 0.85rem;
+            padding: 0 0.5rem;
+        }
+        .ticker-sep {
+            opacity: 0.4;
+            padding: 0 0.5rem;
+            font-size: 0.7rem;
+        }
+        .ticker-close {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0 0.75rem;
+            height: 100%;
+            flex-shrink: 0;
+            transition: color 0.2s;
+        }
+        .ticker-close:hover {
+            color: white;
+        }
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .news-ticker:hover .ticker-content {
+            animation-play-state: paused;
+        }
+        @media (max-width: 480px) {
+            .ticker-label span { display: none; }
+            .ticker-item { font-size: 0.78rem; }
+        }
+    </style>
 
     <!-- Impact Section -->
     <section id="impact" class="impact">

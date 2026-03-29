@@ -1,0 +1,65 @@
+name: Check Internal Links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for broken internal links
+        run: |
+          echo "Scanning HTML files for broken internal links..."
+
+          # Extract all href/src values from HTML files, resolve them, check if they exist
+          # Output broken links to a temp file so we can count them outside subshells
+          broken_file=$(mktemp)
+
+          find . -name '*.html' -not -path './.git/*' | while IFS= read -r html_file; do
+            dir=$(dirname "$html_file")
+
+            # Extract href="..." and src="..." values
+            grep -oE '(href|src)="[^"]*"' "$html_file" | \
+              sed 's/^[^"]*"//;s/"$//' | \
+              grep -v '^https\?://' | \
+              grep -v '^//' | \
+              grep -v '^#' | \
+              grep -v '^javascript:' | \
+              grep -v '^mailto:' | \
+              grep -v '^tel:' | \
+              grep -v '^data:' | \
+              grep -v '^about:' | \
+              while IFS= read -r link; do
+                # Strip query params and anchors
+                clean=$(echo "$link" | sed 's/[?#].*//')
+                [ -z "$clean" ] && continue
+
+                # Resolve path
+                if [ "${clean:0:1}" = "/" ]; then
+                  resolved=".${clean}"
+                else
+                  resolved="${dir}/${clean}"
+                fi
+
+                # Check existence
+                if [ ! -e "$resolved" ]; then
+                  echo "  BROKEN: ${html_file}  ->  ${link}" | tee -a "$broken_file"
+                fi
+              done
+          done
+
+          echo ""
+          count=$(wc -l < "$broken_file" | tr -d ' ')
+          rm -f "$broken_file"
+
+          if [ "$count" -gt 0 ]; then
+            echo "Found ${count} broken internal link(s)!"
+            exit 1
+          else
+            echo "All internal links are valid."
+          fi

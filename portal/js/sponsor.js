@@ -54,8 +54,8 @@ function startCheckout(type, kitType, tier) {
     const title = document.getElementById('checkoutTitle')
     if (type === 'sponsor') {
         title.textContent = kitType === 'installed'
-            ? 'Sponsor an Installed Kit — \u20ac95'
-            : 'Order a Home Build Kit — \u20ac65'
+            ? 'Sponsor an Installed Kit — \u20ac125'
+            : 'Order a Home Build Kit — \u20ac95'
     } else {
         title.textContent = `Become a Monthly Patron — \u20ac${tier}/mo`
     }

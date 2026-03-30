@@ -7,8 +7,8 @@ import Stripe from 'https://esm.sh/stripe@14.21.0'
 const log = createLogger('create-schoolair-checkout')
 
 const PRICES: Record<string, number> = {
-  home_build: 6500,  // €65 in cents
-  installed: 9500,   // €95 in cents
+  home_build: 9500,  // €95 in cents
+  installed: 12500,  // €125 in cents
 }
 
 serve(async (req) => {

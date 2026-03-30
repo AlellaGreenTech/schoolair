@@ -53,9 +53,9 @@ function startCheckout(type, kitType, tier) {
     // Update modal title
     const title = document.getElementById('checkoutTitle')
     if (type === 'sponsor') {
-        title.textContent = kitType === 'installed'
-            ? 'Sponsor an Installed Kit — \u20ac125'
-            : 'Order a Home Build Kit — \u20ac95'
+        title.textContent = kitType === 'exterior'
+            ? 'Sponsor an Exterior Unit — \u20ac125'
+            : 'Sponsor an Interior Unit — \u20ac65'
     } else {
         title.textContent = `Become a Monthly Patron — \u20ac${tier}/mo`
     }

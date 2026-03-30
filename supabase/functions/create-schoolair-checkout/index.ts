@@ -7,8 +7,8 @@ import Stripe from 'https://esm.sh/stripe@14.21.0'
 const log = createLogger('create-schoolair-checkout')
 
 const PRICES: Record<string, number> = {
-  home_build: 9500,  // €95 in cents
-  installed: 12500,  // €125 in cents
+  interior: 6500,   // €65 in cents
+  exterior: 12500,  // €125 in cents
 }
 
 serve(async (req) => {
@@ -85,12 +85,12 @@ serve(async (req) => {
           price_data: {
             currency: 'eur',
             product_data: {
-              name: kit_type === 'installed'
-                ? 'SchoolAIR Installed Kit'
-                : 'SchoolAIR Home Build Kit',
-              description: kit_type === 'installed'
-                ? 'Fully assembled and installed air quality monitor for one classroom'
-                : 'DIY air quality monitor kit — build it with your kids!',
+              name: kit_type === 'exterior'
+                ? 'SchoolAIR Exterior Unit'
+                : 'SchoolAIR Interior Unit',
+              description: kit_type === 'exterior'
+                ? 'Full air quality monitoring station — PM2.5, weather, long-range Wi-Fi'
+                : 'CO₂ and ventilation monitor — USB plug-and-play for classrooms',
             },
             unit_amount: amount,
           },

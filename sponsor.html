@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect a Classroom - SchoolAIR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="portal/css/sponsor.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sponsor-nav">
+        <div class="nav-inner">
+            <a href="https://schoolair.org" class="logo">
+                <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+                <span class="logo-text">schoolAIR</span>
+            </a>
+            <a href="/en/" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="sponsor-main-content">
+
+        <!-- Hero -->
+        <section class="sponsor-hero">
+            <h1>Protect a Classroom with Clean Air</h1>
+            <div class="hero-split">
+                <div class="hero-text-col">
+                    <p class="story-text">
+                        The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. Each unit forever protects a classroom by letting teachers know when it&rsquo;s time to ventilate &mdash; or shut a window due to poor outside air quality. Sponsor a unit for any school in the world.
+                    </p>
+                </div>
+                <div class="hero-video-col">
+                    <video autoplay muted loop playsinline style="width: 100%; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                        <source src="videos/Teacher_Alerts_Phone_Ventilates_Room.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-caption">Stuffy rooms quickly diminish cognitive performance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsor Cards -->
+        <section class="cards-section">
+            <h2><i class="fas fa-box-open"></i> Sponsor a Unit</h2>
+            <p class="section-subtitle">One-time sponsorship &mdash; each unit protects a zone forever. Housing not included &mdash; free digital plans and 3D model files provided. Data is uploaded to the SchoolAir global database. Privacy, scalability and availability to researchers and clean air advocates is professionally managed.</p>
+
+            <div class="sponsor-cards">
+                <div class="sponsor-card">
+                    <div class="card-icon"><i class="fas fa-door-open" style="color: #3b82f6;"></i></div>
+                    <h3>Interior Unit</h3>
+                    <p>Guards classrooms from stuffy or unhealthy air by monitoring CO&#8322; levels and ventilation. USB plug-and-play &mdash; simple to set up and use.</p>
+                    <div class="price"><span class="currency">&euro;</span>65</div>
+                    <button class="btn-sponsor" onclick="startCheckout('sponsor', 'interior')">
+                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Unit
+                    </button>
+                </div>
+
+                <div class="sponsor-card">
+                    <div class="card-icon"><i class="fas fa-cloud-sun" style="color: #2e7d32;"></i></div>
+                    <h3>Exterior Unit</h3>
+                    <p>Full air quality monitoring station measuring fine dust (PM2.5), weather and more. Long-range Wi-Fi hub connectivity for outdoor locations.</p>
+                    <div class="price"><span class="currency">&euro;</span>125</div>
+                    <button class="btn-sponsor" onclick="startCheckout('sponsor', 'exterior')">
+                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Unit
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patron Cards -->
+        <section id="patrons" class="cards-section">
+            <h2><i class="fas fa-heart"></i> Become a Monthly Patron</h2>
+            <p class="section-subtitle">Recurring support for maintenance, calibration, and expansion</p>
+
+            <div class="patron-cards">
+                <div class="patron-card">
+                    <div class="card-icon"><i class="fas fa-seedling" style="color: #4caf50;"></i></div>
+                    <h3>Supporter</h3>
+                    <p>Help keep sensors calibrated and running smoothly</p>
+                    <div class="price"><span class="currency">&euro;</span>5<span class="period">/mo</span></div>
+                    <button class="btn-patron" onclick="startCheckout('patron', null, 5)">
+                        <i class="fas fa-heart"></i> Start Supporting
+                    </button>
+                </div>
+
+                <div class="patron-card">
+                    <div class="card-icon"><i class="fas fa-trophy" style="color: #3b82f6;"></i></div>
+                    <h3>Champion</h3>
+                    <p>Fund sensor replacements and classroom expansion</p>
+                    <div class="price"><span class="currency">&euro;</span>10<span class="period">/mo</span></div>
+                    <button class="btn-patron" onclick="startCheckout('patron', null, 10)">
+                        <i class="fas fa-heart"></i> Start Supporting
+                    </button>
+                </div>
+
+                <div class="patron-card">
+                    <div class="card-icon"><i class="fas fa-star" style="color: #8b5cf6;"></i></div>
+                    <h3>Guardian</h3>
+                    <p>Maximum impact &mdash; help bring SchoolAIR to new schools</p>
+                    <div class="price"><span class="currency">&euro;</span>25<span class="period">/mo</span></div>
+                    <button class="btn-patron" onclick="startCheckout('patron', null, 25)">
+                        <i class="fas fa-heart"></i> Start Supporting
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Wall -->
+        <section class="wall-section">
+            <h2><i class="fas fa-users"></i> Our Sponsors &amp; Patrons</h2>
+            <div class="sponsors-grid" id="sponsorsGrid">
+                <p class="empty-wall">Be the first to sponsor a classroom!</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal" onclick="if(event.target===this)closeCheckoutModal()">
+        <div class="checkout-modal-card">
+            <button class="close-btn" onclick="closeCheckoutModal()">&times;</button>
+            <h3 id="checkoutTitle">Complete Your Sponsorship</h3>
+
+            <div class="form-group">
+                <label for="checkoutEmail">Email <span style="color: #ef4444;">*</span></label>
+                <input type="email" id="checkoutEmail" placeholder="you@example.com" required>
+                <p class="hint">We'll send your receipt and display name edit link here</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutSchoolName">School Name <span style="color: #ef4444;">*</span></label>
+                <input type="text" id="checkoutSchoolName" placeholder="e.g. Greenwood Elementary" required>
+                <p class="hint">Which school should receive this unit?</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutSchoolContact">School Contact</label>
+                <input type="text" id="checkoutSchoolContact" placeholder="e.g. Principal Sarah Johnson, sarah@school.edu">
+                <p class="hint">A contact person at the school so we can coordinate installation (optional)</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutDisplayName">Your Display Name</label>
+                <input type="text" id="checkoutDisplayName" placeholder="e.g. Harry & Sally Brooks">
+                <p class="hint">Shown on the sponsors wall and classroom plaque (optional)</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutClassroom">Classroom to protect</label>
+                <input type="text" id="checkoutClassroom" placeholder="e.g. Ms. Garcia's 3rd grade, Room 12, Nursery">
+                <p class="hint">Which classroom would you like your monitor installed in? (optional)</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutDedication">Dedication</label>
+                <textarea id="checkoutDedication" rows="2" placeholder="e.g. In memory of Grandma Rose"></textarea>
+                <p class="hint">Optional message shown with your name</p>
+            </div>
+
+            <button class="btn-checkout-submit" id="checkoutSubmitBtn" onclick="submitCheckout()">
+                Proceed to Payment
+            </button>
+        </div>
+    </div>
+
+    <!-- Label Edit (shown when ?edit=TOKEN) -->
+    <div class="label-edit" id="labelEdit">
+        <div class="label-edit-card">
+            <h2>Update Your Display Name</h2>
+            <p class="subtitle">This is how your name will appear on the sponsors wall and classroom plaque</p>
+            <form id="labelForm">
+                <div class="form-group">
+                    <label for="editDisplayName">Display Name</label>
+                    <input type="text" id="editDisplayName" placeholder="e.g. Harry & Sally Brooks" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDedication">Dedication (optional)</label>
+                    <textarea id="editDedication" rows="2" placeholder="e.g. For Ms. Garcia's 3rd grade class"></textarea>
+                </div>
+                <button type="submit" class="btn-checkout-submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Generic sponsor page JS (self-contained, no subdomain detection needed)
+        const SUPABASE_URL = 'https://gzbuvywxrzcovqohmbol.supabase.co'
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadSponsorsWall()
+            handleUrlParams()
+        })
+
+        async function loadSponsorsWall() {
+            try {
+                const resp = await fetch(`${SUPABASE_URL}/functions/v1/get-schoolair-sponsors`)
+                if (!resp.ok) throw new Error('API not available')
+                const data = await resp.json()
+
+                const grid = document.getElementById('sponsorsGrid')
+                const named = (data.sponsors || []).filter(s => s.display_name)
+                if (named.length === 0) {
+                    grid.innerHTML = '<p class="empty-wall">Be the first to sponsor a classroom!</p>'
+                    return
+                }
+                grid.innerHTML = named.map(s => `<div class="sponsor-tile">
+                    <strong>${escapeHtml(s.display_name)}</strong>
+                    ${s.dedication ? `<span class="tile-dedication">${escapeHtml(s.dedication)}</span>` : ''}
+                    <small class="tile-type">${formatType(s)}</small>
+                </div>`).join('')
+            } catch (err) {
+                console.log('Sponsors API not available yet:', err.message)
+            }
+        }
+
+        function formatType(s) {
+            if (s.sponsor_type === 'patron') return `Monthly Patron \u00b7 \u20ac${s.tier}/mo`
+            return s.kit_type === 'exterior' ? 'Exterior Unit Sponsor' : 'Interior Unit Sponsor'
+        }
+
+        function startCheckout(type, kitType, tier) {
+            const modal = document.getElementById('checkoutModal')
+            modal.style.display = 'flex'
+            modal.dataset.type = type
+            modal.dataset.kitType = kitType || ''
+            modal.dataset.tier = tier || ''
+
+            const title = document.getElementById('checkoutTitle')
+            if (type === 'sponsor') {
+                title.textContent = kitType === 'exterior'
+                    ? 'Sponsor an Exterior Unit \u2014 \u20ac125'
+                    : 'Sponsor an Interior Unit \u2014 \u20ac65'
+            } else {
+                title.textContent = `Become a Monthly Patron \u2014 \u20ac${tier}/mo`
+            }
+
+            document.getElementById('checkoutEmail').value = ''
+            document.getElementById('checkoutSchoolName').value = ''
+            document.getElementById('checkoutSchoolContact').value = ''
+            document.getElementById('checkoutDisplayName').value = ''
+            document.getElementById('checkoutClassroom').value = ''
+            document.getElementById('checkoutDedication').value = ''
+            const btn = document.getElementById('checkoutSubmitBtn')
+            btn.disabled = false
+            btn.textContent = 'Proceed to Payment'
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').style.display = 'none'
+        }
+
+        async function submitCheckout() {
+            const modal = document.getElementById('checkoutModal')
+            const email = document.getElementById('checkoutEmail').value.trim()
+            const schoolName = document.getElementById('checkoutSchoolName').value.trim()
+            const schoolContact = document.getElementById('checkoutSchoolContact').value.trim()
+            const displayName = document.getElementById('checkoutDisplayName').value.trim()
+            const classroom = document.getElementById('checkoutClassroom').value.trim()
+            const dedication = document.getElementById('checkoutDedication').value.trim()
+
+            if (!email) { alert('Email is required'); return }
+            if (!schoolName) { alert('School name is required'); return }
+
+            const btn = document.getElementById('checkoutSubmitBtn')
+            btn.disabled = true
+            btn.textContent = 'Redirecting to payment...'
+
+            try {
+                const resp = await fetch(`${SUPABASE_URL}/functions/v1/create-schoolair-checkout`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: modal.dataset.type,
+                        kit_type: modal.dataset.kitType || undefined,
+                        tier: modal.dataset.tier ? parseInt(modal.dataset.tier) : undefined,
+                        email,
+                        display_name: displayName || undefined,
+                        classroom: classroom || undefined,
+                        dedication: dedication ? `${dedication} | School: ${schoolName}${schoolContact ? ' | Contact: ' + schoolContact : ''}` : `School: ${schoolName}${schoolContact ? ' | Contact: ' + schoolContact : ''}`,
+                        success_url: window.location.origin + window.location.pathname + '?success=true',
+                        cancel_url: window.location.origin + window.location.pathname + '?cancelled=true',
+                    })
+                })
+                const data = await resp.json()
+                if (data.url) {
+                    window.location.href = data.url
+                } else {
+                    throw new Error(data.error || 'Failed to create checkout')
+                }
+            } catch (err) {
+                alert('Error: ' + err.message)
+                btn.disabled = false
+                btn.textContent = 'Proceed to Payment'
+            }
+        }
+
+        function handleUrlParams() {
+            const params = new URLSearchParams(window.location.search)
+            if (params.get('success')) {
+                showBanner('success', 'Thank you for your sponsorship! Check your email for confirmation and a link to customize your display name.')
+                window.history.replaceState({}, '', window.location.pathname)
+            }
+            if (params.get('cancelled')) {
+                showBanner('cancel', 'Checkout was cancelled. No worries \u2014 you can try again anytime.')
+                window.history.replaceState({}, '', window.location.pathname)
+            }
+            if (params.get('edit')) {
+                showLabelEditor(params.get('edit'))
+            }
+        }
+
+        function showLabelEditor(token) {
+            document.querySelector('.sponsor-main-content').style.display = 'none'
+            const editor = document.getElementById('labelEdit')
+            editor.style.display = 'block'
+
+            document.getElementById('labelForm').onsubmit = async (e) => {
+                e.preventDefault()
+                const btn = e.target.querySelector('button[type="submit"]')
+                btn.disabled = true
+                btn.textContent = 'Saving...'
+                try {
+                    const resp = await fetch(`${SUPABASE_URL}/functions/v1/update-schoolair-label`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            token,
+                            display_name: document.getElementById('editDisplayName').value.trim(),
+                            dedication: document.getElementById('editDedication').value.trim() || undefined,
+                        })
+                    })
+                    if (resp.ok) {
+                        showBanner('success', 'Your display name has been updated!')
+                        setTimeout(() => window.location.href = 'sponsor.html', 2000)
+                    } else {
+                        alert('Failed to update. The link may have expired.')
+                        btn.disabled = false
+                        btn.textContent = 'Save Changes'
+                    }
+                } catch (err) {
+                    alert('Error: ' + err.message)
+                    btn.disabled = false
+                    btn.textContent = 'Save Changes'
+                }
+            }
+        }
+
+        function showBanner(type, message) {
+            const banner = document.createElement('div')
+            banner.className = `banner banner-${type}`
+            banner.innerHTML = `<p>${message}</p><button onclick="this.parentElement.remove()">\u00d7</button>`
+            document.body.prepend(banner)
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div')
+            div.textContent = str
+            return div.innerHTML
+        }
+    </script>
+</body>
+</html>

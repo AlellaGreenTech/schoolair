@@ -22,7 +22,8 @@ serve(async (req) => {
     const supabase = createSupabaseAdmin()
 
     const body = await req.json()
-    const { type, kit_type, tier, email, display_name, dedication, success_url, cancel_url } = body
+    const { type, kit_type, tier, email, display_name, dedication, quantity: rawQty, success_url, cancel_url } = body
+    const quantity = Math.max(1, Math.min(50, parseInt(rawQty) || 1))
 
     // Validate
     if (!email) throw new Error('Email is required')
@@ -31,7 +32,8 @@ serve(async (req) => {
     if (type === 'sponsor' && !PRICES[kit_type]) throw new Error('Invalid kit_type')
     if (type === 'patron' && ![5, 10, 25].includes(tier)) throw new Error('Invalid tier')
 
-    const amount = type === 'sponsor' ? PRICES[kit_type] : tier * 100
+    const unitAmount = type === 'sponsor' ? PRICES[kit_type] : tier * 100
+    const amount = unitAmount * (type === 'sponsor' ? quantity : 1)
 
     // Insert pending sponsor row
     const { data: sponsor, error: dbError } = await supabase
@@ -92,9 +94,9 @@ serve(async (req) => {
                 ? 'Full air quality monitoring station — PM2.5, weather, long-range Wi-Fi'
                 : 'CO₂ and ventilation monitor — USB plug-and-play for classrooms',
             },
-            unit_amount: amount,
+            unit_amount: unitAmount,
           },
-          quantity: 1,
+          quantity,
         }],
         metadata,
         payment_intent_data: { metadata },

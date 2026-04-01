@@ -161,6 +161,11 @@
                 <p class="hint">Which classroom would you like your monitor installed in? (optional)</p>
             </div>
 
+            <div class="form-group">
+                <label for="checkoutQuantity">Quantity</label>
+                <input type="number" id="checkoutQuantity" value="1" min="1" max="50" style="width: 80px;">
+            </div>
+
             <button class="btn-checkout-submit" id="checkoutSubmitBtn" onclick="submitCheckout()">
                 Proceed to Payment
             </button>
@@ -244,6 +249,7 @@
             document.getElementById('checkoutSchoolContactEmail').value = ''
             document.getElementById('checkoutDisplayName').value = ''
             document.getElementById('checkoutClassroom').value = ''
+            document.getElementById('checkoutQuantity').value = '1'
             const btn = document.getElementById('checkoutSubmitBtn')
             btn.disabled = false
             btn.textContent = 'Proceed to Payment'
@@ -261,6 +267,7 @@
             const schoolContactEmail = document.getElementById('checkoutSchoolContactEmail').value.trim()
             const displayName = document.getElementById('checkoutDisplayName').value.trim()
             const classroom = document.getElementById('checkoutClassroom').value.trim()
+            const quantity = parseInt(document.getElementById('checkoutQuantity').value) || 1
 
             if (!email) { alert('Email is required'); return }
             if (!schoolName) { alert('School name is required'); return }
@@ -278,6 +285,7 @@
                         kit_type: modal.dataset.kitType || undefined,
                         tier: modal.dataset.tier ? parseInt(modal.dataset.tier) : undefined,
                         email,
+                        quantity,
                         display_name: displayName || undefined,
                         classroom: classroom || undefined,
                         dedication: `School: ${schoolName}${schoolContact ? ' | Contact: ' + schoolContact : ''}${schoolContactEmail ? ' | Email: ' + schoolContactEmail : ''}`,

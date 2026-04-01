@@ -64,7 +64,7 @@ function startCheckout(type, kitType, tier) {
     document.getElementById('checkoutEmail').value = ''
     document.getElementById('checkoutDisplayName').value = ''
     document.getElementById('checkoutClassroom').value = ''
-    document.getElementById('checkoutDedication').value = ''
+    document.getElementById('checkoutQuantity').value = '1'
     const btn = document.getElementById('checkoutSubmitBtn')
     btn.disabled = false
     btn.textContent = 'Proceed to Payment'
@@ -79,7 +79,7 @@ async function submitCheckout() {
     const email = document.getElementById('checkoutEmail').value.trim()
     const displayName = document.getElementById('checkoutDisplayName').value.trim()
     const classroom = document.getElementById('checkoutClassroom').value.trim()
-    const dedication = document.getElementById('checkoutDedication').value.trim()
+    const quantity = parseInt(document.getElementById('checkoutQuantity').value) || 1
 
     if (!email) {
         alert('Email is required')
@@ -99,9 +99,9 @@ async function submitCheckout() {
                 kit_type: modal.dataset.kitType || undefined,
                 tier: modal.dataset.tier ? parseInt(modal.dataset.tier) : undefined,
                 email,
+                quantity,
                 display_name: displayName || undefined,
                 classroom: classroom || undefined,
-                dedication: dedication || undefined,
                 success_url: window.location.origin + window.location.pathname + '?success=true',
                 cancel_url: window.location.origin + window.location.pathname + '?cancelled=true',
             })

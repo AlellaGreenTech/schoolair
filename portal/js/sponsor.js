@@ -55,7 +55,7 @@ function startCheckout(type, kitType, tier) {
     if (type === 'sponsor') {
         title.textContent = kitType === 'exterior'
             ? 'Sponsor an Exterior Unit — \u20ac125'
-            : 'Sponsor an Interior Unit — \u20ac65'
+            : 'Sponsor an Interior Unit — \u20ac105'
     } else {
         title.textContent = `Become a Monthly Patron — \u20ac${tier}/mo`
     }

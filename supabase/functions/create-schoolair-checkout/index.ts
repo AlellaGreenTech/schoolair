@@ -7,7 +7,7 @@ import Stripe from 'https://esm.sh/stripe@14.21.0'
 const log = createLogger('create-schoolair-checkout')
 
 const PRICES: Record<string, number> = {
-  interior: 6500,   // €65 in cents
+  interior: 10500,  // €105 in cents
   exterior: 12500,  // €125 in cents
 }
 

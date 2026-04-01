@@ -138,9 +138,15 @@
             </div>
 
             <div class="form-group">
-                <label for="checkoutSchoolContact">School Contact</label>
-                <input type="text" id="checkoutSchoolContact" placeholder="e.g. Principal Sarah Johnson, sarah@school.edu">
+                <label for="checkoutSchoolContact">School Contact Name</label>
+                <input type="text" id="checkoutSchoolContact" placeholder="e.g. Principal Sarah Johnson">
                 <p class="hint">A contact person at the school so we can coordinate installation (optional)</p>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutSchoolContactEmail">School Contact Email</label>
+                <input type="email" id="checkoutSchoolContactEmail" placeholder="e.g. sarah@school.edu">
+                <p class="hint">Email for the school contact (optional)</p>
             </div>
 
             <div class="form-group">
@@ -153,12 +159,6 @@
                 <label for="checkoutClassroom">Classroom to protect</label>
                 <input type="text" id="checkoutClassroom" placeholder="e.g. Ms. Garcia's 3rd grade, Room 12, Nursery">
                 <p class="hint">Which classroom would you like your monitor installed in? (optional)</p>
-            </div>
-
-            <div class="form-group">
-                <label for="checkoutDedication">Dedication</label>
-                <textarea id="checkoutDedication" rows="2" placeholder="e.g. In memory of Grandma Rose"></textarea>
-                <p class="hint">Optional message shown with your name</p>
             </div>
 
             <button class="btn-checkout-submit" id="checkoutSubmitBtn" onclick="submitCheckout()">
@@ -241,9 +241,9 @@
             document.getElementById('checkoutEmail').value = ''
             document.getElementById('checkoutSchoolName').value = ''
             document.getElementById('checkoutSchoolContact').value = ''
+            document.getElementById('checkoutSchoolContactEmail').value = ''
             document.getElementById('checkoutDisplayName').value = ''
             document.getElementById('checkoutClassroom').value = ''
-            document.getElementById('checkoutDedication').value = ''
             const btn = document.getElementById('checkoutSubmitBtn')
             btn.disabled = false
             btn.textContent = 'Proceed to Payment'
@@ -258,9 +258,9 @@
             const email = document.getElementById('checkoutEmail').value.trim()
             const schoolName = document.getElementById('checkoutSchoolName').value.trim()
             const schoolContact = document.getElementById('checkoutSchoolContact').value.trim()
+            const schoolContactEmail = document.getElementById('checkoutSchoolContactEmail').value.trim()
             const displayName = document.getElementById('checkoutDisplayName').value.trim()
             const classroom = document.getElementById('checkoutClassroom').value.trim()
-            const dedication = document.getElementById('checkoutDedication').value.trim()
 
             if (!email) { alert('Email is required'); return }
             if (!schoolName) { alert('School name is required'); return }
@@ -280,7 +280,7 @@
                         email,
                         display_name: displayName || undefined,
                         classroom: classroom || undefined,
-                        dedication: dedication ? `${dedication} | School: ${schoolName}${schoolContact ? ' | Contact: ' + schoolContact : ''}` : `School: ${schoolName}${schoolContact ? ' | Contact: ' + schoolContact : ''}`,
+                        dedication: `School: ${schoolName}${schoolContact ? ' | Contact: ' + schoolContact : ''}${schoolContactEmail ? ' | Email: ' + schoolContactEmail : ''}`,
                         success_url: window.location.origin + window.location.pathname + '?success=true',
                         cancel_url: window.location.origin + window.location.pathname + '?cancelled=true',
                     })

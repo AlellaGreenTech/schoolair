@@ -90,9 +90,29 @@ async function processSponsorPayment(supabase: any, session: any, metadata: any)
 
   log.info('Sponsor payment completed:', sponsorId)
 
-  const kitLabel = sponsor.kit_type === 'installed' ? 'Installed Kit' : 'Home Build Kit'
+  const kitLabel = sponsor.kit_type === 'exterior' ? 'Exterior Unit' : 'Interior Unit'
   const editUrl = `https://bfis.schoolair.org/portal/sponsor.html?edit=${sponsor.label_token}`
 
+  // Notify admin
+  await sendEmail({
+    to: 'info@alellagreentech.com',
+    subject: `New SchoolAIR Sponsorship: ${kitLabel} by ${sponsor.display_name || sponsor.email}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #2e7d32;">New Unit Sponsorship!</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr><td style="padding: 8px 0; font-weight: bold;">Type:</td><td>${kitLabel}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Amount:</td><td>&euro;${(sponsor.amount / 100).toFixed(0)}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Sponsor:</td><td>${sponsor.display_name || 'Anonymous'}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td>${sponsor.email}</td></tr>
+          ${sponsor.dedication ? `<tr><td style="padding: 8px 0; font-weight: bold;">Details:</td><td>${sponsor.dedication}</td></tr>` : ''}
+        </table>
+      </div>
+    `,
+    tags: [{ name: 'type', value: 'schoolair_admin_notification' }],
+  })
+
+  // Thank the sponsor
   await sendEmail({
     to: sponsor.email,
     subject: 'Thank you for sponsoring a SchoolAIR classroom!',
@@ -104,7 +124,7 @@ async function processSponsorPayment(supabase: any, session: any, metadata: any)
         </div>
         <div style="background: white; padding: 2rem; border: 1px solid #e2e8f0; border-radius: 0 0 12px 12px;">
           <p>Dear ${sponsor.display_name || 'Sponsor'},</p>
-          <p>Thank you for sponsoring a <strong>${kitLabel}</strong> (&euro;${(sponsor.amount / 100).toFixed(0)}) for Benjamin Franklin International School!</p>
+          <p>Thank you for sponsoring a <strong>${kitLabel}</strong> (&euro;${(sponsor.amount / 100).toFixed(0)})!</p>
           ${sponsor.dedication ? `<p>Your dedication: <em>"${sponsor.dedication}"</em></p>` : ''}
 
           <div style="background: #f0fdf4; border-left: 4px solid #2e7d32; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px;">
@@ -149,6 +169,24 @@ async function processPatronPayment(supabase: any, session: any, metadata: any) 
 
   const editUrl = `https://bfis.schoolair.org/portal/sponsor.html?edit=${sponsor.label_token}`
 
+  // Notify admin
+  await sendEmail({
+    to: 'info@alellagreentech.com',
+    subject: `New SchoolAIR Patron: ${sponsor.display_name || sponsor.email} at \u20ac${sponsor.tier}/mo`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #1e3a8a;">New Monthly Patron!</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr><td style="padding: 8px 0; font-weight: bold;">Tier:</td><td>&euro;${sponsor.tier}/month</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Patron:</td><td>${sponsor.display_name || 'Anonymous'}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td>${sponsor.email}</td></tr>
+        </table>
+      </div>
+    `,
+    tags: [{ name: 'type', value: 'schoolair_admin_notification' }],
+  })
+
+  // Welcome the patron
   await sendEmail({
     to: sponsor.email,
     subject: 'Welcome, SchoolAIR Patron!',

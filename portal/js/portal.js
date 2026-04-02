@@ -83,7 +83,8 @@ function updateSchoolInfo() {
 
 async function loadLiveSponsorData() {
     try {
-        const resp = await fetch('https://gzbuvywxrzcovqohmbol.supabase.co/functions/v1/get-schoolair-sponsors');
+        const slug = portal?.schoolSlug || 'bfis';
+        const resp = await fetch(`https://gzbuvywxrzcovqohmbol.supabase.co/functions/v1/get-schoolair-sponsors?school=${slug}`);
         if (!resp.ok) return;
         const data = await resp.json();
 

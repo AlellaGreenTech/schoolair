@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadSponsorsWall() {
     try {
-        const resp = await fetch(`${SUPABASE_URL}/functions/v1/get-schoolair-sponsors`)
+        const schoolSlug = window.SCHOOL_SLUG || null
+        const resp = await fetch(`${SUPABASE_URL}/functions/v1/get-schoolair-sponsors${schoolSlug ? '?school=' + schoolSlug : ''}`)
         if (!resp.ok) throw new Error('API not available')
         const data = await resp.json()
 
@@ -118,6 +119,7 @@ async function submitCheckout() {
                 tier: modal.dataset.tier ? parseInt(modal.dataset.tier) : undefined,
                 email,
                 quantity,
+                school_slug: window.SCHOOL_SLUG || undefined,
                 display_name: displayName || undefined,
                 classroom: classroom || undefined,
                 success_url: window.location.origin + window.location.pathname + '?success=true',

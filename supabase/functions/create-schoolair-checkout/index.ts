@@ -22,7 +22,7 @@ serve(async (req) => {
     const supabase = createSupabaseAdmin()
 
     const body = await req.json()
-    const { type, kit_type, tier, email, display_name, dedication, quantity: rawQty, success_url, cancel_url } = body
+    const { type, kit_type, tier, email, display_name, dedication, school_slug, quantity: rawQty, success_url, cancel_url } = body
     const quantity = Math.max(1, Math.min(50, parseInt(rawQty) || 1))
 
     // Validate
@@ -46,6 +46,7 @@ serve(async (req) => {
         kit_type: type === 'sponsor' ? kit_type : null,
         tier: type === 'patron' ? tier : null,
         amount,
+        school_slug: school_slug || null,
       })
       .select('id, label_token')
       .single()

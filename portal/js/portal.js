@@ -64,17 +64,46 @@ function updateSchoolInfo() {
     document.getElementById('coverSchoolName').textContent = currentSchool.name;
     document.getElementById('coverLocation').textContent = currentSchool.location;
 
-    // Update stats
+    // Update stats (defaults)
     document.getElementById('statSensors').textContent = currentSchool.stats.sensors;
     document.getElementById('statStudents').textContent = currentSchool.stats.students;
     document.getElementById('statData').textContent = typeof currentSchool.stats.dataPoints === 'string' ? currentSchool.stats.dataPoints : formatNumber(currentSchool.stats.dataPoints);
     document.getElementById('statAlerts').textContent = currentSchool.stats.alerts;
+
+    // Fetch live sponsor data
+    loadLiveSponsorData();
 
     // Update dashboard link
     const dashboardLink = document.getElementById('viewFullDashboard');
     if (dashboardLink) {
         // Link to the full dashboard with gauges and PM data
         dashboardLink.href = '../air-school/index.html';
+    }
+}
+
+async function loadLiveSponsorData() {
+    try {
+        const resp = await fetch('https://gzbuvywxrzcovqohmbol.supabase.co/functions/v1/get-schoolair-sponsors');
+        if (!resp.ok) return;
+        const data = await resp.json();
+
+        // Update protected count
+        if (data.progress) {
+            document.getElementById('statSensors').textContent = `${data.progress.protected} of ${data.progress.total}`;
+        }
+
+        // Show last sponsor
+        const named = (data.sponsors || []).filter(s => s.display_name);
+        if (named.length > 0) {
+            const last = named[0];
+            const el = document.getElementById('lastSponsor');
+            if (el) {
+                el.textContent = `Last sponsorship by ${last.display_name} — thank you!`;
+                el.style.display = 'block';
+            }
+        }
+    } catch (err) {
+        console.log('Sponsor data not available:', err.message);
     }
 }
 

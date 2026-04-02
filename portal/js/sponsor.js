@@ -25,13 +25,31 @@ async function loadSponsorsWall() {
         const named = (data.sponsors || []).filter(s => s.display_name)
         if (named.length === 0) {
             grid.innerHTML = '<p class="empty-wall">Be the first to sponsor a classroom!</p>'
-            return
+        } else {
+            grid.innerHTML = named.map(s => `<div class="sponsor-tile">
+                <strong>${escapeHtml(s.display_name)}</strong>
+                ${s.dedication ? `<span class="tile-dedication">${escapeHtml(s.dedication)}</span>` : ''}
+                <small class="tile-type">${formatType(s)}</small>
+            </div>`).join('')
         }
-        grid.innerHTML = named.map(s => `<div class="sponsor-tile">
-            <strong>${escapeHtml(s.display_name)}</strong>
-            ${s.dedication ? `<span class="tile-dedication">${escapeHtml(s.dedication)}</span>` : ''}
-            <small class="tile-type">${formatType(s)}</small>
-        </div>`).join('')
+
+        // Render sponsorship timeline
+        const timelineEl = document.getElementById('timelineEntries')
+        if (timelineEl && data.sponsors) {
+            const sponsors = [...data.sponsors].reverse()
+            const timelineHtml = sponsors
+                .filter(s => s.display_name && s.sponsor_type === 'sponsor')
+                .map(s => {
+                    const date = new Date(s.created_at)
+                    const dateStr = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
+                    const unitType = s.kit_type === 'exterior' ? 'Exterior' : 'Interior'
+                    return `<div class="timeline-entry" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0.75rem; background: #f0fdf4; border-radius: 6px; border-left: 3px solid #4caf50;">
+                        <span style="font-size: 0.75rem; color: #64748b; white-space: nowrap; min-width: 70px;">${dateStr}</span>
+                        <span style="font-size: 0.85rem; color: #1e293b;">${escapeHtml(s.display_name)} sponsored an ${unitType} Unit</span>
+                    </div>`
+                }).join('')
+            timelineEl.innerHTML += timelineHtml
+        }
     } catch (err) {
         // API not deployed yet — show fallback
         console.log('Sponsors API not available yet:', err.message)

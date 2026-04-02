@@ -1,6 +1,5 @@
 const RESEND_API_URL = 'https://api.resend.com/emails'
-// NOTE: Update FROM_EMAIL once SchoolAir has its own Resend domain
-const FROM_EMAIL = 'SchoolAIR <noreply@guidal.org>'
+const FROM_EMAIL = 'SchoolAIR <info@schoolair.org>'
 
 interface EmailOptions {
   to: string | string[]

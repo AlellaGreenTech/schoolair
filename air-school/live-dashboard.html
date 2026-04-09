@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Air Quality Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; padding: 1.5rem; }
+        .status { text-align: center; color: #64748b; margin-bottom: 1rem; font-size: 0.85rem; }
+        .status.error { color: #ef4444; }
+        .metric-selector { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .metric-btn { padding: 0.4rem 1rem; border: 1px solid #cbd5e1; border-radius: 20px; background: white; cursor: pointer; font-size: 0.8rem; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+        .metric-btn.active { background: #2e7d32; color: white; border-color: #2e7d32; }
+        .chart-container { max-width: 900px; margin: 0 auto 2rem; background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .chart-container canvas { max-height: 300px; }
+        .data-table { max-width: 900px; margin: 0 auto; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        th { background: #2e7d32; color: white; padding: 0.75rem; text-align: left; font-weight: 500; }
+        td { padding: 0.6rem 0.75rem; border-bottom: 1px solid #f1f5f9; }
+        tr:hover { background: #f8fafc; }
+        .alert-box { max-width: 900px; margin: 0 auto 1rem; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; }
+        .alert-info { background: #f0fdf4; border-left: 3px solid #2e7d32; color: #166534; }
+        .alert-warn { background: #fef3c7; border-left: 3px solid #f59e0b; color: #92400e; }
+        .alert-danger { background: #fef2f2; border-left: 3px solid #ef4444; color: #991b1b; }
+    </style>
+</head>
+<body>
+    <p class="status" id="status">Loading sensor data...</p>
+    <div class="alert-box alert-info" id="safetyAlert" style="display:none;"></div>
+    <div class="metric-selector" id="metricSelector"></div>
+    <div class="chart-container"><canvas id="chart"></canvas></div>
+    <div class="data-table"><table id="dataTable"><thead></thead><tbody></tbody></table></div>
+
+    <script>
+        const PROXY_URL = 'https://gzbuvywxrzcovqohmbol.supabase.co/functions/v1/get-sensor-data';
+        let rows = [];
+        let chart = null;
+        let selectedMetric = 'pm25';
+
+        const METRICS = [
+            { key: 'pm25', label: 'PM2.5', unit: 'ug/m3' },
+            { key: 'co2', label: 'CO2', unit: 'ppm' },
+            { key: 'temp', label: 'Temperature', unit: '°C' },
+            { key: 'humidity', label: 'Humidity', unit: '%' },
+            { key: 'pm10', label: 'PM1.0', unit: 'ug/m3' },
+            { key: 'pm100', label: 'PM10.0', unit: 'ug/m3' },
+            { key: 'co', label: 'CO', unit: 'ppm' },
+            { key: 'no2', label: 'NO2', unit: 'ppm' },
+            { key: 'voc', label: 'VOC', unit: 'index' },
+        ];
+
+        const THRESHOLDS = {
+            co2: { warn: 1000, danger: 2000 },
+            pm25: { warn: 15, danger: 35 },
+            pm100: { warn: null, danger: 45 },
+            co: { warn: null, danger: 9 },
+        };
+
+        function getValue(row, key) {
+            const d = row.data || {};
+            const map = {
+                pm25: () => d.sen6x?.pm25 ?? d.hm3301?.pm2_5_std,
+                pm10: () => d.sen6x?.pm10,
+                pm40: () => d.sen6x?.pm40,
+                pm100: () => d.sen6x?.pm100,
+                temp: () => d.sen6x?.temp ?? d.sht_30?.temperature_celsius ?? d.qmp_6988?.temperature_celsius,
+                humidity: () => d.sen6x?.humidity ?? d.sht_30?.humidity_percent,
+                co2: () => d.sen6x?.co2,
+                co: () => d.mgs?.co,
+                no2: () => d.mgs?.no2,
+                voc: () => d.mgs?.voc,
+            };
+            const fn = map[key];
+            return fn ? fn() : null;
+        }
+
+        async function fetchData() {
+            try {
+                const resp = await fetch(PROXY_URL);
+                if (!resp.ok) throw new Error('API error');
+                rows = await resp.json();
+                document.getElementById('status').textContent = `${rows.length} readings loaded`;
+                renderMetricButtons();
+                render();
+            } catch (err) {
+                document.getElementById('status').textContent = 'Failed to load data';
+                document.getElementById('status').classList.add('error');
+            }
+        }
+
+        function renderMetricButtons() {
+            const el = document.getElementById('metricSelector');
+            el.innerHTML = METRICS.map(m =>
+                `<button class="metric-btn ${m.key === selectedMetric ? 'active' : ''}" onclick="selectMetric('${m.key}')">${m.label}</button>`
+            ).join('');
+        }
+
+        function selectMetric(key) {
+            selectedMetric = key;
+            renderMetricButtons();
+            render();
+        }
+
+        function render() {
+            renderChart();
+            renderTable();
+            renderAlert();
+        }
+
+        function renderChart() {
+            const metric = METRICS.find(m => m.key === selectedMetric);
+            const labels = rows.map(r => new Date(r.recorded_at).toLocaleString('en-GB', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' }));
+            const data = rows.map(r => getValue(r, selectedMetric));
+
+            if (chart) chart.destroy();
+            chart = new Chart(document.getElementById('chart'), {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: `${metric.label} (${metric.unit})`,
+                        data,
+                        borderColor: '#2e7d32',
+                        backgroundColor: 'rgba(46,125,50,0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: true, ticks: { maxTicksLimit: 10, font: { size: 10 } } },
+                        y: { display: true, title: { display: true, text: metric.unit } }
+                    }
+                }
+            });
+        }
+
+        function renderTable() {
+            const metric = METRICS.find(m => m.key === selectedMetric);
+            const thead = document.querySelector('#dataTable thead');
+            thead.innerHTML = `<tr><th>Time</th><th>Device</th><th>${metric.label} (${metric.unit})</th></tr>`;
+            const tbody = document.querySelector('#dataTable tbody');
+            tbody.innerHTML = [...rows].reverse().slice(0, 50).map(r => {
+                const val = getValue(r, selectedMetric);
+                const t = THRESHOLDS[selectedMetric];
+                const cls = t && val > (t.danger || Infinity) ? 'style="color:#ef4444;font-weight:600"' : '';
+                return `<tr><td>${new Date(r.recorded_at).toLocaleString()}</td><td>${r.device_nickname || r.device_id}</td><td ${cls}>${val != null ? val : '—'}</td></tr>`;
+            }).join('');
+        }
+
+        function renderAlert() {
+            const el = document.getElementById('safetyAlert');
+            const t = THRESHOLDS[selectedMetric];
+            if (!t) { el.style.display = 'none'; return; }
+            const latest = rows.length ? getValue(rows[rows.length - 1], selectedMetric) : null;
+            if (latest == null) { el.style.display = 'none'; return; }
+            if (t.danger && latest > t.danger) {
+                el.className = 'alert-box alert-danger';
+                el.textContent = `Current ${METRICS.find(m=>m.key===selectedMetric).label}: ${latest} — above danger threshold (${t.danger})`;
+                el.style.display = 'block';
+            } else if (t.warn && latest > t.warn) {
+                el.className = 'alert-box alert-warn';
+                el.textContent = `Current ${METRICS.find(m=>m.key===selectedMetric).label}: ${latest} — above warning threshold (${t.warn})`;
+                el.style.display = 'block';
+            } else {
+                el.className = 'alert-box alert-info';
+                el.textContent = `Current ${METRICS.find(m=>m.key===selectedMetric).label}: ${latest} — within safe levels`;
+                el.style.display = 'block';
+            }
+        }
+
+        fetchData();
+        setInterval(fetchData, 30000);
+    </script>
+</body>
+</html>

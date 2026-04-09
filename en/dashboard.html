@@ -369,17 +369,17 @@
                 </div>
                 <div class="schoolair-logo-text">
                     schoolAIR
-                    <div class="schoolair-logo-tagline">An International Green Tech Foundation Project</div>
+                    <div class="schoolair-logo-tagline" data-i18n="common.logoTagline">An International Green Tech Foundation Project</div>
                 </div>
             </a>
             <div class="schoolair-nav-main">
                 <ul class="schoolair-nav-links">
-                    <li><a href="index.html#project">Project</a></li>
-                    <li><a href="index.html#components">Technology</a></li>
-                    <li><a href="how-it-works.html">How It Works</a></li>
-                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="index.html#get-involved">Get Involved</a></li>
+                    <li><a href="index.html#project" data-i18n="nav.project">Project</a></li>
+                    <li><a href="index.html#components" data-i18n="nav.products">Technology</a></li>
+                    <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
+                    <li><a href="dashboard.html" class="active" data-i18n="nav.dashboard">Dashboard</a></li>
+                    <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+                    <li><a href="index.html#get-involved" data-i18n="nav.getInvolved">Get Involved</a></li>
                 </ul>
                 <div class="schoolair-nav-actions">
                     <div class="schoolair-language-dropdown">
@@ -409,26 +409,26 @@
                 <source src="../video/Teacher ventilates 2.mp4" type="video/mp4">
             </video>
             <div class="dashboard-header-overlay"></div>
-            <h1><i class="fas fa-wind"></i> SchoolAIR Global Network</h1>
-            <p>Real-time air quality monitoring across 5 countries</p>
-            <p style="font-size: 0.9rem; opacity: 0.7;">⚠️ Simulated Data For Demonstration Purposes</p>
+            <h1><i class="fas fa-wind"></i> <span data-i18n="dashboardPage.title">SchoolAIR Global Network</span></h1>
+            <p data-i18n="dashboardPage.subtitle">Real-time air quality monitoring across 5 countries</p>
+            <p style="font-size: 0.9rem; opacity: 0.7;" data-i18n="dashboardPage.simulatedWarning">⚠️ Simulated Data For Demonstration Purposes</p>
             
             <div class="global-stats">
                 <div class="stat-item">
                     <span class="stat-number">5</span>
-                    <span class="stat-label">Schools</span>
+                    <span class="stat-label" data-i18n="dashboardPage.stats.schools">Schools</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">10</span>
-                    <span class="stat-label">Active Stations</span>
+                    <span class="stat-label" data-i18n="dashboardPage.stats.activeStations">Active Stations</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">3,500</span>
-                    <span class="stat-label">Students Protected</span>
+                    <span class="stat-label" data-i18n="dashboardPage.stats.studentsProtected">Students Protected</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">5</span>
-                    <span class="stat-label">Countries</span>
+                    <span class="stat-label" data-i18n="dashboardPage.stats.countries">Countries</span>
                 </div>
             </div>
 
@@ -440,34 +440,34 @@
             <!-- Example School Dashboard Button -->
             <div style="background: linear-gradient(135deg, #E3F2FD, #F3E5F5); padding: 3rem; border-radius: 12px; margin-bottom: 2rem; text-align: center;">
                 <h3 style="margin-bottom: 1rem; color: #1B5E20;">
-                    <i class="fas fa-chart-line"></i> Explore a Live School Dashboard
+                    <i class="fas fa-chart-line"></i> <span data-i18n="dashboardPage.explore.title">Explore a Live School Dashboard</span>
                 </h3>
-                <p style="color: #666; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="color: #666; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;" data-i18n="dashboardPage.explore.description">
                     See real-time air quality monitoring in action with interactive charts, historical data, and environmental insights
                 </p>
                 <button onclick="window.open('https://schoolair.org/portal/?school=bfis', '_blank')" style="background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(46, 125, 50, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(46, 125, 50, 0.3)'">
-                    <i class="fas fa-external-link-alt"></i> See An Example School Dashboard
+                    <i class="fas fa-external-link-alt"></i> <span data-i18n="dashboardPage.explore.button">See An Example School Dashboard</span>
                 </button>
             </div>
 
             <div class="feature-grid">
                 <div class="feature-card">
                     <i class="fas fa-eye"></i>
-                    <h3>Current Global AQI</h3>
+                    <h3 data-i18n="dashboardPage.cards.currentGlobalAQI">Current Global AQI</h3>
                     <div style="font-size: 2rem; color: #10B981; font-weight: bold;">52</div>
-                    <p>Moderate - Acceptable for most people</p>
+                    <p data-i18n="dashboardPage.cards.aqiDescription">Moderate - Acceptable for most people</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-wind"></i>
-                    <h3>Average PM2.5</h3>
+                    <h3 data-i18n="dashboardPage.cards.averagePM25">Average PM2.5</h3>
                     <div style="font-size: 2rem; color: #2e7d32; font-weight: bold;">14.8</div>
-                    <p>μg/m³ - Within WHO guidelines</p>
+                    <p data-i18n="dashboardPage.cards.pm25Unit">μg/m³ - Within WHO guidelines</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-chart-area"></i>
-                    <h3>Real-time Monitoring</h3>
+                    <h3 data-i18n="dashboardPage.cards.realTimeMonitoring">Real-time Monitoring</h3>
                     <div style="font-size: 2rem; color: #3B82F6; font-weight: bold;">24/7</div>
-                    <p>Continuous data collection worldwide</p>
+                    <p data-i18n="dashboardPage.cards.realTimeDescription">Continuous data collection worldwide</p>
                 </div>
             </div>
         </div>

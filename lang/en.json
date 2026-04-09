@@ -548,9 +548,104 @@
     }
   },
 
+  "dashboardPage": {
+    "title": "SchoolAIR Global Network",
+    "subtitle": "Real-time air quality monitoring across 5 countries",
+    "simulatedWarning": "Simulated Data For Demonstration Purposes",
+    "stats": {
+      "schools": "Schools",
+      "activeStations": "Active Stations",
+      "studentsProtected": "Students Protected",
+      "countries": "Countries"
+    },
+    "explore": {
+      "title": "Explore a Live School Dashboard",
+      "description": "See real-time air quality monitoring in action with interactive charts, historical data, and environmental insights",
+      "button": "See An Example School Dashboard"
+    },
+    "cards": {
+      "currentGlobalAQI": "Current Global AQI",
+      "aqiDescription": "Moderate - Acceptable for most people",
+      "averagePM25": "Average PM2.5",
+      "pm25Unit": "μg/m³ - Within WHO guidelines",
+      "realTimeMonitoring": "Real-time Monitoring",
+      "realTimeDescription": "Continuous data collection worldwide"
+    }
+  },
+
+  "eventsPage": {
+    "title": "Events & Workshops",
+    "subtitle": "Join our global community through workshops, internships, and collaborative events that bring students and educators together to advance environmental monitoring technology.",
+    "summerInternship": {
+      "date": "Summer 2025",
+      "status": "Completed",
+      "title": "Summer Internship/Workshop",
+      "description": "International students from several different countries will come to Alella Green Tech to design and build the very first Air Quality & Weather stations for their schools.",
+      "highlight1": "First-ever SchoolAIR prototypes created",
+      "highlight2": "Multi-national collaboration",
+      "highlight3": "Hands-on engineering experience",
+      "highlight4": "Real-world problem solving",
+      "impact": "Impact:",
+      "impactText": "This groundbreaking program established the foundation for the global SchoolAIR network, with participating students becoming the first ambassadors of environmental monitoring technology in their home countries."
+    },
+    "staffWorkshops": {
+      "date": "Coming Soon",
+      "status": "Coming Soon",
+      "title": "Workshops for School Staff",
+      "description": "Getting the most out of the SchoolAIR project for your school. Comprehensive training sessions designed for educators and administrators.",
+      "highlight1": "Curriculum integration strategies",
+      "highlight2": "Technical setup and maintenance",
+      "highlight3": "Data analysis and interpretation",
+      "highlight4": "Student engagement techniques",
+      "whoShouldAttend": "Who should attend:",
+      "whoShouldAttendText": "Teachers, administrators, IT coordinators, and educational staff interested in implementing environmental monitoring programs at their schools."
+    },
+    "studentWorkshops": {
+      "date": "Dates TBA",
+      "status": "Coming Soon",
+      "title": "Workshops for Students",
+      "description": "Interactive learning sessions for students featuring both online and in-person formats. Dates to be announced for both delivery methods.",
+      "highlight1": "Online sessions for global participation",
+      "highlight2": "In-person workshops at partner locations",
+      "highlight3": "Hands-on building and programming",
+      "highlight4": "Peer collaboration and networking",
+      "learningOutcomes": "Learning outcomes:",
+      "learningOutcomesText": "Students will gain practical experience in IoT development, environmental science, data analysis, and collaborative problem-solving while contributing to real-world environmental monitoring."
+    },
+    "hackathon": {
+      "date": "Date TBD",
+      "status": "Date TBD",
+      "title": "THE ANNUAL SCHOOLAIR HACKATHON",
+      "description": "Techies from all over will descend on Alella Green Tech's campus to build novel versions of the SchoolAIR stations. A collaborative innovation event bringing together the brightest minds in environmental technology.",
+      "highlight1": "Global developer collaboration",
+      "highlight2": "Innovation challenges and competitions",
+      "highlight3": "Advanced prototype development",
+      "highlight4": "Open source contributions",
+      "expectedOutcomes": "Expected outcomes:",
+      "expectedOutcomesText": "New sensor technologies, improved station designs, enhanced data analytics, and expanded platform capabilities that will benefit the entire global SchoolAIR network."
+    }
+  },
+
   "howItWorks": {
     "pageTitle": "How It Works",
+    "title": "How It Works",
     "subtitle": "A simple 4-step process to implement environmental monitoring in your school",
+    "step1": {
+      "title": "1. Schools Order",
+      "description": "Get complete kits with all necessary components, sensors, and hardware, or just download the detailed plans and source components yourself. Both options include comprehensive setup guides and educational materials."
+    },
+    "step2": {
+      "title": "2. Students Build",
+      "description": "Students assemble the air quality monitoring station at school through hands-on workshops, learning electronics, programming, and environmental science. Our guides support both classroom and remote learning scenarios."
+    },
+    "step3": {
+      "title": "3. Stations Deployed",
+      "description": "Completed stations are installed around the school campus to monitor air quality, temperature, and humidity in real-time, protecting the school community with timely alerts and actionable data."
+    },
+    "step4": {
+      "title": "4. Data Collected",
+      "description": "Environmental data is automatically stored in global databases via our secure API, enabling students to analyze trends, contribute to climate research, and compare data with schools worldwide."
+    },
     "steps": {
       "order": {
         "title": "1. Schools Order",
@@ -577,12 +672,18 @@
     },
     "overview": {
       "currentGlobalAQI": "Current Global AQI",
+      "globalAqi": "Current Global AQI",
       "aqiDescription": "Moderate - Acceptable for most people",
+      "globalAqiDesc": "Moderate - Acceptable for most people",
       "averagePM25": "Average PM2.5",
+      "avgPm25": "Average PM2.5",
       "pm25Unit": "\u00b5g/m\u00b3 - Within WHO guidelines",
+      "avgPm25Desc": "\u00b5g/m\u00b3 - Within WHO guidelines",
       "realTimeMonitoring": "Real-time Monitoring",
+      "realtime": "Real-time Monitoring",
       "realTimeValue": "24/7",
-      "realTimeDescription": "Continuous data collection worldwide"
+      "realTimeDescription": "Continuous data collection worldwide",
+      "realtimeDesc": "Continuous data collection worldwide"
     },
     "schools": {
       "title": "School Network Directory",

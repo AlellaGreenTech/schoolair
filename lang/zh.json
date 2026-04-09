@@ -174,6 +174,30 @@
       "deadline": "截止日期",
       "status": "状态"
     },
+    "parts": {
+      "pm25Sensor": "PM2.5 空气质量传感器",
+      "pm25SensorDesc": "DFROBOT Gravity 传感器，用于检测 PM1、PM2.5、PM10",
+      "m5stack": "M5Stack CoreS3",
+      "m5stackDesc": "配备 Wi-Fi、显示屏和 Grove 连接器的微控制器",
+      "envUnit": "ENV IV 单元",
+      "envUnitDesc": "温度、湿度和气压传感器",
+      "enclosure": "防风雨外壳",
+      "enclosureDesc": "带 DIN 导轨安装的保护性外壳",
+      "radShield": "辐射防护罩",
+      "radShieldDesc": "用于精确温度读数的防护装置",
+      "cables": "电缆和连接器",
+      "cablesDesc": "Grove 电缆和防风雨连接器"
+    },
+    "controllers": {
+      "rpiZero": "Raspberry Pi Zero",
+      "bfis": "Benjamin Franklin International",
+      "m5stack": "M5Stack",
+      "alellaGreenTech": "Alella Green Tech",
+      "esp32": "基于 ESP32 的微控制器",
+      "arduinoUno": "Arduino Uno R4 Wi-Fi",
+      "arduinoNano": "Arduino Nano 33 IoT",
+      "rpiPico": "Raspberry Pi Pico W"
+    },
     "statusPlanning": "规划中",
     "statusCompleted": "已完成！"
   },
@@ -738,5 +762,166 @@
     "schoolAIR": "schoolAIR",
     "logoTagline": "国际绿色科技基金会项目",
     "launch": "启动"
+  },
+
+  "blog": {
+    "title": "SchoolAir 博客",
+    "subtitle": "我们空气质量监测项目的最新新闻、动态和见解",
+    "featured": {
+      "badge": "精选",
+      "title": "SchoolAir 亮相 Web Summit 2024",
+      "date": "2024年11月14日",
+      "author": "SchoolAir 团队",
+      "description": "我们很高兴分享在 Web Summit 2024（全球最大的科技会议）上展示 SchoolAir 项目的经历。我们的展位展示了学生如何构建 IoT 空气质量监测站，以创建更健康的学习环境。"
+    },
+    "grid": {
+      "title": "新闻与动态",
+      "subtitle": "了解我们的最新进展"
+    },
+    "post1": {
+      "badge": "赞助",
+      "title": "家长和赞助人赞助现已开放",
+      "description": "家长和赞助人现在可以直接赞助教室的空气质量监测站。每笔赞助将资助一套完整工具包的制造和安装，保护最需要帮助的学生。",
+      "date": "2026年4月"
+    },
+    "post2": {
+      "badge": "合作",
+      "title": "皇家墨尔本理工大学加入 SchoolAir",
+      "description": "来自 RMIT 的五名计算机科学专业学生正在构建 API，以实现学校之间的安全数据共享，并增强隐私保护。这是迈向全球数据网络的重要一步。",
+      "date": "2026年3月"
+    },
+    "post3": {
+      "badge": "里程碑",
+      "title": "首批机构完成工具包组装",
+      "description": "BFIS 已在校园多个位置安装了室外监测装置，成为第一个完成全面部署的机构。真实数据现已流入仪表板。",
+      "date": "2026年3月"
+    },
+    "post4": {
+      "badge": "技术",
+      "title": "Raspberry Pi 支持已完成",
+      "description": "SchoolAir 单元现可在 Raspberry Pi 上运行，使其构建更便宜、更快速。这为预算较紧和供应链较简单的学校打开了大门。",
+      "date": "2026年2月"
+    },
+    "post5": {
+      "badge": "活动",
+      "title": "SchoolAir 亮相 Web Summit 2024",
+      "description": "我们在里斯本举行的全球最大科技会议上展示了 SchoolAir 项目，展示了学生如何构建 IoT 空气质量监测站。",
+      "date": "2024年11月"
+    },
+    "post6": {
+      "badge": "平台",
+      "title": "多语言支持已上线",
+      "description": "SchoolAir 网站和仪表板现已支持5种语言：英语、西班牙语、法语、加泰罗尼亚语和意大利语。让全球更多社区能够获得空气质量教育。",
+      "date": "2024年9月"
+    },
+    "footer": {
+      "aboutDescription": "International Green Tech Foundation 是一个致力于推进环境技术教育的非营利组织。",
+      "email": "邮箱：info@schoolair.org",
+      "social": "关注我们的社交媒体获取最新动态",
+      "copyright": "© 2024 International Green Tech Foundation。保留所有权利。"
+    }
+  },
+
+  "products": {
+    "heroTitle": "技术",
+    "heroSubtitle": "选择加入 schoolAIR 社区的方式，开始监测您所在机构的空气质量",
+    "sectionTitle": "技术",
+    "sectionSubtitle": "选择适合学生技术水平和教育目标的学习体验",
+    "completeKits": {
+      "title": "完整学习套件",
+      "subtitle": "完整的 STEM 教育体验",
+      "description": "学生通过动手构建专业级环境监测系统来学习电子学、编程和数据科学。",
+      "feature1": "<strong>硬件：</strong>M5Stack CoreS3 + 环境传感器",
+      "feature2": "<strong>学习：</strong>电路组装和 IoT 设备构建",
+      "feature3": "<strong>编程：</strong>Python/MicroPython 编程和 API 开发",
+      "feature4": "<strong>部署：</strong>防风雨安装和数据采集",
+      "feature5": "<strong>分析：</strong>数据库查询和数据可视化",
+      "feature6": "<strong>影响：</strong>学校的真实环境监测",
+      "feature7": "<strong>权限：</strong>1年云数据库和学习支持",
+      "price": "€165",
+      "priceNote": "每套完整套件",
+      "button": "订购套件"
+    },
+    "diy": {
+      "title": "高级 DIY 学习",
+      "subtitle": "适合有经验的创客和编程者",
+      "description": "非常适合高级学生或已有创客项目的学校。提供全面课程以进行深度技术学习。",
+      "feature1": "<strong>平台：</strong>支持 Arduino、ESP32、Raspberry Pi",
+      "feature2": "<strong>设计：</strong>3D 建模和可打印外壳文件",
+      "feature3": "<strong>代码：</strong>完整源代码 + 自定义指南",
+      "feature4": "<strong>技能：</strong>高级电子学和系统集成",
+      "feature5": "<strong>采购：</strong>组件选择和采购",
+      "feature6": "<strong>社区：</strong>开发者论坛和同伴协作",
+      "feature7": "<strong>发展：</strong>参与开源开发",
+      "price": "免费",
+      "priceNote": "开源计划",
+      "button": "下载方案"
+    },
+    "hackathon": {
+      "title": "动手创客马拉松",
+      "subtitle": "周末团队挑战",
+      "description": "为期一个周末的密集活动，4名学生组成的团队在专家指导下构建、编程和安装监测站。",
+      "feature1": "2天密集工作坊",
+      "feature2": "每队最多4名学生",
+      "feature3": "现场专家导师",
+      "feature4": "包含所有材料",
+      "feature5": "学校安装支持",
+      "feature6": "竞赛奖品",
+      "feature7": "结业证书",
+      "price": "€110",
+      "priceNote": "每位学生（4人一组）",
+      "button": "参加创客马拉松"
+    },
+    "workshop": {
+      "title": "4节课工作坊",
+      "subtitle": "分4节课完成构建",
+      "description": "将学习分散在4节课中，非常适合融入现有课程，让学生获得更深入的理解。",
+      "feature1": "4节结构化学习课程",
+      "feature2": "第1节：环境科学",
+      "feature3": "第2节：电子组装",
+      "feature4": "第3节：编程与设置",
+      "feature5": "第4节：数据分析",
+      "feature6": "包含所有材料",
+      "feature7": "可带回家的参考资料",
+      "price": "€87",
+      "priceNote": "每位学生",
+      "button": "报名工作坊"
+    },
+    "iotAi": {
+      "title": "IoT 与 AI 编程",
+      "subtitle": "高级编程工作坊",
+      "description": "专注于物联网连接和环境数据人工智能应用的高级工作坊。",
+      "feature1": "云连接编程",
+      "feature2": "API 开发和数据传输",
+      "feature3": "用于预测的机器学习",
+      "feature4": "数据可视化技术",
+      "feature5": "IoT 安全最佳实践",
+      "feature6": "真实项目作品集",
+      "price": "€69",
+      "priceNote": "每位学生",
+      "button": "了解更多"
+    },
+    "robotics": {
+      "title": "机器人工作坊",
+      "subtitle": "移动环境监测",
+      "description": "将机器人技术与环境监测相结合，构建可从不同位置自主收集数据的移动监测站。",
+      "feature1": "移动机器人平台",
+      "feature2": "自主导航基础",
+      "feature3": "多点数据采集",
+      "feature4": "GPS 追踪集成",
+      "feature5": "远程控制功能",
+      "feature6": "环境测绘",
+      "price": "€128",
+      "priceNote": "每位学生",
+      "button": "探索机器人"
+    },
+    "techDetails": {
+      "title": "想查看技术详情？",
+      "subtitle": "探索我们空气质量监测站中使用的所有组件、传感器和材料",
+      "button": "查看技术详情"
+    },
+    "footer": {
+      "copyright": "© 2024 schoolAIR 项目。"
+    }
   }
 }

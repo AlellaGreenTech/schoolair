@@ -174,6 +174,30 @@
       "deadline": "Scadenza",
       "status": "Stato"
     },
+    "parts": {
+      "pm25Sensor": "Sensore di Qualità dell'Aria PM2.5",
+      "pm25SensorDesc": "Sensore DFROBOT Gravity per il rilevamento di PM1, PM2.5, PM10",
+      "m5stack": "M5Stack CoreS3",
+      "m5stackDesc": "Microcontrollore con Wi-Fi, display e connettori Grove",
+      "envUnit": "Unità ENV IV",
+      "envUnitDesc": "Sensore di temperatura, umidità e pressione atmosferica",
+      "enclosure": "Custodia Resistente alle Intemperie",
+      "enclosureDesc": "Custodia protettiva con montaggio su guida DIN",
+      "radShield": "Schermo Anti-Radiazione",
+      "radShieldDesc": "Protezione per letture accurate della temperatura",
+      "cables": "Cavi e Connettori",
+      "cablesDesc": "Cavi Grove e connettori resistenti alle intemperie"
+    },
+    "controllers": {
+      "rpiZero": "Raspberry Pi Zero",
+      "bfis": "Benjamin Franklin International",
+      "m5stack": "M5Stack",
+      "alellaGreenTech": "Alella Green Tech",
+      "esp32": "Microcontrollori basati su ESP32",
+      "arduinoUno": "Arduino Uno R4 Wi-Fi",
+      "arduinoNano": "Arduino Nano 33 IoT",
+      "rpiPico": "Raspberry Pi Pico W"
+    },
     "statusPlanning": "In Pianificazione",
     "statusCompleted": "COMPLETATO!"
   },
@@ -738,5 +762,166 @@
     "schoolAIR": "schoolAIR",
     "logoTagline": "Un Progetto della International Green Tech Foundation",
     "launch": "Avvia"
+  },
+
+  "blog": {
+    "title": "Blog di SchoolAir",
+    "subtitle": "Ultime notizie, aggiornamenti e approfondimenti dal nostro progetto di monitoraggio della qualità dell'aria",
+    "featured": {
+      "badge": "In Evidenza",
+      "title": "SchoolAir Presenta al Web Summit 2024",
+      "date": "14 novembre 2024",
+      "author": "Team SchoolAir",
+      "description": "Siamo entusiasti di condividere la nostra esperienza di presentazione del progetto SchoolAir al Web Summit 2024, la più grande conferenza tecnologica al mondo. Il nostro stand ha mostrato come gli studenti stanno costruendo stazioni di monitoraggio della qualità dell'aria IoT per creare ambienti di apprendimento più sani."
+    },
+    "grid": {
+      "title": "Notizie e Aggiornamenti",
+      "subtitle": "Resta aggiornato con i nostri ultimi sviluppi"
+    },
+    "post1": {
+      "badge": "Sponsorizzazione",
+      "title": "Sponsorizzazioni di Genitori e Sostenitori Ora Aperte",
+      "description": "Genitori e sostenitori possono ora sponsorizzare direttamente la stazione di qualità dell'aria di un'aula. Ogni sponsorizzazione finanzia la costruzione e l'installazione di un kit completo, proteggendo gli studenti che ne hanno più bisogno.",
+      "date": "Apr 2026"
+    },
+    "post2": {
+      "badge": "Partnership",
+      "title": "Il Royal Melbourne Institute of Technology Si Unisce a SchoolAir",
+      "description": "Cinque studenti di informatica del RMIT stanno costruendo l'API che consentirà la condivisione sicura dei dati tra scuole con protezioni della privacy migliorate. Un passo importante verso la nostra rete globale di dati.",
+      "date": "Mar 2026"
+    },
+    "post3": {
+      "badge": "Traguardo",
+      "title": "Le Prime Istituzioni Completano la Costruzione dei Loro Kit",
+      "description": "BFIS ha installato unità di monitoraggio esterno in più punti del campus scolastico, diventando la prima istituzione a completare un dispiegamento completo. I dati reali ora fluiscono verso la dashboard.",
+      "date": "Mar 2026"
+    },
+    "post4": {
+      "badge": "Tecnologia",
+      "title": "Supporto Raspberry Pi Completato",
+      "description": "Le unità SchoolAir ora possono funzionare su Raspberry Pi, rendendole più economiche e veloci da costruire. Questo apre il progetto alle scuole con budget più ridotti e catene di approvvigionamento più semplici.",
+      "date": "Feb 2026"
+    },
+    "post5": {
+      "badge": "Evento",
+      "title": "SchoolAir al Web Summit 2024",
+      "description": "Abbiamo presentato il progetto SchoolAir alla più grande conferenza tecnologica al mondo a Lisbona, mostrando come gli studenti stanno costruendo stazioni di monitoraggio della qualità dell'aria IoT.",
+      "date": "Nov 2024"
+    },
+    "post6": {
+      "badge": "Piattaforma",
+      "title": "Supporto Multilingue Lanciato",
+      "description": "Il sito web e la dashboard di SchoolAir sono ora disponibili in 5 lingue: inglese, spagnolo, francese, catalano e italiano. Rendendo l'educazione sulla qualità dell'aria accessibile a più comunità in tutto il mondo.",
+      "date": "Set 2024"
+    },
+    "footer": {
+      "aboutDescription": "L'International Green Tech Foundation è un'organizzazione senza scopo di lucro che promuove l'educazione alla tecnologia ambientale.",
+      "email": "Email: info@schoolair.org",
+      "social": "Seguici sui social media per gli aggiornamenti",
+      "copyright": "© 2024 International Green Tech Foundation. Tutti i diritti riservati."
+    }
+  },
+
+  "products": {
+    "heroTitle": "Tecnologia",
+    "heroSubtitle": "Scegli come unirti alla comunità schoolAIR e inizia a monitorare la qualità dell'aria nella tua istituzione",
+    "sectionTitle": "Tecnologia",
+    "sectionSubtitle": "Scegli l'esperienza di apprendimento adatta al livello tecnico e agli obiettivi educativi dei tuoi studenti",
+    "completeKits": {
+      "title": "Kit di Apprendimento Completi",
+      "subtitle": "Esperienza educativa STEM completa",
+      "description": "Gli studenti imparano elettronica, programmazione e scienza dei dati attraverso la costruzione pratica di sistemi professionali di monitoraggio ambientale.",
+      "feature1": "<strong>Hardware:</strong> M5Stack CoreS3 + sensori ambientali",
+      "feature2": "<strong>Impara:</strong> Assemblaggio di circuiti e costruzione di dispositivi IoT",
+      "feature3": "<strong>Programma:</strong> Programmazione Python/MicroPython e sviluppo API",
+      "feature4": "<strong>Distribuisci:</strong> Installazione resistente alle intemperie e raccolta dati",
+      "feature5": "<strong>Analizza:</strong> Query su database e visualizzazione dei dati",
+      "feature6": "<strong>Impatto:</strong> Monitoraggio ambientale reale per la scuola",
+      "feature7": "<strong>Accesso:</strong> 1 anno di database cloud e supporto all'apprendimento",
+      "price": "€165",
+      "priceNote": "Per kit completo",
+      "button": "Ordina Kit"
+    },
+    "diy": {
+      "title": "Apprendimento DIY Avanzato",
+      "subtitle": "Per maker e programmatori esperti",
+      "description": "Perfetto per studenti avanzati o scuole con programmi maker esistenti. Curriculum completo per un apprendimento tecnico approfondito.",
+      "feature1": "<strong>Piattaforme:</strong> Supporto Arduino, ESP32, Raspberry Pi",
+      "feature2": "<strong>Design:</strong> Modellazione 3D e file di custodia stampabili",
+      "feature3": "<strong>Codice:</strong> Codice sorgente completo + guide alla personalizzazione",
+      "feature4": "<strong>Competenze:</strong> Elettronica avanzata e integrazione di sistemi",
+      "feature5": "<strong>Approvvigionamento:</strong> Selezione e acquisto dei componenti",
+      "feature6": "<strong>Comunità:</strong> Forum sviluppatori e collaborazione tra pari",
+      "feature7": "<strong>Evoluzione:</strong> Contribuisci allo sviluppo open source",
+      "price": "Gratuito",
+      "priceNote": "Iniziativa open source",
+      "button": "Scarica i Piani"
+    },
+    "hackathon": {
+      "title": "Hackathon di Costruzione",
+      "subtitle": "Sfida di squadra nel fine settimana",
+      "description": "Evento intensivo del fine settimana in cui squadre di 4 studenti costruiscono, programmano e installano la loro stazione con la guida di esperti.",
+      "feature1": "Workshop intensivo di 2 giorni",
+      "feature2": "Squadre di massimo 4 studenti",
+      "feature3": "Mentori esperti in loco",
+      "feature4": "Tutti i materiali inclusi",
+      "feature5": "Supporto all'installazione a scuola",
+      "feature6": "Premi della competizione",
+      "feature7": "Certificato di completamento",
+      "price": "€110",
+      "priceNote": "Per studente (squadre di 4)",
+      "button": "Partecipa all'Hackathon"
+    },
+    "workshop": {
+      "title": "Workshop in 4 Sessioni",
+      "subtitle": "Costruisci in 4 sessioni",
+      "description": "Distribuisci l'apprendimento su 4 sessioni, perfetto per l'integrazione nel curriculum esistente e per una comprensione più approfondita.",
+      "feature1": "4 sessioni di apprendimento strutturate",
+      "feature2": "Sessione 1: Scienze ambientali",
+      "feature3": "Sessione 2: Assemblaggio elettronico",
+      "feature4": "Sessione 3: Programmazione e configurazione",
+      "feature5": "Sessione 4: Analisi dei dati",
+      "feature6": "Tutti i materiali inclusi",
+      "feature7": "Materiali di riferimento da portare a casa",
+      "price": "€87",
+      "priceNote": "Per studente",
+      "button": "Iscriviti al Workshop"
+    },
+    "iotAi": {
+      "title": "Programmazione IoT e IA",
+      "subtitle": "Workshop avanzati di programmazione",
+      "description": "Workshop avanzati incentrati sulla connettività dell'Internet delle Cose e sulle applicazioni di intelligenza artificiale per i dati ambientali.",
+      "feature1": "Programmazione della connettività cloud",
+      "feature2": "Sviluppo API e trasmissione dati",
+      "feature3": "Machine learning per le previsioni",
+      "feature4": "Tecniche di visualizzazione dei dati",
+      "feature5": "Best practice di sicurezza IoT",
+      "feature6": "Portfolio di progetti reali",
+      "price": "€69",
+      "priceNote": "Per studente",
+      "button": "Scopri di Più"
+    },
+    "robotics": {
+      "title": "Workshop di Robotica",
+      "subtitle": "Monitoraggio ambientale mobile",
+      "description": "Combina la robotica con il monitoraggio ambientale costruendo stazioni mobili che possono raccogliere autonomamente dati da diverse posizioni.",
+      "feature1": "Piattaforma robotica mobile",
+      "feature2": "Basi della navigazione autonoma",
+      "feature3": "Raccolta dati multi-punto",
+      "feature4": "Integrazione del tracciamento GPS",
+      "feature5": "Capacità di controllo remoto",
+      "feature6": "Mappatura ambientale",
+      "price": "€128",
+      "priceNote": "Per studente",
+      "button": "Esplora la Robotica"
+    },
+    "techDetails": {
+      "title": "Vuoi Vedere i Dettagli Tecnici?",
+      "subtitle": "Esplora tutti i componenti, sensori e materiali utilizzati nelle nostre stazioni di monitoraggio della qualità dell'aria",
+      "button": "Vedi Dettagli Tecnici"
+    },
+    "footer": {
+      "copyright": "© 2024 Progetto schoolAIR."
+    }
   }
 }

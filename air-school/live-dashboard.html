@@ -6,6 +6,7 @@
     <title>Live Air Quality Data</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; padding: 1.5rem; }
@@ -23,13 +24,16 @@
         tr:hover { background: #f8fafc; }
         .alert-box { max-width: 900px; margin: 0 auto 1rem; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; }
         .alert-info { background: #f0fdf4; border-left: 3px solid #2e7d32; color: #166534; }
-        .alert-warn { background: #fef3c7; border-left: 3px solid #f59e0b; color: #92400e; }
-        .alert-danger { background: #fef2f2; border-left: 3px solid #ef4444; color: #991b1b; }
+        .alert-warn { background: #fff3cd; border-left: 5px solid #ffc107; color: #92400e; }
+        .alert-danger { background: #fef2f2; border-left: 5px solid #ef4444; color: #991b1b; }
+        .guide-box { max-width: 900px; margin: 0 auto 1rem; padding: 1rem 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.85rem; line-height: 1.6; color: #475569; }
+        .guide-box strong { color: #1e293b; }
     </style>
 </head>
 <body>
     <p class="status" id="status">Loading sensor data...</p>
     <div class="alert-box alert-info" id="safetyAlert" style="display:none;"></div>
+    <div class="guide-box" id="guideBox" style="display:none;"></div>
     <div class="metric-selector" id="metricSelector"></div>
     <div class="chart-container"><canvas id="chart"></canvas></div>
     <div class="data-table"><table id="dataTable"><thead></thead><tbody></tbody></table></div>
@@ -57,6 +61,18 @@
             pm25: { warn: 15, danger: 35 },
             pm100: { warn: null, danger: 45 },
             co: { warn: null, danger: 9 },
+        };
+
+        const GUIDES = {
+            pm25: { title: 'PM2.5 (Fine Particles)', text: 'These tiny particles reach deep into the lungs and bloodstream. Can trigger <strong>asthma attacks</strong> and increase cardiovascular risk.<br><br><strong>WHO Guidelines:</strong><br>• 0-15 µg/m³: Good<br>• >35 µg/m³: Unhealthy' },
+            pm10: { title: 'PM1.0 (Ultrafine Particles)', text: 'Derived from combustion (engines, smoke). No official limit, but high levels are linked to systemic inflammation as they bypass lung barriers entirely.' },
+            pm100: { title: 'PM10.0 (Coarse Particles)', text: 'Mostly dust, pollen, and mold. Causes throat irritation, sneezing, and upper respiratory discomfort.<br><br><strong>WHO Guidelines:</strong><br>• 0-45 µg/m³: Acceptable<br>• >45 µg/m³: High' },
+            co2: { title: 'CO₂ (Carbon Dioxide)', text: '• 400-1000 ppm: Good<br>• 1000-2000 ppm: Drowsiness and poor concentration<br>• >2000 ppm: Headaches and stuffiness. May even affect your test scores.' },
+            temp: { title: 'Temperature', text: 'Ideal indoor range: 20-24°C (68-75°F). Extreme temperatures affect productivity and can exacerbate existing respiratory conditions.' },
+            humidity: { title: 'Humidity', text: 'Ideal range: 30-50%.<br>High humidity (>60%) promotes <strong>mold growth</strong> and dust mites.<br>Low humidity (<30%) causes dry skin and increases viral transmission.' },
+            co: { title: 'Carbon Monoxide (CO)', text: 'A colorless, odorless toxic gas. High levels indicate faulty heating systems or vehicle exhaust infiltration. Can cause dizziness and, at high levels, is fatal.' },
+            no2: { title: 'Nitrogen Dioxide (NO₂)', text: 'Primarily from traffic exhaust. Known to inflame the airways and is a major trigger for <strong>chronic bronchitis</strong> and asthma exacerbations.' },
+            voc: { title: 'VOC Index (Volatile Organic Compounds)', text: 'Gasses emitted from paints, markers, and new furniture. High levels cause "Sick Building Syndrome" — headaches, nausea, and eye irritation.' },
         };
 
         function getValue(row, key) {
@@ -110,6 +126,22 @@
             renderAlert();
         }
 
+        function getAnnotations() {
+            const a = {};
+            if (selectedMetric === 'co2') {
+                a.line1 = { type: 'line', yMin: 1000, yMax: 1000, borderColor: '#ffc107', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: 'Ventilate', position: 'end', font: { size: 10 } } };
+                a.line2 = { type: 'line', yMin: 2000, yMax: 2000, borderColor: '#dc3545', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: 'Critical', position: 'end', font: { size: 10 } } };
+            } else if (selectedMetric === 'pm25') {
+                a.line1 = { type: 'line', yMin: 15, yMax: 15, borderColor: '#ffc107', borderWidth: 1.5, borderDash: [4, 4], label: { display: true, content: 'WHO Limit', position: 'end', font: { size: 9 } } };
+                a.line2 = { type: 'line', yMin: 35, yMax: 35, borderColor: '#dc3545', borderWidth: 2, borderDash: [4, 4], label: { display: true, content: 'Unhealthy', position: 'end', font: { size: 9 } } };
+            } else if (selectedMetric === 'temp') {
+                a.idealZone = { type: 'box', yMin: 20, yMax: 24, backgroundColor: 'rgba(0,123,255,0.05)', borderColor: 'rgba(0,123,255,0.2)', borderWidth: 1, label: { display: true, content: 'Ideal Range (20-24°C)', position: 'start', font: { size: 10, style: 'italic' }, color: '#666' } };
+            } else if (selectedMetric === 'humidity') {
+                a.idealZone = { type: 'box', yMin: 30, yMax: 50, backgroundColor: 'rgba(0,123,255,0.05)', borderColor: 'rgba(0,123,255,0.2)', borderWidth: 1, label: { display: true, content: 'Ideal Humidity (30-50%)', position: 'start', font: { size: 10, style: 'italic' }, color: '#666' } };
+            }
+            return a;
+        }
+
         function renderChart() {
             const metric = METRICS.find(m => m.key === selectedMetric);
             const labels = rows.map(r => new Date(r.recorded_at).toLocaleString('en-GB', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' }));
@@ -132,7 +164,10 @@
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { display: false },
+                        annotation: { annotations: getAnnotations() }
+                    },
                     scales: {
                         x: { display: true, ticks: { maxTicksLimit: 10, font: { size: 10 } } },
                         y: { display: true, title: { display: true, text: metric.unit } }
@@ -156,22 +191,35 @@
 
         function renderAlert() {
             const el = document.getElementById('safetyAlert');
-            const t = THRESHOLDS[selectedMetric];
-            if (!t) { el.style.display = 'none'; return; }
+            const guideEl = document.getElementById('guideBox');
+            const metric = METRICS.find(m => m.key === selectedMetric);
             const latest = rows.length ? getValue(rows[rows.length - 1], selectedMetric) : null;
-            if (latest == null) { el.style.display = 'none'; return; }
-            if (t.danger && latest > t.danger) {
-                el.className = 'alert-box alert-danger';
-                el.textContent = `Current ${METRICS.find(m=>m.key===selectedMetric).label}: ${latest} — above danger threshold (${t.danger})`;
-                el.style.display = 'block';
-            } else if (t.warn && latest > t.warn) {
-                el.className = 'alert-box alert-warn';
-                el.textContent = `Current ${METRICS.find(m=>m.key===selectedMetric).label}: ${latest} — above warning threshold (${t.warn})`;
+
+            // Safety alert
+            const t = THRESHOLDS[selectedMetric];
+            if (t && latest != null) {
+                if (t.danger && latest > t.danger) {
+                    el.className = 'alert-box alert-danger';
+                    el.innerHTML = `<strong>${metric.label}: ${latest} ${metric.unit}</strong> — above danger threshold (${t.danger})`;
+                } else if (t.warn && latest > t.warn) {
+                    el.className = 'alert-box alert-warn';
+                    el.innerHTML = `<strong>${metric.label}: ${latest} ${metric.unit}</strong> — above warning threshold (${t.warn})`;
+                } else {
+                    el.className = 'alert-box alert-info';
+                    el.innerHTML = `<strong>${metric.label}: ${latest} ${metric.unit}</strong> — within safe levels`;
+                }
                 el.style.display = 'block';
             } else {
-                el.className = 'alert-box alert-info';
-                el.textContent = `Current ${METRICS.find(m=>m.key===selectedMetric).label}: ${latest} — within safe levels`;
-                el.style.display = 'block';
+                el.style.display = 'none';
+            }
+
+            // Health guidance
+            const guide = GUIDES[selectedMetric];
+            if (guide) {
+                guideEl.innerHTML = `<strong>${guide.title}</strong><br>${guide.text}`;
+                guideEl.style.display = 'block';
+            } else {
+                guideEl.style.display = 'none';
             }
         }
 

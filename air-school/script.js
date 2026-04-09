@@ -10,10 +10,14 @@ class AirQualityMonitor {
             environment: null
         };
 
+        this.dataMode = {};      // per-room: 'live' or 'simulated'
+        this.deviceToRoom = {};  // reverse map: roomId → deviceId
+        this.rawSensorData = []; // cached API response
+
         this.init();
         this.initModal();
         this.generateHistoricalData();
-        this.startSimulation();
+        this.startDataLoop();
     }
 
     init() {
@@ -186,6 +190,135 @@ class AirQualityMonitor {
         }
     }
 
+    // --- Real Data Integration ---
+
+    async startDataLoop() {
+        // Build reverse device map
+        if (typeof SCHOOL_CONFIG !== 'undefined') {
+            Object.entries(SCHOOL_CONFIG.devices).forEach(([deviceId, roomId]) => {
+                this.deviceToRoom[roomId] = deviceId;
+            });
+        }
+
+        // Try fetching real data first
+        const success = await this.fetchRealData();
+        if (success) {
+            // Real data available — refresh every 30s
+            setInterval(() => this.fetchRealData(), SCHOOL_CONFIG?.refreshInterval || 30000);
+        } else {
+            // No real data — fall back to simulation
+            this.startSimulation();
+        }
+    }
+
+    async fetchRealData() {
+        if (typeof SCHOOL_CONFIG === 'undefined') return false;
+
+        try {
+            const resp = await fetch(SCHOOL_CONFIG.proxyUrl);
+            if (!resp.ok) throw new Error('API error');
+            this.rawSensorData = await resp.json();
+
+            // Get latest reading per device
+            const latestByDevice = {};
+            for (const row of this.rawSensorData) {
+                if (!latestByDevice[row.device_id] ||
+                    new Date(row.recorded_at) > new Date(latestByDevice[row.device_id].recorded_at)) {
+                    latestByDevice[row.device_id] = row;
+                }
+            }
+
+            // Update each room
+            this.classrooms.forEach(roomId => {
+                const deviceId = this.deviceToRoom[roomId];
+                const reading = deviceId ? latestByDevice[deviceId] : null;
+
+                if (reading) {
+                    const data = this.extractSensorValues(reading);
+                    const age = Date.now() - new Date(reading.recorded_at).getTime();
+                    const isStale = age > (SCHOOL_CONFIG.staleThreshold || 300000);
+
+                    this.dataMode[roomId] = isStale ? 'stale' : 'live';
+                    this.currentData[roomId] = data;
+                    this.updateClassroom(roomId, data);
+                } else {
+                    this.dataMode[roomId] = 'simulated';
+                    const data = this.generateRandomData();
+                    this.currentData[roomId] = data;
+                    this.updateClassroom(roomId, data);
+                }
+
+                this.updateDataBadge(roomId);
+            });
+
+            return true;
+        } catch (err) {
+            console.log('Real data unavailable, using simulation:', err.message);
+            return false;
+        }
+    }
+
+    extractSensorValues(row) {
+        const d = row.data || {};
+        return {
+            co2: Math.round(d.sen6x?.co2 ?? 0),
+            pm25: Math.round((d.sen6x?.pm25 ?? d.hm3301?.pm2_5_std ?? 0) * 10) / 10,
+            temperature: Math.round((d.sen6x?.temp ?? d.sht_30?.temperature_celsius ?? d.qmp_6988?.temperature_celsius ?? 20) * 10) / 10,
+            humidity: Math.round(d.sen6x?.humidity ?? d.sht_30?.humidity_percent ?? 50)
+        };
+    }
+
+    updateDataBadge(roomId) {
+        const card = document.querySelector(`[data-room="${roomId}"]`);
+        if (!card) return;
+
+        let badge = card.querySelector('.data-badge');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'data-badge';
+            const header = card.querySelector('.card-header .classroom-info h3');
+            if (header) header.appendChild(badge);
+        }
+
+        const mode = this.dataMode[roomId] || 'simulated';
+        if (mode === 'live') {
+            badge.textContent = ' LIVE';
+            badge.style.cssText = 'font-size:0.6rem;background:#2e7d32;color:white;padding:2px 6px;border-radius:10px;margin-left:8px;vertical-align:middle;letter-spacing:0.5px;';
+        } else if (mode === 'stale') {
+            badge.textContent = ' STALE';
+            badge.style.cssText = 'font-size:0.6rem;background:#f59e0b;color:white;padding:2px 6px;border-radius:10px;margin-left:8px;vertical-align:middle;letter-spacing:0.5px;';
+        } else {
+            badge.textContent = ' SIM';
+            badge.style.cssText = 'font-size:0.6rem;background:#94a3b8;color:white;padding:2px 6px;border-radius:10px;margin-left:8px;vertical-align:middle;letter-spacing:0.5px;';
+        }
+    }
+
+    getHistoricalDataForRoom(roomId) {
+        const deviceId = this.deviceToRoom[roomId];
+        if (!deviceId || !this.rawSensorData.length) return null;
+
+        const deviceReadings = this.rawSensorData
+            .filter(r => r.device_id === deviceId)
+            .sort((a, b) => new Date(a.recorded_at) - new Date(b.recorded_at));
+
+        if (deviceReadings.length < 2) return null;
+
+        return deviceReadings.map(r => {
+            const vals = this.extractSensorValues(r);
+            const time = new Date(r.recorded_at);
+            return {
+                time: time.getHours() + ':' + String(time.getMinutes()).padStart(2, '0'),
+                co2: vals.co2,
+                pm25: vals.pm25,
+                temperature: vals.temperature,
+                humidity: vals.humidity,
+                aqi: this.calculateSchoolAirQualityIndex(vals.co2, vals.pm25, vals.temperature, vals.humidity)
+            };
+        });
+    }
+
+    // --- End Real Data Integration ---
+
     generateRandomData() {
         return {
             co2: Math.round(400 + Math.random() * 800), // 400-1200 ppm
@@ -291,6 +424,12 @@ class AirQualityMonitor {
 
         const status = aqi <= 30 ? 'Good' : aqi <= 60 ? 'Moderate' : 'Poor';
         document.getElementById('modal-status').textContent = status;
+
+        // Use real historical data if available, otherwise simulated
+        const realHistory = this.getHistoricalDataForRoom(roomId);
+        if (realHistory) {
+            this.historicalData[roomId] = realHistory;
+        }
 
         // Create chart
         this.createHistoryChart(roomId);

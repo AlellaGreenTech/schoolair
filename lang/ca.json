@@ -550,7 +550,24 @@
 
   "howItWorks": {
     "pageTitle": "Com funciona",
+    "title": "Com funciona",
     "subtitle": "Un procés senzill de 4 passos per implementar el monitoratge ambiental a la teva escola",
+    "step1": {
+      "title": "1. Les escoles demanen",
+      "description": "Obtingues kits complets amb tots els components, sensors i maquinari necessaris, o simplement descarrega els plans detallats i aconsegueix els components pel teu compte. Ambdues opcions inclouen guies de configuració completes i materials educatius."
+    },
+    "step2": {
+      "title": "2. Els estudiants construeixen",
+      "description": "Els estudiants munten l'estació de monitoratge de qualitat de l'aire a l'escola mitjançant tallers pràctics, aprenent electrònica, programació i ciència ambiental. Les nostres guies admeten tant l'aprenentatge a l'aula com el remot."
+    },
+    "step3": {
+      "title": "3. Les estacions s'instal·len",
+      "description": "Les estacions completades s'instal·len pel campus escolar per monitoritzar la qualitat de l'aire, la temperatura i la humitat en temps real, protegint la comunitat escolar amb alertes oportunes i dades accionables."
+    },
+    "step4": {
+      "title": "4. Les dades es recullen",
+      "description": "Les dades ambientals s'emmagatzemen automàticament en bases de dades globals mitjançant la nostra API segura, permetent als estudiants analitzar tendències, contribuir a la recerca climàtica i comparar dades amb escoles de tot el món."
+    },
     "steps": {
       "order": {
         "title": "1. Les escoles demanen",
@@ -577,12 +594,18 @@
     },
     "overview": {
       "currentGlobalAQI": "AQI global actual",
+      "globalAqi": "AQI global actual",
       "aqiDescription": "Moderat - Acceptable per a la majoria de persones",
+      "globalAqiDesc": "Moderat - Acceptable per a la majoria de persones",
       "averagePM25": "PM2.5 mitjà",
-      "pm25Unit": "µg/m³ - Dins de les directrius WHO",
+      "avgPm25": "PM2.5 mitjà",
+      "pm25Unit": "µg/m³ - Dins de les directrius de l'OMS",
+      "avgPm25Desc": "µg/m³ - Dins de les directrius de l'OMS",
       "realTimeMonitoring": "Monitoratge en temps real",
+      "realtime": "Monitoratge en temps real",
       "realTimeValue": "24/7",
-      "realTimeDescription": "Recollida contínua de dades a tot el món"
+      "realTimeDescription": "Recollida contínua de dades a tot el món",
+      "realtimeDesc": "Recollida contínua de dades a tot el món"
     },
     "schools": {
       "title": "Directori de la xarxa d'escoles",
@@ -608,6 +631,84 @@
       "regionalAQI": "Obtenir dades regionals de qualitat de l'aire",
       "historicalData": "Dades històriques d'una escola específica",
       "integrationExample": "Exemple d'integració"
+    }
+  },
+
+  "dashboardPage": {
+    "title": "Xarxa Global SchoolAIR",
+    "subtitle": "Monitoratge de la qualitat de l'aire en temps real a 5 països",
+    "simulatedWarning": "Dades Simulades Amb Finalitats Demostratives",
+    "stats": {
+      "schools": "Escoles",
+      "activeStations": "Estacions Actives",
+      "studentsProtected": "Alumnes Protegits",
+      "countries": "Països"
+    },
+    "explore": {
+      "title": "Explora un Tauler Escolar en Directe",
+      "description": "Consulta el monitoratge de la qualitat de l'aire en temps real amb gràfics interactius, dades històriques i informació ambiental",
+      "button": "Veure un Tauler Escolar d'Exemple"
+    },
+    "cards": {
+      "currentGlobalAQI": "IQA Global Actual",
+      "aqiDescription": "Moderat - Acceptable per a la majoria de persones",
+      "averagePM25": "PM2.5 Mitjà",
+      "pm25Unit": "μg/m³ - Dins les directrius de l'OMS",
+      "realTimeMonitoring": "Monitoratge en Temps Real",
+      "realTimeDescription": "Recollida contínua de dades a tot el món"
+    }
+  },
+
+  "eventsPage": {
+    "title": "Esdeveniments i Tallers",
+    "subtitle": "Uneix-te a la nostra comunitat global a través de tallers, pràctiques i esdeveniments col·laboratius que reuneixen alumnes i educadors per avançar en la tecnologia de monitoratge ambiental.",
+    "summerInternship": {
+      "date": "Estiu 2025",
+      "status": "Completat",
+      "title": "Pràctiques/Taller d'Estiu",
+      "description": "Alumnes internacionals de diversos països vindran a Alella Green Tech per dissenyar i construir les primeres estacions de qualitat de l'aire i meteorologia per a les seves escoles.",
+      "highlight1": "Primers prototips SchoolAIR creats",
+      "highlight2": "Col·laboració multinacional",
+      "highlight3": "Experiència pràctica en enginyeria",
+      "highlight4": "Resolució de problemes del món real",
+      "impact": "Impacte:",
+      "impactText": "Aquest programa pioner va establir les bases de la xarxa global SchoolAIR, i els alumnes participants es van convertir en els primers ambaixadors de la tecnologia de monitoratge ambiental als seus països d'origen."
+    },
+    "staffWorkshops": {
+      "date": "Properament",
+      "status": "Properament",
+      "title": "Tallers per al Personal Escolar",
+      "description": "Com treure el màxim profit del projecte SchoolAIR per a la teva escola. Sessions de formació integral dissenyades per a educadors i administradors.",
+      "highlight1": "Estratègies d'integració curricular",
+      "highlight2": "Configuració tècnica i manteniment",
+      "highlight3": "Anàlisi i interpretació de dades",
+      "highlight4": "Tècniques de participació de l'alumnat",
+      "whoShouldAttend": "Qui hauria d'assistir:",
+      "whoShouldAttendText": "Professors, administradors, coordinadors de TI i personal educatiu interessat a implementar programes de monitoratge ambiental a les seves escoles."
+    },
+    "studentWorkshops": {
+      "date": "Dates per confirmar",
+      "status": "Properament",
+      "title": "Tallers per a Alumnes",
+      "description": "Sessions d'aprenentatge interactives per a alumnes en formats presencial i en línia. S'anunciaran les dates per a ambdues modalitats.",
+      "highlight1": "Sessions en línia per a participació global",
+      "highlight2": "Tallers presencials a ubicacions associades",
+      "highlight3": "Construcció i programació pràctica",
+      "highlight4": "Col·laboració i networking entre companys",
+      "learningOutcomes": "Resultats d'aprenentatge:",
+      "learningOutcomesText": "Els alumnes obtindran experiència pràctica en desenvolupament IoT, ciència ambiental, anàlisi de dades i resolució col·laborativa de problemes mentre contribueixen al monitoratge ambiental real."
+    },
+    "hackathon": {
+      "date": "Data per confirmar",
+      "status": "Data per confirmar",
+      "title": "EL HACKATHON ANUAL DE SCHOOLAIR",
+      "description": "Entusiastes de la tecnologia d'arreu es reuniran al campus d'Alella Green Tech per construir versions innovadores de les estacions SchoolAIR. Un esdeveniment d'innovació col·laborativa que reuneix les ments més brillants en tecnologia ambiental.",
+      "highlight1": "Col·laboració global de desenvolupadors",
+      "highlight2": "Reptes i competicions d'innovació",
+      "highlight3": "Desenvolupament de prototips avançats",
+      "highlight4": "Contribucions de codi obert",
+      "expectedOutcomes": "Resultats esperats:",
+      "expectedOutcomesText": "Noves tecnologies de sensors, dissenys d'estacions millorats, analítica de dades avançada i capacitats ampliades de la plataforma que beneficiaran tota la xarxa global SchoolAIR."
     }
   },
 

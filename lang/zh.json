@@ -550,7 +550,24 @@
 
   "howItWorks": {
     "pageTitle": "运作方式",
+    "title": "运作方式",
     "subtitle": "四个简单步骤，在你的学校实施环境监测",
+    "step1": {
+      "title": "1. 学校订购",
+      "description": "获取包含所有必要组件、传感器和硬件的完整套件，或者只下载详细方案并自行采购组件。两种方式都包含全面的安装指南和教学材料。"
+    },
+    "step2": {
+      "title": "2. 学生组装",
+      "description": "学生在学校通过动手工作坊组装空气质量监测站，学习电子学、编程和环境科学。我们的指南支持课堂教学和远程学习两种场景。"
+    },
+    "step3": {
+      "title": "3. 部署安装",
+      "description": "完成的监测站安装在校园各处，实时监测空气质量、温度和湿度，通过及时的警报和可操作的数据保护学校社区。"
+    },
+    "step4": {
+      "title": "4. 数据采集",
+      "description": "环境数据通过我们的安全 API 自动存储到全球数据库中，使学生能够分析趋势、参与气候研究，并与全球学校的数据进行比较。"
+    },
     "steps": {
       "order": {
         "title": "1. 学校订购",
@@ -577,12 +594,18 @@
     },
     "overview": {
       "currentGlobalAQI": "当前全球 AQI",
+      "globalAqi": "当前全球 AQI",
       "aqiDescription": "一般——对大多数人可接受",
+      "globalAqiDesc": "一般——对大多数人可接受",
       "averagePM25": "平均 PM2.5",
-      "pm25Unit": "µg/m³ - 符合 WHO 指南",
+      "avgPm25": "平均 PM2.5",
+      "pm25Unit": "µg/m³ - 符合世卫组织指南",
+      "avgPm25Desc": "µg/m³ - 符合世卫组织指南",
       "realTimeMonitoring": "实时监测",
+      "realtime": "实时监测",
       "realTimeValue": "24/7",
-      "realTimeDescription": "全球范围持续数据采集"
+      "realTimeDescription": "全球范围持续数据采集",
+      "realtimeDesc": "全球范围持续数据采集"
     },
     "schools": {
       "title": "学校网络目录",
@@ -608,6 +631,84 @@
       "regionalAQI": "获取区域空气质量数据",
       "historicalData": "特定学校的历史数据",
       "integrationExample": "集成示例"
+    }
+  },
+
+  "dashboardPage": {
+    "title": "SchoolAIR 全球网络",
+    "subtitle": "跨5个国家的实时空气质量监测",
+    "simulatedWarning": "模拟数据仅供演示用途",
+    "stats": {
+      "schools": "学校",
+      "activeStations": "活跃站点",
+      "studentsProtected": "受保护学生",
+      "countries": "国家"
+    },
+    "explore": {
+      "title": "探索实时学校仪表盘",
+      "description": "通过交互式图表、历史数据和环境洞察，查看实时空气质量监测",
+      "button": "查看学校仪表盘示例"
+    },
+    "cards": {
+      "currentGlobalAQI": "当前全球AQI",
+      "aqiDescription": "中等 - 对大多数人可接受",
+      "averagePM25": "平均PM2.5",
+      "pm25Unit": "μg/m³ - 符合世卫组织指南",
+      "realTimeMonitoring": "实时监测",
+      "realTimeDescription": "全球持续数据采集"
+    }
+  },
+
+  "eventsPage": {
+    "title": "活动与工作坊",
+    "subtitle": "通过工作坊、实习和协作活动加入我们的全球社区，汇聚学生和教育工作者，共同推进环境监测技术。",
+    "summerInternship": {
+      "date": "2025年夏季",
+      "status": "已完成",
+      "title": "暑期实习/工作坊",
+      "description": "来自多个国家的国际学生将来到Alella Green Tech，为他们的学校设计和建造首批空气质量和气象站。",
+      "highlight1": "首批SchoolAIR原型诞生",
+      "highlight2": "多国协作",
+      "highlight3": "实践工程体验",
+      "highlight4": "解决现实问题",
+      "impact": "影响：",
+      "impactText": "这一开创性项目为全球SchoolAIR网络奠定了基础，参与的学生成为环境监测技术在各自国家的首批大使。"
+    },
+    "staffWorkshops": {
+      "date": "即将推出",
+      "status": "即将推出",
+      "title": "教职工工作坊",
+      "description": "如何为您的学校充分利用SchoolAIR项目。为教育工作者和管理人员设计的全面培训课程。",
+      "highlight1": "课程整合策略",
+      "highlight2": "技术配置与维护",
+      "highlight3": "数据分析与解读",
+      "highlight4": "学生参与技巧",
+      "whoShouldAttend": "适合参加人员：",
+      "whoShouldAttendText": "有意在学校实施环境监测项目的教师、管理人员、IT协调员和教育工作者。"
+    },
+    "studentWorkshops": {
+      "date": "日期待定",
+      "status": "即将推出",
+      "title": "学生工作坊",
+      "description": "为学生提供的互动学习课程，包括线上和线下两种形式。两种形式的日期将另行公布。",
+      "highlight1": "线上课程支持全球参与",
+      "highlight2": "合作地点的线下工作坊",
+      "highlight3": "实践搭建与编程",
+      "highlight4": "同伴协作与社交",
+      "learningOutcomes": "学习成果：",
+      "learningOutcomesText": "学生将在IoT开发、环境科学、数据分析和协作解决问题方面获得实践经验，同时为真实的环境监测做出贡献。"
+    },
+    "hackathon": {
+      "date": "日期待定",
+      "status": "日期待定",
+      "title": "SCHOOLAIR年度黑客松",
+      "description": "来自各地的技术爱好者将齐聚Alella Green Tech园区，构建SchoolAIR站点的创新版本。一场汇聚环境技术领域最优秀人才的协作创新活动。",
+      "highlight1": "全球开发者协作",
+      "highlight2": "创新挑战与竞赛",
+      "highlight3": "高级原型开发",
+      "highlight4": "开源贡献",
+      "expectedOutcomes": "预期成果：",
+      "expectedOutcomesText": "新的传感器技术、改进的站点设计、增强的数据分析以及扩展的平台功能，将惠及整个全球SchoolAIR网络。"
     }
   },
 

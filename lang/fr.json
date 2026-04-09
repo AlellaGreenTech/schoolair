@@ -550,7 +550,24 @@
 
   "howItWorks": {
     "pageTitle": "Comment ça marche",
+    "title": "Comment ça marche",
     "subtitle": "Un processus simple en 4 étapes pour mettre en place la surveillance environnementale dans votre école",
+    "step1": {
+      "title": "1. Les écoles commandent",
+      "description": "Recevez des kits complets avec tous les composants, capteurs et matériel nécessaires, ou téléchargez simplement les plans détaillés et procurez-vous les composants vous-même. Les deux options incluent des guides d'installation complets et du matériel pédagogique."
+    },
+    "step2": {
+      "title": "2. Les élèves construisent",
+      "description": "Les élèves assemblent la station de surveillance de la qualité de l'air à l'école lors d'ateliers pratiques, en apprenant l'électronique, la programmation et les sciences de l'environnement. Nos guides prennent en charge l'apprentissage en classe comme à distance."
+    },
+    "step3": {
+      "title": "3. Les stations sont déployées",
+      "description": "Les stations terminées sont installées sur le campus de l'école pour surveiller la qualité de l'air, la température et l'humidité en temps réel, protégeant la communauté scolaire grâce à des alertes opportunes et des données exploitables."
+    },
+    "step4": {
+      "title": "4. Les données sont collectées",
+      "description": "Les données environnementales sont automatiquement stockées dans des bases de données mondiales via notre API sécurisée, permettant aux élèves d'analyser les tendances, de contribuer à la recherche climatique et de comparer les données avec des écoles du monde entier."
+    },
     "steps": {
       "order": {
         "title": "1. Les écoles commandent",
@@ -577,12 +594,18 @@
     },
     "overview": {
       "currentGlobalAQI": "IQA mondial actuel",
+      "globalAqi": "IQA mondial actuel",
       "aqiDescription": "Modéré - Acceptable pour la plupart des personnes",
+      "globalAqiDesc": "Modéré - Acceptable pour la plupart des personnes",
       "averagePM25": "PM2.5 moyen",
-      "pm25Unit": "µg/m³ - Conforme aux recommandations WHO",
+      "avgPm25": "PM2.5 moyen",
+      "pm25Unit": "µg/m³ - Conforme aux recommandations de l'OMS",
+      "avgPm25Desc": "µg/m³ - Conforme aux recommandations de l'OMS",
       "realTimeMonitoring": "Surveillance en temps réel",
+      "realtime": "Surveillance en temps réel",
       "realTimeValue": "24/7",
-      "realTimeDescription": "Collecte de données en continu dans le monde entier"
+      "realTimeDescription": "Collecte de données en continu dans le monde entier",
+      "realtimeDesc": "Collecte de données en continu dans le monde entier"
     },
     "schools": {
       "title": "Annuaire du réseau scolaire",
@@ -608,6 +631,84 @@
       "regionalAQI": "Obtenir les données régionales de qualité de l'air",
       "historicalData": "Données historiques d'une école spécifique",
       "integrationExample": "Exemple d'intégration"
+    }
+  },
+
+  "dashboardPage": {
+    "title": "Réseau Mondial SchoolAIR",
+    "subtitle": "Surveillance de la qualité de l'air en temps réel dans 5 pays",
+    "simulatedWarning": "Données Simulées À Des Fins De Démonstration",
+    "stats": {
+      "schools": "Écoles",
+      "activeStations": "Stations Actives",
+      "studentsProtected": "Élèves Protégés",
+      "countries": "Pays"
+    },
+    "explore": {
+      "title": "Explorez un Tableau de Bord Scolaire en Direct",
+      "description": "Découvrez la surveillance de la qualité de l'air en temps réel avec des graphiques interactifs, des données historiques et des informations environnementales",
+      "button": "Voir un Exemple de Tableau de Bord Scolaire"
+    },
+    "cards": {
+      "currentGlobalAQI": "IQA Mondial Actuel",
+      "aqiDescription": "Modéré - Acceptable pour la plupart des personnes",
+      "averagePM25": "PM2.5 Moyen",
+      "pm25Unit": "μg/m³ - Conforme aux directives de l'OMS",
+      "realTimeMonitoring": "Surveillance en Temps Réel",
+      "realTimeDescription": "Collecte continue de données dans le monde entier"
+    }
+  },
+
+  "eventsPage": {
+    "title": "Événements et Ateliers",
+    "subtitle": "Rejoignez notre communauté mondiale à travers des ateliers, des stages et des événements collaboratifs qui rassemblent étudiants et éducateurs pour faire avancer la technologie de surveillance environnementale.",
+    "summerInternship": {
+      "date": "Été 2025",
+      "status": "Terminé",
+      "title": "Stage/Atelier d'Été",
+      "description": "Des étudiants internationaux de plusieurs pays viendront à Alella Green Tech pour concevoir et construire les toutes premières stations de qualité de l'air et de météo pour leurs écoles.",
+      "highlight1": "Premiers prototypes SchoolAIR créés",
+      "highlight2": "Collaboration multinationale",
+      "highlight3": "Expérience pratique en ingénierie",
+      "highlight4": "Résolution de problèmes concrets",
+      "impact": "Impact :",
+      "impactText": "Ce programme novateur a posé les bases du réseau mondial SchoolAIR, les étudiants participants devenant les premiers ambassadeurs de la technologie de surveillance environnementale dans leurs pays d'origine."
+    },
+    "staffWorkshops": {
+      "date": "Bientôt disponible",
+      "status": "Bientôt disponible",
+      "title": "Ateliers pour le Personnel Scolaire",
+      "description": "Tirer le meilleur parti du projet SchoolAIR pour votre école. Sessions de formation complètes conçues pour les éducateurs et les administrateurs.",
+      "highlight1": "Stratégies d'intégration dans les programmes scolaires",
+      "highlight2": "Configuration technique et maintenance",
+      "highlight3": "Analyse et interprétation des données",
+      "highlight4": "Techniques d'engagement des élèves",
+      "whoShouldAttend": "Qui devrait participer :",
+      "whoShouldAttendText": "Enseignants, administrateurs, coordinateurs informatiques et personnel éducatif intéressés par la mise en place de programmes de surveillance environnementale dans leurs écoles."
+    },
+    "studentWorkshops": {
+      "date": "Dates à confirmer",
+      "status": "Bientôt disponible",
+      "title": "Ateliers pour les Élèves",
+      "description": "Sessions d'apprentissage interactives pour les élèves en formats en ligne et en présentiel. Les dates seront annoncées pour les deux modalités.",
+      "highlight1": "Sessions en ligne pour une participation mondiale",
+      "highlight2": "Ateliers en présentiel dans les sites partenaires",
+      "highlight3": "Construction et programmation pratiques",
+      "highlight4": "Collaboration et réseautage entre pairs",
+      "learningOutcomes": "Résultats d'apprentissage :",
+      "learningOutcomesText": "Les élèves acquerront une expérience pratique en développement IoT, sciences environnementales, analyse de données et résolution collaborative de problèmes tout en contribuant à la surveillance environnementale réelle."
+    },
+    "hackathon": {
+      "date": "Date à confirmer",
+      "status": "Date à confirmer",
+      "title": "LE HACKATHON ANNUEL SCHOOLAIR",
+      "description": "Des passionnés de technologie du monde entier convergeront vers le campus d'Alella Green Tech pour construire des versions innovantes des stations SchoolAIR. Un événement d'innovation collaborative réunissant les esprits les plus brillants de la technologie environnementale.",
+      "highlight1": "Collaboration mondiale de développeurs",
+      "highlight2": "Défis et compétitions d'innovation",
+      "highlight3": "Développement de prototypes avancés",
+      "highlight4": "Contributions open source",
+      "expectedOutcomes": "Résultats attendus :",
+      "expectedOutcomesText": "Nouvelles technologies de capteurs, conceptions de stations améliorées, analytique de données avancée et capacités étendues de la plateforme qui bénéficieront à l'ensemble du réseau mondial SchoolAIR."
     }
   },
 

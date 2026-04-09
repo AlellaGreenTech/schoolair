@@ -550,7 +550,24 @@
 
   "howItWorks": {
     "pageTitle": "Cómo Funciona",
+    "title": "Cómo Funciona",
     "subtitle": "Un proceso sencillo de 4 pasos para implementar el monitoreo ambiental en tu escuela",
+    "step1": {
+      "title": "1. Las Escuelas Piden",
+      "description": "Obtén kits completos con todos los componentes, sensores y hardware necesarios, o simplemente descarga los planos detallados y consigue los componentes por tu cuenta. Ambas opciones incluyen guías completas de configuración y materiales educativos."
+    },
+    "step2": {
+      "title": "2. Los Estudiantes Construyen",
+      "description": "Los estudiantes ensamblan la estación de monitoreo de calidad del aire en la escuela a través de talleres prácticos, aprendiendo electrónica, programación y ciencias ambientales. Nuestras guías admiten tanto aprendizaje en el aula como a distancia."
+    },
+    "step3": {
+      "title": "3. Se Instalan las Estaciones",
+      "description": "Las estaciones terminadas se instalan por todo el campus escolar para monitorear la calidad del aire, temperatura y humedad en tiempo real, protegiendo a la comunidad escolar con alertas oportunas y datos accionables."
+    },
+    "step4": {
+      "title": "4. Se Recopilan los Datos",
+      "description": "Los datos ambientales se almacenan automáticamente en bases de datos globales a través de nuestra API segura, permitiendo a los estudiantes analizar tendencias, contribuir a la investigación climática y comparar datos con escuelas de todo el mundo."
+    },
     "steps": {
       "order": {
         "title": "1. Las Escuelas Piden",
@@ -577,12 +594,18 @@
     },
     "overview": {
       "currentGlobalAQI": "AQI Global Actual",
+      "globalAqi": "AQI Global Actual",
       "aqiDescription": "Moderado - Aceptable para la mayoría de personas",
+      "globalAqiDesc": "Moderado - Aceptable para la mayoría de personas",
       "averagePM25": "PM2.5 Promedio",
-      "pm25Unit": "µg/m³ - Dentro de las directrices de la WHO",
+      "avgPm25": "PM2.5 Promedio",
+      "pm25Unit": "µg/m³ - Dentro de las directrices de la OMS",
+      "avgPm25Desc": "µg/m³ - Dentro de las directrices de la OMS",
       "realTimeMonitoring": "Monitoreo en Tiempo Real",
+      "realtime": "Monitoreo en Tiempo Real",
       "realTimeValue": "24/7",
-      "realTimeDescription": "Recopilación continua de datos a nivel mundial"
+      "realTimeDescription": "Recopilación continua de datos a nivel mundial",
+      "realtimeDesc": "Recopilación continua de datos a nivel mundial"
     },
     "schools": {
       "title": "Directorio de la Red de Escuelas",
@@ -608,6 +631,84 @@
       "regionalAQI": "Obtener datos regionales de calidad del aire",
       "historicalData": "Datos históricos de una escuela específica",
       "integrationExample": "Ejemplo de Integración"
+    }
+  },
+
+  "dashboardPage": {
+    "title": "Red Global SchoolAIR",
+    "subtitle": "Monitoreo de calidad del aire en tiempo real en 5 países",
+    "simulatedWarning": "Datos Simulados Con Fines Demostrativos",
+    "stats": {
+      "schools": "Escuelas",
+      "activeStations": "Estaciones Activas",
+      "studentsProtected": "Estudiantes Protegidos",
+      "countries": "Países"
+    },
+    "explore": {
+      "title": "Explora un Panel Escolar en Vivo",
+      "description": "Consulta el monitoreo de calidad del aire en tiempo real con gráficos interactivos, datos históricos e información ambiental",
+      "button": "Ver un Panel Escolar de Ejemplo"
+    },
+    "cards": {
+      "currentGlobalAQI": "ICA Global Actual",
+      "aqiDescription": "Moderado - Aceptable para la mayoría de las personas",
+      "averagePM25": "PM2.5 Promedio",
+      "pm25Unit": "μg/m³ - Dentro de las directrices de la OMS",
+      "realTimeMonitoring": "Monitoreo en Tiempo Real",
+      "realTimeDescription": "Recopilación continua de datos en todo el mundo"
+    }
+  },
+
+  "eventsPage": {
+    "title": "Eventos y Talleres",
+    "subtitle": "Únete a nuestra comunidad global a través de talleres, prácticas y eventos colaborativos que reúnen a estudiantes y educadores para avanzar en la tecnología de monitoreo ambiental.",
+    "summerInternship": {
+      "date": "Verano 2025",
+      "status": "Completado",
+      "title": "Prácticas/Taller de Verano",
+      "description": "Estudiantes internacionales de varios países vendrán a Alella Green Tech para diseñar y construir las primeras estaciones de calidad del aire y meteorología para sus escuelas.",
+      "highlight1": "Primeros prototipos SchoolAIR creados",
+      "highlight2": "Colaboración multinacional",
+      "highlight3": "Experiencia práctica en ingeniería",
+      "highlight4": "Resolución de problemas del mundo real",
+      "impact": "Impacto:",
+      "impactText": "Este programa pionero sentó las bases de la red global SchoolAIR, y los estudiantes participantes se convirtieron en los primeros embajadores de la tecnología de monitoreo ambiental en sus países de origen."
+    },
+    "staffWorkshops": {
+      "date": "Próximamente",
+      "status": "Próximamente",
+      "title": "Talleres para Personal Escolar",
+      "description": "Cómo aprovechar al máximo el proyecto SchoolAIR en tu escuela. Sesiones de formación integral diseñadas para educadores y administradores.",
+      "highlight1": "Estrategias de integración curricular",
+      "highlight2": "Configuración técnica y mantenimiento",
+      "highlight3": "Análisis e interpretación de datos",
+      "highlight4": "Técnicas de participación estudiantil",
+      "whoShouldAttend": "¿Quién debería asistir?:",
+      "whoShouldAttendText": "Profesores, administradores, coordinadores de TI y personal educativo interesado en implementar programas de monitoreo ambiental en sus escuelas."
+    },
+    "studentWorkshops": {
+      "date": "Fechas por confirmar",
+      "status": "Próximamente",
+      "title": "Talleres para Estudiantes",
+      "description": "Sesiones de aprendizaje interactivas para estudiantes en formatos presencial y en línea. Se anunciarán las fechas para ambas modalidades.",
+      "highlight1": "Sesiones en línea para participación global",
+      "highlight2": "Talleres presenciales en ubicaciones asociadas",
+      "highlight3": "Construcción y programación práctica",
+      "highlight4": "Colaboración y networking entre compañeros",
+      "learningOutcomes": "Resultados de aprendizaje:",
+      "learningOutcomesText": "Los estudiantes obtendrán experiencia práctica en desarrollo IoT, ciencia ambiental, análisis de datos y resolución colaborativa de problemas mientras contribuyen al monitoreo ambiental real."
+    },
+    "hackathon": {
+      "date": "Fecha por confirmar",
+      "status": "Fecha por confirmar",
+      "title": "EL HACKATHON ANUAL DE SCHOOLAIR",
+      "description": "Entusiastas de la tecnología de todas partes se reunirán en el campus de Alella Green Tech para construir versiones innovadoras de las estaciones SchoolAIR. Un evento de innovación colaborativa que reúne a las mentes más brillantes en tecnología ambiental.",
+      "highlight1": "Colaboración global de desarrolladores",
+      "highlight2": "Desafíos y competiciones de innovación",
+      "highlight3": "Desarrollo de prototipos avanzados",
+      "highlight4": "Contribuciones de código abierto",
+      "expectedOutcomes": "Resultados esperados:",
+      "expectedOutcomesText": "Nuevas tecnologías de sensores, diseños de estaciones mejorados, analítica de datos avanzada y capacidades expandidas de la plataforma que beneficiarán a toda la red global SchoolAIR."
     }
   },
 

@@ -1,8 +1,25 @@
 # Supabase Configuration for SchoolAIR
 
+project_id = "schoolair"
+
 [api]
-# Replace with your actual Supabase project ID
-project_id = "gzbuvywxrzcovqohmbol"
+enabled = true
+port = 54321
+schemas = ["public", "storage"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
 
 [functions.send-contact-email]
-verify_jwt = false  # Allow public access to contact form function
+verify_jwt = false
+
+[functions.create-schoolair-checkout]
+verify_jwt = false
+
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.get-schoolair-sponsors]
+verify_jwt = false
+
+[functions.update-schoolair-label]
+verify_jwt = false

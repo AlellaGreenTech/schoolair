@@ -18,7 +18,7 @@
             </a>
             <a href="index.html" class="back-link">
                 <i class="fas fa-arrow-left"></i>
-                <span>Back to Portal</span>
+                <span data-i18n="nav.backToPortal">Back to Portal</span>
             </a>
         </div>
     </nav>
@@ -28,10 +28,10 @@
 
         <!-- Hero -->
         <section class="sponsor-hero">
-            <h1>Help every Area of BFIS have Clean Air</h1>
+            <h1 data-i18n="sponsor.hero.bfisTitle">Help every Area of BFIS have Clean Air</h1>
             <div class="hero-split">
                 <div class="hero-text-col">
-                    <p class="story-text">
+                    <p class="story-text" data-i18n="sponsor.hero.bfisDescription">
                         The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. The home build kit includes all components and step-by-step instructions; it does not include housing. You'll proudly deliver a working unit to your school for installation &mdash; or use it at home! Each unit forever protects a classroom by letting teachers know when it&rsquo;s time to ventilate &mdash; or shut a window due to poor outside air quality.
                     </p>
                 </div>
@@ -39,7 +39,7 @@
                     <video autoplay muted loop playsinline style="width: 100%; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
                         <source src="../videos/Teacher_Alerts_Phone_Ventilates_Room.mp4" type="video/mp4">
                     </video>
-                    <p class="video-caption">Stuffy rooms quickly diminish cognitive performance</p>
+                    <p class="video-caption" data-i18n="sponsor.hero.videoCaption">Stuffy rooms quickly diminish cognitive performance</p>
                 </div>
             </div>
         </section>
@@ -47,22 +47,22 @@
         <!-- Progress Bar -->
         <section class="progress-section">
             <div class="progress-header">
-                <h3>BFIS Classrooms/Play Fields Protected</h3>
-                <span class="progress-count"><strong id="progressCount">2</strong> of <span id="progressTotal">48</span></span>
+                <h3 data-i18n="sponsor.progress.title">BFIS Classrooms/Play Fields Protected</h3>
+                <span class="progress-count"><strong id="progressCount">2</strong> <span data-i18n="sponsor.progress.of">of</span> <span id="progressTotal">48</span></span>
             </div>
-            <p class="plaque-note" style="margin:0.6rem 0 0.8rem; color: #1f2937; font-weight: 500;">Classrooms with air quality units will proudly exhibit a plaque: <em>This Classroom Protected thanks to Jane &amp; Jennifer Ramirez</em></p>
+            <p class="plaque-note" style="margin:0.6rem 0 0.8rem; color: #1f2937; font-weight: 500;" data-i18n="sponsor.progress.plaqueNote">Classrooms with air quality units will proudly exhibit a plaque: <em>This Classroom Protected thanks to Jane &amp; Jennifer Ramirez</em></p>
             <div class="progress-bar-track">
                 <div class="progress-bar-fill" id="progressBar" style="width: 4.2%;"></div>
             </div>
 
             <!-- Sponsorship Timeline -->
             <div id="sponsorTimeline" style="margin-top: 1.5rem;">
-                <h4 style="font-size: 0.95rem; color: #475569; margin-bottom: 0.75rem;"><i class="fas fa-history"></i> Sponsorship Growth</h4>
+                <h4 style="font-size: 0.95rem; color: #475569; margin-bottom: 0.75rem;" data-i18n="sponsor.progress.timelineTitle"><i class="fas fa-history"></i> Sponsorship Growth</h4>
                 <div id="timelineEntries" style="display: flex; flex-direction: column; gap: 0.5rem;">
                     <!-- Base donations -->
                     <div class="timeline-entry" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0.75rem; background: #f0fdf4; border-radius: 6px; border-left: 3px solid #2e7d32;">
-                        <span style="font-size: 0.75rem; color: #64748b; white-space: nowrap; min-width: 70px;">Launch</span>
-                        <span style="font-size: 0.85rem; color: #1e293b;">2 units donated by SchoolAir team</span>
+                        <span style="font-size: 0.75rem; color: #64748b; white-space: nowrap; min-width: 70px;" data-i18n="common.launch">Launch</span>
+                        <span style="font-size: 0.85rem; color: #1e293b;" data-i18n="sponsor.progress.launchEntry">2 units donated by SchoolAir team</span>
                     </div>
                 </div>
             </div>
@@ -70,71 +70,71 @@
 
         <!-- Sponsor Cards -->
         <section class="cards-section">
-            <h2><i class="fas fa-box-open"></i> Sponsor a Unit</h2>
-            <p class="section-subtitle">One-time sponsorship &mdash; each unit protects a zone forever. Housing not included &mdash; free digital plans and 3D model files provided. Data is uploaded to the SchoolAir global database. Privacy, scalability and availability to researchers and clean air advocates is professionally managed.</p>
+            <h2 data-i18n="sponsor.cards.title"><i class="fas fa-box-open"></i> Sponsor a Unit</h2>
+            <p class="section-subtitle" data-i18n="sponsor.cards.subtitle">One-time sponsorship &mdash; each unit protects a zone forever. Housing not included &mdash; free digital plans and 3D model files provided. Data is uploaded to the SchoolAir global database. Privacy, scalability and availability to researchers and clean air advocates is professionally managed.</p>
 
             <div class="sponsor-cards">
                 <div class="sponsor-card">
                     <div class="card-icon"><i class="fas fa-door-open" style="color: #3b82f6;"></i></div>
-                    <h3>Interior Unit</h3>
-                    <p>Guards classrooms from stuffy or unhealthy air by monitoring CO&#8322; levels and ventilation. USB plug-and-play &mdash; simple to set up and use.</p>
+                    <h3 data-i18n="sponsor.cards.interior.title">Interior Unit</h3>
+                    <p data-i18n="sponsor.cards.interior.description">Guards classrooms from stuffy or unhealthy air by monitoring CO&#8322; levels and ventilation. USB plug-and-play &mdash; simple to set up and use.</p>
                     <div class="price"><span class="currency">&euro;</span>105</div>
                     <button class="btn-sponsor" onclick="startCheckout('sponsor', 'interior')">
-                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Unit
+                        <i class="fas fa-hand-holding-heart"></i> <span data-i18n="sponsor.cards.sponsorThisUnit">Sponsor This Unit</span>
                     </button>
                 </div>
 
                 <div class="sponsor-card">
                     <div class="card-icon"><i class="fas fa-cloud-sun" style="color: #2e7d32;"></i></div>
-                    <h3>Exterior Unit</h3>
-                    <p>Full air quality monitoring station measuring fine dust (PM2.5), weather and more. Long-range Wi-Fi hub connectivity for outdoor locations.</p>
+                    <h3 data-i18n="sponsor.cards.exterior.title">Exterior Unit</h3>
+                    <p data-i18n="sponsor.cards.exterior.description">Full air quality monitoring station measuring fine dust (PM2.5), weather and more. Long-range Wi-Fi hub connectivity for outdoor locations.</p>
                     <div class="price"><span class="currency">&euro;</span>125</div>
                     <button class="btn-sponsor" onclick="startCheckout('sponsor', 'exterior')">
-                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Unit
+                        <i class="fas fa-hand-holding-heart"></i> <span data-i18n="sponsor.cards.sponsorThisUnit">Sponsor This Unit</span>
                     </button>
                 </div>
             </div>
 
             <!-- School Website Highlight -->
             <div style="background: linear-gradient(135deg, #e8f5e9, #e3f2fd); border-left: 4px solid #2e7d32; border-radius: 8px; padding: 1.5rem 2rem; margin-top: 2rem;">
-                <h3 style="color: #1B5E20; margin: 0 0 0.5rem; font-size: 1.15rem;"><i class="fas fa-globe"></i> Every school gets its own website</h3>
-                <p style="color: #1e293b; margin: 0; line-height: 1.6;">Each participating school receives its own branded SchoolAir portal to showcase its health and sustainability efforts, control access to its data, and enable trend analysis projects and advocacy.</p>
+                <h3 style="color: #1B5E20; margin: 0 0 0.5rem; font-size: 1.15rem;" data-i18n="sponsor.cards.schoolWebsite.title"><i class="fas fa-globe"></i> Every school gets its own website</h3>
+                <p style="color: #1e293b; margin: 0; line-height: 1.6;" data-i18n="sponsor.cards.schoolWebsite.description">Each participating school receives its own branded SchoolAir portal to showcase its health and sustainability efforts, control access to its data, and enable trend analysis projects and advocacy.</p>
             </div>
         </section>
 
         <!-- Patron Cards -->
         <section id="patrons" class="cards-section">
-            <h2><i class="fas fa-heart"></i> Become a SchoolAir Advocate &mdash; Sponsor our Passionate Project Team!</h2>
-            <p class="section-subtitle">Your regular contribution will allow our developers, researchers and product installers to help more and more schools watch over the health of their students. We plan to do more than just monitor &mdash; our phase two will start bringing potential solutions. Help us keep going!</p>
+            <h2 data-i18n="sponsor.patron.title"><i class="fas fa-heart"></i> Become a SchoolAir Advocate &mdash; Sponsor our Passionate Project Team!</h2>
+            <p class="section-subtitle" data-i18n="sponsor.patron.subtitle">Your regular contribution will allow our developers, researchers and product installers to help more and more schools watch over the health of their students. We plan to do more than just monitor &mdash; our phase two will start bringing potential solutions. Help us keep going!</p>
 
             <div class="patron-cards">
                 <div class="patron-card">
                     <div class="card-icon"><i class="fas fa-seedling" style="color: #4caf50;"></i></div>
-                    <h3>Supporter</h3>
-                    <p>Help fund firmware updates and sensor calibration</p>
-                    <div class="price"><span class="currency">&euro;</span>5<span class="period">/mo</span></div>
+                    <h3 data-i18n="sponsor.patron.supporter.title">Supporter</h3>
+                    <p data-i18n="sponsor.patron.supporter.description">Help fund firmware updates and sensor calibration</p>
+                    <div class="price"><span class="currency">&euro;</span>5<span class="period" data-i18n="sponsor.patron.supporter.period">/mo</span></div>
                     <button class="btn-patron" onclick="startCheckout('patron', null, 5)">
-                        <i class="fas fa-heart"></i> Start Supporting
+                        <i class="fas fa-heart"></i> <span data-i18n="sponsor.patron.startSupporting">Start Supporting</span>
                     </button>
                 </div>
 
                 <div class="patron-card">
                     <div class="card-icon"><i class="fas fa-trophy" style="color: #3b82f6;"></i></div>
-                    <h3>Champion</h3>
-                    <p>Fund our IoT expert&rsquo;s work on new controller support and connectivity</p>
-                    <div class="price"><span class="currency">&euro;</span>10<span class="period">/mo</span></div>
+                    <h3 data-i18n="sponsor.patron.champion.title">Champion</h3>
+                    <p data-i18n="sponsor.patron.champion.description">Fund our IoT expert&rsquo;s work on new controller support and connectivity</p>
+                    <div class="price"><span class="currency">&euro;</span>10<span class="period" data-i18n="sponsor.patron.champion.period">/mo</span></div>
                     <button class="btn-patron" onclick="startCheckout('patron', null, 10)">
-                        <i class="fas fa-heart"></i> Start Supporting
+                        <i class="fas fa-heart"></i> <span data-i18n="sponsor.patron.startSupporting">Start Supporting</span>
                     </button>
                 </div>
 
                 <div class="patron-card">
                     <div class="card-icon"><i class="fas fa-star" style="color: #8b5cf6;"></i></div>
-                    <h3>Guardian</h3>
-                    <p>Maximum impact &mdash; directly fund the professional engineering behind SchoolAir</p>
-                    <div class="price"><span class="currency">&euro;</span>25<span class="period">/mo</span></div>
+                    <h3 data-i18n="sponsor.patron.guardian.title">Guardian</h3>
+                    <p data-i18n="sponsor.patron.guardian.description">Maximum impact &mdash; directly fund the professional engineering behind SchoolAir</p>
+                    <div class="price"><span class="currency">&euro;</span>25<span class="period" data-i18n="sponsor.patron.guardian.period">/mo</span></div>
                     <button class="btn-patron" onclick="startCheckout('patron', null, 25)">
-                        <i class="fas fa-heart"></i> Start Supporting
+                        <i class="fas fa-heart"></i> <span data-i18n="sponsor.patron.startSupporting">Start Supporting</span>
                     </button>
                 </div>
             </div>
@@ -142,9 +142,9 @@
 
         <!-- Sponsors Wall -->
         <section class="wall-section">
-            <h2><i class="fas fa-users"></i> Our Sponsors &amp; Patrons</h2>
+            <h2 data-i18n="sponsor.wall.title"><i class="fas fa-users"></i> Our Sponsors &amp; Patrons</h2>
             <div class="sponsors-grid" id="sponsorsGrid">
-                <p class="empty-wall">Be the first to sponsor a classroom!</p>
+                <p class="empty-wall" data-i18n="sponsor.wall.emptyMessage">Be the first to sponsor a classroom!</p>
             </div>
         </section>
     </div>
@@ -153,32 +153,32 @@
     <div class="checkout-modal" id="checkoutModal" onclick="if(event.target===this)closeCheckoutModal()">
         <div class="checkout-modal-card">
             <button class="close-btn" onclick="closeCheckoutModal()">&times;</button>
-            <h3 id="checkoutTitle">Complete Your Sponsorship</h3>
+            <h3 id="checkoutTitle" data-i18n="sponsor.checkout.title">Complete Your Sponsorship</h3>
 
             <div class="form-group">
-                <label for="checkoutEmail">Email <span style="color: #ef4444;">*</span></label>
-                <input type="email" id="checkoutEmail" placeholder="you@example.com" required>
-                <p class="hint">We'll send your receipt and display name edit link here</p>
+                <label for="checkoutEmail" data-i18n="sponsor.checkout.email">Email <span style="color: #ef4444;">*</span></label>
+                <input type="email" id="checkoutEmail" placeholder="you@example.com" data-i18n-placeholder="sponsor.checkout.emailPlaceholder" required>
+                <p class="hint" data-i18n="sponsor.checkout.emailHint">We'll send your receipt and display name edit link here</p>
             </div>
 
             <div class="form-group">
-                <label for="checkoutDisplayName">Display Name</label>
-                <input type="text" id="checkoutDisplayName" placeholder="e.g. Harry & Sally Brooks">
-                <p class="hint">Shown on the sponsors wall and classroom plaque (optional)</p>
+                <label for="checkoutDisplayName" data-i18n="sponsor.checkout.displayName">Display Name</label>
+                <input type="text" id="checkoutDisplayName" placeholder="e.g. Harry & Sally Brooks" data-i18n-placeholder="sponsor.checkout.displayNamePlaceholder">
+                <p class="hint" data-i18n="sponsor.checkout.displayNameHint">Shown on the sponsors wall and classroom plaque (optional)</p>
             </div>
 
             <div class="form-group">
-                <label for="checkoutClassroom">Classroom to protect</label>
-                <input type="text" id="checkoutClassroom" placeholder="e.g. Ms. Garcia's 3rd grade, Room 12, Nursery">
-                <p class="hint">Which classroom would you like your monitor installed in? (optional)</p>
+                <label for="checkoutClassroom" data-i18n="sponsor.checkout.classroom">Classroom to protect</label>
+                <input type="text" id="checkoutClassroom" placeholder="e.g. Ms. Garcia's 3rd grade, Room 12, Nursery" data-i18n-placeholder="sponsor.checkout.classroomPlaceholder">
+                <p class="hint" data-i18n="sponsor.checkout.classroomHint">Which classroom would you like your monitor installed in? (optional)</p>
             </div>
 
             <div class="form-group">
-                <label for="checkoutQuantity">Quantity</label>
+                <label for="checkoutQuantity" data-i18n="sponsor.checkout.quantity">Quantity</label>
                 <input type="number" id="checkoutQuantity" value="1" min="1" max="50" style="width: 80px;">
             </div>
 
-            <button class="btn-checkout-submit" id="checkoutSubmitBtn" onclick="submitCheckout()">
+            <button class="btn-checkout-submit" id="checkoutSubmitBtn" onclick="submitCheckout()" data-i18n="sponsor.checkout.proceedToPayment">
                 Proceed to Payment
             </button>
         </div>
@@ -187,18 +187,18 @@
     <!-- Label Edit (shown when ?edit=TOKEN) -->
     <div class="label-edit" id="labelEdit">
         <div class="label-edit-card">
-            <h2>Update Your Display Name</h2>
-            <p class="subtitle">This is how your name will appear on the sponsors wall and classroom plaque</p>
+            <h2 data-i18n="sponsor.labelEdit.title">Update Your Display Name</h2>
+            <p class="subtitle" data-i18n="sponsor.labelEdit.subtitle">This is how your name will appear on the sponsors wall and classroom plaque</p>
             <form id="labelForm">
                 <div class="form-group">
-                    <label for="editDisplayName">Display Name</label>
-                    <input type="text" id="editDisplayName" placeholder="e.g. Harry & Sally Brooks" required>
+                    <label for="editDisplayName" data-i18n="sponsor.labelEdit.displayName">Display Name</label>
+                    <input type="text" id="editDisplayName" placeholder="e.g. Harry & Sally Brooks" data-i18n-placeholder="sponsor.labelEdit.displayNamePlaceholder" required>
                 </div>
                 <div class="form-group">
-                    <label for="editDedication">Dedication (optional)</label>
-                    <textarea id="editDedication" rows="2" placeholder="e.g. For Ms. Garcia's 3rd grade class"></textarea>
+                    <label for="editDedication" data-i18n="sponsor.labelEdit.dedication">Dedication (optional)</label>
+                    <textarea id="editDedication" rows="2" placeholder="e.g. For Ms. Garcia's 3rd grade class" data-i18n-placeholder="sponsor.labelEdit.dedicationPlaceholder"></textarea>
                 </div>
-                <button type="submit" class="btn-checkout-submit">Save Changes</button>
+                <button type="submit" class="btn-checkout-submit" data-i18n="sponsor.labelEdit.saveChanges">Save Changes</button>
             </form>
         </div>
     </div>

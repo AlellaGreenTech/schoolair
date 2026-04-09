@@ -10,10 +10,10 @@
 <body>
     <header>
         <h1>Benjamin Franklin International</h1>
-        <p>Real-time air quality monitoring</p>
+        <p data-i18n="dashboard.header.subtitle">Real-time air quality monitoring</p>
         <div class="view-toggle">
-            <button class="toggle-btn" id="btn-simulation" onclick="switchView('simulation')">Simulation</button>
-            <button class="toggle-btn active" id="btn-live" onclick="switchView('live')">Live Data</button>
+            <button class="toggle-btn" id="btn-simulation" onclick="switchView('simulation')" data-i18n="dashboard.toggle.simulation">Simulation</button>
+            <button class="toggle-btn active" id="btn-live" onclick="switchView('live')" data-i18n="dashboard.toggle.liveData">Live Data</button>
         </div>
     </header>
 
@@ -26,7 +26,7 @@
                 title="Live Air Quality Data"
                 allowfullscreen>
             </iframe>
-            <p class="live-data-caption">Live sensor data from BFIS monitoring units — powered by <a href="https://schoolair.org" target="_blank">schoolair.org</a></p>
+            <p class="live-data-caption" data-i18n="dashboard.liveCaption">Live sensor data from BFIS monitoring units — powered by <a href="https://schoolair.org" target="_blank">schoolair.org</a></p>
         </div>
     </div>
 
@@ -36,11 +36,11 @@
             <div class="classroom-card" data-room="nursery">
                 <div class="card-header">
                     <div class="classroom-info">
-                        <h3>🧸 Nursery</h3>
+                        <h3 data-i18n="dashboard.rooms.nursery">🧸 Nursery</h3>
                         <div class="alert-message" id="alert-nursery"></div>
                     </div>
                     <div class="status-container">
-                        <span class="status-badge" id="status-nursery">Good</span>
+                        <span class="status-badge" id="status-nursery" data-i18n="dashboard.status.good">Good</span>
                         <div class="fan-container">
                             <div class="fan" id="fan-nursery">🪶</div>
                         </div>
@@ -51,26 +51,26 @@
                     <div class="gauge-aqi">AQI</div>
                     <div class="gauge-value" id="value-nursery">--</div>
                     <div class="gauge-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="dashboard.legend.good">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="dashboard.legend.moderate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="dashboard.legend.poor">Poor (61-100)</span>
                     </div>
                 </div>
                 <div class="metrics">
                     <div class="metric">
-                        <span class="label">CO₂</span>
+                        <span class="label" data-i18n="dashboard.metrics.co2">CO₂</span>
                         <span class="value" id="co2-nursery">-- ppm</span>
                     </div>
                     <div class="metric">
-                        <span class="label">PM2.5</span>
+                        <span class="label" data-i18n="dashboard.metrics.pm25">PM2.5</span>
                         <span class="value" id="pm25-nursery">-- μg/m³</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Temp.</span>
+                        <span class="label" data-i18n="dashboard.metrics.temp">Temp.</span>
                         <span class="value" id="temp-nursery">-- °C</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Humidity</span>
+                        <span class="label" data-i18n="dashboard.metrics.humidity">Humidity</span>
                         <span class="value" id="humidity-nursery">-- %</span>
                     </div>
                 </div>
@@ -79,11 +79,11 @@
             <div class="classroom-card" data-room="primary-a">
                 <div class="card-header">
                     <div class="classroom-info">
-                        <h3>📚 Primary A</h3>
+                        <h3 data-i18n="dashboard.rooms.primaryA">📚 Primary A</h3>
                         <div class="alert-message" id="alert-primary-a"></div>
                     </div>
                     <div class="status-container">
-                        <span class="status-badge" id="status-primary-a">Good</span>
+                        <span class="status-badge" id="status-primary-a" data-i18n="dashboard.status.good">Good</span>
                         <div class="fan-container">
                             <div class="fan" id="fan-primary-a">🪶</div>
                         </div>
@@ -94,26 +94,26 @@
                     <div class="gauge-aqi">AQI</div>
                     <div class="gauge-value" id="value-primary-a">--</div>
                     <div class="gauge-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="dashboard.legend.good">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="dashboard.legend.moderate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="dashboard.legend.poor">Poor (61-100)</span>
                     </div>
                 </div>
                 <div class="metrics">
                     <div class="metric">
-                        <span class="label">CO₂</span>
+                        <span class="label" data-i18n="dashboard.metrics.co2">CO₂</span>
                         <span class="value" id="co2-primary-a">-- ppm</span>
                     </div>
                     <div class="metric">
-                        <span class="label">PM2.5</span>
+                        <span class="label" data-i18n="dashboard.metrics.pm25">PM2.5</span>
                         <span class="value" id="pm25-primary-a">-- μg/m³</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Temp.</span>
+                        <span class="label" data-i18n="dashboard.metrics.temp">Temp.</span>
                         <span class="value" id="temp-primary-a">-- °C</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Humidity</span>
+                        <span class="label" data-i18n="dashboard.metrics.humidity">Humidity</span>
                         <span class="value" id="humidity-primary-a">-- %</span>
                     </div>
                 </div>
@@ -122,11 +122,11 @@
             <div class="classroom-card" data-room="primary-b">
                 <div class="card-header">
                     <div class="classroom-info">
-                        <h3>✏️ Primary B</h3>
+                        <h3 data-i18n="dashboard.rooms.primaryB">✏️ Primary B</h3>
                         <div class="alert-message" id="alert-primary-b"></div>
                     </div>
                     <div class="status-container">
-                        <span class="status-badge" id="status-primary-b">Good</span>
+                        <span class="status-badge" id="status-primary-b" data-i18n="dashboard.status.good">Good</span>
                         <div class="fan-container">
                             <div class="fan" id="fan-primary-b">🪶</div>
                         </div>
@@ -137,26 +137,26 @@
                     <div class="gauge-aqi">AQI</div>
                     <div class="gauge-value" id="value-primary-b">--</div>
                     <div class="gauge-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="dashboard.legend.good">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="dashboard.legend.moderate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="dashboard.legend.poor">Poor (61-100)</span>
                     </div>
                 </div>
                 <div class="metrics">
                     <div class="metric">
-                        <span class="label">CO₂</span>
+                        <span class="label" data-i18n="dashboard.metrics.co2">CO₂</span>
                         <span class="value" id="co2-primary-b">-- ppm</span>
                     </div>
                     <div class="metric">
-                        <span class="label">PM2.5</span>
+                        <span class="label" data-i18n="dashboard.metrics.pm25">PM2.5</span>
                         <span class="value" id="pm25-primary-b">-- μg/m³</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Temp.</span>
+                        <span class="label" data-i18n="dashboard.metrics.temp">Temp.</span>
                         <span class="value" id="temp-primary-b">-- °C</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Humidity</span>
+                        <span class="label" data-i18n="dashboard.metrics.humidity">Humidity</span>
                         <span class="value" id="humidity-primary-b">-- %</span>
                     </div>
                 </div>
@@ -165,11 +165,11 @@
             <div class="classroom-card" data-room="secondary-a">
                 <div class="card-header">
                     <div class="classroom-info">
-                        <h3>🧪 Secondary A</h3>
+                        <h3 data-i18n="dashboard.rooms.secondaryA">🧪 Secondary A</h3>
                         <div class="alert-message" id="alert-secondary-a"></div>
                     </div>
                     <div class="status-container">
-                        <span class="status-badge" id="status-secondary-a">Good</span>
+                        <span class="status-badge" id="status-secondary-a" data-i18n="dashboard.status.good">Good</span>
                         <div class="fan-container">
                             <div class="fan" id="fan-secondary-a">🪶</div>
                         </div>
@@ -180,26 +180,26 @@
                     <div class="gauge-aqi">AQI</div>
                     <div class="gauge-value" id="value-secondary-a">--</div>
                     <div class="gauge-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="dashboard.legend.good">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="dashboard.legend.moderate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="dashboard.legend.poor">Poor (61-100)</span>
                     </div>
                 </div>
                 <div class="metrics">
                     <div class="metric">
-                        <span class="label">CO₂</span>
+                        <span class="label" data-i18n="dashboard.metrics.co2">CO₂</span>
                         <span class="value" id="co2-secondary-a">-- ppm</span>
                     </div>
                     <div class="metric">
-                        <span class="label">PM2.5</span>
+                        <span class="label" data-i18n="dashboard.metrics.pm25">PM2.5</span>
                         <span class="value" id="pm25-secondary-a">-- μg/m³</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Temp.</span>
+                        <span class="label" data-i18n="dashboard.metrics.temp">Temp.</span>
                         <span class="value" id="temp-secondary-a">-- °C</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Humidity</span>
+                        <span class="label" data-i18n="dashboard.metrics.humidity">Humidity</span>
                         <span class="value" id="humidity-secondary-a">-- %</span>
                     </div>
                 </div>
@@ -208,11 +208,11 @@
             <div class="classroom-card" data-room="secondary-b">
                 <div class="card-header">
                     <div class="classroom-info">
-                        <h3>🎓 Secondary B</h3>
+                        <h3 data-i18n="dashboard.rooms.secondaryB">🎓 Secondary B</h3>
                         <div class="alert-message" id="alert-secondary-b"></div>
                     </div>
                     <div class="status-container">
-                        <span class="status-badge" id="status-secondary-b">Good</span>
+                        <span class="status-badge" id="status-secondary-b" data-i18n="dashboard.status.good">Good</span>
                         <div class="fan-container">
                             <div class="fan" id="fan-secondary-b">🪶</div>
                         </div>
@@ -223,26 +223,26 @@
                     <div class="gauge-aqi">AQI</div>
                     <div class="gauge-value" id="value-secondary-b">--</div>
                     <div class="gauge-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="dashboard.legend.good">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="dashboard.legend.moderate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="dashboard.legend.poor">Poor (61-100)</span>
                     </div>
                 </div>
                 <div class="metrics">
                     <div class="metric">
-                        <span class="label">CO₂</span>
+                        <span class="label" data-i18n="dashboard.metrics.co2">CO₂</span>
                         <span class="value" id="co2-secondary-b">-- ppm</span>
                     </div>
                     <div class="metric">
-                        <span class="label">PM2.5</span>
+                        <span class="label" data-i18n="dashboard.metrics.pm25">PM2.5</span>
                         <span class="value" id="pm25-secondary-b">-- μg/m³</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Temp.</span>
+                        <span class="label" data-i18n="dashboard.metrics.temp">Temp.</span>
                         <span class="value" id="temp-secondary-b">-- °C</span>
                     </div>
                     <div class="metric">
-                        <span class="label">Humidity</span>
+                        <span class="label" data-i18n="dashboard.metrics.humidity">Humidity</span>
                         <span class="value" id="humidity-secondary-b">-- %</span>
                     </div>
                 </div>
@@ -256,49 +256,49 @@
     <div id="classroom-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modal-title">Classroom Details</h2>
+                <h2 id="modal-title" data-i18n="dashboard.modal.title">Classroom Details</h2>
                 <span class="modal-close">&times;</span>
             </div>
             <div class="modal-body">
                 <div class="charts-grid">
                     <div class="chart-container main-chart">
-                        <h3>Air Quality Index (AQI)</h3>
+                        <h3 data-i18n="dashboard.modal.aqiChart">Air Quality Index (AQI)</h3>
                         <canvas id="aqi-chart" width="400" height="150"></canvas>
                     </div>
                     <div class="chart-container">
-                        <h3>Air Pollutants</h3>
+                        <h3 data-i18n="dashboard.modal.pollutantsChart">Air Pollutants</h3>
                         <canvas id="pollutants-chart" width="400" height="120"></canvas>
                     </div>
                     <div class="chart-container">
-                        <h3>Environmental Conditions</h3>
+                        <h3 data-i18n="dashboard.modal.environmentChart">Environmental Conditions</h3>
                         <canvas id="environment-chart" width="400" height="120"></canvas>
                     </div>
                 </div>
                 <div class="current-stats">
                     <div class="stat-grid">
                         <div class="stat-item">
-                            <span class="stat-label">Current AQI</span>
+                            <span class="stat-label" data-i18n="dashboard.modal.currentAQI">Current AQI</span>
                             <span class="stat-value" id="modal-aqi">--</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">CO₂</span>
+                            <span class="stat-label" data-i18n="dashboard.modal.co2">CO₂</span>
                             <span class="stat-value" id="modal-co2">-- ppm</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">PM2.5</span>
+                            <span class="stat-label" data-i18n="dashboard.modal.pm25">PM2.5</span>
                             <span class="stat-value" id="modal-pm25">-- μg/m³</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Temperature</span>
+                            <span class="stat-label" data-i18n="dashboard.modal.temperature">Temperature</span>
                             <span class="stat-value" id="modal-temp">-- °C</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Humidity</span>
+                            <span class="stat-label" data-i18n="dashboard.modal.humidity">Humidity</span>
                             <span class="stat-value" id="modal-humidity">-- %</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Status</span>
-                            <span class="stat-value" id="modal-status">Good</span>
+                            <span class="stat-label" data-i18n="dashboard.modal.status">Status</span>
+                            <span class="stat-value" id="modal-status" data-i18n="dashboard.status.good">Good</span>
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@
     </style>
 </head>
 <body>
-    <p class="status" id="status">Loading sensor data...</p>
+    <p class="status" id="status" data-i18n="liveData.loading">Loading sensor data...</p>
     <div class="alert-box alert-info" id="safetyAlert" style="display:none;"></div>
     <div class="guide-box" id="guideBox" style="display:none;"></div>
     <div class="metric-selector" id="metricSelector"></div>
@@ -44,17 +44,31 @@
         let chart = null;
         let selectedMetric = 'pm25';
 
-        const METRICS = [
-            { key: 'pm25', label: 'PM2.5', unit: 'ug/m3' },
-            { key: 'co2', label: 'CO2', unit: 'ppm' },
-            { key: 'temp', label: 'Temperature', unit: '°C' },
-            { key: 'humidity', label: 'Humidity', unit: '%' },
-            { key: 'pm10', label: 'PM1.0', unit: 'ug/m3' },
-            { key: 'pm100', label: 'PM10.0', unit: 'ug/m3' },
-            { key: 'co', label: 'CO', unit: 'ppm' },
-            { key: 'no2', label: 'NO2', unit: 'ppm' },
-            { key: 'voc', label: 'VOC', unit: 'index' },
-        ];
+        // i18n helper: returns translated string or fallback
+        function t(key, fallback) {
+            if (typeof i18n !== 'undefined' && i18n.t) {
+                const val = i18n.t(key);
+                return (val && val !== key) ? val : fallback;
+            }
+            return fallback;
+        }
+
+        function getMetrics() {
+            return [
+                { key: 'pm25', label: t('liveData.metrics.pm25.label', 'PM2.5'), unit: t('liveData.metrics.pm25.unit', 'ug/m3') },
+                { key: 'co2', label: t('liveData.metrics.co2.label', 'CO2'), unit: t('liveData.metrics.co2.unit', 'ppm') },
+                { key: 'temp', label: t('liveData.metrics.temp.label', 'Temperature'), unit: t('liveData.metrics.temp.unit', '°C') },
+                { key: 'humidity', label: t('liveData.metrics.humidity.label', 'Humidity'), unit: t('liveData.metrics.humidity.unit', '%') },
+                { key: 'pm10', label: t('liveData.metrics.pm10.label', 'PM1.0'), unit: t('liveData.metrics.pm10.unit', 'ug/m3') },
+                { key: 'pm100', label: t('liveData.metrics.pm100.label', 'PM10.0'), unit: t('liveData.metrics.pm100.unit', 'ug/m3') },
+                { key: 'co', label: t('liveData.metrics.co.label', 'CO'), unit: t('liveData.metrics.co.unit', 'ppm') },
+                { key: 'no2', label: t('liveData.metrics.no2.label', 'NO2'), unit: t('liveData.metrics.no2.unit', 'ppm') },
+                { key: 'voc', label: t('liveData.metrics.voc.label', 'VOC'), unit: t('liveData.metrics.voc.unit', 'index') },
+            ];
+        }
+
+        // Keep METRICS as a getter for backward compat
+        let METRICS = getMetrics();
 
         const THRESHOLDS = {
             co2: { warn: 1000, danger: 2000 },
@@ -63,17 +77,21 @@
             co: { warn: null, danger: 9 },
         };
 
-        const GUIDES = {
-            pm25: { title: 'PM2.5 (Fine Particles)', text: 'These tiny particles reach deep into the lungs and bloodstream. Can trigger <strong>asthma attacks</strong> and increase cardiovascular risk.<br><br><strong>WHO Guidelines:</strong><br>• 0-15 µg/m³: Good<br>• >35 µg/m³: Unhealthy' },
-            pm10: { title: 'PM1.0 (Ultrafine Particles)', text: 'Derived from combustion (engines, smoke). No official limit, but high levels are linked to systemic inflammation as they bypass lung barriers entirely.' },
-            pm100: { title: 'PM10.0 (Coarse Particles)', text: 'Mostly dust, pollen, and mold. Causes throat irritation, sneezing, and upper respiratory discomfort.<br><br><strong>WHO Guidelines:</strong><br>• 0-45 µg/m³: Acceptable<br>• >45 µg/m³: High' },
-            co2: { title: 'CO₂ (Carbon Dioxide)', text: '• 400-1000 ppm: Good<br>• 1000-2000 ppm: Drowsiness and poor concentration<br>• >2000 ppm: Headaches and stuffiness. May even affect your test scores.' },
-            temp: { title: 'Temperature', text: 'Ideal indoor range: 20-24°C (68-75°F). Extreme temperatures affect productivity and can exacerbate existing respiratory conditions.' },
-            humidity: { title: 'Humidity', text: 'Ideal range: 30-50%.<br>High humidity (>60%) promotes <strong>mold growth</strong> and dust mites.<br>Low humidity (<30%) causes dry skin and increases viral transmission.' },
-            co: { title: 'Carbon Monoxide (CO)', text: 'A colorless, odorless toxic gas. High levels indicate faulty heating systems or vehicle exhaust infiltration. Can cause dizziness and, at high levels, is fatal.' },
-            no2: { title: 'Nitrogen Dioxide (NO₂)', text: 'Primarily from traffic exhaust. Known to inflame the airways and is a major trigger for <strong>chronic bronchitis</strong> and asthma exacerbations.' },
-            voc: { title: 'VOC Index (Volatile Organic Compounds)', text: 'Gasses emitted from paints, markers, and new furniture. High levels cause "Sick Building Syndrome" — headaches, nausea, and eye irritation.' },
-        };
+        function getGuides() {
+            return {
+                pm25: { title: t('liveData.guides.pm25.title', 'PM2.5 (Fine Particles)'), text: t('liveData.guides.pm25.text', 'These tiny particles reach deep into the lungs and bloodstream. Can trigger <strong>asthma attacks</strong> and increase cardiovascular risk.<br><br><strong>WHO Guidelines:</strong><br>• 0-15 µg/m³: Good<br>• >35 µg/m³: Unhealthy') },
+                pm10: { title: t('liveData.guides.pm10.title', 'PM1.0 (Ultrafine Particles)'), text: t('liveData.guides.pm10.text', 'Derived from combustion (engines, smoke). No official limit, but high levels are linked to systemic inflammation as they bypass lung barriers entirely.') },
+                pm100: { title: t('liveData.guides.pm100.title', 'PM10.0 (Coarse Particles)'), text: t('liveData.guides.pm100.text', 'Mostly dust, pollen, and mold. Causes throat irritation, sneezing, and upper respiratory discomfort.<br><br><strong>WHO Guidelines:</strong><br>• 0-45 µg/m³: Acceptable<br>• >45 µg/m³: High') },
+                co2: { title: t('liveData.guides.co2.title', 'CO₂ (Carbon Dioxide)'), text: t('liveData.guides.co2.text', '• 400-1000 ppm: Good<br>• 1000-2000 ppm: Drowsiness and poor concentration<br>• >2000 ppm: Headaches and stuffiness. May even affect your test scores.') },
+                temp: { title: t('liveData.guides.temp.title', 'Temperature'), text: t('liveData.guides.temp.text', 'Ideal indoor range: 20-24°C (68-75°F). Extreme temperatures affect productivity and can exacerbate existing respiratory conditions.') },
+                humidity: { title: t('liveData.guides.humidity.title', 'Humidity'), text: t('liveData.guides.humidity.text', 'Ideal range: 30-50%.<br>High humidity (>60%) promotes <strong>mold growth</strong> and dust mites.<br>Low humidity (<30%) causes dry skin and increases viral transmission.') },
+                co: { title: t('liveData.guides.co.title', 'Carbon Monoxide (CO)'), text: t('liveData.guides.co.text', 'A colorless, odorless toxic gas. High levels indicate faulty heating systems or vehicle exhaust infiltration. Can cause dizziness and, at high levels, is fatal.') },
+                no2: { title: t('liveData.guides.no2.title', 'Nitrogen Dioxide (NO₂)'), text: t('liveData.guides.no2.text', 'Primarily from traffic exhaust. Known to inflame the airways and is a major trigger for <strong>chronic bronchitis</strong> and asthma exacerbations.') },
+                voc: { title: t('liveData.guides.voc.title', 'VOC Index (Volatile Organic Compounds)'), text: t('liveData.guides.voc.text', 'Gasses emitted from paints, markers, and new furniture. High levels cause "Sick Building Syndrome" — headaches, nausea, and eye irritation.') },
+            };
+        }
+
+        let GUIDES = getGuides();
 
         function getValue(row, key) {
             const d = row.data || {};
@@ -98,11 +116,14 @@
                 const resp = await fetch(PROXY_URL);
                 if (!resp.ok) throw new Error('API error');
                 rows = await resp.json();
-                document.getElementById('status').textContent = `${rows.length} readings loaded`;
+                METRICS = getMetrics();
+                GUIDES = getGuides();
+                const loadedText = t('liveData.readingsLoaded', '{count} readings loaded').replace('{count}', rows.length);
+                document.getElementById('status').textContent = loadedText;
                 renderMetricButtons();
                 render();
             } catch (err) {
-                document.getElementById('status').textContent = 'Failed to load data';
+                document.getElementById('status').textContent = t('liveData.failedToLoad', 'Failed to load data');
                 document.getElementById('status').classList.add('error');
             }
         }
@@ -129,15 +150,15 @@
         function getAnnotations() {
             const a = {};
             if (selectedMetric === 'co2') {
-                a.line1 = { type: 'line', yMin: 1000, yMax: 1000, borderColor: '#ffc107', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: 'Ventilate', position: 'end', font: { size: 10 } } };
-                a.line2 = { type: 'line', yMin: 2000, yMax: 2000, borderColor: '#dc3545', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: 'Critical', position: 'end', font: { size: 10 } } };
+                a.line1 = { type: 'line', yMin: 1000, yMax: 1000, borderColor: '#ffc107', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: t('liveData.annotations.ventilate', 'Ventilate'), position: 'end', font: { size: 10 } } };
+                a.line2 = { type: 'line', yMin: 2000, yMax: 2000, borderColor: '#dc3545', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: t('liveData.annotations.critical', 'Critical'), position: 'end', font: { size: 10 } } };
             } else if (selectedMetric === 'pm25') {
-                a.line1 = { type: 'line', yMin: 15, yMax: 15, borderColor: '#ffc107', borderWidth: 1.5, borderDash: [4, 4], label: { display: true, content: 'WHO Limit', position: 'end', font: { size: 9 } } };
-                a.line2 = { type: 'line', yMin: 35, yMax: 35, borderColor: '#dc3545', borderWidth: 2, borderDash: [4, 4], label: { display: true, content: 'Unhealthy', position: 'end', font: { size: 9 } } };
+                a.line1 = { type: 'line', yMin: 15, yMax: 15, borderColor: '#ffc107', borderWidth: 1.5, borderDash: [4, 4], label: { display: true, content: t('liveData.annotations.whoLimit', 'WHO Limit'), position: 'end', font: { size: 9 } } };
+                a.line2 = { type: 'line', yMin: 35, yMax: 35, borderColor: '#dc3545', borderWidth: 2, borderDash: [4, 4], label: { display: true, content: t('liveData.annotations.unhealthy', 'Unhealthy'), position: 'end', font: { size: 9 } } };
             } else if (selectedMetric === 'temp') {
-                a.idealZone = { type: 'box', yMin: 20, yMax: 24, backgroundColor: 'rgba(0,123,255,0.05)', borderColor: 'rgba(0,123,255,0.2)', borderWidth: 1, label: { display: true, content: 'Ideal Range (20-24°C)', position: 'start', font: { size: 10, style: 'italic' }, color: '#666' } };
+                a.idealZone = { type: 'box', yMin: 20, yMax: 24, backgroundColor: 'rgba(0,123,255,0.05)', borderColor: 'rgba(0,123,255,0.2)', borderWidth: 1, label: { display: true, content: t('liveData.annotations.idealTempRange', 'Ideal Range (20-24°C)'), position: 'start', font: { size: 10, style: 'italic' }, color: '#666' } };
             } else if (selectedMetric === 'humidity') {
-                a.idealZone = { type: 'box', yMin: 30, yMax: 50, backgroundColor: 'rgba(0,123,255,0.05)', borderColor: 'rgba(0,123,255,0.2)', borderWidth: 1, label: { display: true, content: 'Ideal Humidity (30-50%)', position: 'start', font: { size: 10, style: 'italic' }, color: '#666' } };
+                a.idealZone = { type: 'box', yMin: 30, yMax: 50, backgroundColor: 'rgba(0,123,255,0.05)', borderColor: 'rgba(0,123,255,0.2)', borderWidth: 1, label: { display: true, content: t('liveData.annotations.idealHumidityRange', 'Ideal Humidity (30-50%)'), position: 'start', font: { size: 10, style: 'italic' }, color: '#666' } };
             }
             return a;
         }
@@ -179,12 +200,12 @@
         function renderTable() {
             const metric = METRICS.find(m => m.key === selectedMetric);
             const thead = document.querySelector('#dataTable thead');
-            thead.innerHTML = `<tr><th>Time</th><th>Device</th><th>${metric.label} (${metric.unit})</th></tr>`;
+            thead.innerHTML = `<tr><th>${t('liveData.tableHeaders.time', 'Time')}</th><th>${t('liveData.tableHeaders.device', 'Device')}</th><th>${metric.label} (${metric.unit})</th></tr>`;
             const tbody = document.querySelector('#dataTable tbody');
             tbody.innerHTML = [...rows].reverse().slice(0, 50).map(r => {
                 const val = getValue(r, selectedMetric);
-                const t = THRESHOLDS[selectedMetric];
-                const cls = t && val > (t.danger || Infinity) ? 'style="color:#ef4444;font-weight:600"' : '';
+                const th = THRESHOLDS[selectedMetric];
+                const cls = th && val > (th.danger || Infinity) ? 'style="color:#ef4444;font-weight:600"' : '';
                 return `<tr><td>${new Date(r.recorded_at).toLocaleString()}</td><td>${r.device_nickname || r.device_id}</td><td ${cls}>${val != null ? val : '—'}</td></tr>`;
             }).join('');
         }
@@ -196,17 +217,23 @@
             const latest = rows.length ? getValue(rows[rows.length - 1], selectedMetric) : null;
 
             // Safety alert
-            const t = THRESHOLDS[selectedMetric];
-            if (t && latest != null) {
-                if (t.danger && latest > t.danger) {
+            const th = THRESHOLDS[selectedMetric];
+            if (th && latest != null) {
+                if (th.danger && latest > th.danger) {
                     el.className = 'alert-box alert-danger';
-                    el.innerHTML = `<strong>${metric.label}: ${latest} ${metric.unit}</strong> — above danger threshold (${t.danger})`;
-                } else if (t.warn && latest > t.warn) {
+                    const dangerText = t('liveData.alerts.aboveDanger', '{metric}: {value} {unit} — above danger threshold ({threshold})')
+                        .replace('{metric}', metric.label).replace('{value}', latest).replace('{unit}', metric.unit).replace('{threshold}', th.danger);
+                    el.innerHTML = `<strong>${dangerText}</strong>`;
+                } else if (th.warn && latest > th.warn) {
                     el.className = 'alert-box alert-warn';
-                    el.innerHTML = `<strong>${metric.label}: ${latest} ${metric.unit}</strong> — above warning threshold (${t.warn})`;
+                    const warnText = t('liveData.alerts.aboveWarning', '{metric}: {value} {unit} — above warning threshold ({threshold})')
+                        .replace('{metric}', metric.label).replace('{value}', latest).replace('{unit}', metric.unit).replace('{threshold}', th.warn);
+                    el.innerHTML = `<strong>${warnText}</strong>`;
                 } else {
                     el.className = 'alert-box alert-info';
-                    el.innerHTML = `<strong>${metric.label}: ${latest} ${metric.unit}</strong> — within safe levels`;
+                    const safeText = t('liveData.alerts.withinSafe', '{metric}: {value} {unit} — within safe levels')
+                        .replace('{metric}', metric.label).replace('{value}', latest).replace('{unit}', metric.unit);
+                    el.innerHTML = `<strong>${safeText}</strong>`;
                 }
                 el.style.display = 'block';
             } else {

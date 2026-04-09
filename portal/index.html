@@ -12,7 +12,7 @@
     <!-- Loading State -->
     <div id="loading" class="loading-screen">
         <div class="spinner"></div>
-        <p>Loading school portal...</p>
+        <p data-i18n="portal.loading">Loading school portal...</p>
     </div>
 
     <!-- Portal Navigation -->
@@ -26,10 +26,10 @@
                 <div class="school-name" id="schoolName">Loading...</div>
             </div>
             <div class="nav-right">
-                <button class="nav-link" onclick="scrollToSection('reports')"><i class="fas fa-chart-line"></i> Reports</button>
-                <button class="nav-link" onclick="scrollToSection('users')"><i class="fas fa-users"></i> Users & API Keys</button>
-                <button class="nav-link" onclick="scrollToSection('dashboard')"><i class="fas fa-sliders-h"></i> Automations</button>
-                <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                <button class="nav-link" onclick="scrollToSection('reports')"><i class="fas fa-chart-line"></i> <span data-i18n="nav.reports">Reports</span></button>
+                <button class="nav-link" onclick="scrollToSection('users')"><i class="fas fa-users"></i> <span data-i18n="nav.usersAndKeys">Users & API Keys</span></button>
+                <button class="nav-link" onclick="scrollToSection('dashboard')"><i class="fas fa-sliders-h"></i> <span data-i18n="nav.automations">Automations</span></button>
+                <button class="btn-logout"><i class="fas fa-sign-out-alt"></i> <span data-i18n="nav.logout">Logout</span></button>
             </div>
         </div>
     </nav>
@@ -48,27 +48,27 @@
                 <div class="stat-card">
                     <i class="fas fa-wifi"></i>
                     <div class="stat-value" id="statSensors">2 of 48</div>
-                    <div class="stat-label">Classrooms/Exteriors Protected</div>
+                    <div class="stat-label" data-i18n="portal.stats.classroomsProtected">Classrooms/Exteriors Protected</div>
                     <div id="lastSponsor" style="display: none; margin-top: 0.5rem; font-size: 0.75rem; color: #2e7d32; font-weight: 500;"></div>
                     <a href="/portal/sponsor.html" style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; background: white; color: #2e7d32; border: 2px solid #2e7d32; padding: 0.45rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
-                        <i class="fas fa-hand-holding-heart"></i> Protect a Classroom
+                        <i class="fas fa-hand-holding-heart"></i> <span data-i18n="portal.protectClassroom">Protect a Classroom</span>
                     </a>
-                    <p style="color: #64748b; font-size: 0.7rem; margin-top: 0.3rem; font-style: italic;">from just &euro;105</p>
+                    <p style="color: #64748b; font-size: 0.7rem; margin-top: 0.3rem; font-style: italic;" data-i18n="portal.protectClassroomFrom">from just &euro;105</p>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-user-graduate"></i>
                     <div class="stat-value" id="statStudents">10</div>
-                    <div class="stat-label">Students/Teachers Involved</div>
+                    <div class="stat-label" data-i18n="portal.stats.studentsInvolved">Students/Teachers Involved</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-database"></i>
                     <div class="stat-value" id="statData">1K</div>
-                    <div class="stat-label">Data Points Per Day</div>
+                    <div class="stat-label" data-i18n="portal.stats.dataPointsPerDay">Data Points Per Day</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-bell"></i>
                     <div class="stat-value" id="statAlerts">0</div>
-                    <div class="stat-label">Alerts To Date</div>
+                    <div class="stat-label" data-i18n="portal.stats.alertsToDate">Alerts To Date</div>
                 </div>
             </div>
 
@@ -76,9 +76,9 @@
             <div style="text-align: center; margin: 1.5rem 0;">
                 <a href="#" id="viewFullDashboard" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; padding: 1rem 2rem;">
                     <i class="fas fa-external-link-alt"></i>
-                    View Full Interactive Dashboard
+                    <span data-i18n="portal.viewFullDashboard">View Full Interactive Dashboard</span>
                 </a>
-                <p style="margin-top: 0.75rem; color: #64748b; font-size: 0.9rem;">
+                <p style="margin-top: 0.75rem; color: #64748b; font-size: 0.9rem;" data-i18n="portal.viewFullDashboardDesc">
                     Access real-time sensor data, historical trends, and detailed analytics
                 </p>
             </div>
@@ -87,15 +87,15 @@
         <!-- 2. Air Quality Overview Section -->
         <section id="reports" class="portal-section">
             <div class="section-header">
-                <h2><i class="fas fa-wind"></i> Air Quality Overview</h2>
+                <h2><i class="fas fa-wind"></i> <span data-i18n="portal.airQualityOverview">Air Quality Overview</span></h2>
             </div>
 
             <!-- AQI Dashboard -->
             <div class="aqi-dashboard">
                 <div class="aqi-card">
                     <div class="aqi-header">
-                        <h3><i class="fas fa-home"></i> Interior Today</h3>
-                        <span class="aqi-badge aqi-good">GOOD</span>
+                        <h3><i class="fas fa-home"></i> <span data-i18n="portal.interiorToday">Interior Today</span></h3>
+                        <span class="aqi-badge aqi-good" data-i18n="portal.aqiGood">GOOD</span>
                     </div>
                     <div class="aqi-circle-container">
                         <div class="aqi-circle">
@@ -104,22 +104,22 @@
                                 <circle class="aqi-circle-progress aqi-progress-good" cx="100" cy="100" r="85" style="stroke-dasharray: 534; stroke-dashoffset: 320;"></circle>
                             </svg>
                             <div class="aqi-value">
-                                <div class="aqi-label">AQI</div>
+                                <div class="aqi-label" data-i18n="portal.aqiLabel">AQI</div>
                                 <div class="aqi-number" id="aqiInteriorToday">24</div>
                             </div>
                         </div>
                     </div>
                     <div class="aqi-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="portal.legendGood">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="portal.legendModerate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="portal.legendPoor">Poor (61-100)</span>
                     </div>
                 </div>
 
                 <div class="aqi-card">
                     <div class="aqi-header">
-                        <h3><i class="fas fa-home"></i> Interior This Week</h3>
-                        <span class="aqi-badge aqi-good">GOOD</span>
+                        <h3><i class="fas fa-home"></i> <span data-i18n="portal.interiorThisWeek">Interior This Week</span></h3>
+                        <span class="aqi-badge aqi-good" data-i18n="portal.aqiGood">GOOD</span>
                     </div>
                     <div class="aqi-circle-container">
                         <div class="aqi-circle">
@@ -128,22 +128,22 @@
                                 <circle class="aqi-circle-progress aqi-progress-good" cx="100" cy="100" r="85" style="stroke-dasharray: 534; stroke-dashoffset: 374;"></circle>
                             </svg>
                             <div class="aqi-value">
-                                <div class="aqi-label">AQI</div>
+                                <div class="aqi-label" data-i18n="portal.aqiLabel">AQI</div>
                                 <div class="aqi-number" id="aqiInteriorWeek">28</div>
                             </div>
                         </div>
                     </div>
                     <div class="aqi-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="portal.legendGood">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="portal.legendModerate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="portal.legendPoor">Poor (61-100)</span>
                     </div>
                 </div>
 
                 <div class="aqi-card">
                     <div class="aqi-header">
-                        <h3><i class="fas fa-tree"></i> Exterior Today</h3>
-                        <span class="aqi-badge aqi-moderate">MODERATE</span>
+                        <h3><i class="fas fa-tree"></i> <span data-i18n="portal.exteriorToday">Exterior Today</span></h3>
+                        <span class="aqi-badge aqi-moderate" data-i18n="portal.aqiModerate">MODERATE</span>
                     </div>
                     <div class="aqi-circle-container">
                         <div class="aqi-circle">
@@ -152,22 +152,22 @@
                                 <circle class="aqi-circle-progress aqi-progress-moderate" cx="100" cy="100" r="85" style="stroke-dasharray: 534; stroke-dashoffset: 226;"></circle>
                             </svg>
                             <div class="aqi-value">
-                                <div class="aqi-label">AQI</div>
+                                <div class="aqi-label" data-i18n="portal.aqiLabel">AQI</div>
                                 <div class="aqi-number" id="aqiExteriorToday">42</div>
                             </div>
                         </div>
                     </div>
                     <div class="aqi-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="portal.legendGood">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="portal.legendModerate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="portal.legendPoor">Poor (61-100)</span>
                     </div>
                 </div>
 
                 <div class="aqi-card">
                     <div class="aqi-header">
-                        <h3><i class="fas fa-tree"></i> Exterior This Week</h3>
-                        <span class="aqi-badge aqi-moderate">MODERATE</span>
+                        <h3><i class="fas fa-tree"></i> <span data-i18n="portal.exteriorThisWeek">Exterior This Week</span></h3>
+                        <span class="aqi-badge aqi-moderate" data-i18n="portal.aqiModerate">MODERATE</span>
                     </div>
                     <div class="aqi-circle-container">
                         <div class="aqi-circle">
@@ -176,15 +176,15 @@
                                 <circle class="aqi-circle-progress aqi-progress-moderate" cx="100" cy="100" r="85" style="stroke-dasharray: 534; stroke-dashoffset: 186;"></circle>
                             </svg>
                             <div class="aqi-value">
-                                <div class="aqi-label">AQI</div>
+                                <div class="aqi-label" data-i18n="portal.aqiLabel">AQI</div>
                                 <div class="aqi-number" id="aqiExteriorWeek">45</div>
                             </div>
                         </div>
                     </div>
                     <div class="aqi-legend">
-                        <span class="legend-item good">Good (0-30)</span>
-                        <span class="legend-item moderate">Moderate (31-60)</span>
-                        <span class="legend-item poor">Poor (61-100)</span>
+                        <span class="legend-item good" data-i18n="portal.legendGood">Good (0-30)</span>
+                        <span class="legend-item moderate" data-i18n="portal.legendModerate">Moderate (31-60)</span>
+                        <span class="legend-item poor" data-i18n="portal.legendPoor">Poor (61-100)</span>
                     </div>
                 </div>
             </div>
@@ -196,15 +196,15 @@
                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 2rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
                     <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
                         <i class="fas fa-images" style="font-size: 2rem; color: white;"></i>
-                        <h3 style="color: white; margin: 0; font-size: 1.5rem;">Project Photo Gallery</h3>
+                        <h3 style="color: white; margin: 0; font-size: 1.5rem;" data-i18n="portal.photoGallery.title">Project Photo Gallery</h3>
                     </div>
-                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 1rem;">
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 1rem;" data-i18n="portal.photoGallery.description">
                         View photos from our air quality monitoring project and student activities
                     </p>
                     <a href="https://photos.app.goo.gl/8QTFnbUHuYtTzA9T7" target="_blank" rel="noopener noreferrer"
                        style="display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: #667eea; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: transform 0.2s;">
                         <i class="fas fa-external-link-alt"></i>
-                        View Photo Album
+                        <span data-i18n="portal.photoGallery.viewAlbum">View Photo Album</span>
                     </a>
                 </div>
             </div>
@@ -212,18 +212,18 @@
         <!-- 3. User & API Key Management Section -->
         <section id="users" class="portal-section">
             <div class="section-header">
-                <h2><i class="fas fa-users"></i> User & API Key Management</h2>
-                <button class="btn-primary" onclick="showAddUserModal()"><i class="fas fa-plus"></i> Add User</button>
+                <h2><i class="fas fa-users"></i> <span data-i18n="portal.users.title">User & API Key Management</span></h2>
+                <button class="btn-primary" onclick="showAddUserModal()"><i class="fas fa-plus"></i> <span data-i18n="portal.users.addUser">Add User</span></button>
             </div>
 
             <!-- Role Filter Tabs -->
             <div class="role-tabs">
-                <button class="role-tab active" data-role="all">All Users</button>
-                <button class="role-tab" data-role="admin">Administrators</button>
-                <button class="role-tab" data-role="teacher">Teachers</button>
-                <button class="role-tab" data-role="student">Students</button>
-                <button class="role-tab" data-role="researcher">Researchers</button>
-                <button class="role-tab" data-role="mentor">Mentors</button>
+                <button class="role-tab active" data-role="all" data-i18n="portal.users.allUsers">All Users</button>
+                <button class="role-tab" data-role="admin" data-i18n="portal.users.administrators">Administrators</button>
+                <button class="role-tab" data-role="teacher" data-i18n="portal.users.teachers">Teachers</button>
+                <button class="role-tab" data-role="student" data-i18n="portal.users.students">Students</button>
+                <button class="role-tab" data-role="researcher" data-i18n="portal.users.researchers">Researchers</button>
+                <button class="role-tab" data-role="mentor" data-i18n="portal.users.mentors">Mentors</button>
             </div>
 
             <!-- Users Table -->
@@ -231,13 +231,13 @@
                 <table class="data-table" id="usersTable">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Joined</th>
-                            <th>Last Active</th>
-                            <th>API Keys</th>
-                            <th>Actions</th>
+                            <th data-i18n="portal.users.tableHeaders.name">Name</th>
+                            <th data-i18n="portal.users.tableHeaders.email">Email</th>
+                            <th data-i18n="portal.users.tableHeaders.role">Role</th>
+                            <th data-i18n="portal.users.tableHeaders.joined">Joined</th>
+                            <th data-i18n="portal.users.tableHeaders.lastActive">Last Active</th>
+                            <th data-i18n="portal.users.tableHeaders.apiKeys">API Keys</th>
+                            <th data-i18n="portal.users.tableHeaders.actions">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="usersTableBody">
@@ -248,8 +248,8 @@
 
             <!-- API Keys Section -->
             <div class="section-header" style="margin-top: 3rem;">
-                <h3><i class="fas fa-key"></i> API Keys</h3>
-                <button class="btn-secondary" onclick="showCreateKeyModal()"><i class="fas fa-plus"></i> Create New Key</button>
+                <h3><i class="fas fa-key"></i> <span data-i18n="portal.apiKeys.title">API Keys</span></h3>
+                <button class="btn-secondary" onclick="showCreateKeyModal()"><i class="fas fa-plus"></i> <span data-i18n="portal.apiKeys.createNew">Create New Key</span></button>
             </div>
 
             <div class="api-keys-grid" id="apiKeysGrid">
@@ -260,12 +260,12 @@
         <!-- 4. Dashboard Configuration Section -->
         <section id="dashboard" class="portal-section">
             <div class="section-header">
-                <h2><i class="fas fa-sliders-h"></i> Dashboard Configuration</h2>
-                <button class="btn-primary" onclick="showAddThresholdModal()"><i class="fas fa-plus"></i> Add Threshold</button>
+                <h2><i class="fas fa-sliders-h"></i> <span data-i18n="portal.dashboardConfig.title">Dashboard Configuration</span></h2>
+                <button class="btn-primary" onclick="showAddThresholdModal()"><i class="fas fa-plus"></i> <span data-i18n="portal.dashboardConfig.addThreshold">Add Threshold</span></button>
             </div>
 
             <div class="config-intro">
-                <p>Configure alert thresholds and automated actions for your school's air quality monitoring system. When sensor readings exceed these thresholds, the system will automatically trigger the specified actions.</p>
+                <p data-i18n="portal.dashboardConfig.intro">Configure alert thresholds and automated actions for your school's air quality monitoring system. When sensor readings exceed these thresholds, the system will automatically trigger the specified actions.</p>
             </div>
 
             <!-- Thresholds Table -->
@@ -273,13 +273,13 @@
                 <table class="data-table" id="thresholdsTable">
                     <thead>
                         <tr>
-                            <th>Parameter</th>
-                            <th>Threshold</th>
-                            <th>Condition</th>
-                            <th>Action</th>
-                            <th>Severity</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th data-i18n="portal.dashboardConfig.tableHeaders.parameter">Parameter</th>
+                            <th data-i18n="portal.dashboardConfig.tableHeaders.threshold">Threshold</th>
+                            <th data-i18n="portal.dashboardConfig.tableHeaders.condition">Condition</th>
+                            <th data-i18n="portal.dashboardConfig.tableHeaders.action">Action</th>
+                            <th data-i18n="portal.dashboardConfig.tableHeaders.severity">Severity</th>
+                            <th data-i18n="portal.dashboardConfig.tableHeaders.status">Status</th>
+                            <th data-i18n="portal.dashboardConfig.tableHeaders.actions">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="thresholdsTableBody">

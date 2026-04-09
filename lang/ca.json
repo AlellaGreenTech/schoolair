@@ -1,68 +1,641 @@
 {
   "nav": {
-    "about": "Sobre nosaltres",
+    "project": "Projecte",
+    "about": "Qui som",
     "products": "Tecnologia",
-    "announcements": "Actualitzacions del projecte",
-    "workshops": "Tallers i Esdeveniments",
-    "getInvolved": "Participar"
+    "howItWorks": "Com funciona",
+    "dashboard": "Tauler",
+    "events": "Esdeveniments",
+    "blog": "Blog",
+    "announcements": "Novetats del projecte",
+    "workshops": "Tallers i esdeveniments",
+    "getInvolved": "Participa-hi",
+    "contact": "Contacte",
+    "backToPortal": "Tornar al portal",
+    "backToHome": "Tornar a l'inici",
+    "reports": "Informes",
+    "usersAndKeys": "Usuaris i claus API",
+    "automations": "Automatitzacions",
+    "logout": "Tancar sessió"
   },
+
   "hero": {
-    "title": "L'Aire Bo Alimenta l'Aprenentatge",
+    "title": "Aire més sa. Creat per estudiants",
     "subtitle": "SchoolAir: Noves habilitats. Impacte durador.",
-    "description": "Els estudiants dominen la programació, electrònica i ciència de dades mentre construeixen sistemes de monitoratge de qualitat de l'aire que protegeixen la seva comunitat escolar.",
-    "enrollButton": "Inscriu la Teva Escola",
-    "orderButton": "Obtenir Kit Domèstic",
-    "quote1": "Mai vaig aprendre tant en tan poc temps en un projecte -- Mia, BFIS",
+    "description": "Aprèn la tecnologia. Aconsegueix un kit.\nMunta i instal·la la teva estació SchoolAir.\nActua amb les dades.\nFes la teva comunitat més saludable.",
+    "enrollButton": "Inscriu la teva escola",
+    "orderButton": "Aconsegueix un kit domèstic",
+    "protectButton": "Protegeix una aula!",
+    "seeItInAction": "Mira'l en acció",
+    "quote1": "\"Mai havia après tant en tan poc temps en un projecte -- Mia, BFIS\"",
     "quote1Author": "",
-    "quote2": "Els mestres ara poden ser recordats de ventilar l'aula -- Martin, IGTF",
+    "quote2": "\"Els professors ara saben quan ventilar les aules -- Martin, IGTF\"",
     "quote2Author": "",
     "audioMessage": "Un missatge del fundador"
   },
+
+  "partners": {
+    "trustedBySchools": "Escoles de tot el món hi confien",
+    "globalMedia": "Mitjans globals"
+  },
+
+  "project": {
+    "title": "El projecte schoolAIR",
+    "subtitle": "Un projecte educatiu complet que combina l'aprenentatge STEM pràctic amb el monitoratge ambiental real. Hi ha un propòsit més enllà de l'educació: els nostres fills podrien estar exposats a aire insalubre. Aquest projecte ofereix a les escoles i als estudiants dades en temps real sobre la seva zona — no només les que publiquen els governs de manera general.",
+    "infoSheetButton": "Consulta la nostra fitxa informativa",
+    "educationalExcellence": {
+      "title": "Excel·lència educativa",
+      "description": "Integra IoT, ciència ambiental i anàlisi de dades al teu currículum mitjançant experiències d'aprenentatge pràctiques."
+    },
+    "communityHealth": {
+      "title": "Salut comunitària",
+      "description": "Monitoritza la qualitat de l'aire per protegir la salut de la comunitat amb alertes en temps real quan els indicadors interiors o exteriors arriben a nivells insalubres."
+    },
+    "globalNetwork": {
+      "title": "Xarxa global",
+      "description": "Uneix-te a una xarxa mundial d'escoles que contribueixen a la recerca ambiental i a la comprensió del canvi climàtic."
+    },
+    "greenTechnology": {
+      "title": "Tecnologia verda",
+      "description": "Construeix infraestructura tecnològica verda funcional amb sensors moderns, microcontroladors i tecnologia al núvol."
+    }
+  },
+
+  "features": {
+    "title": "Característiques del projecte",
+    "subtitle": "Tot el que necessites per a un monitoratge ambiental i una educació reeixits",
+    "buildItYourWay": {
+      "title": "Construeix-lo al teu gust",
+      "description": "Demana un kit o només el nostre codi i els nostres plans i fes-lo funcionar amb el teu maquinari preferit"
+    },
+    "openSource": {
+      "title": "100% codi obert!",
+      "description": "Descarrega el nostre codi des de GitHub. Utilitza les nostres guies pràctiques."
+    },
+    "threeDPrint": {
+      "title": "Imprimeix els accessoris en 3D",
+      "description": "Utilitza els nostres models 3D per imprimir les carcasses i els suports"
+    },
+    "communitySupport": {
+      "title": "Suport comunitari!",
+      "description": "La nostra creixent comunitat d'estudiants experts i voluntaris t'ajudarà"
+    },
+    "supportsProjects": {
+      "title": "Dona suport als teus projectes",
+      "description": "Obtingues dades d'anàlisi de tendències de la base de dades global"
+    },
+    "automateAlerts": {
+      "title": "Automatitza les teves alertes",
+      "description": "Rep avisos quan les tendències indiquen perill o quan se superen els llindars"
+    }
+  },
+
+  "ticker": {
+    "label": "Notícies",
+    "item1": "<strong>Abr 2026:</strong> Obertes les col·laboracions de pares i mecenes — ara els pares poden protegir directament una aula!",
+    "item2": "<strong>Mar 2026:</strong> El Royal Melbourne Institute of Technology s'incorpora — 5 estudiants d'informàtica construeixen l'API per compartir dades amb privacitat millorada",
+    "item3": "<strong>Mar 2026:</strong> Les primeres institucions completen el muntatge dels seus kits! BFIS instal·la unitats exteriors en múltiples ubicacions",
+    "readAllNews": "Llegeix totes les notícies →"
+  },
+
   "announcements": {
-    "title": "Actualitzacions i notícies del projecte",
-    "subtitle": "Últims desenvolupaments a la comunitat schoolAIR",
+    "title": "Novetats i notícies del projecte",
+    "subtitle": "Últims desenvolupaments de la comunitat schoolAIR",
     "announcement1": {
       "date": "Setembre 2024",
-      "title": "Llançament del suport multiidioma",
-      "description": "schoolAIR ara està disponible en múltiples idiomes per servir millor la nostra comunitat global d'escoles."
+      "type": "Noves funcionalitats",
+      "title": "Suport multilingüe llançat",
+      "description": "El lloc web de schoolAIR ja està disponible en 5 idiomes: anglès, castellà, francès, català i italià. Uneix-te a la nostra comunitat global!"
     },
     "announcement2": {
       "date": "Agost 2024",
-      "title": "Buscant socis escolars",
-      "description": "Estem buscant activament escoles interessades en unir-se al nostre programa pilot i provar les nostres estacions de monitoratge de l'aire."
+      "type": "Comunitat",
+      "title": "Busquem escoles col·laboradores",
+      "description": "Estem buscant activament escoles de tot el món per provar les nostres estacions de monitoratge de qualitat de l'aire. Kits gratuïts disponibles per a institucions educatives que compleixin els requisits."
     },
     "announcement3": {
       "date": "Juliol 2024",
+      "type": "Desenvolupament",
       "title": "Codi obert disponible",
-      "description": "Tot el nostre codi ara és de codi obert i disponible a GitHub perquè la comunitat pugui contribuir i personalitzar."
+      "description": "Tots els dissenys de maquinari, codi de programari i guies de muntatge ja estan disponibles a GitHub. Perfecte per a creadors i educadors!"
     },
     "announcement4": {
       "date": "En curs",
+      "type": "Voluntariat",
       "title": "Uneix-te al nostre equip",
-      "description": "Busquem voluntaris apassionats per l'educació ambiental i la tecnologia per ajudar-nos a desenvolupar schoolAIR."
+      "description": "Necessitem desenvolupadors, educadors i entusiastes del medi ambient per ajudar a fer créixer aquest projecte. Iniciativa 100% impulsada per voluntaris."
     }
   },
+
   "impact": {
     "title": "Impacte educatiu",
-    "subtitle": "Números reals d'escoles que usen schoolAIR arreu del món",
+    "subtitle": "Xifres reals d'escoles que utilitzen schoolAIR a tot el món",
     "stats": {
       "schools": "Escoles participants",
-      "students": "Estudiants involucrats",
-      "dataPoints": "Punts de dades recopilats",
-      "countries": "Països involucrats"
+      "stations": "Estacions actives",
+      "students": "Estudiants protegits",
+      "dataPoints": "Dades recollides",
+      "countries": "Països implicats"
+    },
+    "ctaText": "Inscriu la teva escola i posa els teus estudiants a treballar en un projecte d'enginyeria real!",
+    "ctaButton": "Comença avui",
+    "curriculumTitle": "Àrees d'integració curricular",
+    "curriculum": {
+      "science": {
+        "title": "Educació científica",
+        "description": "Meteorologia, ciència ambiental, física i química a través d'experimentació pràctica i anàlisi de dades reals."
+      },
+      "mathematics": {
+        "title": "Matemàtiques",
+        "description": "Anàlisi de dades, estadística, gràfics i reconeixement de patrons amb conjunts de dades ambientals reals."
+      },
+      "technology": {
+        "title": "Tecnologia",
+        "description": "Electrònica, programació amb MicroPython, conceptes IoT i disseny d'arquitectura de sistemes."
+      },
+      "socialStudies": {
+        "title": "Ciències socials",
+        "description": "Problemàtiques ambientals locals, canvi climàtic global i la intersecció entre tecnologia i societat."
+      }
     }
   },
+
   "components": {
-    "title": "Tecnologia i Components",
-    "subtitle": "Tot el que necessites per construir la teva estació de monitoratge de qualitat de l'aire"
+    "title": "Tecnologia i components",
+    "subtitle": "Tot el que necessites per construir la teva estació de monitoratge de qualitat de l'aire",
+    "introText": "L'objectiu del projecte SchoolAIR és donar suport a tots els microcontroladors educatius més populars, com Arduino, m5stack i d'altres. Estudiants voluntaris porten constantment el programari base a noves plataformes. Les comunicacions entre el microcontrolador i els sensors es fan mitjançant protocols estàndard com I2C, bluetooth i Wifi. Això manté els costos al mínim i crea un sistema obert. SchoolAIR és per als estudiants i fet pels estudiants!",
+    "completeKitTitle": "Components del kit complet",
+    "plannedControllerTitle": "Suport de controladors previst",
+    "tableHeaders": {
+      "component": "Component",
+      "description": "Descripció",
+      "microcontroller": "Microcontrolador",
+      "assignedTo": "Assignat a",
+      "deadline": "Data límit",
+      "status": "Estat"
+    },
+    "statusPlanning": "Planificació",
+    "statusCompleted": "COMPLETAT!"
   },
+
+  "getInvolved": {
+    "title": "Inscriu la teva escola",
+    "subtitle": "Uneix-te a la xarxa creixent d'escoles que protegeixen la salut dels seus estudiants",
+    "schoolPortal": {
+      "title": "El teu propi portal escolar",
+      "description": "Cada escola obté un lloc web amb la seva marca per mostrar els seus esforços en salut, controlar l'accés a les dades i permetre l'anàlisi de tendències i la sensibilització."
+    },
+    "studentsBuild": {
+      "title": "Els estudiants construeixen i aprenen",
+      "description": "Els estudiants adquireixen experiència pràctica en electrònica, IoT i ciència ambiental mentre protegeixen la seva pròpia comunitat."
+    },
+    "globalData": {
+      "title": "Xarxa global de dades",
+      "description": "Les teves dades s'incorporen a una base de dades mundial utilitzada per investigadors i defensors de l'aire net — amb controls de privacitat complets."
+    },
+    "readyToStart": "Preparat per començar?",
+    "readyToStartDesc": "Demana unitats per a la teva escola ara — unitats interiors des de 105 €, unitats exteriors des de 125 €. Proporcionarem tot el que els teus estudiants necessiten per construir, instal·lar i començar a monitoritzar.",
+    "orderKitsNow": "Demana els kits ara",
+    "contactUsFirst": "Contacta'ns primer"
+  },
+
+  "contact": {
+    "title": "Contacta'ns",
+    "subtitle": "Preparat per començar el teu projecte de monitoratge ambiental?",
+    "firstName": "Nom",
+    "lastName": "Cognoms",
+    "email": "Correu electrònic",
+    "school": "Escola/Organització",
+    "role": "El teu rol",
+    "rolePlaceholder": "Selecciona el teu rol",
+    "roleTeacher": "Professor/a",
+    "roleAdministrator": "Administrador/a",
+    "roleStudent": "Estudiant",
+    "roleResearcher": "Investigador/a",
+    "roleOther": "Altre",
+    "interest": "Nivell d'interès",
+    "interestPlaceholder": "Selecciona una opció",
+    "interestCompleteKit": "Kit complet",
+    "interestPlansOnly": "Només els plans",
+    "interestPartnership": "Col·laboració escolar",
+    "interestInformation": "Més informació",
+    "message": "Missatge",
+    "messagePlaceholder": "Explica'ns els objectius del teu projecte, el calendari o qualsevol pregunta específica que tinguis...",
+    "submit": "Enviar sol·licitud",
+    "orContactDirectly": "O contacta'ns directament:",
+    "successTitle": "Missatge enviat!",
+    "successClose": "Tancar"
+  },
+
   "footer": {
+    "aboutUs": "Qui som",
+    "aboutDescription": "La International Green Tech Foundation és una organització sense ànim de lucre que promou l'educació en tecnologia ambiental. La nostra apassionada xarxa global d'educadors, enginyers i estudiants creu en capacitar la propera generació a través de l'aprenentatge pràctic.",
     "quickLinks": "Enllaços ràpids",
     "resources": "Recursos",
-    "connect": "Connectar",
+    "support": "Suport",
+    "connect": "Connecta",
     "assemblyGuide": "Guia de muntatge",
     "documentation": "Documentació del programari",
     "globalData": "Accés a dades globals",
-    "curriculum": "Materials curriculars"
+    "curriculum": "Materials curriculars",
+    "contactUs": "Contacta'ns",
+    "communityForum": "Fòrum de la comunitat",
+    "technicalSupport": "Suport tècnic",
+    "faqs": "Preguntes freqüents",
+    "copyright": "© 2024 Projecte schoolAIR. Iniciativa educativa de codi obert per al monitoratge ambiental."
+  },
+
+  "portal": {
+    "loading": "Carregant el portal escolar...",
+    "navBrand": "SchoolAIR",
+    "stats": {
+      "classroomsProtected": "Aules/Exteriors protegits",
+      "studentsInvolved": "Estudiants/Professors implicats",
+      "dataPointsPerDay": "Dades per dia",
+      "alertsToDate": "Alertes fins avui"
+    },
+    "protectClassroom": "Protegeix una aula",
+    "protectClassroomFrom": "des de només 105 €",
+    "viewFullDashboard": "Veure el tauler interactiu complet",
+    "viewFullDashboardDesc": "Accedeix a dades de sensors en temps real, tendències històriques i analítiques detallades",
+    "airQualityOverview": "Resum de la qualitat de l'aire",
+    "interiorToday": "Interior avui",
+    "interiorThisWeek": "Interior aquesta setmana",
+    "exteriorToday": "Exterior avui",
+    "exteriorThisWeek": "Exterior aquesta setmana",
+    "aqiLabel": "AQI",
+    "aqiGood": "BO",
+    "aqiModerate": "MODERAT",
+    "aqiPoor": "DOLENT",
+    "legendGood": "Bo (0-30)",
+    "legendModerate": "Moderat (31-60)",
+    "legendPoor": "Dolent (61-100)",
+    "photoGallery": {
+      "title": "Galeria de fotos del projecte",
+      "description": "Consulta fotos del nostre projecte de monitoratge de qualitat de l'aire i activitats dels estudiants",
+      "viewAlbum": "Veure l'àlbum de fotos"
+    },
+    "users": {
+      "title": "Gestió d'usuaris i claus API",
+      "addUser": "Afegir usuari",
+      "allUsers": "Tots els usuaris",
+      "administrators": "Administradors",
+      "teachers": "Professors",
+      "students": "Estudiants",
+      "researchers": "Investigadors",
+      "mentors": "Mentors",
+      "tableHeaders": {
+        "name": "Nom",
+        "email": "Correu electrònic",
+        "role": "Rol",
+        "joined": "Data d'incorporació",
+        "lastActive": "Última activitat",
+        "apiKeys": "Claus API",
+        "actions": "Accions"
+      }
+    },
+    "apiKeys": {
+      "title": "Claus API",
+      "createNew": "Crear nova clau"
+    },
+    "dashboardConfig": {
+      "title": "Configuració del tauler",
+      "addThreshold": "Afegir llindar",
+      "intro": "Configura els llindars d'alerta i les accions automatitzades per al sistema de monitoratge de qualitat de l'aire de la teva escola. Quan les lectures dels sensors superin aquests llindars, el sistema activarà automàticament les accions especificades.",
+      "tableHeaders": {
+        "parameter": "Paràmetre",
+        "threshold": "Llindar",
+        "condition": "Condició",
+        "action": "Acció",
+        "severity": "Gravetat",
+        "status": "Estat",
+        "actions": "Accions"
+      }
+    }
+  },
+
+  "sponsor": {
+    "pageTitle": "Patrocina una aula - SchoolAIR",
+    "genericPageTitle": "Protegeix una aula - SchoolAIR",
+    "hero": {
+      "bfisTitle": "Ajuda que totes les zones de BFIS tinguin aire net",
+      "genericTitle": "Protegeix una aula amb aire net",
+      "bfisDescription": "L'equip de SchoolAIR ha experimentat àmpliament amb els components tecnològics més recents i ha aconseguit reduir molt el cost d'una unitat de qualitat de l'aire. El kit de muntatge a casa inclou tots els components i instruccions pas a pas; no inclou la carcassa. Lliuraràs amb orgull una unitat funcional a la teva escola per a la seva instal·lació — o fes-la servir a casa! Cada unitat protegeix per sempre una aula informant els professors de quan cal ventilar — o tancar una finestra a causa de la mala qualitat de l'aire exterior.",
+      "genericDescription": "L'equip de SchoolAIR ha experimentat àmpliament amb els components tecnològics més recents i ha aconseguit reduir molt el cost d'una unitat de qualitat de l'aire. Cada unitat protegeix per sempre una aula informant els professors de quan cal ventilar — o tancar una finestra a causa de la mala qualitat de l'aire exterior. Patrocina una unitat per a qualsevol escola del món.",
+      "videoCaption": "Les habitacions carregades redueixen ràpidament el rendiment cognitiu"
+    },
+    "progress": {
+      "title": "Aules/Camps de joc de BFIS protegits",
+      "of": "de",
+      "plaqueNote": "Les aules amb unitats de qualitat de l'aire exhibiran amb orgull una placa: Aquesta aula protegida gràcies a Jane & Jennifer Ramirez",
+      "timelineTitle": "Creixement del patrocini",
+      "launchEntry": "2 unitats donades per l'equip de SchoolAir"
+    },
+    "cards": {
+      "title": "Patrocina una unitat",
+      "subtitle": "Patrocini únic — cada unitat protegeix una zona per sempre. La carcassa no està inclosa — es proporcionen plans digitals gratuïts i fitxers de models 3D. Les dades es pugen a la base de dades global de SchoolAir. La privacitat, l'escalabilitat i la disponibilitat per a investigadors i defensors de l'aire net es gestiona professionalment.",
+      "interior": {
+        "title": "Unitat interior",
+        "description": "Protegeix les aules de l'aire carregat o insalubre monitoritzant els nivells de CO₂ i la ventilació. Connexió USB plug-and-play — fàcil de configurar i utilitzar.",
+        "price": "105"
+      },
+      "exterior": {
+        "title": "Unitat exterior",
+        "description": "Estació completa de monitoratge de qualitat de l'aire que mesura partícules fines (PM2.5), meteorologia i més. Connectivitat Wi-Fi de llarg abast per a ubicacions exteriors.",
+        "price": "125"
+      },
+      "sponsorThisUnit": "Patrocina aquesta unitat",
+      "schoolWebsite": {
+        "title": "Cada escola obté el seu propi lloc web",
+        "description": "Cada escola participant rep el seu propi portal SchoolAir amb la seva marca per mostrar els seus esforços en salut i sostenibilitat, controlar l'accés a les seves dades i permetre projectes d'anàlisi de tendències i sensibilització."
+      }
+    },
+    "patron": {
+      "title": "Fes-te defensor de SchoolAir — Patrocina el nostre apassionat equip de projecte!",
+      "subtitle": "La teva contribució regular permetrà als nostres desenvolupadors, investigadors i instal·ladors de productes ajudar cada cop més escoles a vetllar per la salut dels seus estudiants. Tenim previst fer més que monitoritzar — la nostra segona fase començarà a aportar solucions potencials. Ajuda'ns a continuar!",
+      "supporter": {
+        "title": "Col·laborador",
+        "description": "Ajuda a finançar actualitzacions de firmware i calibratge de sensors",
+        "price": "5",
+        "period": "/mes"
+      },
+      "champion": {
+        "title": "Campió",
+        "description": "Finança el treball del nostre expert IoT en nous controladors i connectivitat",
+        "price": "10",
+        "period": "/mes"
+      },
+      "guardian": {
+        "title": "Guardià",
+        "description": "Màxim impacte — finança directament l'enginyeria professional darrere de SchoolAir",
+        "price": "25",
+        "period": "/mes"
+      },
+      "startSupporting": "Comença a col·laborar"
+    },
+    "wall": {
+      "title": "Els nostres patrocinadors i mecenes",
+      "emptyMessage": "Sigues el primer a patrocinar una aula!",
+      "monthlyPatron": "Mecena mensual",
+      "exteriorSponsor": "Patrocinador d'unitat exterior",
+      "interiorSponsor": "Patrocinador d'unitat interior"
+    },
+    "checkout": {
+      "title": "Completa el teu patrocini",
+      "sponsorInteriorTitle": "Patrocina una unitat interior — 105 €",
+      "sponsorExteriorTitle": "Patrocina una unitat exterior — 125 €",
+      "patronTitle": "Fes-te mecena mensual — {tier} €/mes",
+      "email": "Correu electrònic",
+      "emailRequired": "*",
+      "emailPlaceholder": "tu@exemple.com",
+      "emailHint": "T'enviarem el rebut i l'enllaç per editar el nom visible aquí",
+      "schoolName": "Nom de l'escola",
+      "schoolNamePlaceholder": "p. ex. Escola Greenwood",
+      "schoolNameHint": "Quina escola ha de rebre aquesta unitat?",
+      "schoolContact": "Persona de contacte de l'escola",
+      "schoolContactPlaceholder": "p. ex. Directora Sara García",
+      "schoolContactHint": "Una persona de contacte a l'escola per coordinar la instal·lació (opcional)",
+      "schoolContactEmail": "Correu electrònic del contacte de l'escola",
+      "schoolContactEmailPlaceholder": "p. ex. sara@escola.edu",
+      "schoolContactEmailHint": "Correu electrònic del contacte de l'escola (opcional)",
+      "displayName": "Nom visible",
+      "displayNamePlaceholder": "p. ex. Joan i Maria Puig",
+      "displayNameHint": "Es mostra al mur de patrocinadors i a la placa de l'aula (opcional)",
+      "classroom": "Aula a protegir",
+      "classroomPlaceholder": "p. ex. Classe de la Sra. García, Aula 12, Llar d'infants",
+      "classroomHint": "A quina aula t'agradaria instal·lar el teu monitor? (opcional)",
+      "quantity": "Quantitat",
+      "proceedToPayment": "Procedir al pagament",
+      "redirecting": "Redirigint al pagament..."
+    },
+    "labelEdit": {
+      "title": "Actualitza el teu nom visible",
+      "subtitle": "Així apareixerà el teu nom al mur de patrocinadors i a la placa de l'aula",
+      "displayName": "Nom visible",
+      "displayNamePlaceholder": "p. ex. Joan i Maria Puig",
+      "dedication": "Dedicatòria (opcional)",
+      "dedicationPlaceholder": "p. ex. Per a la classe de 3r de la Sra. García",
+      "saveChanges": "Desar canvis",
+      "saving": "Desant..."
+    },
+    "alerts": {
+      "emailRequired": "El correu electrònic és obligatori",
+      "schoolNameRequired": "El nom de l'escola és obligatori",
+      "successMessage": "Gràcies pel teu patrocini! Consulta el teu correu electrònic per a la confirmació i un enllaç per personalitzar el teu nom visible.",
+      "cancelMessage": "S'ha cancel·lat el pagament. No et preocupis — pots tornar-ho a intentar en qualsevol moment.",
+      "labelUpdated": "El teu nom visible s'ha actualitzat!",
+      "labelFailed": "No s'ha pogut actualitzar. L'enllaç pot haver caducat."
+    }
+  },
+
+  "dashboard": {
+    "pageTitle": "Qualitat de l'aire interior - Air School",
+    "header": {
+      "subtitle": "Monitoratge de qualitat de l'aire en temps real"
+    },
+    "toggle": {
+      "simulation": "Simulació",
+      "liveData": "Dades en directe"
+    },
+    "liveCaption": "Dades en directe dels sensors de les unitats de monitoratge de BFIS — impulsat per",
+    "rooms": {
+      "nursery": "Llar d'infants",
+      "primaryA": "Primària A",
+      "primaryB": "Primària B",
+      "secondaryA": "Secundària A",
+      "secondaryB": "Secundària B"
+    },
+    "metrics": {
+      "co2": "CO₂",
+      "pm25": "PM2.5",
+      "temp": "Temp.",
+      "humidity": "Humitat"
+    },
+    "status": {
+      "good": "Bo",
+      "moderate": "Moderat",
+      "poor": "Dolent"
+    },
+    "legend": {
+      "good": "Bo (0-30)",
+      "moderate": "Moderat (31-60)",
+      "poor": "Dolent (61-100)"
+    },
+    "modal": {
+      "title": "Detalls de l'aula",
+      "aqiChart": "Índex de qualitat de l'aire (AQI)",
+      "pollutantsChart": "Contaminants de l'aire",
+      "environmentChart": "Condicions ambientals",
+      "currentAQI": "AQI actual",
+      "co2": "CO₂",
+      "pm25": "PM2.5",
+      "temperature": "Temperatura",
+      "humidity": "Humitat",
+      "status": "Estat"
+    }
+  },
+
+  "liveData": {
+    "pageTitle": "Dades de qualitat de l'aire en directe",
+    "loading": "Carregant dades dels sensors...",
+    "readingsLoaded": "{count} lectures carregades",
+    "failedToLoad": "No s'han pogut carregar les dades",
+    "tableHeaders": {
+      "time": "Hora",
+      "device": "Dispositiu"
+    },
+    "metrics": {
+      "pm25": { "label": "PM2.5", "unit": "ug/m3" },
+      "co2": { "label": "CO2", "unit": "ppm" },
+      "temp": { "label": "Temperatura", "unit": "°C" },
+      "humidity": { "label": "Humitat", "unit": "%" },
+      "pm10": { "label": "PM1.0", "unit": "ug/m3" },
+      "pm100": { "label": "PM10.0", "unit": "ug/m3" },
+      "co": { "label": "CO", "unit": "ppm" },
+      "no2": { "label": "NO2", "unit": "ppm" },
+      "voc": { "label": "VOC", "unit": "index" }
+    },
+    "alerts": {
+      "aboveDanger": "{metric}: {value} {unit} — per sobre del llindar de perill ({threshold})",
+      "aboveWarning": "{metric}: {value} {unit} — per sobre del llindar d'avís ({threshold})",
+      "withinSafe": "{metric}: {value} {unit} — dins dels nivells segurs"
+    },
+    "annotations": {
+      "ventilate": "Ventilar",
+      "critical": "Crític",
+      "whoLimit": "Límit WHO",
+      "unhealthy": "Insalubre",
+      "idealTempRange": "Rang ideal (20-24°C)",
+      "idealHumidityRange": "Humitat ideal (30-50%)"
+    },
+    "guides": {
+      "pm25": {
+        "title": "PM2.5 (Partícules fines)",
+        "text": "Aquestes partícules diminutes arriben fins al fons dels pulmons i al torrent sanguini. Poden provocar <strong>atacs d'asma</strong> i augmentar el risc cardiovascular.<br><br><strong>Directrius WHO:</strong><br>• 0-15 µg/m³: Bo<br>• >35 µg/m³: Insalubre"
+      },
+      "pm10": {
+        "title": "PM1.0 (Partícules ultrafines)",
+        "text": "Derivades de la combustió (motors, fum). No hi ha límit oficial, però els nivells alts estan relacionats amb inflamació sistèmica, ja que travessen completament les barreres pulmonars."
+      },
+      "pm100": {
+        "title": "PM10.0 (Partícules gruixudes)",
+        "text": "Principalment pols, pol·len i floridures. Causen irritació de gola, esternuts i molèsties a les vies respiratòries superiors.<br><br><strong>Directrius WHO:</strong><br>• 0-45 µg/m³: Acceptable<br>• >45 µg/m³: Alt"
+      },
+      "co2": {
+        "title": "CO₂ (Diòxid de carboni)",
+        "text": "• 400-1000 ppm: Bo<br>• 1000-2000 ppm: Somnolència i falta de concentració<br>• >2000 ppm: Mal de cap i sensació de carregament. Fins i tot pot afectar els resultats dels exàmens."
+      },
+      "temp": {
+        "title": "Temperatura",
+        "text": "Rang interior ideal: 20-24°C (68-75°F). Les temperatures extremes afecten la productivitat i poden agreujar les afeccions respiratòries existents."
+      },
+      "humidity": {
+        "title": "Humitat",
+        "text": "Rang ideal: 30-50%.<br>La humitat alta (>60%) afavoreix el <strong>creixement de floridures</strong> i àcars de la pols.<br>La humitat baixa (<30%) causa pell seca i augmenta la transmissió vírica."
+      },
+      "co": {
+        "title": "Monòxid de carboni (CO)",
+        "text": "Un gas tòxic incolor i inodor. Els nivells alts indiquen sistemes de calefacció defectuosos o infiltració de gasos d'escapament de vehicles. Pot causar marejos i, en nivells alts, és mortal."
+      },
+      "no2": {
+        "title": "Diòxid de nitrogen (NO₂)",
+        "text": "Prové principalment dels gasos d'escapament del trànsit. Conegut per inflamar les vies respiratòries i és un desencadenant important de la <strong>bronquitis crònica</strong> i les exacerbacions d'asma."
+      },
+      "voc": {
+        "title": "Índex VOC (Compostos orgànics volàtils)",
+        "text": "Gasos emesos per pintures, retoladors i mobles nous. Els nivells alts causen la \"Síndrome de l'edifici malalt\" — mal de cap, nàusees i irritació ocular."
+      }
+    }
+  },
+
+  "howItWorks": {
+    "pageTitle": "Com funciona",
+    "subtitle": "Un procés senzill de 4 passos per implementar el monitoratge ambiental a la teva escola",
+    "steps": {
+      "order": {
+        "title": "1. Les escoles demanen",
+        "description": "Obtingues kits complets amb tots els components, sensors i maquinari necessaris, o simplement descarrega els plans detallats i aconsegueix els components pel teu compte. Ambdues opcions inclouen guies de configuració completes i materials educatius."
+      },
+      "build": {
+        "title": "2. Els estudiants construeixen",
+        "description": "Els estudiants munten l'estació de monitoratge de qualitat de l'aire a l'escola mitjançant tallers pràctics, aprenent electrònica, programació i ciència ambiental. Les nostres guies admeten tant l'aprenentatge a l'aula com el remot."
+      },
+      "deploy": {
+        "title": "3. Les estacions s'instal·len",
+        "description": "Les estacions completades s'instal·len pel campus escolar per monitoritzar la qualitat de l'aire, la temperatura i la humitat en temps real, protegint la comunitat escolar amb alertes oportunes i dades accionables."
+      },
+      "collect": {
+        "title": "4. Les dades es recullen",
+        "description": "Les dades ambientals s'emmagatzemen automàticament en bases de dades globals mitjançant la nostra API segura, permetent als estudiants analitzar tendències, contribuir a la recerca climàtica i comparar dades amb escoles de tot el món."
+      }
+    },
+    "tabs": {
+      "overview": "Resum",
+      "schools": "Escoles",
+      "volunteers": "Voluntaris",
+      "dataApi": "Dades i API"
+    },
+    "overview": {
+      "currentGlobalAQI": "AQI global actual",
+      "aqiDescription": "Moderat - Acceptable per a la majoria de persones",
+      "averagePM25": "PM2.5 mitjà",
+      "pm25Unit": "µg/m³ - Dins de les directrius WHO",
+      "realTimeMonitoring": "Monitoratge en temps real",
+      "realTimeValue": "24/7",
+      "realTimeDescription": "Recollida contínua de dades a tot el món"
+    },
+    "schools": {
+      "title": "Directori de la xarxa d'escoles",
+      "aqiNote": "AQI = Indicador de qualitat de l'aire",
+      "privacyNote": "Les dades individuals de cada escola són privades. Només es mostren dades agregades anonimitzades.",
+      "onlineRealtime": "En línia - Monitoratge en temps real",
+      "onlineAllSensors": "En línia - Tots els sensors actius",
+      "interactiveDashboard": "Tauler interactiu disponible",
+      "loginToSee": "Inicia sessió per veure l'AQI de la teva escola"
+    },
+    "volunteers": {
+      "title": "Voluntaris de la comunitat",
+      "subtitle": "Uneix-te a la nostra xarxa global de defensors del medi ambient que ajuden les escoles a monitoritzar la qualitat de l'aire",
+      "activeVolunteers": "Voluntaris actius",
+      "schoolsHelped": "Escoles ajudades",
+      "countries": "Països"
+    },
+    "dataApi": {
+      "title": "Accés a dades i API",
+      "subtitle": "Accedeix a dades de qualitat de l'aire en temps real i històriques mitjançant la nostra API",
+      "apiEndpoints": "Punts d'accés API",
+      "listSchools": "Llista de totes les escoles participants",
+      "regionalAQI": "Obtenir dades regionals de qualitat de l'aire",
+      "historicalData": "Dades històriques d'una escola específica",
+      "integrationExample": "Exemple d'integració"
+    }
+  },
+
+  "common": {
+    "loading": "Carregant...",
+    "error": "S'ha produït un error",
+    "submit": "Enviar",
+    "cancel": "Cancel·lar",
+    "close": "Tancar",
+    "save": "Desar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Afegir",
+    "back": "Enrere",
+    "next": "Següent",
+    "previous": "Anterior",
+    "search": "Cercar",
+    "noData": "No hi ha dades disponibles",
+    "required": "Obligatori",
+    "optional": "Opcional",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "D'acord",
+    "confirm": "Confirmar",
+    "currency": "€",
+    "perMonth": "/mes",
+    "schoolAIR": "schoolAIR",
+    "logoTagline": "Un projecte de la International Green Tech Foundation",
+    "launch": "Llançar"
   }
 }

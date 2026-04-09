@@ -385,11 +385,12 @@
                     <div class="schoolair-language-dropdown">
                         <button class="schoolair-language-selector" onclick="toggleSchoolAirLanguageMenu()">English</button>
                         <div class="schoolair-language-menu" id="schoolairLanguageMenu">
-                            <a href="../en/dashboard.html">English</a>
-                            <a href="../fr/dashboard.html">Français</a>
-                            <a href="../es/dashboard.html">Español</a>
-                            <a href="../ca/dashboard.html">Català</a>
-                            <a href="../it/dashboard.html">Italiano</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('en')">English</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('fr')">Français</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('es')">Español</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('ca')">Català</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('it')">Italiano</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('zh')">中文</a>
                         </div>
                     </div>
                 </div>
@@ -663,5 +664,6 @@
             `;
         }
     </script>
+    <script src="/assets/js/i18n.js"></script>
 </body>
 </html>

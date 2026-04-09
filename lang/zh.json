@@ -1,0 +1,641 @@
+{
+  "nav": {
+    "project": "项目",
+    "about": "关于",
+    "products": "技术",
+    "howItWorks": "运作方式",
+    "dashboard": "数据面板",
+    "events": "活动",
+    "blog": "博客",
+    "announcements": "项目动态",
+    "workshops": "工作坊与活动",
+    "getInvolved": "参与合作",
+    "contact": "联系我们",
+    "backToPortal": "返回门户",
+    "backToHome": "返回首页",
+    "reports": "报告",
+    "usersAndKeys": "用户与 API 密钥",
+    "automations": "自动化",
+    "logout": "退出登录"
+  },
+
+  "hero": {
+    "title": "更健康的空气，由学生打造",
+    "subtitle": "SchoolAir：新技能，持久影响。",
+    "description": "学习技术，获取套件。\n组装并安装你的 SchoolAir 监测站。\n分析数据，付诸行动。\n让你的社区更健康。",
+    "enrollButton": "注册你的学校",
+    "orderButton": "获取家用套件",
+    "protectButton": "守护一间教室！",
+    "seeItInAction": "查看实际效果",
+    "quote1": "\"我从来没有在一个项目中用这么短的时间学到这么多 -- Mia, BFIS\"",
+    "quote1Author": "",
+    "quote2": "\"老师们现在知道什么时候该给教室通风了 -- Martin, IGTF\"",
+    "quote2Author": "",
+    "audioMessage": "来自创始人的一段话"
+  },
+
+  "partners": {
+    "trustedBySchools": "全球学校信赖之选",
+    "globalMedia": "全球媒体"
+  },
+
+  "project": {
+    "title": "schoolAIR 项目",
+    "subtitle": "一个将动手实践的 STEM 学习与真实环境监测相结合的综合教育项目。教育之外还有更重要的目的：我们的孩子可能正在呼吸不健康的空气。这个项目为学校和学生提供当地的实时数据——而不仅仅是政府发布的笼统信息。",
+    "infoSheetButton": "查看项目简介",
+    "educationalExcellence": {
+      "title": "卓越教育",
+      "description": "通过实践性的动手学习体验，将物联网、环境科学和数据分析融入课程。"
+    },
+    "communityHealth": {
+      "title": "社区健康",
+      "description": "监测空气质量以保护社区健康，当室内或室外指标达到不健康水平时实时发出警报。"
+    },
+    "globalNetwork": {
+      "title": "全球网络",
+      "description": "加入全球学校网络，共同推动环境研究和气候变化认知。"
+    },
+    "greenTechnology": {
+      "title": "绿色科技",
+      "description": "使用现代传感器、微控制器和云技术，构建实用的绿色科技基础设施。"
+    }
+  },
+
+  "features": {
+    "title": "项目特色",
+    "subtitle": "环境监测和教育所需的一切",
+    "buildItYourWay": {
+      "title": "自由搭建",
+      "description": "订购套件，或只获取我们的代码和方案，配合你喜欢的硬件使用"
+    },
+    "openSource": {
+      "title": "100% 开源！",
+      "description": "从 GitHub 下载我们的代码，参考详细的使用指南。"
+    },
+    "threeDPrint": {
+      "title": "3D 打印配件",
+      "description": "使用我们的 3D 模型打印外壳和支架"
+    },
+    "communitySupport": {
+      "title": "社区支持！",
+      "description": "我们不断壮大的学生和志愿者社区将为你提供帮助"
+    },
+    "supportsProjects": {
+      "title": "支持你的项目",
+      "description": "从全球数据库获取趋势分析数据"
+    },
+    "automateAlerts": {
+      "title": "自动化警报",
+      "description": "当趋势预示危险或达到阈值时自动发出警告"
+    }
+  },
+
+  "ticker": {
+    "label": "新闻",
+    "item1": "<strong>2026年4月：</strong>家长和赞助人赞助通道开放——家长现在可以直接守护一间教室！",
+    "item2": "<strong>2026年3月：</strong>皇家墨尔本理工大学加入——5名计算机科学专业学生正在构建具有增强隐私保护的数据共享 API",
+    "item3": "<strong>2026年3月：</strong>首批机构完成套件组装！BFIS 在多个位置安装了室外监测单元",
+    "readAllNews": "阅读全部新闻 →"
+  },
+
+  "announcements": {
+    "title": "项目动态与新闻",
+    "subtitle": "schoolAIR 社区的最新进展",
+    "announcement1": {
+      "date": "2024年9月",
+      "type": "新功能",
+      "title": "多语言支持上线",
+      "description": "schoolAIR 网站现已支持5种语言：英语、西班牙语、法语、加泰罗尼亚语和意大利语。加入我们的全球社区！"
+    },
+    "announcement2": {
+      "date": "2024年8月",
+      "type": "社区",
+      "title": "寻找合作学校",
+      "description": "我们正在全球范围内寻找学校来试点我们的空气质量监测站。符合条件的教育机构可获得免费套件。"
+    },
+    "announcement3": {
+      "date": "2024年7月",
+      "type": "开发",
+      "title": "开源代码已发布",
+      "description": "所有硬件设计、软件代码和组装指南现已在 GitHub 上发布。非常适合创客和教育工作者！"
+    },
+    "announcement4": {
+      "date": "持续进行",
+      "type": "志愿者",
+      "title": "加入我们的团队",
+      "description": "我们需要开发者、教育工作者和环保爱好者来帮助推动这个项目。这是一个100%由志愿者驱动的计划。"
+    }
+  },
+
+  "impact": {
+    "title": "教育影响",
+    "subtitle": "来自全球使用 schoolAIR 的学校的真实数据",
+    "stats": {
+      "schools": "参与学校",
+      "stations": "在线监测站",
+      "students": "受保护学生",
+      "dataPoints": "已采集数据点",
+      "countries": "参与国家"
+    },
+    "ctaText": "注册你的学校，让学生参与一个真正的工程项目！",
+    "ctaButton": "立即开始",
+    "curriculumTitle": "课程整合领域",
+    "curriculum": {
+      "science": {
+        "title": "科学教育",
+        "description": "通过动手实验和真实数据分析学习气象学、环境科学、物理学和化学。"
+      },
+      "mathematics": {
+        "title": "数学",
+        "description": "利用真实的环境数据集进行数据分析、统计学、图表制作和规律识别。"
+      },
+      "technology": {
+        "title": "技术",
+        "description": "学习电子学、MicroPython 编程、物联网概念和系统架构设计。"
+      },
+      "socialStudies": {
+        "title": "社会研究",
+        "description": "了解本地环境问题、全球气候变化以及技术与社会的交汇。"
+      }
+    }
+  },
+
+  "components": {
+    "title": "技术与组件",
+    "subtitle": "构建空气质量监测站所需的一切",
+    "introText": "SchoolAIR 项目的目标是支持所有最流行的教育用微控制器，如 Arduino、m5stack 等。学生志愿者不断将基础软件移植到新平台。微控制器与传感器之间通过 I2C、蓝牙和 Wi-Fi 等标准协议进行通信。这最大限度地降低了成本并创建了一个开放系统。SchoolAIR 由学生打造，为学生服务！",
+    "completeKitTitle": "完整套件组件",
+    "plannedControllerTitle": "计划支持的控制器",
+    "tableHeaders": {
+      "component": "组件",
+      "description": "描述",
+      "microcontroller": "微控制器",
+      "assignedTo": "负责人",
+      "deadline": "截止日期",
+      "status": "状态"
+    },
+    "statusPlanning": "规划中",
+    "statusCompleted": "已完成！"
+  },
+
+  "getInvolved": {
+    "title": "注册你的学校",
+    "subtitle": "加入不断壮大的学校网络，守护学生健康",
+    "schoolPortal": {
+      "title": "专属学校门户",
+      "description": "每所学校都会获得一个品牌化网站，用于展示健康成果、控制数据访问、支持趋势分析和倡导活动。"
+    },
+    "studentsBuild": {
+      "title": "学生动手学习",
+      "description": "学生在电子学、物联网和环境科学方面获得实践经验，同时守护自己的社区。"
+    },
+    "globalData": {
+      "title": "全球数据网络",
+      "description": "你的数据将汇入全球数据库，供研究人员和清洁空气倡导者使用——并享有完整的隐私控制。"
+    },
+    "readyToStart": "准备好了吗？",
+    "readyToStartDesc": "立即为你的学校订购监测单元——室内单元起价 €105，室外单元起价 €125。我们将提供学生组装、安装和开始监测所需的一切。",
+    "orderKitsNow": "立即订购套件",
+    "contactUsFirst": "先联系我们"
+  },
+
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "准备好开始你的环境监测项目了吗？",
+    "firstName": "名",
+    "lastName": "姓",
+    "email": "电子邮箱",
+    "school": "学校/机构",
+    "role": "你的角色",
+    "rolePlaceholder": "选择你的角色",
+    "roleTeacher": "教师",
+    "roleAdministrator": "管理员",
+    "roleStudent": "学生",
+    "roleResearcher": "研究人员",
+    "roleOther": "其他",
+    "interest": "兴趣程度",
+    "interestPlaceholder": "选择选项",
+    "interestCompleteKit": "完整套件",
+    "interestPlansOnly": "仅方案",
+    "interestPartnership": "学校合作",
+    "interestInformation": "了解更多",
+    "message": "留言",
+    "messagePlaceholder": "请告诉我们你的项目目标、时间安排或任何具体问题……",
+    "submit": "发送请求",
+    "orContactDirectly": "或直接联系我们：",
+    "successTitle": "消息已发送！",
+    "successClose": "关闭"
+  },
+
+  "footer": {
+    "aboutUs": "关于我们",
+    "aboutDescription": "国际绿色科技基金会是一个致力于推进环保技术教育的非营利组织。我们充满热情的全球教育工作者、工程师和学生网络相信，通过动手学习赋能下一代。",
+    "quickLinks": "快速链接",
+    "resources": "资源",
+    "support": "支持",
+    "connect": "联系方式",
+    "assemblyGuide": "组装指南",
+    "documentation": "软件文档",
+    "globalData": "全球数据访问",
+    "curriculum": "课程资料",
+    "contactUs": "联系我们",
+    "communityForum": "社区论坛",
+    "technicalSupport": "技术支持",
+    "faqs": "常见问题",
+    "copyright": "© 2024 schoolAIR 项目。面向环境监测的开源教育计划。"
+  },
+
+  "portal": {
+    "loading": "正在加载学校门户……",
+    "navBrand": "SchoolAIR",
+    "stats": {
+      "classroomsProtected": "已保护的教室/室外区域",
+      "studentsInvolved": "参与的师生",
+      "dataPointsPerDay": "每日数据点",
+      "alertsToDate": "累计警报次数"
+    },
+    "protectClassroom": "守护一间教室",
+    "protectClassroomFrom": "仅需 €105 起",
+    "viewFullDashboard": "查看完整交互式面板",
+    "viewFullDashboardDesc": "访问实时传感器数据、历史趋势和详细分析",
+    "airQualityOverview": "空气质量概览",
+    "interiorToday": "今日室内",
+    "interiorThisWeek": "本周室内",
+    "exteriorToday": "今日室外",
+    "exteriorThisWeek": "本周室外",
+    "aqiLabel": "AQI",
+    "aqiGood": "良好",
+    "aqiModerate": "一般",
+    "aqiPoor": "较差",
+    "legendGood": "良好 (0-30)",
+    "legendModerate": "一般 (31-60)",
+    "legendPoor": "较差 (61-100)",
+    "photoGallery": {
+      "title": "项目照片集",
+      "description": "查看我们空气质量监测项目和学生活动的照片",
+      "viewAlbum": "查看相册"
+    },
+    "users": {
+      "title": "用户与 API 密钥管理",
+      "addUser": "添加用户",
+      "allUsers": "全部用户",
+      "administrators": "管理员",
+      "teachers": "教师",
+      "students": "学生",
+      "researchers": "研究人员",
+      "mentors": "导师",
+      "tableHeaders": {
+        "name": "姓名",
+        "email": "邮箱",
+        "role": "角色",
+        "joined": "加入时间",
+        "lastActive": "最近活跃",
+        "apiKeys": "API 密钥",
+        "actions": "操作"
+      }
+    },
+    "apiKeys": {
+      "title": "API 密钥",
+      "createNew": "创建新密钥"
+    },
+    "dashboardConfig": {
+      "title": "面板配置",
+      "addThreshold": "添加阈值",
+      "intro": "为你学校的空气质量监测系统配置警报阈值和自动化操作。当传感器读数超过这些阈值时，系统将自动触发指定的操作。",
+      "tableHeaders": {
+        "parameter": "参数",
+        "threshold": "阈值",
+        "condition": "条件",
+        "action": "操作",
+        "severity": "严重程度",
+        "status": "状态",
+        "actions": "操作"
+      }
+    }
+  },
+
+  "sponsor": {
+    "pageTitle": "赞助教室 - SchoolAIR",
+    "genericPageTitle": "守护教室 - SchoolAIR",
+    "hero": {
+      "bfisTitle": "让 BFIS 的每个区域都拥有清洁空气",
+      "genericTitle": "用清洁空气守护教室",
+      "bfisDescription": "SchoolAIR 团队对最新的技术组件进行了广泛实验，成功大幅降低了空气质量监测单元的成本。家庭组装套件包含所有组件和分步说明；不包含外壳。你将自豪地将一个完成的监测单元交付给学校安装——或者在家使用！每个单元通过让教师知道何时该通风——或因室外空气质量差而关窗——来永久守护一间教室。",
+      "genericDescription": "SchoolAIR 团队对最新的技术组件进行了广泛实验，成功大幅降低了空气质量监测单元的成本。每个单元通过让教师知道何时该通风——或因室外空气质量差而关窗——来永久守护一间教室。为世界上任何学校赞助一个监测单元。",
+      "videoCaption": "闷热的房间会迅速降低认知表现"
+    },
+    "progress": {
+      "title": "BFIS 已保护的教室/运动场",
+      "of": "/",
+      "plaqueNote": "拥有空气质量监测单元的教室将自豪地展示一块铭牌：感谢 Jane & Jennifer Ramirez，本教室已受保护",
+      "timelineTitle": "赞助增长",
+      "launchEntry": "SchoolAir 团队捐赠了2个单元"
+    },
+    "cards": {
+      "title": "赞助一个单元",
+      "subtitle": "一次性赞助——每个单元永久保护一个区域。不含外壳——提供免费数字方案和 3D 模型文件。数据上传至 SchoolAir 全球数据库。隐私保护、可扩展性以及面向研究人员和清洁空气倡导者的数据开放均由专业团队管理。",
+      "interior": {
+        "title": "室内单元",
+        "description": "通过监测 CO₂ 浓度和通风状况，守护教室免受闷热或不健康空气侵害。USB 即插即用——设置和使用都很简单。",
+        "price": "105"
+      },
+      "exterior": {
+        "title": "室外单元",
+        "description": "全功能空气质量监测站，可测量细颗粒物 (PM2.5)、天气等。具备远距离 Wi-Fi 连接，适用于室外位置。",
+        "price": "125"
+      },
+      "sponsorThisUnit": "赞助此单元",
+      "schoolWebsite": {
+        "title": "每所学校都有专属网站",
+        "description": "每所参与学校都会获得自己的品牌化 SchoolAir 门户，用于展示健康和可持续发展成果、控制数据访问，以及支持趋势分析项目和倡导活动。"
+      }
+    },
+    "patron": {
+      "title": "成为 SchoolAir 倡导者——赞助我们充满热情的项目团队！",
+      "subtitle": "你的定期捐助将帮助我们的开发者、研究人员和产品安装人员为更多学校守护学生健康。我们的计划不仅仅是监测——第二阶段将开始提供潜在解决方案。请帮助我们继续前行！",
+      "supporter": {
+        "title": "支持者",
+        "description": "帮助资助固件更新和传感器校准",
+        "price": "5",
+        "period": "/月"
+      },
+      "champion": {
+        "title": "拥护者",
+        "description": "资助我们物联网专家在新控制器支持和连接方面的工作",
+        "price": "10",
+        "period": "/月"
+      },
+      "guardian": {
+        "title": "守护者",
+        "description": "最大影响力——直接资助 SchoolAir 背后的专业工程团队",
+        "price": "25",
+        "period": "/月"
+      },
+      "startSupporting": "开始支持"
+    },
+    "wall": {
+      "title": "我们的赞助者与资助人",
+      "emptyMessage": "成为第一位赞助教室的人！",
+      "monthlyPatron": "月度资助人",
+      "exteriorSponsor": "室外单元赞助者",
+      "interiorSponsor": "室内单元赞助者"
+    },
+    "checkout": {
+      "title": "完成你的赞助",
+      "sponsorInteriorTitle": "赞助一个室内单元 — €105",
+      "sponsorExteriorTitle": "赞助一个室外单元 — €125",
+      "patronTitle": "成为月度资助人 — €{tier}/月",
+      "email": "邮箱",
+      "emailRequired": "*",
+      "emailPlaceholder": "you@example.com",
+      "emailHint": "我们将向此邮箱发送收据和显示名称编辑链接",
+      "schoolName": "学校名称",
+      "schoolNamePlaceholder": "例如：绿木小学",
+      "schoolNameHint": "哪所学校将接收此单元？",
+      "schoolContact": "学校联系人",
+      "schoolContactPlaceholder": "例如：校长 Sarah Johnson",
+      "schoolContactHint": "学校的联系人，以便我们协调安装（可选）",
+      "schoolContactEmail": "学校联系人邮箱",
+      "schoolContactEmailPlaceholder": "例如：sarah@school.edu",
+      "schoolContactEmailHint": "学校联系人的邮箱（可选）",
+      "displayName": "显示名称",
+      "displayNamePlaceholder": "例如：Harry & Sally Brooks",
+      "displayNameHint": "将显示在赞助墙和教室铭牌上（可选）",
+      "classroom": "要保护的教室",
+      "classroomPlaceholder": "例如：Garcia 老师的三年级教室、12号教室、幼儿园",
+      "classroomHint": "你希望将监测器安装在哪间教室？（可选）",
+      "quantity": "数量",
+      "proceedToPayment": "前往支付",
+      "redirecting": "正在跳转至支付页面……"
+    },
+    "labelEdit": {
+      "title": "更新你的显示名称",
+      "subtitle": "这是你的名字在赞助墙和教室铭牌上的显示方式",
+      "displayName": "显示名称",
+      "displayNamePlaceholder": "例如：Harry & Sally Brooks",
+      "dedication": "寄语（可选）",
+      "dedicationPlaceholder": "例如：献给 Garcia 老师的三年级班级",
+      "saveChanges": "保存更改",
+      "saving": "保存中……"
+    },
+    "alerts": {
+      "emailRequired": "邮箱为必填项",
+      "schoolNameRequired": "学校名称为必填项",
+      "successMessage": "感谢你的赞助！请查看邮箱获取确认信息和自定义显示名称的链接。",
+      "cancelMessage": "结账已取消。别担心——你可以随时再试。",
+      "labelUpdated": "你的显示名称已更新！",
+      "labelFailed": "更新失败。链接可能已过期。"
+    }
+  },
+
+  "dashboard": {
+    "pageTitle": "室内空气质量 - Air School",
+    "header": {
+      "subtitle": "实时空气质量监测"
+    },
+    "toggle": {
+      "simulation": "模拟",
+      "liveData": "实时数据"
+    },
+    "liveCaption": "来自 BFIS 监测单元的实时传感器数据——技术支持：",
+    "rooms": {
+      "nursery": "幼儿园",
+      "primaryA": "小学 A",
+      "primaryB": "小学 B",
+      "secondaryA": "中学 A",
+      "secondaryB": "中学 B"
+    },
+    "metrics": {
+      "co2": "CO₂",
+      "pm25": "PM2.5",
+      "temp": "温度",
+      "humidity": "湿度"
+    },
+    "status": {
+      "good": "良好",
+      "moderate": "一般",
+      "poor": "较差"
+    },
+    "legend": {
+      "good": "良好 (0-30)",
+      "moderate": "一般 (31-60)",
+      "poor": "较差 (61-100)"
+    },
+    "modal": {
+      "title": "教室详情",
+      "aqiChart": "空气质量指数 (AQI)",
+      "pollutantsChart": "空气污染物",
+      "environmentChart": "环境条件",
+      "currentAQI": "当前 AQI",
+      "co2": "CO₂",
+      "pm25": "PM2.5",
+      "temperature": "温度",
+      "humidity": "湿度",
+      "status": "状态"
+    }
+  },
+
+  "liveData": {
+    "pageTitle": "实时空气质量数据",
+    "loading": "正在加载传感器数据……",
+    "readingsLoaded": "已加载 {count} 条数据",
+    "failedToLoad": "数据加载失败",
+    "tableHeaders": {
+      "time": "时间",
+      "device": "设备"
+    },
+    "metrics": {
+      "pm25": { "label": "PM2.5", "unit": "ug/m3" },
+      "co2": { "label": "CO2", "unit": "ppm" },
+      "temp": { "label": "温度", "unit": "°C" },
+      "humidity": { "label": "湿度", "unit": "%" },
+      "pm10": { "label": "PM1.0", "unit": "ug/m3" },
+      "pm100": { "label": "PM10.0", "unit": "ug/m3" },
+      "co": { "label": "CO", "unit": "ppm" },
+      "no2": { "label": "NO2", "unit": "ppm" },
+      "voc": { "label": "VOC", "unit": "index" }
+    },
+    "alerts": {
+      "aboveDanger": "{metric}：{value} {unit} — 超过危险阈值 ({threshold})",
+      "aboveWarning": "{metric}：{value} {unit} — 超过警告阈值 ({threshold})",
+      "withinSafe": "{metric}：{value} {unit} — 处于安全范围内"
+    },
+    "annotations": {
+      "ventilate": "请通风",
+      "critical": "危险",
+      "whoLimit": "WHO 限值",
+      "unhealthy": "不健康",
+      "idealTempRange": "理想范围 (20-24°C)",
+      "idealHumidityRange": "理想湿度 (30-50%)"
+    },
+    "guides": {
+      "pm25": {
+        "title": "PM2.5（细颗粒物）",
+        "text": "这些微小颗粒物可深入肺部和血液。可能引发<strong>哮喘发作</strong>并增加心血管风险。<br><br><strong>WHO 指南：</strong><br>• 0-15 µg/m³：良好<br>• >35 µg/m³：不健康"
+      },
+      "pm10": {
+        "title": "PM1.0（超细颗粒物）",
+        "text": "来源于燃烧过程（发动机、烟雾）。虽无官方限值，但高浓度与全身性炎症有关，因为这些颗粒物能完全绕过肺部屏障。"
+      },
+      "pm100": {
+        "title": "PM10.0（粗颗粒物）",
+        "text": "主要是灰尘、花粉和霉菌。会导致喉咙不适、打喷嚏和上呼吸道不适。<br><br><strong>WHO 指南：</strong><br>• 0-45 µg/m³：可接受<br>• >45 µg/m³：偏高"
+      },
+      "co2": {
+        "title": "CO₂（二氧化碳）",
+        "text": "• 400-1000 ppm：良好<br>• 1000-2000 ppm：易困倦，注意力下降<br>• >2000 ppm：头痛和闷热感。甚至可能影响你的考试成绩。"
+      },
+      "temp": {
+        "title": "温度",
+        "text": "理想室内范围：20-24°C (68-75°F)。极端温度会影响工作效率，并可能加重已有的呼吸道疾病。"
+      },
+      "humidity": {
+        "title": "湿度",
+        "text": "理想范围：30-50%。<br>高湿度 (>60%) 会促进<strong>霉菌生长</strong>和尘螨繁殖。<br>低湿度 (<30%) 会导致皮肤干燥并增加病毒传播风险。"
+      },
+      "co": {
+        "title": "一氧化碳 (CO)",
+        "text": "一种无色无味的有毒气体。高浓度意味着供暖系统故障或汽车尾气渗入。可能导致头晕，高浓度时可致命。"
+      },
+      "no2": {
+        "title": "二氧化氮 (NO₂)",
+        "text": "主要来源于交通尾气。已知会引起气道炎症，是<strong>慢性支气管炎</strong>和哮喘加重的主要诱因。"
+      },
+      "voc": {
+        "title": "VOC 指数（挥发性有机化合物）",
+        "text": "由油漆、记号笔和新家具释放的气体。高浓度会导致\u201c病态建筑综合征\u201d——头痛、恶心和眼睛刺激。"
+      }
+    }
+  },
+
+  "howItWorks": {
+    "pageTitle": "运作方式",
+    "subtitle": "四个简单步骤，在你的学校实施环境监测",
+    "steps": {
+      "order": {
+        "title": "1. 学校订购",
+        "description": "获取包含所有必要组件、传感器和硬件的完整套件，或者只下载详细方案并自行采购组件。两种方式都包含全面的安装指南和教学材料。"
+      },
+      "build": {
+        "title": "2. 学生组装",
+        "description": "学生在学校通过动手工作坊组装空气质量监测站，学习电子学、编程和环境科学。我们的指南支持课堂教学和远程学习两种场景。"
+      },
+      "deploy": {
+        "title": "3. 部署安装",
+        "description": "完成的监测站安装在校园各处，实时监测空气质量、温度和湿度，通过及时的警报和可操作的数据保护学校社区。"
+      },
+      "collect": {
+        "title": "4. 数据采集",
+        "description": "环境数据通过我们的安全 API 自动存储到全球数据库中，使学生能够分析趋势、参与气候研究，并与全球学校的数据进行比较。"
+      }
+    },
+    "tabs": {
+      "overview": "概览",
+      "schools": "学校",
+      "volunteers": "志愿者",
+      "dataApi": "数据与 API"
+    },
+    "overview": {
+      "currentGlobalAQI": "当前全球 AQI",
+      "aqiDescription": "一般——对大多数人可接受",
+      "averagePM25": "平均 PM2.5",
+      "pm25Unit": "µg/m³ - 符合 WHO 指南",
+      "realTimeMonitoring": "实时监测",
+      "realTimeValue": "24/7",
+      "realTimeDescription": "全球范围持续数据采集"
+    },
+    "schools": {
+      "title": "学校网络目录",
+      "aqiNote": "AQI = 空气质量指数",
+      "privacyNote": "各学校数据为私密信息。仅显示匿名汇总数据。",
+      "onlineRealtime": "在线 - 实时监测中",
+      "onlineAllSensors": "在线 - 所有传感器已激活",
+      "interactiveDashboard": "可使用交互式面板",
+      "loginToSee": "登录查看你学校的 AQI"
+    },
+    "volunteers": {
+      "title": "社区志愿者",
+      "subtitle": "加入我们的全球环保倡导者网络，帮助学校监测空气质量",
+      "activeVolunteers": "活跃志愿者",
+      "schoolsHelped": "已帮助学校",
+      "countries": "覆盖国家"
+    },
+    "dataApi": {
+      "title": "数据与 API 访问",
+      "subtitle": "通过我们的 API 访问实时和历史空气质量数据",
+      "apiEndpoints": "API 端点",
+      "listSchools": "列出所有参与学校",
+      "regionalAQI": "获取区域空气质量数据",
+      "historicalData": "特定学校的历史数据",
+      "integrationExample": "集成示例"
+    }
+  },
+
+  "common": {
+    "loading": "加载中……",
+    "error": "发生错误",
+    "submit": "提交",
+    "cancel": "取消",
+    "close": "关闭",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "add": "添加",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "search": "搜索",
+    "noData": "暂无数据",
+    "required": "必填",
+    "optional": "可选",
+    "yes": "是",
+    "no": "否",
+    "ok": "确定",
+    "confirm": "确认",
+    "currency": "€",
+    "perMonth": "/月",
+    "schoolAIR": "schoolAIR",
+    "logoTagline": "国际绿色科技基金会项目",
+    "launch": "启动"
+  }
+}

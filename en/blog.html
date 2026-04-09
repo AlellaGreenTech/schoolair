@@ -536,11 +536,12 @@
                     <div class="language-selector-dropdown">
                         <button class="language-selector" onclick="toggleLanguageMenu()">English</button>
                         <div class="language-menu" id="languageMenu">
-                            <a href="../en/blog.html">English</a>
-                            <a href="../fr/blog.html">Français</a>
-                            <a href="../es/blog.html">Español</a>
-                            <a href="../ca/blog.html">Català</a>
-                            <a href="../it/blog.html">Italiano</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('en')">English</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('fr')">Français</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('es')">Español</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('ca')">Català</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('it')">Italiano</a>
+                            <a href="#" onclick="event.preventDefault();i18n.load('zh')">中文</a>
                         </div>
                     </div>
                 </div>
@@ -734,5 +735,6 @@
             }
         });
     </script>
+    <script src="/assets/js/i18n.js"></script>
 </body>
 </html>

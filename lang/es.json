@@ -1,72 +1,641 @@
 {
   "nav": {
+    "project": "Proyecto",
     "about": "Acerca de",
     "products": "Tecnología",
-    "announcements": "Actualizaciones del Proyecto",
+    "howItWorks": "Cómo Funciona",
+    "dashboard": "Panel",
+    "events": "Eventos",
+    "blog": "Blog",
+    "announcements": "Novedades del Proyecto",
     "workshops": "Talleres y Eventos",
-    "getInvolved": "Participar"
+    "getInvolved": "Participar",
+    "contact": "Contacto",
+    "backToPortal": "Volver al Portal",
+    "backToHome": "Volver al Inicio",
+    "reports": "Informes",
+    "usersAndKeys": "Usuarios y Claves API",
+    "automations": "Automatizaciones",
+    "logout": "Cerrar Sesión"
   },
+
   "hero": {
-    "title": "El Buen Aire Alimenta el Aprendizaje",
+    "title": "Aire más Sano. Creado por Estudiantes",
     "subtitle": "SchoolAir: Nuevas habilidades. Impacto duradero.",
-    "description": "Los estudiantes dominan la programación, electrónica y ciencia de datos mientras construyen sistemas de monitoreo de calidad del aire que protegen a su comunidad escolar.",
-    "enrollButton": "Apunta Tu Escuela",
-    "orderButton": "Obtener Kit Doméstico",
-    "quote1": "Nunca aprendí tanto en tan poco tiempo en un proyecto -- Mia, BFIS",
+    "description": "Aprende la tecnología. Consigue un kit.\nConstruye e instala tu estación SchoolAir.\nActúa con los datos.\nHaz tu comunidad más saludable.",
+    "enrollButton": "Inscribe Tu Escuela",
+    "orderButton": "Consigue un Kit para Casa",
+    "protectButton": "¡Protege un Aula!",
+    "seeItInAction": "Míralo en Acción",
+    "quote1": "\"Nunca aprendí tanto en tan poco tiempo en un proyecto -- Mia, BFIS\"",
     "quote1Author": "",
-    "quote2": "Los maestros ahora pueden ser recordados de ventilar el aula -- Martin, IGTF",
+    "quote2": "\"Los profesores ahora saben cuándo ventilar las aulas -- Martin, IGTF\"",
     "quote2Author": "",
     "audioMessage": "Un mensaje del fundador"
   },
+
+  "partners": {
+    "trustedBySchools": "Escuelas de Todo el Mundo Confían en Nosotros",
+    "globalMedia": "Medios Globales"
+  },
+
+  "project": {
+    "title": "El Proyecto schoolAIR",
+    "subtitle": "Un proyecto educativo integral que combina aprendizaje STEM práctico con monitoreo ambiental real. Hay un propósito más allá de la educación: Nuestros hijos podrían estar expuestos a aire insalubre. Este proyecto proporciona a escuelas y estudiantes datos en tiempo real sobre su zona — no solo lo que los gobiernos publican de forma general.",
+    "infoSheetButton": "Ver Nuestra Ficha Informativa",
+    "educationalExcellence": {
+      "title": "Excelencia Educativa",
+      "description": "Integra IoT, ciencias ambientales y análisis de datos en tu plan de estudios a través de experiencias prácticas de aprendizaje."
+    },
+    "communityHealth": {
+      "title": "Salud Comunitaria",
+      "description": "Monitorea la calidad del aire para proteger la salud de la comunidad con alertas en tiempo real cuando los indicadores interiores o exteriores alcanzan niveles insalubres."
+    },
+    "globalNetwork": {
+      "title": "Red Global",
+      "description": "Únete a una red mundial de escuelas que contribuyen a la investigación ambiental y la comprensión del cambio climático."
+    },
+    "greenTechnology": {
+      "title": "Tecnología Verde",
+      "description": "Construye infraestructura de tecnología verde funcional utilizando sensores modernos, microcontroladores y tecnología en la nube."
+    }
+  },
+
+  "features": {
+    "title": "Características del Proyecto",
+    "subtitle": "Todo lo que necesitas para un monitoreo ambiental y una educación exitosos",
+    "buildItYourWay": {
+      "title": "Constrúyelo a Tu Manera",
+      "description": "Pide un kit o solo nuestro código y planos y hazlo funcionar con tu hardware favorito"
+    },
+    "openSource": {
+      "title": "¡100% Código Abierto!",
+      "description": "Descarga nuestro código de GitHub. Usa nuestras guías prácticas."
+    },
+    "threeDPrint": {
+      "title": "Imprime los Accesorios en 3D",
+      "description": "Usa nuestros modelos 3D para imprimir las carcasas y soportes"
+    },
+    "communitySupport": {
+      "title": "¡Apoyo de la Comunidad!",
+      "description": "Nuestra creciente comunidad de estudiantes expertos y voluntarios te ayudará"
+    },
+    "supportsProjects": {
+      "title": "Apoya Tus Proyectos",
+      "description": "Obtén datos de análisis de tendencias de la base de datos global"
+    },
+    "automateAlerts": {
+      "title": "Automatiza Tus Alertas",
+      "description": "Recibe avisos cuando las tendencias indiquen peligro o se alcancen los umbrales"
+    }
+  },
+
+  "ticker": {
+    "label": "Noticias",
+    "item1": "<strong>Abr 2026:</strong> Se abren los patrocinios de padres y mecenas — ¡ahora los padres pueden proteger directamente un aula!",
+    "item2": "<strong>Mar 2026:</strong> El Royal Melbourne Institute of Technology se une — 5 estudiantes de informática construyen la API para compartir datos con privacidad mejorada",
+    "item3": "<strong>Mar 2026:</strong> ¡Las primeras instituciones completan la construcción de sus kits! BFIS instala unidades exteriores en múltiples ubicaciones",
+    "readAllNews": "Leer todas las noticias →"
+  },
+
   "announcements": {
-    "title": "Actualizaciones y Noticias del Proyecto",
-    "subtitle": "Últimos desarrollos en la comunidad schoolAIR",
+    "title": "Novedades y Noticias del Proyecto",
+    "subtitle": "Últimos avances en la comunidad schoolAIR",
     "announcement1": {
       "date": "Septiembre 2024",
-      "type": "Nuevas Características",
-      "title": "Soporte Multiidioma Lanzado",
-      "description": "El sitio web de schoolAIR ahora está disponible en 5 idiomas: inglés, español, francés, catalán e italiano. ¡Únete a nuestra comunidad global!"
+      "type": "Nuevas Funciones",
+      "title": "Soporte Multilingüe Lanzado",
+      "description": "El sitio web de schoolAIR está ahora disponible en 5 idiomas: inglés, español, francés, catalán e italiano. ¡Únete a nuestra comunidad global!"
     },
     "announcement2": {
       "date": "Agosto 2024",
       "type": "Comunidad",
-      "title": "Buscamos Escuelas Socias",
-      "description": "Buscamos activamente escuelas de todo el mundo para probar nuestras estaciones de monitoreo de calidad del aire. Kits gratuitos disponibles para instituciones educativas calificadas."
+      "title": "Buscamos Escuelas Asociadas",
+      "description": "Buscamos activamente escuelas en todo el mundo para probar nuestras estaciones de monitoreo de calidad del aire. Kits gratuitos disponibles para instituciones educativas que cumplan los requisitos."
     },
     "announcement3": {
       "date": "Julio 2024",
       "type": "Desarrollo",
       "title": "Código Abierto Disponible",
-      "description": "Todos los diseños de hardware, código de software y guías de ensamblaje están ahora disponibles en GitHub. ¡Perfecto para makers y educadores!"
+      "description": "Todos los diseños de hardware, código de software y guías de montaje están ahora disponibles en GitHub. ¡Perfecto para makers y educadores!"
     },
     "announcement4": {
       "date": "En curso",
-      "type": "Voluntarios",
+      "type": "Voluntariado",
       "title": "Únete a Nuestro Equipo",
-      "description": "Necesitamos desarrolladores, educadores y entusiastas del medio ambiente para ayudar a hacer crecer este proyecto. Iniciativa 100% impulsada por voluntarios."
+      "description": "Necesitamos desarrolladores, educadores y entusiastas del medio ambiente para hacer crecer este proyecto. Iniciativa 100% impulsada por voluntarios."
     }
   },
+
   "impact": {
-    "title": "Impacto educativo",
-    "subtitle": "Números reales de escuelas que usan schoolAIR en todo el mundo",
+    "title": "Impacto Educativo",
+    "subtitle": "Cifras reales de escuelas que usan schoolAIR en todo el mundo",
     "stats": {
-      "schools": "Escuelas participantes",
-      "students": "Estudiantes involucrados",
-      "dataPoints": "Puntos de datos recopilados",
-      "countries": "Países involucrados"
+      "schools": "Escuelas Participantes",
+      "stations": "Estaciones Activas",
+      "students": "Estudiantes Protegidos",
+      "dataPoints": "Datos Recopilados",
+      "countries": "Países Involucrados"
+    },
+    "ctaText": "¡Inscribe tu escuela y haz que tus estudiantes trabajen en un proyecto de ingeniería real!",
+    "ctaButton": "Empieza Hoy",
+    "curriculumTitle": "Áreas de Integración Curricular",
+    "curriculum": {
+      "science": {
+        "title": "Educación Científica",
+        "description": "Meteorología, ciencias ambientales, física y química a través de experimentación práctica y análisis de datos reales."
+      },
+      "mathematics": {
+        "title": "Matemáticas",
+        "description": "Análisis de datos, estadística, gráficos y reconocimiento de patrones utilizando conjuntos de datos ambientales reales."
+      },
+      "technology": {
+        "title": "Tecnología",
+        "description": "Electrónica, programación con MicroPython, conceptos de IoT y diseño de arquitectura de sistemas."
+      },
+      "socialStudies": {
+        "title": "Ciencias Sociales",
+        "description": "Problemas ambientales locales, cambio climático global y la intersección entre tecnología y sociedad."
+      }
     }
   },
+
   "components": {
     "title": "Tecnología y Componentes",
-    "subtitle": "Todo lo que necesitas para construir tu estación de monitoreo de calidad del aire"
+    "subtitle": "Todo lo que necesitas para construir tu estación de monitoreo de calidad del aire",
+    "introText": "El objetivo del proyecto SchoolAIR es dar soporte a los microcontroladores educativos más populares, como Arduino, m5stack y otros. Estudiantes voluntarios portan constantemente el software base a nuevas plataformas. La comunicación entre el microcontrolador y los sensores se realiza a través de protocolos estándar como I2C, bluetooth y Wifi. Esto mantiene los costes al mínimo y crea un sistema abierto. ¡SchoolAIR es para estudiantes y hecho por estudiantes!",
+    "completeKitTitle": "Componentes del Kit Completo",
+    "plannedControllerTitle": "Soporte Planificado de Controladores",
+    "tableHeaders": {
+      "component": "Componente",
+      "description": "Descripción",
+      "microcontroller": "Microcontrolador",
+      "assignedTo": "Asignado a",
+      "deadline": "Fecha Límite",
+      "status": "Estado"
+    },
+    "statusPlanning": "Planificación",
+    "statusCompleted": "¡COMPLETADO!"
   },
+
+  "getInvolved": {
+    "title": "Inscribe Tu Escuela",
+    "subtitle": "Únete a la creciente red de escuelas que protegen la salud de sus estudiantes",
+    "schoolPortal": {
+      "title": "Tu Propio Portal Escolar",
+      "description": "Cada escuela obtiene un sitio web personalizado para mostrar sus esfuerzos en salud, controlar el acceso a los datos y permitir análisis de tendencias y sensibilización."
+    },
+    "studentsBuild": {
+      "title": "Los Estudiantes Construyen y Aprenden",
+      "description": "Los estudiantes adquieren experiencia práctica en electrónica, IoT y ciencias ambientales mientras protegen su propia comunidad."
+    },
+    "globalData": {
+      "title": "Red Global de Datos",
+      "description": "Tus datos se unen a una base de datos mundial utilizada por investigadores y defensores del aire limpio — con controles de privacidad completos."
+    },
+    "readyToStart": "¿Listo para empezar?",
+    "readyToStartDesc": "Pide unidades para tu escuela ahora — unidades interiores desde €105, unidades exteriores desde €125. Proporcionaremos todo lo que tus estudiantes necesitan para construir, instalar y empezar a monitorear.",
+    "orderKitsNow": "Pedir Kits Ahora",
+    "contactUsFirst": "Contáctanos Primero"
+  },
+
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "¿Listo para comenzar tu proyecto de monitoreo ambiental?",
+    "firstName": "Nombre",
+    "lastName": "Apellidos",
+    "email": "Correo Electrónico",
+    "school": "Escuela/Organización",
+    "role": "Tu Rol",
+    "rolePlaceholder": "Selecciona tu rol",
+    "roleTeacher": "Profesor/a",
+    "roleAdministrator": "Administrador/a",
+    "roleStudent": "Estudiante",
+    "roleResearcher": "Investigador/a",
+    "roleOther": "Otro",
+    "interest": "Nivel de Interés",
+    "interestPlaceholder": "Selecciona una opción",
+    "interestCompleteKit": "Kit Completo",
+    "interestPlansOnly": "Solo Planos",
+    "interestPartnership": "Asociación Escolar",
+    "interestInformation": "Más Información",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntanos sobre los objetivos de tu proyecto, plazos o cualquier pregunta específica que tengas...",
+    "submit": "Enviar Solicitud",
+    "orContactDirectly": "O contáctanos directamente:",
+    "successTitle": "¡Mensaje Enviado!",
+    "successClose": "Cerrar"
+  },
+
   "footer": {
-    "quickLinks": "Enlaces rápidos",
+    "aboutUs": "Sobre Nosotros",
+    "aboutDescription": "La International Green Tech Foundation es una organización sin ánimo de lucro que promueve la educación en tecnología ambiental. Nuestra apasionada red global de educadores, ingenieros y estudiantes cree en empoderar a la próxima generación a través del aprendizaje práctico.",
+    "quickLinks": "Enlaces Rápidos",
     "resources": "Recursos",
+    "support": "Soporte",
     "connect": "Conectar",
-    "assemblyGuide": "Guía de ensamblaje",
-    "documentation": "Documentación del software",
-    "globalData": "Acceso a datos globales",
-    "curriculum": "Materiales curriculares"
+    "assemblyGuide": "Guía de Montaje",
+    "documentation": "Documentación del Software",
+    "globalData": "Acceso a Datos Globales",
+    "curriculum": "Materiales Curriculares",
+    "contactUs": "Contáctanos",
+    "communityForum": "Foro de la Comunidad",
+    "technicalSupport": "Soporte Técnico",
+    "faqs": "Preguntas Frecuentes",
+    "copyright": "© 2024 Proyecto schoolAIR. Iniciativa educativa de código abierto para monitoreo ambiental."
+  },
+
+  "portal": {
+    "loading": "Cargando portal escolar...",
+    "navBrand": "SchoolAIR",
+    "stats": {
+      "classroomsProtected": "Aulas/Exteriores Protegidos",
+      "studentsInvolved": "Estudiantes/Profesores Involucrados",
+      "dataPointsPerDay": "Datos por Día",
+      "alertsToDate": "Alertas Hasta la Fecha"
+    },
+    "protectClassroom": "Protege un Aula",
+    "protectClassroomFrom": "desde solo €105",
+    "viewFullDashboard": "Ver Panel Interactivo Completo",
+    "viewFullDashboardDesc": "Accede a datos de sensores en tiempo real, tendencias históricas y analíticas detalladas",
+    "airQualityOverview": "Resumen de Calidad del Aire",
+    "interiorToday": "Interior Hoy",
+    "interiorThisWeek": "Interior Esta Semana",
+    "exteriorToday": "Exterior Hoy",
+    "exteriorThisWeek": "Exterior Esta Semana",
+    "aqiLabel": "AQI",
+    "aqiGood": "BUENO",
+    "aqiModerate": "MODERADO",
+    "aqiPoor": "MALO",
+    "legendGood": "Bueno (0-30)",
+    "legendModerate": "Moderado (31-60)",
+    "legendPoor": "Malo (61-100)",
+    "photoGallery": {
+      "title": "Galería de Fotos del Proyecto",
+      "description": "Mira fotos de nuestro proyecto de monitoreo de calidad del aire y actividades estudiantiles",
+      "viewAlbum": "Ver Álbum de Fotos"
+    },
+    "users": {
+      "title": "Gestión de Usuarios y Claves API",
+      "addUser": "Añadir Usuario",
+      "allUsers": "Todos los Usuarios",
+      "administrators": "Administradores",
+      "teachers": "Profesores",
+      "students": "Estudiantes",
+      "researchers": "Investigadores",
+      "mentors": "Mentores",
+      "tableHeaders": {
+        "name": "Nombre",
+        "email": "Correo",
+        "role": "Rol",
+        "joined": "Registro",
+        "lastActive": "Última Actividad",
+        "apiKeys": "Claves API",
+        "actions": "Acciones"
+      }
+    },
+    "apiKeys": {
+      "title": "Claves API",
+      "createNew": "Crear Nueva Clave"
+    },
+    "dashboardConfig": {
+      "title": "Configuración del Panel",
+      "addThreshold": "Añadir Umbral",
+      "intro": "Configura los umbrales de alerta y las acciones automatizadas para el sistema de monitoreo de calidad del aire de tu escuela. Cuando las lecturas de los sensores superen estos umbrales, el sistema activará automáticamente las acciones especificadas.",
+      "tableHeaders": {
+        "parameter": "Parámetro",
+        "threshold": "Umbral",
+        "condition": "Condición",
+        "action": "Acción",
+        "severity": "Gravedad",
+        "status": "Estado",
+        "actions": "Acciones"
+      }
+    }
+  },
+
+  "sponsor": {
+    "pageTitle": "Patrocina un Aula - SchoolAIR",
+    "genericPageTitle": "Protege un Aula - SchoolAIR",
+    "hero": {
+      "bfisTitle": "Ayuda a que Todas las Áreas de BFIS Tengan Aire Limpio",
+      "genericTitle": "Protege un Aula con Aire Limpio",
+      "bfisDescription": "El equipo de SchoolAIR ha experimentado ampliamente con los últimos componentes tecnológicos y ha logrado reducir enormemente el coste de una unidad de calidad del aire. El kit de montaje casero incluye todos los componentes e instrucciones paso a paso; no incluye la carcasa. Entregarás con orgullo una unidad funcionando a tu escuela para su instalación — ¡o úsala en casa! Cada unidad protege un aula para siempre avisando a los profesores cuándo ventilar — o cerrar una ventana por la mala calidad del aire exterior.",
+      "genericDescription": "El equipo de SchoolAIR ha experimentado ampliamente con los últimos componentes tecnológicos y ha logrado reducir enormemente el coste de una unidad de calidad del aire. Cada unidad protege un aula para siempre avisando a los profesores cuándo ventilar — o cerrar una ventana por la mala calidad del aire exterior. Patrocina una unidad para cualquier escuela del mundo.",
+      "videoCaption": "Las aulas cargadas reducen rápidamente el rendimiento cognitivo"
+    },
+    "progress": {
+      "title": "Aulas/Campos de Juego de BFIS Protegidos",
+      "of": "de",
+      "plaqueNote": "Las aulas con unidades de calidad del aire exhibirán con orgullo una placa: Este Aula Protegida gracias a Jane & Jennifer Ramirez",
+      "timelineTitle": "Crecimiento de Patrocinios",
+      "launchEntry": "2 unidades donadas por el equipo de SchoolAir"
+    },
+    "cards": {
+      "title": "Patrocina una Unidad",
+      "subtitle": "Patrocinio único — cada unidad protege una zona para siempre. Carcasa no incluida — se proporcionan planos digitales gratuitos y archivos de modelos 3D. Los datos se suben a la base de datos global de SchoolAir. La privacidad, escalabilidad y disponibilidad para investigadores y defensores del aire limpio se gestiona profesionalmente.",
+      "interior": {
+        "title": "Unidad Interior",
+        "description": "Protege las aulas del aire viciado o insalubre monitoreando los niveles de CO₂ y ventilación. USB plug-and-play — fácil de configurar y usar.",
+        "price": "105"
+      },
+      "exterior": {
+        "title": "Unidad Exterior",
+        "description": "Estación completa de monitoreo de calidad del aire que mide partículas finas (PM2.5), clima y más. Conectividad Wi-Fi de largo alcance para ubicaciones exteriores.",
+        "price": "125"
+      },
+      "sponsorThisUnit": "Patrocinar Esta Unidad",
+      "schoolWebsite": {
+        "title": "Cada escuela obtiene su propio sitio web",
+        "description": "Cada escuela participante recibe su propio portal SchoolAir personalizado para mostrar sus esfuerzos en salud y sostenibilidad, controlar el acceso a sus datos y permitir proyectos de análisis de tendencias y sensibilización."
+      }
+    },
+    "patron": {
+      "title": "Conviértete en Defensor de SchoolAir — ¡Patrocina a Nuestro Apasionado Equipo!",
+      "subtitle": "Tu contribución regular permitirá a nuestros desarrolladores, investigadores e instaladores ayudar a más y más escuelas a velar por la salud de sus estudiantes. Planeamos hacer más que solo monitorear — nuestra segunda fase comenzará a aportar posibles soluciones. ¡Ayúdanos a seguir adelante!",
+      "supporter": {
+        "title": "Colaborador",
+        "description": "Ayuda a financiar actualizaciones de firmware y calibración de sensores",
+        "price": "5",
+        "period": "/mes"
+      },
+      "champion": {
+        "title": "Campeón",
+        "description": "Financia el trabajo de nuestro experto en IoT en soporte de nuevos controladores y conectividad",
+        "price": "10",
+        "period": "/mes"
+      },
+      "guardian": {
+        "title": "Guardián",
+        "description": "Máximo impacto — financia directamente la ingeniería profesional detrás de SchoolAir",
+        "price": "25",
+        "period": "/mes"
+      },
+      "startSupporting": "Empieza a Apoyar"
+    },
+    "wall": {
+      "title": "Nuestros Patrocinadores y Mecenas",
+      "emptyMessage": "¡Sé el primero en patrocinar un aula!",
+      "monthlyPatron": "Mecenas Mensual",
+      "exteriorSponsor": "Patrocinador de Unidad Exterior",
+      "interiorSponsor": "Patrocinador de Unidad Interior"
+    },
+    "checkout": {
+      "title": "Completa Tu Patrocinio",
+      "sponsorInteriorTitle": "Patrocinar una Unidad Interior — €105",
+      "sponsorExteriorTitle": "Patrocinar una Unidad Exterior — €125",
+      "patronTitle": "Conviértete en Mecenas Mensual — €{tier}/mes",
+      "email": "Correo Electrónico",
+      "emailRequired": "*",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "emailHint": "Te enviaremos tu recibo y enlace para editar el nombre aquí",
+      "schoolName": "Nombre de la Escuela",
+      "schoolNamePlaceholder": "p. ej. Colegio Greenwood",
+      "schoolNameHint": "¿Qué escuela debería recibir esta unidad?",
+      "schoolContact": "Persona de Contacto en la Escuela",
+      "schoolContactPlaceholder": "p. ej. Directora Sara García",
+      "schoolContactHint": "Una persona de contacto en la escuela para coordinar la instalación (opcional)",
+      "schoolContactEmail": "Correo de Contacto de la Escuela",
+      "schoolContactEmailPlaceholder": "p. ej. sara@escuela.edu",
+      "schoolContactEmailHint": "Correo de la persona de contacto de la escuela (opcional)",
+      "displayName": "Nombre Visible",
+      "displayNamePlaceholder": "p. ej. María y Pedro López",
+      "displayNameHint": "Se muestra en el muro de patrocinadores y la placa del aula (opcional)",
+      "classroom": "Aula a proteger",
+      "classroomPlaceholder": "p. ej. Clase de la Sra. García, 3º de primaria, Aula 12, Guardería",
+      "classroomHint": "¿En qué aula te gustaría que se instale tu monitor? (opcional)",
+      "quantity": "Cantidad",
+      "proceedToPayment": "Proceder al Pago",
+      "redirecting": "Redirigiendo al pago..."
+    },
+    "labelEdit": {
+      "title": "Actualiza Tu Nombre Visible",
+      "subtitle": "Así aparecerá tu nombre en el muro de patrocinadores y la placa del aula",
+      "displayName": "Nombre Visible",
+      "displayNamePlaceholder": "p. ej. María y Pedro López",
+      "dedication": "Dedicatoria (opcional)",
+      "dedicationPlaceholder": "p. ej. Para la clase de 3º de la Sra. García",
+      "saveChanges": "Guardar Cambios",
+      "saving": "Guardando..."
+    },
+    "alerts": {
+      "emailRequired": "El correo electrónico es obligatorio",
+      "schoolNameRequired": "El nombre de la escuela es obligatorio",
+      "successMessage": "¡Gracias por tu patrocinio! Revisa tu correo para la confirmación y un enlace para personalizar tu nombre visible.",
+      "cancelMessage": "El pago fue cancelado. No te preocupes — puedes intentarlo de nuevo en cualquier momento.",
+      "labelUpdated": "¡Tu nombre visible ha sido actualizado!",
+      "labelFailed": "Error al actualizar. El enlace puede haber expirado."
+    }
+  },
+
+  "dashboard": {
+    "pageTitle": "Calidad del Aire Interior - Air School",
+    "header": {
+      "subtitle": "Monitoreo de calidad del aire en tiempo real"
+    },
+    "toggle": {
+      "simulation": "Simulación",
+      "liveData": "Datos en Vivo"
+    },
+    "liveCaption": "Datos en vivo de los sensores de las unidades de monitoreo de BFIS — impulsado por",
+    "rooms": {
+      "nursery": "Guardería",
+      "primaryA": "Primaria A",
+      "primaryB": "Primaria B",
+      "secondaryA": "Secundaria A",
+      "secondaryB": "Secundaria B"
+    },
+    "metrics": {
+      "co2": "CO₂",
+      "pm25": "PM2.5",
+      "temp": "Temp.",
+      "humidity": "Humedad"
+    },
+    "status": {
+      "good": "Bueno",
+      "moderate": "Moderado",
+      "poor": "Malo"
+    },
+    "legend": {
+      "good": "Bueno (0-30)",
+      "moderate": "Moderado (31-60)",
+      "poor": "Malo (61-100)"
+    },
+    "modal": {
+      "title": "Detalles del Aula",
+      "aqiChart": "Índice de Calidad del Aire (AQI)",
+      "pollutantsChart": "Contaminantes del Aire",
+      "environmentChart": "Condiciones Ambientales",
+      "currentAQI": "AQI Actual",
+      "co2": "CO₂",
+      "pm25": "PM2.5",
+      "temperature": "Temperatura",
+      "humidity": "Humedad",
+      "status": "Estado"
+    }
+  },
+
+  "liveData": {
+    "pageTitle": "Datos de Calidad del Aire en Vivo",
+    "loading": "Cargando datos de sensores...",
+    "readingsLoaded": "{count} lecturas cargadas",
+    "failedToLoad": "Error al cargar los datos",
+    "tableHeaders": {
+      "time": "Hora",
+      "device": "Dispositivo"
+    },
+    "metrics": {
+      "pm25": { "label": "PM2.5", "unit": "ug/m3" },
+      "co2": { "label": "CO2", "unit": "ppm" },
+      "temp": { "label": "Temperatura", "unit": "°C" },
+      "humidity": { "label": "Humedad", "unit": "%" },
+      "pm10": { "label": "PM1.0", "unit": "ug/m3" },
+      "pm100": { "label": "PM10.0", "unit": "ug/m3" },
+      "co": { "label": "CO", "unit": "ppm" },
+      "no2": { "label": "NO2", "unit": "ppm" },
+      "voc": { "label": "VOC", "unit": "index" }
+    },
+    "alerts": {
+      "aboveDanger": "{metric}: {value} {unit} — por encima del umbral de peligro ({threshold})",
+      "aboveWarning": "{metric}: {value} {unit} — por encima del umbral de advertencia ({threshold})",
+      "withinSafe": "{metric}: {value} {unit} — dentro de niveles seguros"
+    },
+    "annotations": {
+      "ventilate": "Ventilar",
+      "critical": "Crítico",
+      "whoLimit": "Límite WHO",
+      "unhealthy": "Insalubre",
+      "idealTempRange": "Rango Ideal (20-24°C)",
+      "idealHumidityRange": "Humedad Ideal (30-50%)"
+    },
+    "guides": {
+      "pm25": {
+        "title": "PM2.5 (Partículas Finas)",
+        "text": "Estas diminutas partículas llegan a lo profundo de los pulmones y el torrente sanguíneo. Pueden desencadenar <strong>ataques de asma</strong> y aumentar el riesgo cardiovascular.<br><br><strong>Directrices de la WHO:</strong><br>• 0-15 µg/m³: Bueno<br>• >35 µg/m³: Insalubre"
+      },
+      "pm10": {
+        "title": "PM1.0 (Partículas Ultrafinas)",
+        "text": "Provienen de la combustión (motores, humo). No existe un límite oficial, pero niveles altos están vinculados a inflamación sistémica ya que traspasan completamente las barreras pulmonares."
+      },
+      "pm100": {
+        "title": "PM10.0 (Partículas Gruesas)",
+        "text": "Principalmente polvo, polen y moho. Causa irritación de garganta, estornudos y molestias en las vías respiratorias superiores.<br><br><strong>Directrices de la WHO:</strong><br>• 0-45 µg/m³: Aceptable<br>• >45 µg/m³: Alto"
+      },
+      "co2": {
+        "title": "CO₂ (Dióxido de Carbono)",
+        "text": "• 400-1000 ppm: Bueno<br>• 1000-2000 ppm: Somnolencia y falta de concentración<br>• >2000 ppm: Dolores de cabeza y ambiente cargado. Incluso puede afectar tus calificaciones."
+      },
+      "temp": {
+        "title": "Temperatura",
+        "text": "Rango interior ideal: 20-24°C (68-75°F). Las temperaturas extremas afectan la productividad y pueden agravar afecciones respiratorias existentes."
+      },
+      "humidity": {
+        "title": "Humedad",
+        "text": "Rango ideal: 30-50%.<br>La humedad alta (>60%) favorece el <strong>crecimiento de moho</strong> y los ácaros del polvo.<br>La humedad baja (<30%) causa piel seca y aumenta la transmisión viral."
+      },
+      "co": {
+        "title": "Monóxido de Carbono (CO)",
+        "text": "Un gas tóxico incoloro e inodoro. Niveles altos indican sistemas de calefacción defectuosos o infiltración de gases de escape de vehículos. Puede causar mareos y, en niveles altos, es mortal."
+      },
+      "no2": {
+        "title": "Dióxido de Nitrógeno (NO₂)",
+        "text": "Proviene principalmente de los gases de escape del tráfico. Se sabe que inflama las vías respiratorias y es un importante desencadenante de <strong>bronquitis crónica</strong> y exacerbaciones del asma."
+      },
+      "voc": {
+        "title": "Índice VOC (Compuestos Orgánicos Volátiles)",
+        "text": "Gases emitidos por pinturas, rotuladores y muebles nuevos. Niveles altos causan el \"Síndrome del Edificio Enfermo\" — dolores de cabeza, náuseas e irritación ocular."
+      }
+    }
+  },
+
+  "howItWorks": {
+    "pageTitle": "Cómo Funciona",
+    "subtitle": "Un proceso sencillo de 4 pasos para implementar el monitoreo ambiental en tu escuela",
+    "steps": {
+      "order": {
+        "title": "1. Las Escuelas Piden",
+        "description": "Obtén kits completos con todos los componentes, sensores y hardware necesarios, o simplemente descarga los planos detallados y consigue los componentes por tu cuenta. Ambas opciones incluyen guías completas de configuración y materiales educativos."
+      },
+      "build": {
+        "title": "2. Los Estudiantes Construyen",
+        "description": "Los estudiantes ensamblan la estación de monitoreo de calidad del aire en la escuela a través de talleres prácticos, aprendiendo electrónica, programación y ciencias ambientales. Nuestras guías admiten tanto aprendizaje en el aula como a distancia."
+      },
+      "deploy": {
+        "title": "3. Se Instalan las Estaciones",
+        "description": "Las estaciones terminadas se instalan por todo el campus escolar para monitorear la calidad del aire, temperatura y humedad en tiempo real, protegiendo a la comunidad escolar con alertas oportunas y datos accionables."
+      },
+      "collect": {
+        "title": "4. Se Recopilan los Datos",
+        "description": "Los datos ambientales se almacenan automáticamente en bases de datos globales a través de nuestra API segura, permitiendo a los estudiantes analizar tendencias, contribuir a la investigación climática y comparar datos con escuelas de todo el mundo."
+      }
+    },
+    "tabs": {
+      "overview": "Resumen",
+      "schools": "Escuelas",
+      "volunteers": "Voluntarios",
+      "dataApi": "Datos y API"
+    },
+    "overview": {
+      "currentGlobalAQI": "AQI Global Actual",
+      "aqiDescription": "Moderado - Aceptable para la mayoría de personas",
+      "averagePM25": "PM2.5 Promedio",
+      "pm25Unit": "µg/m³ - Dentro de las directrices de la WHO",
+      "realTimeMonitoring": "Monitoreo en Tiempo Real",
+      "realTimeValue": "24/7",
+      "realTimeDescription": "Recopilación continua de datos a nivel mundial"
+    },
+    "schools": {
+      "title": "Directorio de la Red de Escuelas",
+      "aqiNote": "AQI = Indicador de Calidad del Aire",
+      "privacyNote": "Los datos individuales de cada escuela son privados. Solo se muestran datos agregados anonimizados.",
+      "onlineRealtime": "En línea - Monitoreo en tiempo real",
+      "onlineAllSensors": "En línea - Todos los sensores activos",
+      "interactiveDashboard": "Panel Interactivo Disponible",
+      "loginToSee": "Inicia sesión para ver el AQI de tu escuela"
+    },
+    "volunteers": {
+      "title": "Voluntarios de la Comunidad",
+      "subtitle": "Únete a nuestra red global de defensores del medio ambiente que ayudan a las escuelas a monitorear la calidad del aire",
+      "activeVolunteers": "Voluntarios Activos",
+      "schoolsHelped": "Escuelas Ayudadas",
+      "countries": "Países"
+    },
+    "dataApi": {
+      "title": "Acceso a Datos y API",
+      "subtitle": "Accede a datos de calidad del aire en tiempo real e históricos a través de nuestra API",
+      "apiEndpoints": "Endpoints de la API",
+      "listSchools": "Listar todas las escuelas participantes",
+      "regionalAQI": "Obtener datos regionales de calidad del aire",
+      "historicalData": "Datos históricos de una escuela específica",
+      "integrationExample": "Ejemplo de Integración"
+    }
+  },
+
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Añadir",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "noData": "No hay datos disponibles",
+    "required": "Obligatorio",
+    "optional": "Opcional",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "OK",
+    "confirm": "Confirmar",
+    "currency": "€",
+    "perMonth": "/mes",
+    "schoolAIR": "schoolAIR",
+    "logoTagline": "Un Proyecto de la International Green Tech Foundation",
+    "launch": "Lanzar"
   }
 }

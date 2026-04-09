@@ -1,23 +1,103 @@
 {
   "nav": {
+    "project": "Project",
     "about": "About",
-    "products": "Technology", 
+    "products": "Technology",
+    "howItWorks": "How It Works",
+    "dashboard": "Dashboard",
+    "events": "Events",
+    "blog": "Blog",
     "announcements": "Project Updates",
     "workshops": "Workshops & Events",
-    "getInvolved": "Get Involved"
+    "getInvolved": "Get Involved",
+    "contact": "Contact",
+    "backToPortal": "Back to Portal",
+    "backToHome": "Back to Home",
+    "reports": "Reports",
+    "usersAndKeys": "Users & API Keys",
+    "automations": "Automations",
+    "logout": "Logout"
   },
+
   "hero": {
-    "title": "Good Air Fuels Learning",
+    "title": "Healthier Air. Built by Students",
     "subtitle": "SchoolAir: New skills. Lasting Impact.",
-    "description": "Students master programming, electronics, and data science while building air quality monitoring systems that protect their school community.",
+    "description": "Learn the tech. Get a kit.\nBuild & install your SchoolAir station.\nAct on the data.\nMake your community healthier.",
     "enrollButton": "Enroll Your School",
     "orderButton": "Get A Home Kit",
-    "quote1": "I never learnt so much in so little time on a project -- Mia, BFIS",
+    "protectButton": "Protect a Classroom!",
+    "seeItInAction": "See It in Action",
+    "quote1": "\"I never learnt so much in so little time on a project -- Mia, BFIS\"",
     "quote1Author": "",
-    "quote2": "Teachers can now be reminded to ventilate the classroom -- Martin, IGTF",
+    "quote2": "\"Teachers now know when to ventilate classrooms -- Martin, IGTF\"",
     "quote2Author": "",
     "audioMessage": "A message from the founder"
   },
+
+  "partners": {
+    "trustedBySchools": "Trusted by Schools Worldwide",
+    "globalMedia": "Global Media"
+  },
+
+  "project": {
+    "title": "The schoolAIR Project",
+    "subtitle": "A comprehensive educational project that combines hands-on STEM learning with real-world environmental monitoring. There is a purpose beyond education: Our children might be exposed to unhealthy air. This project gives schools and students real-time data about the local area \u2014 not just what governments publish broadly.",
+    "infoSheetButton": "See Our Info Sheet",
+    "educationalExcellence": {
+      "title": "Educational Excellence",
+      "description": "Integrate IoT, environmental science, and data analysis into your curriculum through practical, hands-on learning experiences."
+    },
+    "communityHealth": {
+      "title": "Community Health",
+      "description": "Monitor air quality to protect community health with real-time alerting when indoor or outdoor indicators reach unhealthy levels."
+    },
+    "globalNetwork": {
+      "title": "Global Network",
+      "description": "Join a worldwide network of schools contributing to environmental research and climate change understanding."
+    },
+    "greenTechnology": {
+      "title": "Green Technology",
+      "description": "Build essential working green tech infrastructure using modern sensors, microcontrollers, and cloud technology."
+    }
+  },
+
+  "features": {
+    "title": "Project Features",
+    "subtitle": "Everything you need for successful environmental monitoring and education",
+    "buildItYourWay": {
+      "title": "Build It Your Way",
+      "description": "Order a kit or just our code & plans and make it work with your favourite hardware"
+    },
+    "openSource": {
+      "title": "100% Open Source!",
+      "description": "Download our code from GitHub. Use our helpful how-to notes."
+    },
+    "threeDPrint": {
+      "title": "3D Print The Accessories",
+      "description": "Use our 3D models to print the enclosures and supports"
+    },
+    "communitySupport": {
+      "title": "Community Support!",
+      "description": "Our growing community of savvy students and volunteers will help you"
+    },
+    "supportsProjects": {
+      "title": "Supports Your Projects",
+      "description": "Fetch trend analysis data from the global database"
+    },
+    "automateAlerts": {
+      "title": "Automate Your Alerts",
+      "description": "Be warned when trends indicate danger or when thresholds are reached"
+    }
+  },
+
+  "ticker": {
+    "label": "News",
+    "item1": "<strong>Apr 2026:</strong> Parent & Patron Sponsorships Open \u2014 now parents can directly protect a classroom!",
+    "item2": "<strong>Mar 2026:</strong> Royal Melbourne Institute of Technology joins \u2014 5 CS students building the API for data sharing with enhanced privacy",
+    "item3": "<strong>Mar 2026:</strong> First institutions complete their kit builds! BFIS installs exterior units in multiple locations",
+    "readAllNews": "Read all news \u2192"
+  },
+
   "announcements": {
     "title": "Project Updates & News",
     "subtitle": "Latest developments in the schoolAIR community",
@@ -46,27 +126,516 @@
       "description": "We need developers, educators, and environmental enthusiasts to help grow this project. 100% volunteer-driven initiative."
     }
   },
+
   "impact": {
     "title": "Educational Impact",
     "subtitle": "Real numbers from schools using schoolAIR worldwide",
     "stats": {
       "schools": "Schools Participating",
-      "students": "Students Engaged", 
+      "stations": "Active Stations",
+      "students": "Students Protected",
       "dataPoints": "Data Points Collected",
       "countries": "Countries Involved"
+    },
+    "ctaText": "Sign up your school and start your students working on a real engineering project!",
+    "ctaButton": "Get Started Today",
+    "curriculumTitle": "Curriculum Integration Areas",
+    "curriculum": {
+      "science": {
+        "title": "Science Education",
+        "description": "Meteorology, environmental science, physics, and chemistry through hands-on experimentation and real data analysis."
+      },
+      "mathematics": {
+        "title": "Mathematics",
+        "description": "Data analysis, statistics, graphing, and pattern recognition using real environmental datasets."
+      },
+      "technology": {
+        "title": "Technology",
+        "description": "Electronics, programming with MicroPython, IoT concepts, and system architecture design."
+      },
+      "socialStudies": {
+        "title": "Social Studies",
+        "description": "Local environmental issues, global climate change, and the intersection of technology and society."
+      }
     }
   },
+
   "components": {
-    "title": "Technology & Components",
-    "subtitle": "Everything you need to build your air quality monitoring station"
+    "title": "Technology and Components",
+    "subtitle": "Everything you need to build your air quality monitoring station",
+    "introText": "The goal of the SchoolAIR project is to support all the most popular educational microcontrollers, such as Arduino, m5stack and others. Student volunteers constantly port the base software to new platforms. Communications between the microcontroller and sensors are done via standard protocols like I2C, bluetooth and Wifi. This keeps costs to a minimum and creates an open system. SchoolAIR is for students and by students!",
+    "completeKitTitle": "Complete Kit Components",
+    "plannedControllerTitle": "Planned Controller Support",
+    "tableHeaders": {
+      "component": "Component",
+      "description": "Description",
+      "microcontroller": "Microcontroller",
+      "assignedTo": "Assigned to",
+      "deadline": "Deadline",
+      "status": "Status"
+    },
+    "statusPlanning": "Planning",
+    "statusCompleted": "COMPLETED!"
   },
+
+  "getInvolved": {
+    "title": "Enroll Your School",
+    "subtitle": "Join the growing network of schools protecting their students' health",
+    "schoolPortal": {
+      "title": "Your Own School Portal",
+      "description": "Every school gets a branded website to showcase its health efforts, control data access, and enable trend analysis and advocacy."
+    },
+    "studentsBuild": {
+      "title": "Students Build & Learn",
+      "description": "Students gain hands-on experience in electronics, IoT, and environmental science while protecting their own community."
+    },
+    "globalData": {
+      "title": "Global Data Network",
+      "description": "Your data joins a worldwide database used by researchers and clean air advocates \u2014 with full privacy controls."
+    },
+    "readyToStart": "Ready to get started?",
+    "readyToStartDesc": "Order units for your school now \u2014 interior units from \u20ac105, exterior units from \u20ac125. We\u2019ll provide everything your students need to build, install, and start monitoring.",
+    "orderKitsNow": "Order Kits Now",
+    "contactUsFirst": "Contact Us First"
+  },
+
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to start your environmental monitoring project?",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "school": "School/Organization",
+    "role": "Your Role",
+    "rolePlaceholder": "Select your role",
+    "roleTeacher": "Teacher",
+    "roleAdministrator": "Administrator",
+    "roleStudent": "Student",
+    "roleResearcher": "Researcher",
+    "roleOther": "Other",
+    "interest": "Interest Level",
+    "interestPlaceholder": "Select option",
+    "interestCompleteKit": "Complete Kit",
+    "interestPlansOnly": "Plans Only",
+    "interestPartnership": "School Partnership",
+    "interestInformation": "More Information",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your project goals, timeline, or any specific questions you have...",
+    "submit": "Send Request",
+    "orContactDirectly": "Or contact us directly:",
+    "successTitle": "Message Sent!",
+    "successClose": "Close"
+  },
+
   "footer": {
+    "aboutUs": "About Us",
+    "aboutDescription": "The International Green Tech Foundation is a non-profit organization advancing environmental technology education. Our passionate global network of educators, engineers, and students believes in empowering the next generation through hands-on learning.",
     "quickLinks": "Quick Links",
     "resources": "Resources",
+    "support": "Support",
     "connect": "Connect",
     "assemblyGuide": "Assembly Guide",
     "documentation": "Software Documentation",
     "globalData": "Global Data Access",
-    "curriculum": "Curriculum Materials"
+    "curriculum": "Curriculum Materials",
+    "contactUs": "Contact Us",
+    "communityForum": "Community Forum",
+    "technicalSupport": "Technical Support",
+    "faqs": "FAQs",
+    "copyright": "\u00a9 2024 schoolAIR Project. Open source educational initiative for environmental monitoring."
+  },
+
+  "portal": {
+    "loading": "Loading school portal...",
+    "navBrand": "SchoolAIR",
+    "stats": {
+      "classroomsProtected": "Classrooms/Exteriors Protected",
+      "studentsInvolved": "Students/Teachers Involved",
+      "dataPointsPerDay": "Data Points Per Day",
+      "alertsToDate": "Alerts To Date"
+    },
+    "protectClassroom": "Protect a Classroom",
+    "protectClassroomFrom": "from just \u20ac105",
+    "viewFullDashboard": "View Full Interactive Dashboard",
+    "viewFullDashboardDesc": "Access real-time sensor data, historical trends, and detailed analytics",
+    "airQualityOverview": "Air Quality Overview",
+    "interiorToday": "Interior Today",
+    "interiorThisWeek": "Interior This Week",
+    "exteriorToday": "Exterior Today",
+    "exteriorThisWeek": "Exterior This Week",
+    "aqiLabel": "AQI",
+    "aqiGood": "GOOD",
+    "aqiModerate": "MODERATE",
+    "aqiPoor": "POOR",
+    "legendGood": "Good (0-30)",
+    "legendModerate": "Moderate (31-60)",
+    "legendPoor": "Poor (61-100)",
+    "photoGallery": {
+      "title": "Project Photo Gallery",
+      "description": "View photos from our air quality monitoring project and student activities",
+      "viewAlbum": "View Photo Album"
+    },
+    "users": {
+      "title": "User & API Key Management",
+      "addUser": "Add User",
+      "allUsers": "All Users",
+      "administrators": "Administrators",
+      "teachers": "Teachers",
+      "students": "Students",
+      "researchers": "Researchers",
+      "mentors": "Mentors",
+      "tableHeaders": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "joined": "Joined",
+        "lastActive": "Last Active",
+        "apiKeys": "API Keys",
+        "actions": "Actions"
+      }
+    },
+    "apiKeys": {
+      "title": "API Keys",
+      "createNew": "Create New Key"
+    },
+    "dashboardConfig": {
+      "title": "Dashboard Configuration",
+      "addThreshold": "Add Threshold",
+      "intro": "Configure alert thresholds and automated actions for your school's air quality monitoring system. When sensor readings exceed these thresholds, the system will automatically trigger the specified actions.",
+      "tableHeaders": {
+        "parameter": "Parameter",
+        "threshold": "Threshold",
+        "condition": "Condition",
+        "action": "Action",
+        "severity": "Severity",
+        "status": "Status",
+        "actions": "Actions"
+      }
+    }
+  },
+
+  "sponsor": {
+    "pageTitle": "Sponsor a Classroom - SchoolAIR",
+    "genericPageTitle": "Protect a Classroom - SchoolAIR",
+    "hero": {
+      "bfisTitle": "Help every Area of BFIS have Clean Air",
+      "genericTitle": "Protect a Classroom with Clean Air",
+      "bfisDescription": "The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. The home build kit includes all components and step-by-step instructions; it does not include housing. You\u2019ll proudly deliver a working unit to your school for installation \u2014 or use it at home! Each unit forever protects a classroom by letting teachers know when it\u2019s time to ventilate \u2014 or shut a window due to poor outside air quality.",
+      "genericDescription": "The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. Each unit forever protects a classroom by letting teachers know when it\u2019s time to ventilate \u2014 or shut a window due to poor outside air quality. Sponsor a unit for any school in the world.",
+      "videoCaption": "Stuffy rooms quickly diminish cognitive performance"
+    },
+    "progress": {
+      "title": "BFIS Classrooms/Play Fields Protected",
+      "of": "of",
+      "plaqueNote": "Classrooms with air quality units will proudly exhibit a plaque: This Classroom Protected thanks to Jane & Jennifer Ramirez",
+      "timelineTitle": "Sponsorship Growth",
+      "launchEntry": "2 units donated by SchoolAir team"
+    },
+    "cards": {
+      "title": "Sponsor a Unit",
+      "subtitle": "One-time sponsorship \u2014 each unit protects a zone forever. Housing not included \u2014 free digital plans and 3D model files provided. Data is uploaded to the SchoolAir global database. Privacy, scalability and availability to researchers and clean air advocates is professionally managed.",
+      "interior": {
+        "title": "Interior Unit",
+        "description": "Guards classrooms from stuffy or unhealthy air by monitoring CO\u2082 levels and ventilation. USB plug-and-play \u2014 simple to set up and use.",
+        "price": "105"
+      },
+      "exterior": {
+        "title": "Exterior Unit",
+        "description": "Full air quality monitoring station measuring fine dust (PM2.5), weather and more. Long-range Wi-Fi hub connectivity for outdoor locations.",
+        "price": "125"
+      },
+      "sponsorThisUnit": "Sponsor This Unit",
+      "schoolWebsite": {
+        "title": "Every school gets its own website",
+        "description": "Each participating school receives its own branded SchoolAir portal to showcase its health and sustainability efforts, control access to its data, and enable trend analysis projects and advocacy."
+      }
+    },
+    "patron": {
+      "title": "Become a SchoolAir Advocate \u2014 Sponsor our Passionate Project Team!",
+      "subtitle": "Your regular contribution will allow our developers, researchers and product installers to help more and more schools watch over the health of their students. We plan to do more than just monitor \u2014 our phase two will start bringing potential solutions. Help us keep going!",
+      "supporter": {
+        "title": "Supporter",
+        "description": "Help fund firmware updates and sensor calibration",
+        "price": "5",
+        "period": "/mo"
+      },
+      "champion": {
+        "title": "Champion",
+        "description": "Fund our IoT expert\u2019s work on new controller support and connectivity",
+        "price": "10",
+        "period": "/mo"
+      },
+      "guardian": {
+        "title": "Guardian",
+        "description": "Maximum impact \u2014 directly fund the professional engineering behind SchoolAir",
+        "price": "25",
+        "period": "/mo"
+      },
+      "startSupporting": "Start Supporting"
+    },
+    "wall": {
+      "title": "Our Sponsors & Patrons",
+      "emptyMessage": "Be the first to sponsor a classroom!",
+      "monthlyPatron": "Monthly Patron",
+      "exteriorSponsor": "Exterior Unit Sponsor",
+      "interiorSponsor": "Interior Unit Sponsor"
+    },
+    "checkout": {
+      "title": "Complete Your Sponsorship",
+      "sponsorInteriorTitle": "Sponsor an Interior Unit \u2014 \u20ac105",
+      "sponsorExteriorTitle": "Sponsor an Exterior Unit \u2014 \u20ac125",
+      "patronTitle": "Become a Monthly Patron \u2014 \u20ac{tier}/mo",
+      "email": "Email",
+      "emailRequired": "*",
+      "emailPlaceholder": "you@example.com",
+      "emailHint": "We'll send your receipt and display name edit link here",
+      "schoolName": "School Name",
+      "schoolNamePlaceholder": "e.g. Greenwood Elementary",
+      "schoolNameHint": "Which school should receive this unit?",
+      "schoolContact": "School Contact Name",
+      "schoolContactPlaceholder": "e.g. Principal Sarah Johnson",
+      "schoolContactHint": "A contact person at the school so we can coordinate installation (optional)",
+      "schoolContactEmail": "School Contact Email",
+      "schoolContactEmailPlaceholder": "e.g. sarah@school.edu",
+      "schoolContactEmailHint": "Email for the school contact (optional)",
+      "displayName": "Display Name",
+      "displayNamePlaceholder": "e.g. Harry & Sally Brooks",
+      "displayNameHint": "Shown on the sponsors wall and classroom plaque (optional)",
+      "classroom": "Classroom to protect",
+      "classroomPlaceholder": "e.g. Ms. Garcia's 3rd grade, Room 12, Nursery",
+      "classroomHint": "Which classroom would you like your monitor installed in? (optional)",
+      "quantity": "Quantity",
+      "proceedToPayment": "Proceed to Payment",
+      "redirecting": "Redirecting to payment..."
+    },
+    "labelEdit": {
+      "title": "Update Your Display Name",
+      "subtitle": "This is how your name will appear on the sponsors wall and classroom plaque",
+      "displayName": "Display Name",
+      "displayNamePlaceholder": "e.g. Harry & Sally Brooks",
+      "dedication": "Dedication (optional)",
+      "dedicationPlaceholder": "e.g. For Ms. Garcia's 3rd grade class",
+      "saveChanges": "Save Changes",
+      "saving": "Saving..."
+    },
+    "alerts": {
+      "emailRequired": "Email is required",
+      "schoolNameRequired": "School name is required",
+      "successMessage": "Thank you for your sponsorship! Check your email for confirmation and a link to customize your display name.",
+      "cancelMessage": "Checkout was cancelled. No worries \u2014 you can try again anytime.",
+      "labelUpdated": "Your display name has been updated!",
+      "labelFailed": "Failed to update. The link may have expired."
+    }
+  },
+
+  "dashboard": {
+    "pageTitle": "Indoor Air Quality - Air School",
+    "header": {
+      "subtitle": "Real-time air quality monitoring"
+    },
+    "toggle": {
+      "simulation": "Simulation",
+      "liveData": "Live Data"
+    },
+    "liveCaption": "Live sensor data from BFIS monitoring units \u2014 powered by",
+    "rooms": {
+      "nursery": "Nursery",
+      "primaryA": "Primary A",
+      "primaryB": "Primary B",
+      "secondaryA": "Secondary A",
+      "secondaryB": "Secondary B"
+    },
+    "metrics": {
+      "co2": "CO\u2082",
+      "pm25": "PM2.5",
+      "temp": "Temp.",
+      "humidity": "Humidity"
+    },
+    "status": {
+      "good": "Good",
+      "moderate": "Moderate",
+      "poor": "Poor"
+    },
+    "legend": {
+      "good": "Good (0-30)",
+      "moderate": "Moderate (31-60)",
+      "poor": "Poor (61-100)"
+    },
+    "modal": {
+      "title": "Classroom Details",
+      "aqiChart": "Air Quality Index (AQI)",
+      "pollutantsChart": "Air Pollutants",
+      "environmentChart": "Environmental Conditions",
+      "currentAQI": "Current AQI",
+      "co2": "CO\u2082",
+      "pm25": "PM2.5",
+      "temperature": "Temperature",
+      "humidity": "Humidity",
+      "status": "Status"
+    }
+  },
+
+  "liveData": {
+    "pageTitle": "Live Air Quality Data",
+    "loading": "Loading sensor data...",
+    "readingsLoaded": "{count} readings loaded",
+    "failedToLoad": "Failed to load data",
+    "tableHeaders": {
+      "time": "Time",
+      "device": "Device"
+    },
+    "metrics": {
+      "pm25": { "label": "PM2.5", "unit": "ug/m3" },
+      "co2": { "label": "CO2", "unit": "ppm" },
+      "temp": { "label": "Temperature", "unit": "\u00b0C" },
+      "humidity": { "label": "Humidity", "unit": "%" },
+      "pm10": { "label": "PM1.0", "unit": "ug/m3" },
+      "pm100": { "label": "PM10.0", "unit": "ug/m3" },
+      "co": { "label": "CO", "unit": "ppm" },
+      "no2": { "label": "NO2", "unit": "ppm" },
+      "voc": { "label": "VOC", "unit": "index" }
+    },
+    "alerts": {
+      "aboveDanger": "{metric}: {value} {unit} \u2014 above danger threshold ({threshold})",
+      "aboveWarning": "{metric}: {value} {unit} \u2014 above warning threshold ({threshold})",
+      "withinSafe": "{metric}: {value} {unit} \u2014 within safe levels"
+    },
+    "annotations": {
+      "ventilate": "Ventilate",
+      "critical": "Critical",
+      "whoLimit": "WHO Limit",
+      "unhealthy": "Unhealthy",
+      "idealTempRange": "Ideal Range (20-24\u00b0C)",
+      "idealHumidityRange": "Ideal Humidity (30-50%)"
+    },
+    "guides": {
+      "pm25": {
+        "title": "PM2.5 (Fine Particles)",
+        "text": "These tiny particles reach deep into the lungs and bloodstream. Can trigger <strong>asthma attacks</strong> and increase cardiovascular risk.<br><br><strong>WHO Guidelines:</strong><br>\u2022 0-15 \u00b5g/m\u00b3: Good<br>\u2022 >35 \u00b5g/m\u00b3: Unhealthy"
+      },
+      "pm10": {
+        "title": "PM1.0 (Ultrafine Particles)",
+        "text": "Derived from combustion (engines, smoke). No official limit, but high levels are linked to systemic inflammation as they bypass lung barriers entirely."
+      },
+      "pm100": {
+        "title": "PM10.0 (Coarse Particles)",
+        "text": "Mostly dust, pollen, and mold. Causes throat irritation, sneezing, and upper respiratory discomfort.<br><br><strong>WHO Guidelines:</strong><br>\u2022 0-45 \u00b5g/m\u00b3: Acceptable<br>\u2022 >45 \u00b5g/m\u00b3: High"
+      },
+      "co2": {
+        "title": "CO\u2082 (Carbon Dioxide)",
+        "text": "\u2022 400-1000 ppm: Good<br>\u2022 1000-2000 ppm: Drowsiness and poor concentration<br>\u2022 >2000 ppm: Headaches and stuffiness. May even affect your test scores."
+      },
+      "temp": {
+        "title": "Temperature",
+        "text": "Ideal indoor range: 20-24\u00b0C (68-75\u00b0F). Extreme temperatures affect productivity and can exacerbate existing respiratory conditions."
+      },
+      "humidity": {
+        "title": "Humidity",
+        "text": "Ideal range: 30-50%.<br>High humidity (>60%) promotes <strong>mold growth</strong> and dust mites.<br>Low humidity (<30%) causes dry skin and increases viral transmission."
+      },
+      "co": {
+        "title": "Carbon Monoxide (CO)",
+        "text": "A colorless, odorless toxic gas. High levels indicate faulty heating systems or vehicle exhaust infiltration. Can cause dizziness and, at high levels, is fatal."
+      },
+      "no2": {
+        "title": "Nitrogen Dioxide (NO\u2082)",
+        "text": "Primarily from traffic exhaust. Known to inflame the airways and is a major trigger for <strong>chronic bronchitis</strong> and asthma exacerbations."
+      },
+      "voc": {
+        "title": "VOC Index (Volatile Organic Compounds)",
+        "text": "Gasses emitted from paints, markers, and new furniture. High levels cause \"Sick Building Syndrome\" \u2014 headaches, nausea, and eye irritation."
+      }
+    }
+  },
+
+  "howItWorks": {
+    "pageTitle": "How It Works",
+    "subtitle": "A simple 4-step process to implement environmental monitoring in your school",
+    "steps": {
+      "order": {
+        "title": "1. Schools Order",
+        "description": "Get complete kits with all necessary components, sensors, and hardware, or just download the detailed plans and source components yourself. Both options include comprehensive setup guides and educational materials."
+      },
+      "build": {
+        "title": "2. Students Build",
+        "description": "Students assemble the air quality monitoring station at school through hands-on workshops, learning electronics, programming, and environmental science. Our guides support both classroom and remote learning scenarios."
+      },
+      "deploy": {
+        "title": "3. Stations Deployed",
+        "description": "Completed stations are installed around the school campus to monitor air quality, temperature, and humidity in real-time, protecting the school community with timely alerts and actionable data."
+      },
+      "collect": {
+        "title": "4. Data Collected",
+        "description": "Environmental data is automatically stored in global databases via our secure API, enabling students to analyze trends, contribute to climate research, and compare data with schools worldwide."
+      }
+    },
+    "tabs": {
+      "overview": "Overview",
+      "schools": "Schools",
+      "volunteers": "Volunteers",
+      "dataApi": "Data & API"
+    },
+    "overview": {
+      "currentGlobalAQI": "Current Global AQI",
+      "aqiDescription": "Moderate - Acceptable for most people",
+      "averagePM25": "Average PM2.5",
+      "pm25Unit": "\u00b5g/m\u00b3 - Within WHO guidelines",
+      "realTimeMonitoring": "Real-time Monitoring",
+      "realTimeValue": "24/7",
+      "realTimeDescription": "Continuous data collection worldwide"
+    },
+    "schools": {
+      "title": "School Network Directory",
+      "aqiNote": "AQI = Air Quality Indicator",
+      "privacyNote": "Individual school data is private. Only anonymized aggregate data is shown.",
+      "onlineRealtime": "Online - Real-time monitoring",
+      "onlineAllSensors": "Online - All sensors active",
+      "interactiveDashboard": "Interactive Dashboard Available",
+      "loginToSee": "Login to see your school's AQI"
+    },
+    "volunteers": {
+      "title": "Community Volunteers",
+      "subtitle": "Join our global network of environmental advocates helping schools monitor air quality",
+      "activeVolunteers": "Active Volunteers",
+      "schoolsHelped": "Schools Helped",
+      "countries": "Countries"
+    },
+    "dataApi": {
+      "title": "Data & API Access",
+      "subtitle": "Access real-time and historical air quality data through our API",
+      "apiEndpoints": "API Endpoints",
+      "listSchools": "List all participating schools",
+      "regionalAQI": "Get regional air quality data",
+      "historicalData": "Historical data for specific school",
+      "integrationExample": "Integration Example"
+    }
+  },
+
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "noData": "No data available",
+    "required": "Required",
+    "optional": "Optional",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "confirm": "Confirm",
+    "currency": "\u20ac",
+    "perMonth": "/mo",
+    "schoolAIR": "schoolAIR",
+    "logoTagline": "An International Green Tech Foundation Project",
+    "launch": "Launch"
   }
 }

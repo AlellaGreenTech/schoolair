@@ -426,8 +426,8 @@
     <main class="main-content">
         <div class="container">
             
-            <h1 class="page-title">How It Works</h1>
-            <p class="page-subtitle">A simple 4-step process to implement environmental monitoring in your school</p>
+            <h1 class="page-title" data-i18n="howItWorks.title">How It Works</h1>
+            <p class="page-subtitle" data-i18n="howItWorks.subtitle">A simple 4-step process to implement environmental monitoring in your school</p>
 
             <div class="steps-container">
                 <div class="step-card">
@@ -436,8 +436,8 @@
                             <i class="fas fa-box"></i>
                         </div>
                         <div class="step-text">
-                            <h3>1. Schools Order</h3>
-                            <p>Get complete kits with all necessary components, sensors, and hardware, or just download the detailed plans and source components yourself. Both options include comprehensive setup guides and educational materials.</p>
+                            <h3 data-i18n="howItWorks.step1.title">1. Schools Order</h3>
+                            <p data-i18n="howItWorks.step1.description">Get complete kits with all necessary components, sensors, and hardware, or just download the detailed plans and source components yourself. Both options include comprehensive setup guides and educational materials.</p>
                         </div>
                     </div>
                 </div>
@@ -448,8 +448,8 @@
                             <i class="fas fa-tools"></i>
                         </div>
                         <div class="step-text">
-                            <h3>2. Students Build</h3>
-                            <p>Students assemble the air quality monitoring station at school through hands-on workshops, learning electronics, programming, and environmental science. Our guides support both classroom and remote learning scenarios.</p>
+                            <h3 data-i18n="howItWorks.step2.title">2. Students Build</h3>
+                            <p data-i18n="howItWorks.step2.description">Students assemble the air quality monitoring station at school through hands-on workshops, learning electronics, programming, and environmental science. Our guides support both classroom and remote learning scenarios.</p>
                         </div>
                     </div>
                 </div>
@@ -460,8 +460,8 @@
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <div class="step-text">
-                            <h3>3. Stations Deployed</h3>
-                            <p>Completed stations are installed around the school campus to monitor air quality, temperature, and humidity in real-time, protecting the school community with timely alerts and actionable data.</p>
+                            <h3 data-i18n="howItWorks.step3.title">3. Stations Deployed</h3>
+                            <p data-i18n="howItWorks.step3.description">Completed stations are installed around the school campus to monitor air quality, temperature, and humidity in real-time, protecting the school community with timely alerts and actionable data.</p>
                         </div>
                     </div>
                 </div>
@@ -472,8 +472,8 @@
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="step-text">
-                            <h3>4. Data Collected</h3>
-                            <p>Environmental data is automatically stored in global databases via our secure API, enabling students to analyze trends, contribute to climate research, and compare data with schools worldwide.</p>
+                            <h3 data-i18n="howItWorks.step4.title">4. Data Collected</h3>
+                            <p data-i18n="howItWorks.step4.description">Environmental data is automatically stored in global databases via our secure API, enabling students to analyze trends, contribute to climate research, and compare data with schools worldwide.</p>
                         </div>
                     </div>
                 </div>
@@ -483,16 +483,16 @@
             <div style="margin-top: 4rem;">
                 <div class="tabs" style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid #e0e0e0;">
                     <button class="tab active" onclick="switchTab('overview', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid #2e7d32; cursor: pointer; font-size: 1rem; font-weight: 500; color: #2e7d32;">
-                        <i class="fas fa-chart-line"></i> Overview
+                        <i class="fas fa-chart-line"></i> <span data-i18n="howItWorks.tabs.overview">Overview</span>
                     </button>
                     <button class="tab" onclick="switchTab('schools', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 500; color: #666;">
-                        <i class="fas fa-school"></i> Schools
+                        <i class="fas fa-school"></i> <span data-i18n="howItWorks.tabs.schools">Schools</span>
                     </button>
                     <button class="tab" onclick="switchTab('volunteers', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 500; color: #666;">
-                        <i class="fas fa-users"></i> Volunteers
+                        <i class="fas fa-users"></i> <span data-i18n="howItWorks.tabs.volunteers">Volunteers</span>
                     </button>
                     <button class="tab" onclick="switchTab('data', this)" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 500; color: #666;">
-                        <i class="fas fa-download"></i> Data &amp; API
+                        <i class="fas fa-download"></i> <span data-i18n="howItWorks.tabs.dataApi">Data &amp; API</span>
                     </button>
                 </div>
 
@@ -501,30 +501,30 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                         <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
                             <i class="fas fa-eye" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Current Global AQI</h3>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;" data-i18n="howItWorks.overview.globalAqi">Current Global AQI</h3>
                             <div style="font-size: 2rem; color: #10B981; font-weight: bold;">52</div>
-                            <p>Moderate - Acceptable for most people</p>
+                            <p data-i18n="howItWorks.overview.globalAqiDesc">Moderate - Acceptable for most people</p>
                         </div>
                         <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
                             <i class="fas fa-wind" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Average PM2.5</h3>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;" data-i18n="howItWorks.overview.avgPm25">Average PM2.5</h3>
                             <div style="font-size: 2rem; color: #2e7d32; font-weight: bold;">14.8</div>
-                            <p>μg/m³ - Within WHO guidelines</p>
+                            <p data-i18n="howItWorks.overview.avgPm25Desc">μg/m³ - Within WHO guidelines</p>
                         </div>
                         <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
                             <i class="fas fa-chart-area" style="font-size: 3rem; color: #2e7d32; margin-bottom: 1rem;"></i>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">Real-time Monitoring</h3>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;" data-i18n="howItWorks.overview.realtime">Real-time Monitoring</h3>
                             <div style="font-size: 2rem; color: #3B82F6; font-weight: bold;">24/7</div>
-                            <p>Continuous data collection worldwide</p>
+                            <p data-i18n="howItWorks.overview.realtimeDesc">Continuous data collection worldwide</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Schools Tab -->
                 <div id="schools-tab" class="tab-content" style="display: none; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <h2 style="margin-bottom: 1rem;">School Network Directory</h2>
-                    <p style="margin-bottom: 2rem; color: #666; font-style: italic;">AQI = Air Quality Indicator</p>
-                    <p style="margin-bottom: 2rem; color: #666;">⚠️ Individual school data is private. Only anonymized aggregate data is shown.</p>
+                    <h2 style="margin-bottom: 1rem;" data-i18n="howItWorks.schools.title">School Network Directory</h2>
+                    <p style="margin-bottom: 2rem; color: #666; font-style: italic;" data-i18n="howItWorks.schools.aqiNote">AQI = Air Quality Indicator</p>
+                    <p style="margin-bottom: 2rem; color: #666;" data-i18n="howItWorks.schools.privacyNote">⚠️ Individual school data is private. Only anonymized aggregate data is shown.</p>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                         <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; border: 2px solid #2e7d32; background: linear-gradient(135deg, #f8fff8, #e8f5e8);">
                             <h3 style="color: #1B5E20;">🌬️ Air School</h3>
@@ -555,34 +555,34 @@
 
                 <!-- Volunteers Tab -->
                 <div id="volunteers-tab" class="tab-content" style="display: none; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <h2 style="text-align: center; margin-bottom: 2rem;">Community Volunteers</h2>
-                    <p style="text-align: center; margin-bottom: 3rem; color: #666;">Join our global network of environmental advocates helping schools monitor air quality</p>
+                    <h2 style="text-align: center; margin-bottom: 2rem;" data-i18n="howItWorks.volunteers.title">Community Volunteers</h2>
+                    <p style="text-align: center; margin-bottom: 3rem; color: #666;" data-i18n="howItWorks.volunteers.subtitle">Join our global network of environmental advocates helping schools monitor air quality</p>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                         <div style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
                             <i class="fas fa-users" style="font-size: 3rem; color: white; margin-bottom: 1rem;"></i>
                             <h3 style="color: white; font-size: 1.5rem;">1,247</h3>
-                            <p>Active Volunteers</p>
+                            <p data-i18n="howItWorks.volunteers.activeVolunteers">Active Volunteers</p>
                         </div>
                         <div style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
                             <i class="fas fa-school" style="font-size: 3rem; color: white; margin-bottom: 1rem;"></i>
                             <h3 style="color: white; font-size: 1.5rem;">384</h3>
-                            <p>Schools Helped</p>
+                            <p data-i18n="howItWorks.volunteers.schoolsHelped">Schools Helped</p>
                         </div>
                         <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
                             <i class="fas fa-globe" style="font-size: 3rem; color: white; margin-bottom: 1rem;"></i>
                             <h3 style="color: white; font-size: 1.5rem;">52</h3>
-                            <p>Countries</p>
+                            <p data-i18n="howItWorks.volunteers.countries">Countries</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Data & API Tab -->
                 <div id="data-tab" class="tab-content" style="display: none; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <h2 style="margin-bottom: 2rem;">Data &amp; API Access</h2>
-                    <p style="margin-bottom: 2rem; color: #666;">Access real-time and historical air quality data through our API</p>
+                    <h2 style="margin-bottom: 2rem;" data-i18n="howItWorks.dataApi.title">Data &amp; API Access</h2>
+                    <p style="margin-bottom: 2rem; color: #666;" data-i18n="howItWorks.dataApi.subtitle">Access real-time and historical air quality data through our API</p>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
                         <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
-                            <h3 style="margin-bottom: 1rem;">API Endpoints</h3>
+                            <h3 style="margin-bottom: 1rem;" data-i18n="howItWorks.dataApi.apiEndpoints">API Endpoints</h3>
                             <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
                                 <code>GET /api/v1/schools</code>
                                 <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">List all participating schools</p>
@@ -597,7 +597,7 @@
                             </div>
                         </div>
                         <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e0e0e0;">
-                            <h3 style="margin-bottom: 1rem;">Integration Example</h3>
+                            <h3 style="margin-bottom: 1rem;" data-i18n="howItWorks.dataApi.integrationExample">Integration Example</h3>
                             <div style="background: #1a1a1a; color: #00ff00; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.85rem;">
 curl -X GET https://api.schoolair.org/v1/aqi/europe \
   -H "Authorization: Bearer YOUR_API_KEY"

@@ -1,0 +1,1383 @@
+[
+    {
+        "id": "c16e79fb69980e14",
+        "type": "tab",
+        "label": "Ingestion",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8de2527f93ed8496",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3652a0a7012b13b5",
+        "type": "tab",
+        "label": "External Query",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "93694a11474f66a0",
+        "type": "tab",
+        "label": "Maintenance",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a68c2a8ec271cca8",
+        "type": "ui_tab",
+        "d": true,
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "873997e0ee081bd2",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "a68c2a8ec271cca8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2d427ff89e938be9",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "a68c2a8ec271cca8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cdf0fb8c85742da2",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "a68c2a8ec271cca8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "43785715c3568225",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#0000ff",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#0000ff",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0000ff",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#4d4dff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0000ff",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "AQS Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 2,
+                "gy": 2,
+                "cx": 2,
+                "cy": 2,
+                "px": 2,
+                "py": 2
+            }
+        }
+    },
+    {
+        "id": "aa99e67cb634c36b",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "3b1024320546d422",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "d9c0c5ca824bc510",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "1fd6ef7e0ab12519",
+        "type": "ui_tab",
+        "name": "PumpStationStatus",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0895534484368596",
+        "type": "ui_group",
+        "d": true,
+        "name": "Sectors Status",
+        "tab": "1fd6ef7e0ab12519",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "7bd47c9e05e68724",
+        "type": "ui_group",
+        "d": true,
+        "name": "Pumps Status",
+        "tab": "1fd6ef7e0ab12519",
+        "order": 2,
+        "disp": true,
+        "width": "18",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "f7bf8d7045824561",
+        "type": "ui_group",
+        "d": true,
+        "name": "Other elements status",
+        "tab": "1fd6ef7e0ab12519",
+        "order": 3,
+        "disp": true,
+        "width": "18",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "e3ee1c6bf7d9d6fb",
+        "type": "ui_group",
+        "d": true,
+        "name": "Manual Operations",
+        "tab": "fa3119e50fc4fc6a",
+        "order": 4,
+        "disp": true,
+        "width": "18",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "fa3119e50fc4fc6a",
+        "type": "ui_tab",
+        "name": "LimitConsumption",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c195566d1143d80d",
+        "type": "ui_group",
+        "name": "Irrigation Limits [m3/day]",
+        "tab": "fa3119e50fc4fc6a",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7367bf7298dcef84",
+        "type": "ui_tab",
+        "name": "Proves UI",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2ca236a0eaa45fbd",
+        "type": "ui_group",
+        "name": "Interruptors",
+        "tab": "7367bf7298dcef84",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b6c3f2ad.9683b8",
+        "type": "ui_group",
+        "name": "Gauge",
+        "tab": "69f1b808.6aebe8",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "69f1b808.6aebe8",
+        "type": "ui_tab",
+        "name": "WEASY V1.1.1",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d4066418271af090",
+        "type": "ui_group",
+        "name": "Insights",
+        "tab": "69f1b808.6aebe8",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "98e0280c02db973a",
+        "type": "ui_group",
+        "name": "scheduled",
+        "tab": "69f1b808.6aebe8",
+        "order": 3,
+        "disp": false,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a08689d9b4e804e0",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "ef88078911e00c31",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "f9384f33f627c37b",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "a08689d9b4e804e0",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "ef88078911e00c31",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "31d4fcd4ae6c1e48",
+        "type": "ui-group",
+        "name": "data display",
+        "page": "f9384f33f627c37b",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "0faff31b6e724872",
+        "type": "ui_tab",
+        "name": "Tab 6",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "95555b9c49c4dec8",
+        "type": "ui_group",
+        "name": "Group",
+        "tab": "a68c2a8ec271cca8",
+        "order": null,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0ca2c65c713496b6",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "0faff31b6e724872",
+        "order": 2,
+        "disp": true,
+        "width": 40,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0342d7b059fc6195",
+        "type": "ui_group",
+        "name": "Group 3",
+        "tab": "0faff31b6e724872",
+        "order": 3,
+        "disp": true,
+        "width": 40,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bf5e7aaf96f1e0c3",
+        "type": "ui_group",
+        "name": "Group 5",
+        "tab": "69f1b808.6aebe8",
+        "order": 5,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "2777389fca9a80f3",
+        "type": "websocket-listener",
+        "path": "ws/data",
+        "wholemsg": "false"
+    },
+    {
+        "id": "590b32da0fa86299",
+        "type": "postgreSQLConfig",
+        "name": "",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "camera_events",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "nodered",
+        "userFieldType": "str",
+        "password": "jd6fTs9@n9T1Va",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "ab23f6d2564cb8a2",
+        "type": "ui_group",
+        "name": "UI Button",
+        "tab": "1fd6ef7e0ab12519",
+        "order": 4,
+        "disp": false,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ad756a3f8f54245e",
+        "type": "ui_tab",
+        "name": "aqs",
+        "icon": "dashboard",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5e8d1c31d322aa80",
+        "type": "ui_group",
+        "name": "Current",
+        "tab": "ad756a3f8f54245e",
+        "order": 1,
+        "disp": true,
+        "width": "30",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "a96bf4f8000bd64f",
+        "type": "ui_group",
+        "name": "Timerange",
+        "tab": "ad756a3f8f54245e",
+        "order": 2,
+        "disp": true,
+        "width": "30",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "b1512d9211a4ad94",
+        "type": "redis-config",
+        "name": "Local",
+        "options": "{}",
+        "cluster": false,
+        "optionsType": "json"
+    },
+    {
+        "id": "edad6ac3ecc85819",
+        "type": "websocket-client",
+        "path": "wss://cp.iotvision.co/ws/data",
+        "tls": "aa99e67cb634c36b",
+        "wholemsg": "false",
+        "hb": "0",
+        "subprotocol": ""
+    },
+    {
+        "id": "cdf1778b5a70fe7d",
+        "type": "postgreSQLConfig",
+        "name": "",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "schoolair_db",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "schoolair_admin",
+        "userFieldType": "str",
+        "password": "password_school",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "85b78cdadaf9caa4",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "5a530d34d714a791",
+        "type": "function",
+        "z": "c16e79fb69980e14",
+        "name": "function 172",
+        "func": "msg.data = msg.payload;\nconst authHeader = msg.req.headers.authorization || \"\";\nconst token = authHeader.startsWith(\"Bearer \") ? authHeader.split(' ')[1] : null;\n\nif (!token) {\n  msg.auth = false;\n  msg.error_reason = \"No Auth Token\";\n  return msg;\n}\n\n// Look up the device by the unique token the Pi received at registration\nmsg.params = [token];\nmsg.query = `SELECT device_id FROM devices WHERE auth_token = $1;`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "395ee0262b006307"
+            ]
+        ]
+    },
+    {
+        "id": "395ee0262b006307",
+        "type": "postgresql",
+        "z": "c16e79fb69980e14",
+        "name": "",
+        "query": "",
+        "postgreSQLConfig": "cdf1778b5a70fe7d",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 530,
+        "y": 80,
+        "wires": [
+            [
+                "b34db38a1a16e151"
+            ]
+        ]
+    },
+    {
+        "id": "b34db38a1a16e151",
+        "type": "function",
+        "z": "c16e79fb69980e14",
+        "name": "function 173",
+        "func": "// --- 1. Check if the DB found a token ---\nif (!msg.payload || msg.payload.length === 0) {\n    msg.auth = false;\n    msg.error_reason = \"Invalid Token\";\n    return msg;\n}\n\nconst identity = msg.payload[0];\n\n// --- 2. Simplified Authorization ---\n// Since we no longer use /:device_id in the URL, \n// if the token is valid, the device is authorized for itself.\nconst isAdmin = (identity.access_level >= 3);\nconst isOwnDevice = true; // The token itself proves identity\n\nmsg.auth = isAdmin || isOwnDevice;\n\n// --- 3. Context Passing ---\nmsg.authorized_identity = {\n    role: isAdmin ? \"admin\" : \"unit\",\n    device: identity.device_id\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 80,
+        "wires": [
+            [
+                "c864b76d92be9470"
+            ]
+        ]
+    },
+    {
+        "id": "c864b76d92be9470",
+        "type": "switch",
+        "z": "c16e79fb69980e14",
+        "name": "",
+        "property": "auth",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "735c62e6c077702e",
+                "ed81b399e35f90c6"
+            ],
+            [
+                "0c0ad3d545deea98",
+                "418eae763c687b5a"
+            ]
+        ]
+    },
+    {
+        "id": "735c62e6c077702e",
+        "type": "function",
+        "z": "c16e79fb69980e14",
+        "name": "function 174",
+        "func": "let res = msg.res\nmsg = {}\nmsg.res = res\nmsg.status = 401\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "aaabf23d73c87172"
+            ]
+        ]
+    },
+    {
+        "id": "0c0ad3d545deea98",
+        "type": "function",
+        "z": "c16e79fb69980e14",
+        "name": "function 175",
+        "func": "let res = msg.res\nmsg = {}\nmsg.res = res\nmsg.status = 202\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "aaabf23d73c87172"
+            ]
+        ]
+    },
+    {
+        "id": "aaabf23d73c87172",
+        "type": "http response",
+        "z": "c16e79fb69980e14",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f832ec52b37b831e",
+        "type": "postgresql",
+        "z": "c16e79fb69980e14",
+        "name": "",
+        "query": "",
+        "postgreSQLConfig": "cdf1778b5a70fe7d",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "838d9f424c600b97"
+            ]
+        ]
+    },
+    {
+        "id": "838d9f424c600b97",
+        "type": "debug",
+        "z": "c16e79fb69980e14",
+        "name": "debug 385",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "362be7c9ddc01156",
+        "type": "inject",
+        "z": "c16e79fb69980e14",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "d89507e1c4fc3d8d"
+            ]
+        ]
+    },
+    {
+        "id": "d89507e1c4fc3d8d",
+        "type": "http request",
+        "z": "c16e79fb69980e14",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://data.schoolair.org/node/aqc/apiv0/hello",
+        "tls": "85b78cdadaf9caa4",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [
+                "db25b3dae12ebf44"
+            ]
+        ]
+    },
+    {
+        "id": "db25b3dae12ebf44",
+        "type": "debug",
+        "z": "c16e79fb69980e14",
+        "name": "debug 387",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c2ca84a445dd808d",
+        "type": "http in",
+        "z": "c16e79fb69980e14",
+        "name": "",
+        "url": "/aqc/v1/ingest",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "5a530d34d714a791"
+            ]
+        ]
+    },
+    {
+        "id": "418eae763c687b5a",
+        "type": "function",
+        "z": "c16e79fb69980e14",
+        "name": "function 176",
+        "func": "const identity = msg.payload[0];\n\nif (!identity) {\n    msg.auth = false;\n    msg.error_reason = \"Token not recognized.\";\n    return [null, msg];\n}\n\nconst data = msg.data;\nconst timestamp = data.timestamp || new Date().toISOString();\nconst nickname = data.nickname || null; // Extract the optional nickname\n\n// Clean the JSON blob so it only contains raw sensor values\nconst sensor_payload = { ...data };\ndelete sensor_payload.timestamp;\ndelete sensor_payload.device_id;\ndelete sensor_payload.nickname;\n\n// Update params and query to include the nickname column ($4)\nmsg.params = [\n    identity.device_id,\n    JSON.stringify(sensor_payload),\n    timestamp,\n    nickname\n];\n\nmsg.query = `\n    INSERT INTO measurements (device_id, data, recorded_at, nickname)\n    VALUES ($1, $2::jsonb, $3, $4);\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "f832ec52b37b831e",
+                "838d9f424c600b97"
+            ]
+        ]
+    },
+    {
+        "id": "ed81b399e35f90c6",
+        "type": "debug",
+        "z": "c16e79fb69980e14",
+        "name": "debug 395",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9b297901f5e7678d",
+        "type": "http in",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "url": "/admin-dashboard",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "8c374af846e04e50"
+            ]
+        ]
+    },
+    {
+        "id": "18ce770199ad4d55",
+        "type": "http response",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8c374af846e04e50",
+        "type": "template",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html>\n<head>\n    <title>SchoolAir Data Reader</title>\n    <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation\"></script>\n    \n    <style>\n        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }\n        table { width: 100%; border-collapse: collapse; background: white; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }\n        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }\n        th { background: #333; color: white; }\n        tr:nth-child(even) { background-color: #f9f9f9; }\n        .controls { background: white; padding: 20px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 20px; }\n        input { padding: 10px; width: 320px; border: 1px solid #ccc; border-radius: 4px; }\n        button { padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }\n        .json-box { font-size: 11px; background: #eee; padding: 5px; max-height: 100px; overflow: auto; display: block; }\n        #status { margin-top: 10px; font-weight: bold; }\n        .hidden { display: none !important; }\n\n        /* 1. Shrink the container padding */\n        .header-action-zone {\n            padding: 2px 0; /* Minimal vertical padding */\n        }\n\n        /* 2. Remove the ghost label space (In HTML, just delete the <label> or use this) */\n        label[for=\"columnSelector\"] {\n            display: none !important;\n        }\n\n        #columnSelector {\n            color: #1a1a1a !important;\n            padding: 6px 35px 6px 6px; \n            border-radius: 6px;\n            border: 2px solid #28a745; \n            cursor: pointer;\n            font-size: 13px;\n            font-weight: 700;\n            width: 100%;\n            display: block;\n            appearance: none;\n            -webkit-appearance: none;\n\n            /* DUAL ICONS: Chart and Arrow both on the right */\n            background-image: \n                /* Line Chart Icon */\n                url(\"data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2328a745' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M18 9l-5 5-4-4-5 5'/%3E%3C/svg%3E\"),\n                /* Dropdown Arrow */\n                url(\"data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2328a745' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E\");\n                \n            background-repeat: no-repeat, no-repeat;\n            /* Position: Chart at 32px from right, Arrow at 10px from right */\n            background-position: right 32px center, right 10px center;\n            background-size: 16px, 12px;\n        }\n\n        #columnSelector:hover {\n            transform: scale(1.02);\n            box-shadow: 0 6px 12px rgba(0,0,0,0.4);\n            background-color: #f9fff9 !important;\n            animation: none; /* Stop pulsing when user interacts */\n        }\n\n        /* Align the 4th column data to the right */\n        #dataTable td:nth-child(4) {\n            text-align: right;\n            padding-right: 20px; /* Gives it a little breathing room from the border */\n            font-family: monospace; /* Optional: keeps numbers lined up perfectly */\n            font-weight: bold;\n        }\n\n        .chart-container { background: white; padding: 20px; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 5px; height: 320px; position: relative; }\n        \n        /* Safety Alert Styling */\n        #safetyAlert { \n            background: #fff3cd; \n            border-left: 5px solid #ffc107; \n            padding: 15px; \n            margin-bottom: 20px; \n            border-radius: 0 8px 8px 0;\n            font-size: 0.9em;\n            line-height: 1.4;\n        }\n        .alert-danger { border-left-color: #dc3545 !important; background: #f8d7da !important; }\n    </style>\n</head>\n<body>\n    <h2 id=\"dashboardTitle\">Org Admin Dashboard</h2>\n    \n    <div class=\"controls\" id=\"controlPanel\">\n        <input type=\"text\" id=\"token\" placeholder=\"Enter Admin or Device Token\">\n        <button onclick=\"fetchData()\">Get Sensor Data</button>\n        <div id=\"status\"></div>\n    </div>\n\n    <div class=\"chart-container\" id=\"chartDiv\">\n        <canvas id=\"airChart\"></canvas>\n    </div>\n\n    <div id=\"safetyAlert\" class=\"hidden\"></div>\n\n    <table id=\"dataTable\">\n        <thead>\n            <tr>\n                <th>Timestamp</th>\n                <th>Device</th>\n                <th>Group (Org)</th>\n                <th style=\"width: 15%; white-space: nowrap; padding: 4px 10px; vertical-align: middle;\">                <div class=\"header-action-zone\">\n                    <label for=\"columnSelector\" style=\"display: block; font-size: 10px; color: #28a745; font-weight: bold; margin-bottom: 6px; text-transform: uppercase;\">\n                    </label>\n                    <select id=\"columnSelector\" onchange=\"renderAll()\">\n                        <option value=\"pm25\">PM2.5 (µg/m³)</option>\n                        <option value=\"temp\">Temperature (°C)</option>\n                        <option value=\"hum\">Humidity (%)</option>\n                        <option value=\"press\">Pressure (hPa)</option>\n                        <option value=\"co2\">CO2 (ppm)</option>\n                        <option value=\"pm10\">PM1.0 (µg/m³)</option>\n                        <option value=\"pm40\">PM4.0 (µg/m³)</option>\n                        <option value=\"pm100\">PM10.0 (µg/m³)</option>\n                        <option value=\"co\">Carbon Monoxide (CO)</option>\n                        <option value=\"no2\">Nitrogen Dioxide (NO2)</option>\n                        <option value=\"voc\">VOC Index</option>\n                        <option value=\"c2h5oh\">Ethyl Alcohol (C2H5OH)</option>\n                    </select>\n                </div>\n            </th>\n                <th>Raw Data</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr><td colspan=\"5\" style=\"text-align:center;\">Enter token and click the button to load data.</td></tr>\n        </tbody>\n    </table>\n\n    <script>\nlet cachedRows = []; \nlet myChart = null;\n\nwindow.onload = function() {\n    const urlParams = new URLSearchParams(window.location.search);\n    const tokenFromUrl = urlParams.get('token');\n    if (tokenFromUrl) {\n        document.getElementById('controlPanel').classList.add('hidden');\n        document.getElementById('dashboardTitle').classList.add('hidden');\n        document.getElementById('token').value = tokenFromUrl;\n        fetchData();\n    }\n};\n\nasync function fetchData() {\n    let token = document.getElementById('token').value.trim();\n    const status = document.getElementById('status');\n    if (!token) return;\n    status.innerText = \"🔍 Querying database...\";\n    try {\n        const response = await fetch('/node/aqc/apiv1/read', {\n            headers: { 'Authorization': 'Bearer ' + token }\n        });\n        if (!response.ok) {\n            status.innerText = \"❌ Access Denied.\";\n            document.getElementById('controlPanel').classList.remove('hidden');\n            return;\n        }\n        cachedRows = await response.json();\n        renderAll(); \n        status.innerText = \"✅ Data loaded.\";\n    } catch (err) { status.innerText = \"❌ Connection Failed.\"; }\n}\n\nfunction renderAll() {\n    renderTable();\n    renderChart();\n    updateSafetyAlerts();\n}\n\nfunction getValue(row, type) {\n    const data = row.data || {};\n    switch(type) {\n        case \"pm25\":  return data.sen6x?.pm25  ?? data.hm3301?.pm2_5_std ?? null;\n        case \"pm10\":  return data.sen6x?.pm10  ?? null;\n        case \"pm40\":  return data.sen6x?.pm40  ?? null;\n        case \"pm100\": return data.sen6x?.pm100 ?? null;\n        case \"temp\":  return data.sen6x?.temp  ?? data.sht_30?.temperature_celsius ?? data.qmp_6988?.temperature_celsius ?? null;\n        case \"hum\":   return data.sen6x?.humidity ?? data.sht_30?.humidity_percent ?? null;\n        case \"press\": return data.qmp_6988?.pressure_hpa ?? null;\n        case \"co2\":   return data.sen6x?.co2   ?? null;\n        case \"co\":    return data.mgs?.co     ?? null;\n        case \"no2\":   return data.mgs?.no2    ?? null;\n        case \"voc\":   return data.mgs?.voc    ?? null;\n        case \"c2h5oh\":   return data.mgs?.c2h5oh    ?? null;\n        default: return null;\n    }\n}\n\nfunction updateSafetyAlerts() {\n    const selector = document.getElementById('columnSelector');\n    const type = selector.value;\n    const alertDiv = document.getElementById('safetyAlert');\n    \n    // Comprehensive Health & Source Guide\n    const guides = {\n        \"pm25\": {\n            title: \"PM2.5 (Fine Particles)\",\n            text: \"These tiny particles reach deep into the lungs and bloodstream. Can trigger <strong>asthma attacks</strong> and increase cardiovascular risk.<br><br><strong>WHO Guidelines:</strong><br>• 0-15 µg/m³: Good.<br>• >35 µg/m³: Unhealthy.\"\n        },\n        \"pm10\": {\n            title: \"PM1.0 (Ultrafine Particles)\",\n            text: \"Derived from combustion (engines, smoke).<br>No official limit, but high levels are linked to systemic inflammation as they bypass lung barriers entirely.\"\n        },\n        \"pm40\": {\n            title: \"PM4.0 (Respirable Dust)\",\n            text: \"Used to measure dust that reaches the gas-exchange region of the lungs.<br>Trends usually follow PM2.5.\"\n        },\n        \"pm100\": {\n            title: \"PM10.0 (Coarse Particles)\",\n            text: \"Mostly dust, pollen, and mold. Causes throat irritation, sneezing, and upper respiratory discomfort.<br><br><strong>WHO Guidelines:</strong><br>• 0-45 µg/m³: Acceptable.<br>• >45 µg/m³: High.\"\n        },\n        \"co2\": {\n            title: \"CO2 (Carbon Dioxide)\",\n            text: \"• 400-1000 ppm: Good.<br>• 1000-2000 ppm: Drowsiness and poor concentration.<br>• >2000 ppm: Headaches and stuffiness. May even affect your test scores ☹️.\"\n        },\n        \"temp\": {\n            title: \"Temperature\",\n            text: \"Ideal indoor range: 20-24°C (68-75°F).<br>Extreme temperatures affect productivity and can exacerbate existing respiratory conditions.\"\n        },\n        \"hum\": {\n            title: \"Humidity\",\n            text: \"Ideal range: 30-50%.<br>High humidity (>60%) promotes <strong>mold growth</strong> and dust mites.<br>Low humidity (<30%) causes dry skin and increases viral transmission.\"\n        },\n        \"press\": {\n            title: \"Atmospheric Pressure\",\n            text: \"Significant drops often precede stormy weather.<br>Some individuals experience joint pain or migraines during rapid pressure changes.\"\n        },\n        \"co\": {\n            title: \"Carbon Monoxide (CO)\",\n            text: \"A colorless, odorless toxic gas.<br>High levels indicate faulty heating systems or vehicle exhaust infiltration.<br>Can cause dizziness and, at high levels, is fatal.\"\n        },\n        \"no2\": {\n            title: \"Nitrogen Dioxide (NO2)\",\n            text: \"Primarily from traffic exhaust.<br>Known to inflame the airways and is a major trigger for <strong>chronic bronzechitis</strong> and asthma exacerbations.\"\n        },\n        \"voc\": {\n            title: \"VOC Index (Volatile Organic Compounds)\",\n            text: \"Gasses emitted from paints, markers, and new furniture.<br>High levels cause 'Sick Building Syndrome'—headaches, nausea, and eye irritation.\"\n        },\n        \"c2h5oh\": {\n            title: \"Ethyl Alcohol (Ethanol)\",\n            text: \"High values typically indicate recent use of <strong>hand sanitizers</strong>, cleaning sprays, or disinfectants in the vicinity of the sensor.\"\n        }\n    };\n\n    const guide = guides[type];\n\n    if (guide) {\n        alertDiv.innerHTML = `<strong>${guide.title}:</strong><br>${guide.text}`;\n        alertDiv.classList.remove('hidden');\n        \n        // Dynamic Danger Styling\n        const latest = getValue(cachedRows[0], type);\n        const isDangerous = (type === \"co2\" && latest > 2000) || \n                            (type === \"pm25\" && latest > 35) || \n                            (type === \"pm100\" && latest > 45) ||\n                            (type === \"co\" && latest > 9); // EPA 8-hour limit is 9ppm\n        \n        alertDiv.className = isDangerous ? \"alert-danger\" : \"\";\n    } else { \n        alertDiv.classList.add('hidden'); \n    }\n}\n\nfunction renderChart() {\n    const ctx = document.getElementById('airChart').getContext('2d');\n    const selector = document.getElementById('columnSelector');\n    const selectedType = selector.value;\n    const labelText = selector.options[selector.selectedIndex].text;\n\n    const chartData = cachedRows\n        .map(row => ({ x: new Date(row.recorded_at), y: getValue(row, selectedType) }))\n        .filter(d => d.y !== null)\n        .sort((a, b) => a.x - b.x);\n\n    let annotations = {};\n\n    // 1. Threshold Lines (Air Quality)\n    if (selectedType === \"co2\") {\n        annotations.line1 = { type: 'line', yMin: 1000, yMax: 1000, borderColor: '#ffc107', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: 'Ventilate', position: 'end', font: { size: 10 } } };\n        annotations.line2 = { type: 'line', yMin: 2000, yMax: 2000, borderColor: '#dc3545', borderWidth: 2, borderDash: [6, 6], label: { display: true, content: 'Critical', position: 'end', font: { size: 10 } } };\n    } else if (selectedType === \"pm25\") {\n        annotations.line1 = { type: 'line', yMin: 15, yMax: 15, borderColor: '#ffc107', borderWidth: 1.5, borderDash: [4, 4], label: { display: true, content: 'WHO Limit', position: 'end', font: { size: 9 } } };\n        annotations.line2 = { type: 'line', yMin: 35, yMax: 35, borderColor: '#dc3545', borderWidth: 2, borderDash: [4, 4], label: { display: true, content: 'Unhealthy', position: 'end', font: { size: 9 } } };\n    } \n\n    // 2. Ideal Range Boxes (Temp & Humidity)\n    if (selectedType === \"temp\") {\n        annotations.idealZone = {\n            type: 'box',\n            yMin: 20,\n            yMax: 24,\n            backgroundColor: 'rgba(0, 123, 255, 0.05)',\n            borderColor: 'rgba(0, 123, 255, 0.2)',\n            borderWidth: 1,\n            label: { display: true, content: 'Ideal Range (20-24°C)', position: 'start', font: { size: 10, style: 'italic' }, color: '#666' }\n        };\n    } else if (selectedType === \"hum\") {\n        annotations.idealZone = {\n            type: 'box',\n            yMin: 30,\n            yMax: 50,\n            backgroundColor: 'rgba(0, 123, 255, 0.05)',\n            borderColor: 'rgba(0, 123, 255, 0.2)',\n            borderWidth: 1,\n            label: { display: true, content: 'Ideal Humidity (30-50%)', position: 'start', font: { size: 10, style: 'italic' }, color: '#666' }\n        };\n    }\n\n    if (myChart) myChart.destroy();\n\n    myChart = new Chart(ctx, {\n        type: 'line',\n        data: {\n            datasets: [{\n                data: chartData,\n                borderColor: '#28a745',\n                backgroundColor: 'rgba(40, 167, 69, 0.1)',\n                tension: 0.3,\n                fill: true,\n                pointRadius: 2\n            }]\n        },\n        options: {\n            responsive: true,\n            maintainAspectRatio: false,\n            plugins: {\n                legend: { display: false },\n                annotation: { annotations: annotations },\n                title: {\n                    display: true,\n                    text: labelText,\n                    font: { size: 18, weight: 'bold' },\n                    color: '#333'\n                }\n            },\n            scales: {\n                x: { type: 'time', time: { unit: 'hour', displayFormats: { hour: 'h:mm a' } } },\n                y: { beginAtZero: false }\n            }\n        }\n    });\n}\n\nfunction renderTable() {\n    const tbody = document.querySelector('#dataTable tbody');\n    const selectedType = document.getElementById('columnSelector').value;\n    tbody.innerHTML = ''; \n\n    // Define precision for each metric\n    const precisionMap = {\n        \"pm25\": 1, \"pm10\": 1, \"pm40\": 1, \"pm100\": 1, // PMs: 1 decimal\n        \"temp\": 2, \"hum\": 2                          // Temp/Hum: 2 decimals\n        // All others default to 0 (integers)\n    };\n\n    cachedRows.forEach(row => {\n        const tr = document.createElement('tr');\n        let val = getValue(row, selectedType);\n        \n        // Format the number based on the map\n        if (val !== null && !isNaN(val)) {\n            const precision = precisionMap[selectedType] ?? 0;\n            val = Number(val).toFixed(precision);\n        } else {\n            val = \"N/A\";\n        }\n\n        tr.innerHTML = `\n            <td>${new Date(row.recorded_at).toLocaleString()}</td>\n            <td><strong>${row.device_nickname || row.device_id}</strong></td>\n            <td><code>${row.org_nickname || \"No Org\"}</code></td>\n            <td>${val}</td>\n            <td><details><summary>JSON</summary><pre class=\"json-box\">${JSON.stringify(row.data, null, 2)}</pre></details></td>\n        `;\n        tbody.appendChild(tr);\n    });\n}\n    </script>\n</body>\n</html>",
+        "output": "str",
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "18ce770199ad4d55",
+                "564f320c0067e219"
+            ]
+        ]
+    },
+    {
+        "id": "3ed7390baa0d1241",
+        "type": "http in",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "url": "/aqc/apiv1/read",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "ebc2eb5e5680032c"
+            ]
+        ]
+    },
+    {
+        "id": "ebc2eb5e5680032c",
+        "type": "function",
+        "z": "8de2527f93ed8496",
+        "name": "function 187",
+        "func": "// Get the token from the browser's request\nconst authHeader = msg.req.headers.authorization || \"\";\n\n// Forward the token to our internal API\nmsg.headers = {\n    \"Authorization\": authHeader,\n    \"Content-Type\": \"application/json\"\n};\n\n// Target our new unified query endpoint\nmsg.url = \"http://127.0.0.1:1880/node/aqc/apiv1/external/query\";\nmsg.method = \"POST\";\n\n// We can pass filters here later if needed\nmsg.payload = {};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "0cdfe761b01b0228",
+                "c413ca26de159c53"
+            ]
+        ]
+    },
+    {
+        "id": "18478d97cd1c1b66",
+        "type": "http in",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "url": "/aqc/register",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "a5570edb5d042413",
+                "5f7ae5f58f7345f3"
+            ]
+        ]
+    },
+    {
+        "id": "1f4d301967a58562",
+        "type": "debug",
+        "z": "8de2527f93ed8496",
+        "name": "debug 391",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a5570edb5d042413",
+        "type": "function",
+        "z": "8de2527f93ed8496",
+        "name": "function 188",
+        "func": "const authHeader = msg.req.headers.authorization || \"\";\nmsg.token = authHeader.replace(\"Bearer \", \"\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "61b9972b3a803c63"
+            ]
+        ]
+    },
+    {
+        "id": "61b9972b3a803c63",
+        "type": "function",
+        "z": "8de2527f93ed8496",
+        "name": "function 189",
+        "func": "// Data from the Pi's POST body\nmsg.serial = msg.payload.cpu_serial;\nmsg.nickname = msg.payload.nickname || \"New Device\";\n\n// Data from the Authorization Header (already parsed in previous node)\nmsg.params = [msg.token, msg.serial];\n\nmsg.query = `\n    SELECT \n        o.org_id, \n        o.remaining_devices,\n        d.auth_token as existing_token,\n        d.device_id\n    FROM organizations o\n    LEFT JOIN devices d ON d.cpu_serial = $2 AND d.org_id = o.org_id\n    WHERE o.prov_token = $1;\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 440,
+        "wires": [
+            [
+                "c8c94b430b79ccec"
+            ]
+        ]
+    },
+    {
+        "id": "c8c94b430b79ccec",
+        "type": "postgresql",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "query": "",
+        "postgreSQLConfig": "cdf1778b5a70fe7d",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 730,
+        "y": 440,
+        "wires": [
+            [
+                "1f4d301967a58562",
+                "918811e31bfe8046"
+            ]
+        ]
+    },
+    {
+        "id": "5f7ae5f58f7345f3",
+        "type": "debug",
+        "z": "8de2527f93ed8496",
+        "name": "debug 392",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "918811e31bfe8046",
+        "type": "function",
+        "z": "8de2527f93ed8496",
+        "name": "Handle Registraion",
+        "func": "const result = msg.payload[0];\n\n// 1. Basic Validation\nif (!result || !result.org_id) {\n    msg.statusCode = 401;\n    msg.payload = { status: \"error\", message: \"Invalid Provisioning Token\" };\n    return [null, msg];\n}\n\n// 2. Prepare tokens\nmsg.auth_token = result.existing_token || crypto.randomBytes(24).toString('hex');\nmsg.is_new = !result.existing_token;\n\n// 3. SCENARIO: Re-registration (Update existing)\nif (result.existing_token) {\n    msg.device_id = result.device_id;\n    msg.query = \"UPDATE devices SET nickname = $1 WHERE device_id = $2 RETURNING device_id;\";\n    msg.params = [msg.nickname, msg.device_id];\n    return [msg, null];\n}\n\n// 4. SCENARIO: New Registration (The fix is here!)\nif (result.remaining_devices <= 0) {\n    msg.statusCode = 403;\n    msg.payload = { status: \"error\", message: \"No slots remaining.\" };\n    return [null, msg];\n}\n\n// NOTICE: We do NOT include device_id in the columns or values list below.\n// This allows the database sequence we created in Step 1 to take over.\nmsg.query = `\n    INSERT INTO devices (org_id, cpu_serial, nickname, auth_token)\n    VALUES ($1, $2, $3, $4)\n    RETURNING device_id;\n`;\nmsg.params = [result.org_id, msg.serial, msg.nickname, msg.auth_token];\n\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "crypto",
+                "module": "crypto"
+            }
+        ],
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [
+                "7a612c2c22a46044",
+                "37b8a189c6949ddf"
+            ],
+            [
+                "8c7ec6fd0e3136e9"
+            ]
+        ]
+    },
+    {
+        "id": "7a612c2c22a46044",
+        "type": "postgresql",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "query": "",
+        "postgreSQLConfig": "cdf1778b5a70fe7d",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "303223ac255e4fb8"
+            ]
+        ]
+    },
+    {
+        "id": "8c7ec6fd0e3136e9",
+        "type": "http response",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 470,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "303223ac255e4fb8",
+        "type": "function",
+        "z": "8de2527f93ed8496",
+        "name": "Handle Success",
+        "func": "const db_row = msg.payload[0];\n\n// The DB-generated ID will be in db_row.device_id\nif (!db_row || !db_row.device_id) {\n    msg.statusCode = 500;\n    msg.payload = { status: \"error\", message: \"Database failed to generate ID.\" };\n    return [null, msg];\n}\n\nmsg.payload = {\n    status: \"success\",\n    token: msg.auth_token,\n    device_id: db_row.device_id, // e.g., \"aqc-1\"\n    new_registration: msg.is_new\n};\n\nreturn [msg, null];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 480,
+        "wires": [
+            [
+                "8c7ec6fd0e3136e9"
+            ]
+        ]
+    },
+    {
+        "id": "276e974b4384e6db",
+        "type": "inject",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "b36ff9e03305df5a"
+            ]
+        ]
+    },
+    {
+        "id": "564f320c0067e219",
+        "type": "debug",
+        "z": "8de2527f93ed8496",
+        "name": "debug 393",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b36ff9e03305df5a",
+        "type": "postgresql",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "query": "select * from devices",
+        "postgreSQLConfig": "cdf1778b5a70fe7d",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 370,
+        "y": 60,
+        "wires": [
+            [
+                "564f320c0067e219"
+            ]
+        ]
+    },
+    {
+        "id": "37b8a189c6949ddf",
+        "type": "debug",
+        "z": "8de2527f93ed8496",
+        "name": "debug 394",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "0cdfe761b01b0228",
+        "type": "http request",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "09f938586d52375b"
+            ]
+        ]
+    },
+    {
+        "id": "09f938586d52375b",
+        "type": "http response",
+        "z": "8de2527f93ed8496",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c413ca26de159c53",
+        "type": "debug",
+        "z": "8de2527f93ed8496",
+        "name": "debug 396",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8ba966807eea4337",
+        "type": "http in",
+        "z": "3652a0a7012b13b5",
+        "name": "",
+        "url": "/aqc/apiv1/external/query",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "fcd21b524a09d089"
+            ]
+        ]
+    },
+    {
+        "id": "fcd21b524a09d089",
+        "type": "function",
+        "z": "3652a0a7012b13b5",
+        "name": "Packet Verifyer",
+        "func": "const authHeader = msg.req.headers.authorization || \"\";\n\n// 1. Token Verification\nif (!authHeader.toLowerCase().startsWith(\"bearer \")) {\n    msg.statusCode = 401;\n    msg.payload = { error: \"Authentication Required\" };\n    return [null, msg];\n}\n\nconst token = authHeader.substring(7).trim();\n\n// 2. Extract Date Filters from POST body\n// If not provided, we pass null to the SQL query\nconst startDate = msg.payload.start_date || null;\nconst endDate = msg.payload.end_date || null;\n\n// 3. Query Construction\n// $1 & $2: Token check\n// $3: Start Date filter\n// $4: End Date filter\nmsg.params = [token, token, startDate, endDate];\n\nmsg.query = `\n    WITH identity AS (\n        SELECT 'device' as type, device_id, org_id \n        FROM devices WHERE auth_token = $1\n        UNION ALL\n        SELECT 'org' as type, NULL as device_id, org_id \n        FROM organizations WHERE prov_token = $2\n    )\n    SELECT \n        m.recorded_at, \n        m.device_id, \n        m.nickname AS device_nickname, \n        o.nickname AS org_nickname,\n        m.data \n    FROM measurements m\n    JOIN devices d ON m.device_id = d.device_id\n    JOIN organizations o ON d.org_id = o.org_id\n    JOIN identity i ON (i.type = 'device' AND m.device_id = i.device_id) \n                    OR (i.type = 'org' AND d.org_id = i.org_id)\n    WHERE \n        ($3::timestamp IS NULL OR m.recorded_at >= $3::timestamp)\n        AND ($4::timestamp IS NULL OR m.recorded_at <= $4::timestamp)\n    ORDER BY m.recorded_at DESC\n    LIMIT CASE \n        WHEN $3 IS NULL AND $4 IS NULL THEN 500 \n        ELSE 5000 \n    END;\n`;\n\nreturn [msg, null];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "b68a38512bd0c834"
+            ]
+        ]
+    },
+    {
+        "id": "b68a38512bd0c834",
+        "type": "postgresql",
+        "z": "3652a0a7012b13b5",
+        "name": "",
+        "query": "",
+        "postgreSQLConfig": "cdf1778b5a70fe7d",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "5557b73c21e8dfb8"
+            ]
+        ]
+    },
+    {
+        "id": "5557b73c21e8dfb8",
+        "type": "http response",
+        "z": "3652a0a7012b13b5",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 100,
+        "wires": []
+    }
+]

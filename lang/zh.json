@@ -18,7 +18,6 @@
     "automations": "自动化",
     "logout": "退出登录"
   },
-
   "hero": {
     "title": "更健康的空气，由学生打造",
     "subtitle": "SchoolAir：新技能，持久影响。",
@@ -33,12 +32,10 @@
     "quote2Author": "",
     "audioMessage": "来自创始人的一段话"
   },
-
   "partners": {
     "trustedBySchools": "全球学校信赖之选",
     "globalMedia": "全球媒体"
   },
-
   "project": {
     "title": "schoolAIR 项目",
     "subtitle": "一个将动手实践的 STEM 学习与真实环境监测相结合的综合教育项目。教育之外还有更重要的目的：我们的孩子可能正在呼吸不健康的空气。这个项目为学校和学生提供当地的实时数据——而不仅仅是政府发布的笼统信息。",
@@ -60,7 +57,6 @@
       "description": "使用现代传感器、微控制器和云技术，构建实用的绿色科技基础设施。"
     }
   },
-
   "features": {
     "title": "项目特色",
     "subtitle": "环境监测和教育所需的一切",
@@ -89,7 +85,6 @@
       "description": "当趋势预示危险或达到阈值时自动发出警告"
     }
   },
-
   "ticker": {
     "label": "新闻",
     "item1": "<strong>2026年4月：</strong>家长和赞助人赞助通道开放——家长现在可以直接守护一间教室！",
@@ -97,7 +92,6 @@
     "item3": "<strong>2026年3月：</strong>首批机构完成套件组装！BFIS 在多个位置安装了室外监测单元",
     "readAllNews": "阅读全部新闻 →"
   },
-
   "announcements": {
     "title": "项目动态与新闻",
     "subtitle": "schoolAIR 社区的最新进展",
@@ -126,7 +120,6 @@
       "description": "我们需要开发者、教育工作者和环保爱好者来帮助推动这个项目。这是一个100%由志愿者驱动的计划。"
     }
   },
-
   "impact": {
     "title": "教育影响",
     "subtitle": "来自全球使用 schoolAIR 的学校的真实数据",
@@ -159,7 +152,6 @@
       }
     }
   },
-
   "components": {
     "title": "技术与组件",
     "subtitle": "构建空气质量监测站所需的一切",
@@ -201,7 +193,6 @@
     "statusPlanning": "规划中",
     "statusCompleted": "已完成！"
   },
-
   "getInvolved": {
     "title": "注册你的学校",
     "subtitle": "加入不断壮大的学校网络，守护学生健康",
@@ -222,7 +213,6 @@
     "orderKitsNow": "立即订购套件",
     "contactUsFirst": "先联系我们"
   },
-
   "contact": {
     "title": "联系我们",
     "subtitle": "准备好开始你的环境监测项目了吗？",
@@ -250,7 +240,6 @@
     "successTitle": "消息已发送！",
     "successClose": "关闭"
   },
-
   "footer": {
     "aboutUs": "关于我们",
     "aboutDescription": "国际绿色科技基金会是一个致力于推进环保技术教育的非营利组织。我们充满热情的全球教育工作者、工程师和学生网络相信，通过动手学习赋能下一代。",
@@ -268,7 +257,6 @@
     "faqs": "常见问题",
     "copyright": "© 2024 schoolAIR 项目。面向环境监测的开源教育计划。"
   },
-
   "portal": {
     "loading": "正在加载学校门户……",
     "navBrand": "SchoolAIR",
@@ -337,7 +325,6 @@
       }
     }
   },
-
   "sponsor": {
     "pageTitle": "赞助教室 - SchoolAIR",
     "genericPageTitle": "守护教室 - SchoolAIR",
@@ -451,7 +438,6 @@
       "labelFailed": "更新失败。链接可能已过期。"
     }
   },
-
   "dashboard": {
     "pageTitle": "室内空气质量 - Air School",
     "header": {
@@ -467,7 +453,8 @@
       "primaryA": "小学 A",
       "primaryB": "小学 B",
       "secondaryA": "中学 A",
-      "secondaryB": "中学 B"
+      "secondaryB": "中学 B",
+      "basketball1": "🏀 Basketball1"
     },
     "metrics": {
       "co2": "CO₂",
@@ -498,7 +485,6 @@
       "status": "状态"
     }
   },
-
   "liveData": {
     "pageTitle": "实时空气质量数据",
     "loading": "正在加载传感器数据……",
@@ -509,15 +495,42 @@
       "device": "设备"
     },
     "metrics": {
-      "pm25": { "label": "PM2.5", "unit": "ug/m3" },
-      "co2": { "label": "CO2", "unit": "ppm" },
-      "temp": { "label": "温度", "unit": "°C" },
-      "humidity": { "label": "湿度", "unit": "%" },
-      "pm10": { "label": "PM1.0", "unit": "ug/m3" },
-      "pm100": { "label": "PM10.0", "unit": "ug/m3" },
-      "co": { "label": "CO", "unit": "ppm" },
-      "no2": { "label": "NO2", "unit": "ppm" },
-      "voc": { "label": "VOC", "unit": "index" }
+      "pm25": {
+        "label": "PM2.5",
+        "unit": "ug/m3"
+      },
+      "co2": {
+        "label": "CO2",
+        "unit": "ppm"
+      },
+      "temp": {
+        "label": "温度",
+        "unit": "°C"
+      },
+      "humidity": {
+        "label": "湿度",
+        "unit": "%"
+      },
+      "pm10": {
+        "label": "PM1.0",
+        "unit": "ug/m3"
+      },
+      "pm100": {
+        "label": "PM10.0",
+        "unit": "ug/m3"
+      },
+      "co": {
+        "label": "CO",
+        "unit": "ppm"
+      },
+      "no2": {
+        "label": "NO2",
+        "unit": "ppm"
+      },
+      "voc": {
+        "label": "VOC",
+        "unit": "index"
+      }
     },
     "alerts": {
       "aboveDanger": "{metric}：{value} {unit} — 超过危险阈值 ({threshold})",
@@ -567,11 +580,10 @@
       },
       "voc": {
         "title": "VOC 指数（挥发性有机化合物）",
-        "text": "由油漆、记号笔和新家具释放的气体。高浓度会导致\u201c病态建筑综合征\u201d——头痛、恶心和眼睛刺激。"
+        "text": "由油漆、记号笔和新家具释放的气体。高浓度会导致“病态建筑综合征”——头痛、恶心和眼睛刺激。"
       }
     }
   },
-
   "howItWorks": {
     "pageTitle": "运作方式",
     "title": "运作方式",
@@ -657,7 +669,6 @@
       "integrationExample": "集成示例"
     }
   },
-
   "dashboardPage": {
     "title": "SchoolAIR 全球网络",
     "subtitle": "跨5个国家的实时空气质量监测",
@@ -682,7 +693,6 @@
       "realTimeDescription": "全球持续数据采集"
     }
   },
-
   "eventsPage": {
     "title": "活动与工作坊",
     "subtitle": "通过工作坊、实习和协作活动加入我们的全球社区，汇聚学生和教育工作者，共同推进环境监测技术。",
@@ -735,7 +745,6 @@
       "expectedOutcomesText": "新的传感器技术、改进的站点设计、增强的数据分析以及扩展的平台功能，将惠及整个全球SchoolAIR网络。"
     }
   },
-
   "common": {
     "loading": "加载中……",
     "error": "发生错误",
@@ -763,7 +772,6 @@
     "logoTagline": "国际绿色科技基金会项目",
     "launch": "启动"
   },
-
   "blog": {
     "title": "SchoolAir 博客",
     "subtitle": "我们空气质量监测项目的最新新闻、动态和见解",
@@ -821,7 +829,6 @@
       "copyright": "© 2024 International Green Tech Foundation。保留所有权利。"
     }
   },
-
   "products": {
     "heroTitle": "技术",
     "heroSubtitle": "选择加入 schoolAIR 社区的方式，开始监测您所在机构的空气质量",

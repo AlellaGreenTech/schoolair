@@ -398,7 +398,7 @@ class AirQualityMonitor {
 
         // Set classroom name
         const classroomNames = {
-            'nursery': '🧸 Nursery',
+            'nursery': '🏀 Basketball1',
             'primary-a': '📚 Primary A',
             'primary-b': '✏️ Primary B',
             'secondary-a': '🧪 Secondary A',

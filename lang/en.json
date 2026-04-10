@@ -18,7 +18,6 @@
     "automations": "Automations",
     "logout": "Logout"
   },
-
   "hero": {
     "title": "Healthier Air. Built by Students",
     "subtitle": "SchoolAir: New skills. Lasting Impact.",
@@ -33,15 +32,13 @@
     "quote2Author": "",
     "audioMessage": "A message from the founder"
   },
-
   "partners": {
     "trustedBySchools": "Trusted by Schools Worldwide",
     "globalMedia": "Global Media"
   },
-
   "project": {
     "title": "The schoolAIR Project",
-    "subtitle": "A comprehensive educational project that combines hands-on STEM learning with real-world environmental monitoring. There is a purpose beyond education: Our children might be exposed to unhealthy air. This project gives schools and students real-time data about the local area \u2014 not just what governments publish broadly.",
+    "subtitle": "A comprehensive educational project that combines hands-on STEM learning with real-world environmental monitoring. There is a purpose beyond education: Our children might be exposed to unhealthy air. This project gives schools and students real-time data about the local area — not just what governments publish broadly.",
     "infoSheetButton": "See Our Info Sheet",
     "educationalExcellence": {
       "title": "Educational Excellence",
@@ -60,7 +57,6 @@
       "description": "Build essential working green tech infrastructure using modern sensors, microcontrollers, and cloud technology."
     }
   },
-
   "features": {
     "title": "Project Features",
     "subtitle": "Everything you need for successful environmental monitoring and education",
@@ -89,15 +85,13 @@
       "description": "Be warned when trends indicate danger or when thresholds are reached"
     }
   },
-
   "ticker": {
     "label": "News",
-    "item1": "<strong>Apr 2026:</strong> Parent & Patron Sponsorships Open \u2014 now parents can directly protect a classroom!",
-    "item2": "<strong>Mar 2026:</strong> Royal Melbourne Institute of Technology joins \u2014 5 CS students building the API for data sharing with enhanced privacy",
+    "item1": "<strong>Apr 2026:</strong> Parent & Patron Sponsorships Open — now parents can directly protect a classroom!",
+    "item2": "<strong>Mar 2026:</strong> Royal Melbourne Institute of Technology joins — 5 CS students building the API for data sharing with enhanced privacy",
     "item3": "<strong>Mar 2026:</strong> First institutions complete their kit builds! BFIS installs exterior units in multiple locations",
-    "readAllNews": "Read all news \u2192"
+    "readAllNews": "Read all news →"
   },
-
   "announcements": {
     "title": "Project Updates & News",
     "subtitle": "Latest developments in the schoolAIR community",
@@ -126,7 +120,6 @@
       "description": "We need developers, educators, and environmental enthusiasts to help grow this project. 100% volunteer-driven initiative."
     }
   },
-
   "impact": {
     "title": "Educational Impact",
     "subtitle": "Real numbers from schools using schoolAIR worldwide",
@@ -159,7 +152,6 @@
       }
     }
   },
-
   "components": {
     "title": "Technology and Components",
     "subtitle": "Everything you need to build your air quality monitoring station",
@@ -201,7 +193,6 @@
     "statusPlanning": "Planning",
     "statusCompleted": "COMPLETED!"
   },
-
   "getInvolved": {
     "title": "Enroll Your School",
     "subtitle": "Join the growing network of schools protecting their students' health",
@@ -215,14 +206,13 @@
     },
     "globalData": {
       "title": "Global Data Network",
-      "description": "Your data joins a worldwide database used by researchers and clean air advocates \u2014 with full privacy controls."
+      "description": "Your data joins a worldwide database used by researchers and clean air advocates — with full privacy controls."
     },
     "readyToStart": "Ready to get started?",
-    "readyToStartDesc": "Order units for your school now \u2014 interior units from \u20ac105, exterior units from \u20ac125. We\u2019ll provide everything your students need to build, install, and start monitoring.",
+    "readyToStartDesc": "Order units for your school now — interior units from €105, exterior units from €125. We’ll provide everything your students need to build, install, and start monitoring.",
     "orderKitsNow": "Order Kits Now",
     "contactUsFirst": "Contact Us First"
   },
-
   "contact": {
     "title": "Contact Us",
     "subtitle": "Ready to start your environmental monitoring project?",
@@ -250,7 +240,6 @@
     "successTitle": "Message Sent!",
     "successClose": "Close"
   },
-
   "footer": {
     "aboutUs": "About Us",
     "aboutDescription": "The International Green Tech Foundation is a non-profit organization advancing environmental technology education. Our passionate global network of educators, engineers, and students believes in empowering the next generation through hands-on learning.",
@@ -266,9 +255,8 @@
     "communityForum": "Community Forum",
     "technicalSupport": "Technical Support",
     "faqs": "FAQs",
-    "copyright": "\u00a9 2024 schoolAIR Project. Open source educational initiative for environmental monitoring."
+    "copyright": "© 2024 schoolAIR Project. Open source educational initiative for environmental monitoring."
   },
-
   "portal": {
     "loading": "Loading school portal...",
     "navBrand": "SchoolAIR",
@@ -279,7 +267,7 @@
       "alertsToDate": "Alerts To Date"
     },
     "protectClassroom": "Protect a Classroom",
-    "protectClassroomFrom": "from just \u20ac105",
+    "protectClassroomFrom": "from just €105",
     "viewFullDashboard": "View Full Interactive Dashboard",
     "viewFullDashboardDesc": "Access real-time sensor data, historical trends, and detailed analytics",
     "airQualityOverview": "Air Quality Overview",
@@ -337,15 +325,14 @@
       }
     }
   },
-
   "sponsor": {
     "pageTitle": "Sponsor a Classroom - SchoolAIR",
     "genericPageTitle": "Protect a Classroom - SchoolAIR",
     "hero": {
       "bfisTitle": "Help every Area of BFIS have Clean Air",
       "genericTitle": "Protect a Classroom with Clean Air",
-      "bfisDescription": "The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. The home build kit includes all components and step-by-step instructions; it does not include housing. You\u2019ll proudly deliver a working unit to your school for installation \u2014 or use it at home! Each unit forever protects a classroom by letting teachers know when it\u2019s time to ventilate \u2014 or shut a window due to poor outside air quality.",
-      "genericDescription": "The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. Each unit forever protects a classroom by letting teachers know when it\u2019s time to ventilate \u2014 or shut a window due to poor outside air quality. Sponsor a unit for any school in the world.",
+      "bfisDescription": "The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. The home build kit includes all components and step-by-step instructions; it does not include housing. You’ll proudly deliver a working unit to your school for installation — or use it at home! Each unit forever protects a classroom by letting teachers know when it’s time to ventilate — or shut a window due to poor outside air quality.",
+      "genericDescription": "The SchoolAIR team has experimented widely with the latest tech components and has been able to greatly lower the cost of an air quality unit. Each unit forever protects a classroom by letting teachers know when it’s time to ventilate — or shut a window due to poor outside air quality. Sponsor a unit for any school in the world.",
       "videoCaption": "Stuffy rooms quickly diminish cognitive performance"
     },
     "progress": {
@@ -357,10 +344,10 @@
     },
     "cards": {
       "title": "Sponsor a Unit",
-      "subtitle": "One-time sponsorship \u2014 each unit protects a zone forever. Housing not included \u2014 free digital plans and 3D model files provided. Data is uploaded to the SchoolAir global database. Privacy, scalability and availability to researchers and clean air advocates is professionally managed.",
+      "subtitle": "One-time sponsorship — each unit protects a zone forever. Housing not included — free digital plans and 3D model files provided. Data is uploaded to the SchoolAir global database. Privacy, scalability and availability to researchers and clean air advocates is professionally managed.",
       "interior": {
         "title": "Interior Unit",
-        "description": "Guards classrooms from stuffy or unhealthy air by monitoring CO\u2082 levels and ventilation. USB plug-and-play \u2014 simple to set up and use.",
+        "description": "Guards classrooms from stuffy or unhealthy air by monitoring CO₂ levels and ventilation. USB plug-and-play — simple to set up and use.",
         "price": "105"
       },
       "exterior": {
@@ -375,8 +362,8 @@
       }
     },
     "patron": {
-      "title": "Become a SchoolAir Advocate \u2014 Sponsor our Passionate Project Team!",
-      "subtitle": "Your regular contribution will allow our developers, researchers and product installers to help more and more schools watch over the health of their students. We plan to do more than just monitor \u2014 our phase two will start bringing potential solutions. Help us keep going!",
+      "title": "Become a SchoolAir Advocate — Sponsor our Passionate Project Team!",
+      "subtitle": "Your regular contribution will allow our developers, researchers and product installers to help more and more schools watch over the health of their students. We plan to do more than just monitor — our phase two will start bringing potential solutions. Help us keep going!",
       "supporter": {
         "title": "Supporter",
         "description": "Help fund firmware updates and sensor calibration",
@@ -385,13 +372,13 @@
       },
       "champion": {
         "title": "Champion",
-        "description": "Fund our IoT expert\u2019s work on new controller support and connectivity",
+        "description": "Fund our IoT expert’s work on new controller support and connectivity",
         "price": "10",
         "period": "/mo"
       },
       "guardian": {
         "title": "Guardian",
-        "description": "Maximum impact \u2014 directly fund the professional engineering behind SchoolAir",
+        "description": "Maximum impact — directly fund the professional engineering behind SchoolAir",
         "price": "25",
         "period": "/mo"
       },
@@ -406,9 +393,9 @@
     },
     "checkout": {
       "title": "Complete Your Sponsorship",
-      "sponsorInteriorTitle": "Sponsor an Interior Unit \u2014 \u20ac105",
-      "sponsorExteriorTitle": "Sponsor an Exterior Unit \u2014 \u20ac125",
-      "patronTitle": "Become a Monthly Patron \u2014 \u20ac{tier}/mo",
+      "sponsorInteriorTitle": "Sponsor an Interior Unit — €105",
+      "sponsorExteriorTitle": "Sponsor an Exterior Unit — €125",
+      "patronTitle": "Become a Monthly Patron — €{tier}/mo",
       "email": "Email",
       "emailRequired": "*",
       "emailPlaceholder": "you@example.com",
@@ -446,12 +433,11 @@
       "emailRequired": "Email is required",
       "schoolNameRequired": "School name is required",
       "successMessage": "Thank you for your sponsorship! Check your email for confirmation and a link to customize your display name.",
-      "cancelMessage": "Checkout was cancelled. No worries \u2014 you can try again anytime.",
+      "cancelMessage": "Checkout was cancelled. No worries — you can try again anytime.",
       "labelUpdated": "Your display name has been updated!",
       "labelFailed": "Failed to update. The link may have expired."
     }
   },
-
   "dashboard": {
     "pageTitle": "Indoor Air Quality - Air School",
     "header": {
@@ -461,16 +447,17 @@
       "simulation": "Simulation",
       "liveData": "Live Data"
     },
-    "liveCaption": "Live sensor data from BFIS monitoring units \u2014 powered by",
+    "liveCaption": "Live sensor data from BFIS monitoring units — powered by",
     "rooms": {
       "nursery": "Nursery",
       "primaryA": "Primary A",
       "primaryB": "Primary B",
       "secondaryA": "Secondary A",
-      "secondaryB": "Secondary B"
+      "secondaryB": "Secondary B",
+      "basketball1": "🏀 Basketball1"
     },
     "metrics": {
-      "co2": "CO\u2082",
+      "co2": "CO₂",
       "pm25": "PM2.5",
       "temp": "Temp.",
       "humidity": "Humidity"
@@ -491,14 +478,13 @@
       "pollutantsChart": "Air Pollutants",
       "environmentChart": "Environmental Conditions",
       "currentAQI": "Current AQI",
-      "co2": "CO\u2082",
+      "co2": "CO₂",
       "pm25": "PM2.5",
       "temperature": "Temperature",
       "humidity": "Humidity",
       "status": "Status"
     }
   },
-
   "liveData": {
     "pageTitle": "Live Air Quality Data",
     "loading": "Loading sensor data...",
@@ -509,33 +495,60 @@
       "device": "Device"
     },
     "metrics": {
-      "pm25": { "label": "PM2.5", "unit": "ug/m3" },
-      "co2": { "label": "CO2", "unit": "ppm" },
-      "temp": { "label": "Temperature", "unit": "\u00b0C" },
-      "humidity": { "label": "Humidity", "unit": "%" },
-      "pm10": { "label": "PM1.0", "unit": "ug/m3" },
-      "pm100": { "label": "PM10.0", "unit": "ug/m3" },
-      "co": { "label": "CO", "unit": "ppm" },
-      "no2": { "label": "NO2", "unit": "ppm" },
-      "voc": { "label": "VOC", "unit": "index" }
+      "pm25": {
+        "label": "PM2.5",
+        "unit": "ug/m3"
+      },
+      "co2": {
+        "label": "CO2",
+        "unit": "ppm"
+      },
+      "temp": {
+        "label": "Temperature",
+        "unit": "°C"
+      },
+      "humidity": {
+        "label": "Humidity",
+        "unit": "%"
+      },
+      "pm10": {
+        "label": "PM1.0",
+        "unit": "ug/m3"
+      },
+      "pm100": {
+        "label": "PM10.0",
+        "unit": "ug/m3"
+      },
+      "co": {
+        "label": "CO",
+        "unit": "ppm"
+      },
+      "no2": {
+        "label": "NO2",
+        "unit": "ppm"
+      },
+      "voc": {
+        "label": "VOC",
+        "unit": "index"
+      }
     },
     "alerts": {
-      "aboveDanger": "{metric}: {value} {unit} \u2014 above danger threshold ({threshold})",
-      "aboveWarning": "{metric}: {value} {unit} \u2014 above warning threshold ({threshold})",
-      "withinSafe": "{metric}: {value} {unit} \u2014 within safe levels"
+      "aboveDanger": "{metric}: {value} {unit} — above danger threshold ({threshold})",
+      "aboveWarning": "{metric}: {value} {unit} — above warning threshold ({threshold})",
+      "withinSafe": "{metric}: {value} {unit} — within safe levels"
     },
     "annotations": {
       "ventilate": "Ventilate",
       "critical": "Critical",
       "whoLimit": "WHO Limit",
       "unhealthy": "Unhealthy",
-      "idealTempRange": "Ideal Range (20-24\u00b0C)",
+      "idealTempRange": "Ideal Range (20-24°C)",
       "idealHumidityRange": "Ideal Humidity (30-50%)"
     },
     "guides": {
       "pm25": {
         "title": "PM2.5 (Fine Particles)",
-        "text": "These tiny particles reach deep into the lungs and bloodstream. Can trigger <strong>asthma attacks</strong> and increase cardiovascular risk.<br><br><strong>WHO Guidelines:</strong><br>\u2022 0-15 \u00b5g/m\u00b3: Good<br>\u2022 >35 \u00b5g/m\u00b3: Unhealthy"
+        "text": "These tiny particles reach deep into the lungs and bloodstream. Can trigger <strong>asthma attacks</strong> and increase cardiovascular risk.<br><br><strong>WHO Guidelines:</strong><br>• 0-15 µg/m³: Good<br>• >35 µg/m³: Unhealthy"
       },
       "pm10": {
         "title": "PM1.0 (Ultrafine Particles)",
@@ -543,15 +556,15 @@
       },
       "pm100": {
         "title": "PM10.0 (Coarse Particles)",
-        "text": "Mostly dust, pollen, and mold. Causes throat irritation, sneezing, and upper respiratory discomfort.<br><br><strong>WHO Guidelines:</strong><br>\u2022 0-45 \u00b5g/m\u00b3: Acceptable<br>\u2022 >45 \u00b5g/m\u00b3: High"
+        "text": "Mostly dust, pollen, and mold. Causes throat irritation, sneezing, and upper respiratory discomfort.<br><br><strong>WHO Guidelines:</strong><br>• 0-45 µg/m³: Acceptable<br>• >45 µg/m³: High"
       },
       "co2": {
-        "title": "CO\u2082 (Carbon Dioxide)",
-        "text": "\u2022 400-1000 ppm: Good<br>\u2022 1000-2000 ppm: Drowsiness and poor concentration<br>\u2022 >2000 ppm: Headaches and stuffiness. May even affect your test scores."
+        "title": "CO₂ (Carbon Dioxide)",
+        "text": "• 400-1000 ppm: Good<br>• 1000-2000 ppm: Drowsiness and poor concentration<br>• >2000 ppm: Headaches and stuffiness. May even affect your test scores."
       },
       "temp": {
         "title": "Temperature",
-        "text": "Ideal indoor range: 20-24\u00b0C (68-75\u00b0F). Extreme temperatures affect productivity and can exacerbate existing respiratory conditions."
+        "text": "Ideal indoor range: 20-24°C (68-75°F). Extreme temperatures affect productivity and can exacerbate existing respiratory conditions."
       },
       "humidity": {
         "title": "Humidity",
@@ -562,16 +575,15 @@
         "text": "A colorless, odorless toxic gas. High levels indicate faulty heating systems or vehicle exhaust infiltration. Can cause dizziness and, at high levels, is fatal."
       },
       "no2": {
-        "title": "Nitrogen Dioxide (NO\u2082)",
+        "title": "Nitrogen Dioxide (NO₂)",
         "text": "Primarily from traffic exhaust. Known to inflame the airways and is a major trigger for <strong>chronic bronchitis</strong> and asthma exacerbations."
       },
       "voc": {
         "title": "VOC Index (Volatile Organic Compounds)",
-        "text": "Gasses emitted from paints, markers, and new furniture. High levels cause \"Sick Building Syndrome\" \u2014 headaches, nausea, and eye irritation."
+        "text": "Gasses emitted from paints, markers, and new furniture. High levels cause \"Sick Building Syndrome\" — headaches, nausea, and eye irritation."
       }
     }
   },
-
   "dashboardPage": {
     "title": "SchoolAIR Global Network",
     "subtitle": "Real-time air quality monitoring across 5 countries",
@@ -596,7 +608,6 @@
       "realTimeDescription": "Continuous data collection worldwide"
     }
   },
-
   "eventsPage": {
     "title": "Events & Workshops",
     "subtitle": "Join our global community through workshops, internships, and collaborative events that bring students and educators together to advance environmental monitoring technology.",
@@ -649,7 +660,6 @@
       "expectedOutcomesText": "New sensor technologies, improved station designs, enhanced data analytics, and expanded platform capabilities that will benefit the entire global SchoolAIR network."
     }
   },
-
   "howItWorks": {
     "pageTitle": "How It Works",
     "title": "How It Works",
@@ -701,8 +711,8 @@
       "globalAqiDesc": "Moderate - Acceptable for most people",
       "averagePM25": "Average PM2.5",
       "avgPm25": "Average PM2.5",
-      "pm25Unit": "\u00b5g/m\u00b3 - Within WHO guidelines",
-      "avgPm25Desc": "\u00b5g/m\u00b3 - Within WHO guidelines",
+      "pm25Unit": "µg/m³ - Within WHO guidelines",
+      "avgPm25Desc": "µg/m³ - Within WHO guidelines",
       "realTimeMonitoring": "Real-time Monitoring",
       "realtime": "Real-time Monitoring",
       "realTimeValue": "24/7",
@@ -735,7 +745,6 @@
       "integrationExample": "Integration Example"
     }
   },
-
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",
@@ -757,13 +766,12 @@
     "no": "No",
     "ok": "OK",
     "confirm": "Confirm",
-    "currency": "\u20ac",
+    "currency": "€",
     "perMonth": "/mo",
     "schoolAIR": "schoolAIR",
     "logoTagline": "An International Green Tech Foundation Project",
     "launch": "Launch"
   },
-
   "blog": {
     "title": "SchoolAir Blog",
     "subtitle": "Latest news, updates, and insights from our air quality monitoring project",
@@ -818,10 +826,9 @@
       "aboutDescription": "The International Green Tech Foundation is a non-profit organization advancing environmental technology education.",
       "email": "Email: info@schoolair.org",
       "social": "Follow us on social media for updates",
-      "copyright": "\u00a9 2024 International Green Tech Foundation. All rights reserved."
+      "copyright": "© 2024 International Green Tech Foundation. All rights reserved."
     }
   },
-
   "products": {
     "heroTitle": "Tech",
     "heroSubtitle": "Choose how you want to join the schoolAIR community and start monitoring air quality at your institution",
@@ -838,7 +845,7 @@
       "feature5": "<strong>Analyze:</strong> Database queries & data visualization",
       "feature6": "<strong>Impact:</strong> Real environmental monitoring for school",
       "feature7": "<strong>Access:</strong> 1-year cloud database & learning support",
-      "price": "\u20ac165",
+      "price": "€165",
       "priceNote": "Per complete kit",
       "button": "Order Kit"
     },
@@ -868,7 +875,7 @@
       "feature5": "Installation support at school",
       "feature6": "Competition prizes",
       "feature7": "Certificate of completion",
-      "price": "\u20ac110",
+      "price": "€110",
       "priceNote": "Per student (4-student teams)",
       "button": "Join Hackathon"
     },
@@ -883,7 +890,7 @@
       "feature5": "Session 4: Data analysis",
       "feature6": "All materials included",
       "feature7": "Take-home reference materials",
-      "price": "\u20ac87",
+      "price": "€87",
       "priceNote": "Per student",
       "button": "Register Workshop"
     },
@@ -897,7 +904,7 @@
       "feature4": "Data visualization techniques",
       "feature5": "IoT security best practices",
       "feature6": "Real-world project portfolio",
-      "price": "\u20ac69",
+      "price": "€69",
       "priceNote": "Per student",
       "button": "Learn More"
     },
@@ -911,7 +918,7 @@
       "feature4": "GPS tracking integration",
       "feature5": "Remote control capabilities",
       "feature6": "Environmental mapping",
-      "price": "\u20ac128",
+      "price": "€128",
       "priceNote": "Per student",
       "button": "Explore Robotics"
     },
@@ -921,7 +928,7 @@
       "button": "View Tech Details"
     },
     "footer": {
-      "copyright": "\u00a9 2024 schoolAIR Project."
+      "copyright": "© 2024 schoolAIR Project."
     }
   }
 }

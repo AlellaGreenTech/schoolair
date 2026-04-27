@@ -2,9 +2,22 @@
 import sys
 import subprocess
 import json
+import os
+import datetime
 
-VERSION = "1.0.4: created at 27.04.26"
+
+VERSION = "1.0.4"
 BINARY_PATH = "/home/admin/i2c/sen6x/sen6x_d"
+
+
+def get_last_modified():
+    # os.path.realpath(__file__) gets the full path to THIS script
+    path = os.path.realpath(__file__)
+    timestamp = os.path.getmtime(path)
+    
+    # Convert the timestamp to a readable format
+    dt_object = datetime.datetime.fromtimestamp(timestamp)
+    return dt_object.strftime("%Y-%m-%d %H:%M:%S")
 
 def run_cli():
     if len(sys.argv) > 1:
@@ -12,6 +25,8 @@ def run_cli():
         
         # Handle -v by passing it to the C binary
         if arg == "-v":
+            print(f"SchoolAir v{VERSION}")
+            print(f"Build Date (Last Edited): {get_last_modified()}")
             subprocess.run([BINARY_PATH, "-v"])
             return
 

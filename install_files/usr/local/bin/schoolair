@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+import sys
+import subprocess
+import json
+
+VERSION = "1.0.4: created at 27.04.26"
+BINARY_PATH = "/home/admin/i2c/sen6x/sen6x_d"
+
+def run_cli():
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
+        
+        # Handle -v by passing it to the C binary
+        if arg == "-v":
+            subprocess.run([BINARY_PATH, "-v"])
+            return
+
+        # Handle --status by reading the JSON file your C code generates
+        if arg == "--status":
+            try:
+                with open("/home/admin/i2c/sen6x/sen6x.json", "r") as f:
+                    data = json.load(f)
+                    print(f"Latest Reading ({data['timestamp']}):")
+                    print(f"Temp: {data['temp']}°C | Humidity: {data['humidity']}%")
+            except FileNotFoundError:
+                print("No active readings found. Is the sensor service running?")
+            return
+
+    print("Usage: schoolair [-v | --status]")
+
+if __name__ == "__main__":
+    run_cli()

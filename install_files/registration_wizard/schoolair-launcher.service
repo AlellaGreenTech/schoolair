@@ -1,0 +1,16 @@
+[Unit]
+Description=SchoolAir Network Launcher
+# Run after NetworkManager is up so nmcli queries work.
+After=NetworkManager.service network-online.target
+Wants=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/admin/registration_wizard/launcher.sh
+RemainAfterExit=no
+User=root
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

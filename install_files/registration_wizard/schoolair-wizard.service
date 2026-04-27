@@ -1,0 +1,20 @@
+[Unit]
+Description=SchoolAir Registration Wizard (Microdot)
+After=NetworkManager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/admin/registration_wizard/wizard.py
+WorkingDirectory=/home/admin/registration_wizard
+User=root
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# The wizard stops itself on success via systemctl stop schoolair-wizard,
+# so "on-failure" restart will NOT fire after a clean registration.
+
+[Install]
+# Not enabled by default — the launcher starts it on demand.
+WantedBy=multi-user.target

@@ -4,8 +4,7 @@
 #
 # Run on a fresh Raspberry Pi OS Lite (Bullseye, Bookworm, or Trixie):
 #
-#   curl -sSL https://raw.githubusercontent.com/AlellaGreenTech/schoolair/main/install_files/schoolair_setup.sh \
-#     | sudo bash
+#   curl -sSL https://raw.githubusercontent.com/AlellaGreenTech/schoolair/main/install_files/schoolair_setup.sh | sudo bash
 #
 # To override the Pi username (default: admin):
 #   curl ... | sudo ADMIN_USER=pi bash

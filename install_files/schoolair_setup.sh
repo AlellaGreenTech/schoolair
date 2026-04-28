@@ -83,26 +83,54 @@ ok "Root, user='${ADMIN_USER}', home='${ADMIN_HOME}'"
 
 # ── 1. Hostname ────────────────────────────────────────────────────────────────
 step "1 / Hostname"
+# Pi OS Trixie ships with cloud-init (installed by Pi Imager).  cloud-init's
+# cc_update_hostname module runs on EVERY boot with frequency=always and resets
+# the hostname from its datasource — which it reads from a pickled instance
+# cache, not directly from /boot/firmware/user-data.  Simply writing
+# /etc/hostname is not enough; we must update four locations and wipe the
+# instance cache so cloud-init re-reads the seed files on the next boot.
+
+_set_hostname() {
+    local hn="$1"
+    # 1. The cloud-init seed file Pi Imager wrote (NoCloud datasource)
+    if [ -f /boot/firmware/user-data ] && grep -q "^hostname:" /boot/firmware/user-data; then
+        sed -i "s/^hostname:.*/hostname: ${hn}/" /boot/firmware/user-data
+    fi
+    # 2. cloud-init's previous-hostname cache (used by cc_update_hostname)
+    mkdir -p /var/lib/cloud/data
+    echo "$hn" > /var/lib/cloud/data/previous-hostname
+    # 3. The file systemd-hostnamed reads at boot
+    echo "$hn" > /etc/hostname
+    # 4. /etc/hosts (manage_etc_hosts: true in user-data means cloud-init owns this)
+    if grep -q "127\.0\.1\.1" /etc/hosts; then
+        sed -i "s/127\.0\.1\.1.*/127.0.1.1\t${hn}/" /etc/hosts
+    else
+        echo -e "127.0.1.1\t${hn}" >> /etc/hosts
+    fi
+    # 5. Wipe the pickled instance cache so cloud-init re-reads user-data fresh.
+    #    Without this it ignores our changes to user-data and restores the old name.
+    cloud-init clean 2>/dev/null || true
+    # Set the live kernel UTS hostname for the current session
+    hostname "$hn"
+}
+
 CURRENT_HN=$(hostname)
 if [[ "$CURRENT_HN" == schoolair-* ]]; then
     ok "Hostname already set: ${CURRENT_HN}  (not regenerated)"
+    # Still sync all four locations — a previous run may have set only the live
+    # UTS hostname without persisting the underlying files.
+    _HN_FILE=$(cat /etc/hostname 2>/dev/null | tr -d '[:space:]')
+    if [ "$_HN_FILE" != "$CURRENT_HN" ]; then
+        _set_hostname "$CURRENT_HN"
+        ok "Hostname locations synced to ${CURRENT_HN}"
+    fi
 else
     # YYMMDD-XXXX where XXXX is the lower 16 bits of seconds-since-midnight in hex.
     # Modulo 65536 keeps the value to exactly 4 hex digits for any time of day.
     _midnight=$(date -d "$(date +%Y-%m-%d) 00:00:00" +%s)
     _secs=$(( $(date +%s) - _midnight ))
     NEW_HN="schoolair-$(date +%y%m%d)-$(printf '%04x' $(( _secs % 65536 )))"
-    # Write /etc/hostname directly — hostnamectl changes the running hostname
-    # but on some Pi OS Trixie builds does not persist to /etc/hostname.
-    echo "$NEW_HN" > /etc/hostname
-    hostnamectl set-hostname "$NEW_HN" 2>/dev/null || true
-    hostname "$NEW_HN"  # also set the kernel UTS name for the current session
-    # Ensure /etc/hosts resolves the new hostname locally
-    if grep -q "127\.0\.1\.1" /etc/hosts; then
-        sed -i "s/127\.0\.1\.1.*/127.0.1.1\t${NEW_HN}/" /etc/hosts
-    else
-        echo -e "127.0.1.1\t${NEW_HN}" >> /etc/hosts
-    fi
+    _set_hostname "$NEW_HN"
     ok "Hostname set to ${NEW_HN}"
 fi
 
@@ -180,6 +208,9 @@ if [ ! -d "$I2C_SRC" ]; then
     skip "install_files/i2c/ not in repo"
 else
     mkdir -p "$I2C_DIR"
+    # Stop any service running a compiled binary from this directory before
+    # copying — the kernel refuses to overwrite an executing ELF (ETXTBSY).
+    systemctl stop sen6x 2>/dev/null || true
     # Recursive copy — contains .sh, .py, and C source trees (MGSv2, o3, sen6x).
     # -u only overwrites if source is newer, preserving local edits.
     cp -ru "${I2C_SRC}/." "${I2C_DIR}/"
@@ -282,9 +313,17 @@ if [ -z "$_NODE_VER" ]; then
 fi
 ok "Node.js $(node --version) installed"
 
+_NR_PKG="node-red"
+if [ "$(uname -m)" = "armv6l" ]; then
+    # Node-RED 4.x introduced @node-rs/bcrypt — a Rust pre-built binary that
+    # ships only for armhf (ARMv7+).  It causes SIGILL on Pi Zero v1 (ARMv6).
+    # Node-RED 3.x uses bcryptjs (pure JS) and works correctly on ARMv6.
+    _NR_PKG="node-red@3"
+fi
+
 if ! command -v node-red >/dev/null 2>&1; then
-    echo "  (Installing Node-RED via npm — a few minutes...)"
-    npm install -g --unsafe-perm node-red \
+    echo "  (Installing ${_NR_PKG} via npm — a few minutes...)"
+    npm install -g --unsafe-perm "${_NR_PKG}" \
         || die "Node-RED npm install failed."
     _NR_VER=$(node-red --version 2>/dev/null | head -1 || true)
     [ -n "$_NR_VER" ] || _NR_VER="(version check failed — run 'node-red --version' to verify)"
@@ -507,4 +546,11 @@ echo "  4. On success the hotspot closes; nginx activates on port 80."
 echo
 echo "  Logs:"
 echo "    journalctl -u schoolair-launcher -u schoolair-wizard -f"
+echo
+echo "  Developer notes (re-run only):"
+echo -e "  ${YELLOW}➜${NC}  sen6x daemon was stopped to allow binary replacement."
+echo "     Start it now without rebooting:  sudo systemctl start sen6x"
+echo "     Or simply reboot — it starts automatically on boot."
+echo -e "  ${YELLOW}➜${NC}  Node.js 20 LTS EOL: April 30 2026. Consider upgrading to Node 22"
+echo "     armv6l once unofficial-builds.nodejs.org makes it available."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

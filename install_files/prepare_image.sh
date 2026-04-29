@@ -33,21 +33,12 @@ rm -f "${ADMIN_HOME}/.config/schoolair/staging.json"
 rm -f "${ADMIN_HOME}/.config/schoolair/last_error.txt"
 ok "Device token and wizard state cleared"
 
-# ── 3. Saved WiFi client connections ─────────────────────────────────────────
-step "Removing saved WiFi connections (preserving SchoolAir_AP)"
-nmcli -t -f NAME,TYPE connection show \
-    | awk -F: '$2=="802-11-wireless" && $1!="SchoolAir_AP" {print $1}' \
-    | while IFS= read -r CON; do
-        sudo nmcli connection delete "$CON" 2>/dev/null \
-            && ok "Deleted WiFi profile: $CON" || true
-    done
-
-# ── 4. nginx: ensure disabled so wizard owns port 80 on first boot ────────────
+# ── 3. nginx: ensure disabled so wizard owns port 80 on first boot ────────────
 step "Resetting nginx to disabled"
 sudo systemctl disable nginx 2>/dev/null || true
 ok "nginx disabled"
 
-# ── 5. Node-RED cleanup ───────────────────────────────────────────────────────
+# ── 4. Node-RED cleanup ───────────────────────────────────────────────────────
 step "Cleaning Node-RED"
 rm -f  "${ADMIN_HOME}/.node-red/.config.json.backup"
 rm -f  "${ADMIN_HOME}/.node-red/flows_"*.json.backup 2>/dev/null || true
@@ -108,3 +99,16 @@ echo
 echo "  4. Flash a clone with Raspberry Pi Imager → 'Use custom image'"
 echo "     In Imager's advanced settings (⚙) set a unique hostname per device."
 echo -e "${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+
+# ── Last step: drop WiFi client connections ───────────────────────────────────
+# Done last so SSH stays alive for the entire script. Losing the connection
+# here is the signal that everything completed — safe to power off.
+echo
+step "Removing saved WiFi connections (preserving SchoolAir_AP)"
+echo "  (SSH will disconnect now if you are connected via the home network)"
+nmcli -t -f NAME,TYPE connection show \
+    | awk -F: '$2=="802-11-wireless" && $1!="SchoolAir_AP" {print $1}' \
+    | while IFS= read -r CON; do
+        sudo nmcli connection delete "$CON" 2>/dev/null \
+            && ok "Deleted WiFi profile: $CON" || true
+    done

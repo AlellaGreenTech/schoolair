@@ -487,6 +487,9 @@ systemctl daemon-reload
 step "17 / Cleanup"
 rm -rf "$REPO_DIR"
 ok "Temp repo removed"
+apt-get autoremove -y -qq
+apt-get clean
+ok "APT cache cleared"
 
 # ── Verification ───────────────────────────────────────────────────────────────
 step "Verification"

@@ -151,7 +151,7 @@ ok "microdot + simple-websocket installed"
 step "5 / Device scripts + Registration wizard"
 
 # 5a. Device scripts (not wizard-specific) → ADMIN_HOME
-for _f in first_boot.sh set_hostname.sh; do
+for _f in first_boot.sh set_hostname.sh version_check.py; do
     if [ -f "${INSTALL_FILES}/${_f}" ]; then
         cp "${INSTALL_FILES}/${_f}" "${ADMIN_HOME}/${_f}"
         chmod +x "${ADMIN_HOME}/${_f}"
@@ -161,6 +161,8 @@ for _f in first_boot.sh set_hostname.sh; do
         warn "${_f} not found in repo — skipped"
     fi
 done
+ln -sf "${ADMIN_HOME}/version_check.py" /usr/local/bin/schoolair
+ok "schoolair command  →  /usr/local/bin/schoolair"
 
 # 5b. Registration wizard → WIZARD_DIR
 WIZARD_SRC="${INSTALL_FILES}/registration_wizard"
@@ -502,6 +504,7 @@ chk "launcher.sh executable"              test -x "${WIZARD_DIR}/launcher.sh"
 chk "wizard.py present"                   test -f "${WIZARD_DIR}/wizard.py"
 chk "first_boot.sh executable"            test -x "${ADMIN_HOME}/first_boot.sh"
 chk "set_hostname.sh executable"          test -x "${ADMIN_HOME}/set_hostname.sh"
+chk "schoolair command available"         test -L /usr/local/bin/schoolair
 chk "i2c dir present"                     test -d "${I2C_DIR}"
 chk "NM hotspot '${AP_CONN}'"             nmcli con show "$AP_CONN"
 chk "Captive-portal DNS config"           test -f /etc/NetworkManager/dnsmasq-shared.d/schoolair-captive.conf

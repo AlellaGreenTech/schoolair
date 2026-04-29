@@ -4,6 +4,8 @@
 # Run as the admin user before shutting down to image the SD card.
 # Removes all device-unique state so every clone boots fresh.
 #
+#   curl -sSL https://raw.githubusercontent.com/AlellaGreenTech/schoolair/main/install_files/prepare_image.sh | sudo bash
+#
 # Usage:  bash prepare_image.sh
 #         sudo shutdown -h now   ← after it completes
 
@@ -55,6 +57,21 @@ ok "APT cache cleared"
 step "Resetting cloud-init"
 sudo cloud-init clean --logs
 sudo rm -rf /var/lib/cloud/instances/*
+# Pi Imager writes WiFi credentials to /boot/firmware/network-config.
+# cloud-init clean causes cloud-init to re-run on next boot, which would
+# re-create the home WiFi NM profile from that file. Strip the wifi section
+# so clones don't inherit the original owner's home network credentials.
+if [ -f /boot/firmware/network-config ]; then
+    sudo python3 - <<'EOF'
+import re, pathlib
+p = pathlib.Path("/boot/firmware/network-config")
+txt = p.read_text()
+# Remove everything from the 'wifis:' key to the end of the file (or next top-level key).
+txt = re.sub(r'\nwifis:.*', '', txt, flags=re.DOTALL)
+p.write_text(txt.rstrip() + '\n')
+EOF
+    ok "cloud-init network-config: WiFi section removed"
+fi
 ok "cloud-init reset"
 
 # ── 8. Reset hostname ─────────────────────────────────────────────────────────
@@ -64,14 +81,16 @@ sudo systemctl enable schoolair-first-boot.service 2>/dev/null \
     || ok "schoolair-first-boot.service not found (old image — install schoolair_setup.sh first)"
 
 step "Resetting hostname"
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-sudo bash "${SCRIPT_DIR}/set_hostname.sh" "schoolair-template" > /dev/null
+sudo bash "${ADMIN_HOME}/set_hostname.sh" "schoolair-template" > /dev/null
 ok "Hostname → schoolair-template  (Pi Imager can override per-device when flashing)"
 
 # ── 9. SSH host keys ──────────────────────────────────────────────────────────
 step "Removing SSH host keys"
 sudo rm -f /etc/ssh/ssh_host_*
-ok "Keys removed — Raspberry Pi OS regenerates them automatically on first boot"
+# The regenerate_ssh_host_keys service disables itself after its first run.
+# Re-enable it so the next boot (of a clone) regenerates fresh keys.
+sudo systemctl enable regenerate_ssh_host_keys.service 2>/dev/null || true
+ok "Keys removed — regenerate_ssh_host_keys.service re-enabled for next boot"
 
 # ── 10. Logs and shell history ────────────────────────────────────────────────
 step "Wiping logs and shell history"

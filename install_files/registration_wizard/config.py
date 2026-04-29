@@ -6,10 +6,11 @@ HEARTBEAT_URL = "https://data.schoolair.org/aqc/register"
 HEARTBEAT_TIMEOUT = 15  # seconds
 
 # Local storage
-CONFIG_DIR       = "/home/admin/.config/schoolair"
-STAGING_FILE     = CONFIG_DIR + "/staging.json"
-STATUS_FILE      = CONFIG_DIR + "/status.json"
-ERROR_FILE       = CONFIG_DIR + "/last_error.txt"
+CONFIG_DIR           = "/home/admin/.config/schoolair"
+STAGING_FILE         = CONFIG_DIR + "/staging.json"
+STATUS_FILE          = CONFIG_DIR + "/status.json"
+ERROR_FILE           = CONFIG_DIR + "/last_error.txt"
+NODE_RED_TOKEN_FILE  = "/home/admin/.device_token"
 
 # Networking
 AP_INTERFACE          = "wlan0"

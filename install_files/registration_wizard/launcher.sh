@@ -3,14 +3,13 @@
 #
 # Called by schoolair-launcher.service on every boot.
 # Logic:
-#   1. If already registered (status.json present) → exit immediately.
-#   2. Wait up to 60 s for a client (non-AP) Wi-Fi connection.
-#   3. If a client connection is found → device can reach the internet; exit.
-#   4. Otherwise → bring up the AP hotspot and start the registration wizard.
+#   1. Wait up to 60 s for a client (non-AP) Wi-Fi connection.
+#   2. If a client connection is found → device can reach the internet; exit.
+#   3. Otherwise → bring up the AP hotspot and start the registration wizard.
+#      The wizard handles registered vs unregistered state (wifi-only or full form).
 
 set -euo pipefail
 
-STATUS_FILE="/home/admin/.config/schoolair/status.json"
 WIZARD_SERVICE="schoolair-wizard"
 AP_CONN="SchoolAir_AP"
 POLL_INTERVAL=5   # seconds between connectivity checks
@@ -18,13 +17,7 @@ MAX_WAIT=60       # total seconds to wait for a client connection
 
 log() { echo "[schoolair-launcher] $*"; }
 
-# ── 1. Already registered ──────────────────────────────────────────────────────
-if [ -f "$STATUS_FILE" ]; then
-    log "Device already registered (status.json present). Exiting."
-    exit 0
-fi
-
-# ── 2. Wait for a known client Wi-Fi connection ────────────────────────────────
+# ── 1. Wait for a known client Wi-Fi connection ────────────────────────────────
 # We specifically exclude the SchoolAir_AP hotspot connection — it would have
 # an IP too, but that is not a real upstream network.
 log "No status.json found. Waiting up to ${MAX_WAIT}s for a client Wi-Fi network…"

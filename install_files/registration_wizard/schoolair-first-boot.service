@@ -1,0 +1,15 @@
+[Unit]
+Description=SchoolAir First Boot – Assign unique hostname to clone
+# Run after NM so nmcli/cloud-init have a sane environment.
+After=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/admin/first_boot.sh
+RemainAfterExit=no
+User=root
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

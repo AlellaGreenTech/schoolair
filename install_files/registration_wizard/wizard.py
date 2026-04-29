@@ -17,6 +17,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 from microdot import Microdot, Response
+from microdot.websocket import with_websocket
 
 from config import (
     AP_CONNECTION_NAME,
@@ -26,6 +27,7 @@ from config import (
     ERROR_FILE,
     HEARTBEAT_TIMEOUT,
     HEARTBEAT_URL,
+    NODE_RED_TOKEN_FILE,
     SERVER_PORT,
     STAGING_FILE,
     STATUS_FILE,
@@ -97,12 +99,22 @@ input:focus{border-color:#1a56db}
      color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;
      cursor:pointer;transition:background .2s}
 .btn:hover{background:#1649c0}
+.nr-banner{display:flex;align-items:center;gap:.75rem;background:#ecfdf5;
+  border:1.5px solid #6ee7b7;border-radius:10px;padding:.9rem 1rem;
+  margin-bottom:1rem}
+.nr-icon{font-size:1.4rem;flex-shrink:0}
+.nr-text{flex:1;min-width:0}
+.nr-text strong{display:block;font-size:.875rem;color:#065f46}
+.nr-detail{font-size:.75rem;color:#059669}
+.nr-link{white-space:nowrap;background:#059669;color:#fff;padding:.4rem .8rem;
+  border-radius:7px;font-size:.8rem;font-weight:600;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="card">
   <div class="logo"><h1>SchoolAir Setup</h1><p>Register this monitoring device</p></div>
   [[error_block]]
+  [[nr_banner]]
   <form method="POST" action="/register">
     <div class="sect">Identity</div>
     <label for="token">Registration Token</label>
@@ -179,7 +191,7 @@ h1{font-size:1.4rem;color:#1a56db;margin-bottom:.5rem}
   <div id="icon"><div class="spin"></div></div>
   <div id="msg">Connecting to network&hellip;</div>
   <div id="hint"></div>
-  <button id="retry" onclick="location.href='/'">Try Again</button>
+  <button id="retry" onclick="location.href='[[retry_url]]'">Try Again</button>
 </div>
 <script>
 const AP_DROP = "The setup hotspot dropped — the device is connecting to the school Wi-Fi. " +
@@ -209,6 +221,8 @@ function connect(){
     } else if(d.state==='error'){
       icon('❌');
       document.getElementById('retry').style.display='inline-block';
+      dropped = true;
+      ws.close();
     }
   };
   ws.onclose=function(){
@@ -225,6 +239,81 @@ function connect(){
   ws.onerror=function(){ws.close();};
 }
 connect();
+</script>
+</body></html>"""
+
+
+# ── Wi-Fi-only page (for Node-RED-registered devices) ────────────────────────
+
+WIFI_ONLY_HTML = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SchoolAir – Wi-Fi Setup</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+     background:#f0f4f8;min-height:100vh;display:flex;
+     align-items:center;justify-content:center;padding:1rem}
+.card{background:#fff;border-radius:16px;padding:2rem;max-width:420px;
+      width:100%;box-shadow:0 4px 24px rgba(0,0,0,.1)}
+.logo{text-align:center;margin-bottom:1.5rem}
+.logo h1{font-size:1.5rem;color:#1a56db;font-weight:700}
+.logo p{color:#6b7280;font-size:.875rem;margin-top:.25rem}
+.info{background:#ecfdf5;border:1.5px solid #6ee7b7;border-radius:10px;
+      padding:.9rem 1rem;margin-bottom:1.25rem}
+.info-head{font-weight:700;color:#065f46;font-size:.9rem;margin-bottom:.3rem}
+.info-detail{color:#047857;font-size:.8rem}
+.sect{font-size:.72rem;font-weight:600;color:#6b7280;text-transform:uppercase;
+      letter-spacing:.05em;margin:1.25rem 0 .4rem}
+label{display:block;font-size:.875rem;font-weight:500;color:#374151;
+      margin-bottom:.2rem;margin-top:.65rem}
+input[type=text],input[type=password]{width:100%;padding:.6rem .75rem;
+  border:1.5px solid #d1d5db;border-radius:8px;font-size:1rem;outline:none;
+  transition:border-color .2s}
+input:focus{border-color:#059669}
+.pw{position:relative}
+.pw input{padding-right:3rem}
+.pw button{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;color:#6b7280;font-size:.85rem}
+.err{background:#fef2f2;color:#dc2626;padding:.75rem;border-radius:8px;
+     font-size:.875rem;margin-top:.75rem}
+.btn{width:100%;margin-top:1.5rem;padding:.875rem;background:#059669;
+     color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;
+     cursor:pointer;transition:background .2s}
+.btn:hover{background:#047857}
+.full-link{display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:#6b7280}
+.full-link a{color:#1a56db;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo"><h1>SchoolAir Setup</h1><p>Connect to Wi-Fi</p></div>
+  <div class="info">
+    <div class="info-head">[[reg_source]]</div>
+    <div class="info-detail">[[nr_info]]</div>
+  </div>
+  [[error_block]]
+  <form method="POST" action="/wifi-only">
+    <div class="sect">Network</div>
+    <label for="ssid">Wi-Fi Network (SSID)</label>
+    <input type="text" id="ssid" name="ssid" required
+           placeholder="School Wi-Fi name" value="[[ssid]]">
+    <label for="password">Wi-Fi Password</label>
+    <div class="pw">
+      <input type="password" id="password" name="password"
+             placeholder="WPA Personal password (leave blank for open networks)">
+      <button type="button" onclick="tpw()">Show</button>
+    </div>
+    <button type="submit" class="btn">Connect to Wi-Fi</button>
+  </form>
+  <span class="full-link"><a href="/?full=1">Modify Registration</a></span>
+</div>
+<script>
+function tpw(){const f=document.getElementById('password'),b=f.nextElementSibling;
+  if(f.type==='password'){f.type='text';b.textContent='Hide';}
+  else{f.type='password';b.textContent='Show';}}
 </script>
 </body></html>"""
 
@@ -267,6 +356,52 @@ def write_error(message: str) -> None:
 
 def status_exists() -> bool:
     return os.path.exists(STATUS_FILE)
+
+
+def read_wizard_registration() -> dict:
+    """Return the wizard's own status.json data if the device was registered via the wizard."""
+    try:
+        with open(STATUS_FILE) as f:
+            data = json.load(f)
+        if isinstance(data, dict) and data.get("token"):
+            return data
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        pass
+    return {}
+
+
+def _wifi_only_display() -> tuple:
+    """Return (reg_source_label, detail_string) for the wifi-only page."""
+    wiz = read_wizard_registration()
+    if wiz:
+        parts = []
+        if wiz.get("asset_name"):
+            parts.append(f"Asset: {_html.escape(wiz['asset_name'])}")
+        if wiz.get("site"):
+            parts.append(f"Site: {_html.escape(wiz['site'])}")
+        return "Already registered", " · ".join(parts) if parts else "Registration on file"
+    nr = read_node_red_registration()
+    if nr:
+        parts = []
+        if nr.get("nickname"):
+            parts.append(f"Nickname: {_html.escape(nr['nickname'])}")
+        if nr.get("device_id"):
+            parts.append(f"Device ID: {_html.escape(nr['device_id'])}")
+        return "Registered via Node-RED Dashboard", " · ".join(parts) if parts else "Token on file"
+    return "No registration found", ""
+
+
+def read_node_red_registration() -> dict:
+    """Return the Node-RED device token data if the device was registered via the
+    Node-RED Dashboard, otherwise return an empty dict."""
+    try:
+        with open(NODE_RED_TOKEN_FILE) as f:
+            data = json.load(f)
+        if isinstance(data, dict) and data.get("token"):
+            return data
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        pass
+    return {}
 
 
 # ── Async shell helpers ───────────────────────────────────────────────────────
@@ -315,8 +450,8 @@ async def _wait_for_ip(timeout: int = 30) -> bool:
 
 
 async def _revert_to_ap() -> None:
-    """Drop the client connection and restore the AP."""
-    await _cmd(f'nmcli con down "{CLIENT_CONNECTION_NAME}" 2>/dev/null; true')
+    """Delete the client connection profile and restore the AP."""
+    await _cmd(f'nmcli con delete "{CLIENT_CONNECTION_NAME}" 2>/dev/null; true')
     rc, _, _ = await _cmd(f'nmcli con up "{AP_CONNECTION_NAME}" 2>/dev/null')
     if rc != 0:
         # Hard fallback: hostapd may be managing the AP directly.
@@ -431,6 +566,58 @@ async def run_registration(data: dict) -> None:
         await _revert_to_ap()
 
 
+async def run_wifi_only(data: dict) -> None:
+    """Connect to Wi-Fi for an already-registered device.
+    Skips the cloud heartbeat; updates status.json preserving existing registration data."""
+    ssid = data["ssid"]
+    password = data["password"]
+
+    _set("connecting", f"Adding connection profile for \"{ssid}\"…")
+    ok, msg = await _setup_client_profile(ssid, password)
+    if not ok:
+        _set("error", msg)
+        write_error(msg)
+        await _revert_to_ap()
+        return
+
+    _set("connecting", f"Connecting to \"{ssid}\"…")
+    rc, _, err = await _cmd(f'nmcli con up "{CLIENT_CONNECTION_NAME}"')
+    if rc != 0:
+        detail = err or "Check SSID and password."
+        msg = f"Could not connect to \"{ssid}\": {detail}"
+        _set("error", msg)
+        write_error(msg)
+        await _revert_to_ap()
+        return
+
+    _set("wifi_up", f"Joined \"{ssid}\". Waiting for IP address…")
+    got_ip = await _wait_for_ip(timeout=30)
+    if not got_ip:
+        msg = f"Joined \"{ssid}\" but did not receive an IP address within 30 s."
+        _set("error", msg)
+        write_error(msg)
+        await _revert_to_ap()
+        return
+
+    # Preserve existing registration data; fall back to Node-RED token if no status.json
+    status = read_wizard_registration()
+    if not status:
+        nr = read_node_red_registration()
+        status = {
+            "token":          nr.get("token", ""),
+            "device_id":      nr.get("device_id", ""),
+            "site":           nr.get("nickname", ""),
+            "asset_name":     nr.get("nickname", ""),
+            "environment":    "unknown",
+            "registered_via": "node-red-dashboard",
+        }
+    status["ssid"] = ssid
+    status["updated_at"] = datetime.now(timezone.utc).isoformat()
+    write_status(status)
+    _set("success", "Wi-Fi connected! This hotspot will shut down shortly.")
+    asyncio.create_task(_delayed_shutdown())
+
+
 async def _delayed_shutdown() -> None:
     """Give the browser time to receive the success message, then shut down."""
     await asyncio.sleep(6)
@@ -442,8 +629,33 @@ async def _delayed_shutdown() -> None:
 
 # ── Routes ────────────────────────────────────────────────────────────────────
 
+def _nr_banner_html(nr_reg: dict) -> str:
+    if not nr_reg:
+        return ""
+    parts = []
+    if nr_reg.get("nickname"):
+        parts.append(f"Nickname: {_html.escape(nr_reg['nickname'])}")
+    if nr_reg.get("device_id"):
+        parts.append(f"Device ID: {_html.escape(nr_reg['device_id'])}")
+    detail = " · ".join(parts) if parts else "Token on file"
+    return (
+        '<div class="nr-banner">'
+        '<span class="nr-icon">✅</span>'
+        '<div class="nr-text">'
+        "<strong>Registered via Node-RED Dashboard</strong>"
+        f'<span class="nr-detail">{detail}</span>'
+        "</div>"
+        '<a href="/wifi-only" class="nr-link">Wi-Fi only →</a>'
+        "</div>"
+    )
+
+
 @app.route("/", methods=["GET"])
 async def index(request):
+    nr_reg = read_node_red_registration()
+    if (nr_reg or status_exists()) and not request.args.get("full"):
+        return Response("", status_code=302, headers={"Location": "/wifi-only"})
+
     prefill = read_staging()
     env = prefill.get("environment", "")
     error_block = ""
@@ -453,9 +665,12 @@ async def index(request):
         )
     body = _render(
         FORM_HTML,
-        raw={"error_block": error_block,
-             "indoor_checked": "checked" if env == "indoor" else "",
-             "outdoor_checked": "checked" if env == "outdoor" else ""},
+        raw={
+            "error_block":     error_block,
+            "nr_banner":       _nr_banner_html(nr_reg),
+            "indoor_checked":  "checked" if env == "indoor" else "",
+            "outdoor_checked": "checked" if env == "outdoor" else "",
+        },
         token=prefill.get("token", ""),
         site=prefill.get("site", ""),
         asset_name=prefill.get("asset_name", ""),
@@ -494,10 +709,11 @@ async def register(request):
     _set("connecting", "Starting registration…")
     write_staging(data)
     asyncio.create_task(run_registration(data))
-    return _html_response(CONNECTING_HTML)
+    return _html_response(_render(CONNECTING_HTML, raw={"retry_url": "/"}))
 
 
-@app.websocket("/ws/status")
+@app.route("/ws/status")
+@with_websocket
 async def ws_status(request, ws):
     last = {}
     while True:
@@ -520,11 +736,51 @@ async def status_endpoint(request):
     )
 
 
+@app.route("/wifi-only", methods=["GET"])
+async def wifi_only_form(request):
+    reg_source, nr_info = _wifi_only_display()
+    error_block = ""
+    if reg_state["state"] == "error":
+        error_block = (
+            f'<div class="err">{_html.escape(reg_state["message"])}</div>'
+        )
+    prefill = read_staging()
+    body = _render(
+        WIFI_ONLY_HTML,
+        raw={"error_block": error_block, "reg_source": reg_source, "nr_info": nr_info},
+        ssid=prefill.get("ssid", ""),
+    )
+    return _html_response(body)
+
+
+@app.route("/wifi-only", methods=["POST"])
+async def wifi_only_connect(request):
+    f = request.form
+    data = {
+        "ssid":     f.get("ssid", "").strip(),
+        "password": f.get("password", "").strip(),
+    }
+    if not data["ssid"]:
+        reg_source, nr_info = _wifi_only_display()
+        body = _render(
+            WIFI_ONLY_HTML,
+            raw={
+                "error_block": '<div class="err">Please enter the Wi-Fi network name.</div>',
+                "reg_source":  reg_source,
+                "nr_info":     nr_info,
+            },
+            ssid="",
+        )
+        return _html_response(body, status=422)
+
+    _set("connecting", "Starting Wi-Fi connection…")
+    write_staging(data)
+    asyncio.create_task(run_wifi_only(data))
+    return _html_response(_render(CONNECTING_HTML, raw={"retry_url": "/wifi-only"}))
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    if status_exists():
-        print("[schoolair-wizard] status.json exists — device already registered. Exiting.")
-        raise SystemExit(0)
     print(f"[schoolair-wizard] Starting on port {SERVER_PORT}")
     app.run(host="0.0.0.0", port=SERVER_PORT, debug=False)

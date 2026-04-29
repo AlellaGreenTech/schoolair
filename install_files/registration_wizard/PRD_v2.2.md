@@ -4,6 +4,11 @@
 
 ---
 
+## Notes For Testing:
+
+# disconnect form current wifi and reboot to start the Wizard:
+sudo nmcli connection delete <SSID> && sudo reboot
+
 ## 0. Changes from v2.1
 
 | # | Topic | v2.1 | v2.2 |

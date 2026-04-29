@@ -11,7 +11,7 @@
 #
 # What this script does:
 #   0.  Pre-flight checks
-#   1.  Hostname  →  schoolair-YYMMDD-XXXX  (skipped if already set)
+#   1.  Hostname  →  schoolair-YYMDD-XXXX  (skipped if already set; M = hex month)
 #   2.  System packages
 #   3.  Clone SchoolAir repo to /tmp
 #   4.  Python dependencies (microdot)
@@ -80,56 +80,29 @@ command -v nmcli   >/dev/null 2>&1 || die "nmcli not found — is NetworkManager
 command -v python3 >/dev/null 2>&1 || die "python3 not found."
 ok "Root, user='${ADMIN_USER}', home='${ADMIN_HOME}'"
 
+# Fetch set_hostname.sh before the repo clone — needed at step 1.
+# If GitHub is unreachable here, the rest of setup would fail anyway.
+_RAW_BASE="$(echo "$REPO_URL" | sed 's|github\.com|raw.githubusercontent.com|; s|\.git$||')"
+_SET_HN_TMP="/tmp/schoolair-set_hostname.sh"
+curl -fsSL "${_RAW_BASE}/${REPO_BRANCH}/install_files/set_hostname.sh" \
+    -o "$_SET_HN_TMP" \
+    || die "Cannot fetch set_hostname.sh from GitHub — check connectivity."
+chmod +x "$_SET_HN_TMP"
+ok "set_hostname.sh fetched from GitHub"
+
 # ── 1. Hostname ────────────────────────────────────────────────────────────────
 step "1 / Hostname"
-# Pi OS Trixie ships with cloud-init (installed by Pi Imager).  cloud-init's
-# cc_update_hostname module runs on EVERY boot with frequency=always and resets
-# the hostname from its datasource — which it reads from a pickled instance
-# cache, not directly from /boot/firmware/user-data.  Simply writing
-# /etc/hostname is not enough; we must update four locations and wipe the
-# instance cache so cloud-init re-reads the seed files on the next boot.
-
-_set_hostname() {
-    local hn="$1"
-    # 1. The cloud-init seed file Pi Imager wrote (NoCloud datasource)
-    if [ -f /boot/firmware/user-data ] && grep -q "^hostname:" /boot/firmware/user-data; then
-        sed -i "s/^hostname:.*/hostname: ${hn}/" /boot/firmware/user-data
-    fi
-    # 2. cloud-init's previous-hostname cache (used by cc_update_hostname)
-    mkdir -p /var/lib/cloud/data
-    echo "$hn" > /var/lib/cloud/data/previous-hostname
-    # 3. The file systemd-hostnamed reads at boot
-    echo "$hn" > /etc/hostname
-    # 4. /etc/hosts (manage_etc_hosts: true in user-data means cloud-init owns this)
-    if grep -q "127\.0\.1\.1" /etc/hosts; then
-        sed -i "s/127\.0\.1\.1.*/127.0.1.1\t${hn}/" /etc/hosts
-    else
-        echo -e "127.0.1.1\t${hn}" >> /etc/hosts
-    fi
-    # 5. Wipe the pickled instance cache so cloud-init re-reads user-data fresh.
-    #    Without this it ignores our changes to user-data and restores the old name.
-    cloud-init clean 2>/dev/null || true
-    # Set the live kernel UTS hostname for the current session
-    hostname "$hn"
-}
-
 CURRENT_HN=$(hostname)
-if [[ "$CURRENT_HN" == schoolair-* ]]; then
+if [[ "$CURRENT_HN" == schoolair-[0-9]* ]]; then
     ok "Hostname already set: ${CURRENT_HN}  (not regenerated)"
-    # Still sync all four locations — a previous run may have set only the live
-    # UTS hostname without persisting the underlying files.
+    # Sync all four locations in case a previous run set only the live UTS name.
     _HN_FILE=$(cat /etc/hostname 2>/dev/null | tr -d '[:space:]')
     if [ "$_HN_FILE" != "$CURRENT_HN" ]; then
-        _set_hostname "$CURRENT_HN"
+        bash "$_SET_HN_TMP" "$CURRENT_HN" > /dev/null
         ok "Hostname locations synced to ${CURRENT_HN}"
     fi
 else
-    # YYMMDD-XXXX where XXXX is the lower 16 bits of seconds-since-midnight in hex.
-    # Modulo 65536 keeps the value to exactly 4 hex digits for any time of day.
-    _midnight=$(date -d "$(date +%Y-%m-%d) 00:00:00" +%s)
-    _secs=$(( $(date +%s) - _midnight ))
-    NEW_HN="schoolair-$(date +%y%m%d)-$(printf '%04x' $(( _secs % 65536 )))"
-    _set_hostname "$NEW_HN"
+    NEW_HN=$(bash "$_SET_HN_TMP")
     ok "Hostname set to ${NEW_HN}"
 fi
 
@@ -166,15 +139,30 @@ fi
 step "4 / Python dependencies"
 # --break-system-packages is required on Bookworm / Trixie (PEP 668).
 # This Pi is a dedicated appliance; the flag is appropriate.
-# microdot 2.x includes WebSocket support in the core package — no extra needed.
+# simple-websocket is a hard runtime dependency of microdot's @app.websocket;
+# microdot's [websocket] extra is absent in 2.6.x so we install it explicitly.
 pip3 install --quiet --break-system-packages --root-user-action=ignore \
-    "microdot>=2.0.0"
+    "microdot>=2.0.0" simple-websocket
 python3 -c "import microdot" 2>/dev/null \
     || die "microdot failed to import after install."
-ok "microdot installed"
+ok "microdot + simple-websocket installed"
 
 # ── 5. Registration wizard ─────────────────────────────────────────────────────
-step "5 / Registration wizard  →  ${WIZARD_DIR}"
+step "5 / Device scripts + Registration wizard"
+
+# 5a. Device scripts (not wizard-specific) → ADMIN_HOME
+for _f in first_boot.sh set_hostname.sh; do
+    if [ -f "${INSTALL_FILES}/${_f}" ]; then
+        cp "${INSTALL_FILES}/${_f}" "${ADMIN_HOME}/${_f}"
+        chmod +x "${ADMIN_HOME}/${_f}"
+        chown "${ADMIN_USER}:${ADMIN_USER}" "${ADMIN_HOME}/${_f}"
+        ok "${_f}  →  ${ADMIN_HOME}/"
+    else
+        warn "${_f} not found in repo — skipped"
+    fi
+done
+
+# 5b. Registration wizard → WIZARD_DIR
 WIZARD_SRC="${INSTALL_FILES}/registration_wizard"
 
 if [ ! -d "$WIZARD_SRC" ]; then
@@ -190,7 +178,7 @@ else
         # Re-run — update runtime files; preserve any hand-edited config.py
         for f in wizard.py launcher.sh schoolair_setup.sh \
                   schoolair-launcher.service schoolair-wizard.service \
-                  requirements.txt; do
+                  schoolair-first-boot.service requirements.txt; do
             [ -f "${WIZARD_SRC}/${f}" ] && cp "${WIZARD_SRC}/${f}" "${WIZARD_DIR}/${f}"
         done
         ok "Wizard runtime files updated (config.py preserved)"
@@ -477,13 +465,16 @@ fi
 if [ -d "$WIZARD_DIR" ] \
    && [ -f "${WIZARD_DIR}/schoolair-launcher.service" ] \
    && [ -f "${WIZARD_DIR}/schoolair-wizard.service" ]; then
-    cp "${WIZARD_DIR}/schoolair-launcher.service" /etc/systemd/system/
-    cp "${WIZARD_DIR}/schoolair-wizard.service"   /etc/systemd/system/
+    cp "${WIZARD_DIR}/schoolair-launcher.service"    /etc/systemd/system/
+    cp "${WIZARD_DIR}/schoolair-wizard.service"      /etc/systemd/system/
+    cp "${WIZARD_DIR}/schoolair-first-boot.service"  /etc/systemd/system/ 2>/dev/null || true
     systemctl daemon-reload
     systemctl enable schoolair-launcher.service
+    systemctl enable schoolair-first-boot.service 2>/dev/null || true
     # Wizard service intentionally NOT enabled — launcher starts it on demand.
     ok "schoolair-launcher.service enabled"
     ok "schoolair-wizard.service installed (on-demand only)"
+    ok "schoolair-first-boot.service enabled (hostname assignment on clone boot)"
 else
     warn "Wizard service files missing — schoolair systemd services not installed"
 fi
@@ -509,11 +500,14 @@ chk "microdot importable"                  python3 -c "import microdot"
 chk "node-red in PATH"                     command -v node-red
 chk "launcher.sh executable"              test -x "${WIZARD_DIR}/launcher.sh"
 chk "wizard.py present"                   test -f "${WIZARD_DIR}/wizard.py"
+chk "first_boot.sh executable"            test -x "${ADMIN_HOME}/first_boot.sh"
+chk "set_hostname.sh executable"          test -x "${ADMIN_HOME}/set_hostname.sh"
 chk "i2c dir present"                     test -d "${I2C_DIR}"
 chk "NM hotspot '${AP_CONN}'"             nmcli con show "$AP_CONN"
 chk "Captive-portal DNS config"           test -f /etc/NetworkManager/dnsmasq-shared.d/schoolair-captive.conf
 chk "Avahi service file"                  test -f /etc/avahi/services/schoolair.service
 chk "schoolair-launcher enabled"          systemctl is-enabled schoolair-launcher.service
+chk "schoolair-first-boot enabled"        systemctl is-enabled schoolair-first-boot.service
 chk "nginx has 1880 redirect"             grep -q 1880 /etc/nginx/sites-available/default
 chk "nginx disabled (correct pre-reg)"    bash -c "! systemctl is-enabled nginx >/dev/null 2>&1"
 chk "sen6x.service enabled"              systemctl is-enabled sen6x.service

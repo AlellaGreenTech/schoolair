@@ -151,7 +151,7 @@ ok "microdot + simple-websocket installed"
 step "5 / Device scripts + Registration wizard"
 
 # 5a. Device scripts (not wizard-specific) → ADMIN_HOME
-for _f in first_boot.sh set_hostname.sh version_check.py; do
+for _f in first_boot.sh set_hostname.sh version_check.py add_wifi.sh; do
     if [ -f "${INSTALL_FILES}/${_f}" ]; then
         cp "${INSTALL_FILES}/${_f}" "${ADMIN_HOME}/${_f}"
         chmod +x "${ADMIN_HOME}/${_f}"
